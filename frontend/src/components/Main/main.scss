@@ -1,0 +1,28 @@
+$gray: #38383B;
+$darker: hsl(43,0%,9%);
+$white: #FFFFFF;
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background-color: $gray;
+    ul{
+        position: absolute;
+        top: 50%;
+        transform: translateX(-50%);
+        display: inline-flex;
+        li{
+            list-style: none;
+            padding-right: 4em;
+            button{
+                background-color: transparent;
+                color: white;
+                font-family: Grotesque;
+                font-size: 4em;
+                border: none;
+            }
+            
+        }
+    }
+}

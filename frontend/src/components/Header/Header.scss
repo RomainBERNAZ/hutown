@@ -1,0 +1,54 @@
+.navbar{
+    position: absolute;
+    z-index: 5;
+    display: inline-flex;
+    font-size: 2.5em;
+    width: 100vw;
+    font-family: Grotesque;
+    mix-blend-mode: difference;
+
+    .logo{
+        margin: 2vw;
+        font-weight: 700;
+        line-height: 1.2em;
+        letter-spacing: 0em;
+        font-size: 3.6rem;
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    }
+
+    .nav{
+        position: absolute;
+        right: 4%;
+        top: 1%;
+        display: inline-flex;
+        font-size: 1.8rem;
+        list-style: none;
+        font-weight: 300;
+        line-height: 1.6em;
+        margin: 2.5vw;
+        
+        li{
+            color: white;
+            font-family: Halyard;
+            padding-right: 0.6em;
+            a{
+                text-decoration: none;
+                color: white;
+                transition: 0.2s linear;
+                &:hover{
+                    color: gray;
+                }
+            }
+            .logout{
+                color: white;
+                transition: 0.2s linear;
+                &:hover{
+                    color: gray;
+                }
+            }
+        }
+    }
+} 

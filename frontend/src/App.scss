@@ -1,0 +1,24 @@
+@font-face{
+    font-family: Grotesque;
+    src: url('./fonts/Grotesque.otf');
+}
+@font-face{
+    font-family: Halyard;
+    src: url('./fonts/Halyard\ Text\ Regular.otf');
+}
+
+$gray: #38383B;
+$darker: hsl(43,0%,9%);
+$white: #FFFFFF;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+

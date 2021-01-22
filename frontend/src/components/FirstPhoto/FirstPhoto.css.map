@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAA;EACR,WAAW,EAAE,IAAI;EACjB,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;EACZ,gBAAgB,EAAE,KAAK;CAC1B",
+    "sources": [
+        "FirstPhoto.scss"
+    ],
+    "names": [],
+    "file": "FirstPhoto.css"
+}

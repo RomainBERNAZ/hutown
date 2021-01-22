@@ -1,0 +1,66 @@
+.navbar {
+  position: absolute;
+  z-index: 5;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 2.5em;
+  width: 100vw;
+  font-family: Grotesque;
+  mix-blend-mode: difference;
+}
+
+.navbar .logo {
+  margin: 2vw;
+  font-weight: 700;
+  line-height: 1.2em;
+  letter-spacing: 0em;
+  font-size: 3.6rem;
+}
+
+.navbar .logo a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar .nav {
+  position: absolute;
+  right: 4%;
+  top: 1%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 1.8rem;
+  list-style: none;
+  font-weight: 300;
+  line-height: 1.6em;
+  margin: 2.5vw;
+}
+
+.navbar .nav li {
+  color: white;
+  font-family: Halyard;
+  padding-right: 0.6em;
+}
+
+.navbar .nav li a {
+  text-decoration: none;
+  color: white;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.navbar .nav li a:hover {
+  color: gray;
+}
+
+.navbar .nav li .logout {
+  color: white;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.navbar .nav li .logout:hover {
+  color: gray;
+}
+/*# sourceMappingURL=Header.css.map */

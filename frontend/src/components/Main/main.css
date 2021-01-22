@@ -1,0 +1,30 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: #38383B;
+}
+
+.main ul {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.main ul li {
+  list-style: none;
+  padding-right: 4em;
+}
+
+.main ul li button {
+  background-color: transparent;
+  color: white;
+  font-family: Grotesque;
+  font-size: 4em;
+  border: none;
+}
+/*# sourceMappingURL=main.css.map */

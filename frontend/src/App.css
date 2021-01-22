@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Grotesque;
+  src: url("./fonts/Grotesque.otf");
+}
+
+@font-face {
+  font-family: Halyard;
+  src: url("./fonts/Halyard Text Regular.otf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+/*# sourceMappingURL=App.css.map */

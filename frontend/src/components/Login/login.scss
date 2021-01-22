@@ -1,0 +1,56 @@
+.login{
+    padding-top: 2vh;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .login-box{
+        height: 30vh;
+        width: 30vw;
+        font-family: Grotesque;
+        display:block;
+        text-align: center;
+        font-size: 2rem;
+        .email{
+            padding-top: 5vh;
+            input{
+                width: 15vw;
+                height: 4vh;
+                font-size: 1rem;
+                font-family: Halyard;
+                border: 3px solid black;
+                padding-left: 0.3vw;
+            }
+        }
+        .password{
+            padding-top: 5vh;
+            input{
+                width: 15vw;
+                height: 4vh;
+                font-size: 1rem;
+                font-family: Halyard;
+                border: 3px solid black;
+                padding-left: 0.3vw;
+            }
+        }
+        .login-btn{
+            margin-top: 4vh;
+            button{
+                border: none;
+                background-color: black;
+                color: white;
+                font-family: Halyard;
+                height: 4.5vh;
+                width: 5vw;
+                font-size: 1.5rem;
+                transition: 0.3s linear;
+                &:hover{
+                    background-color: white;
+                    color: black;
+                    border: 3px solid black;
+                }
+            }
+        }
+    }
+}
