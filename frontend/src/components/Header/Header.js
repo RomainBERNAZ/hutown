@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import { logout } from '../../actions/userActions'
 import { useDispatch, useSelector} from 'react-redux'
 import './header.css'
@@ -14,6 +15,8 @@ const Header = () => {
         dispatch(logout());
     }
 
+  
+
     return  ( 
         <div className="navbar">
             <div className="logo">
@@ -24,9 +27,11 @@ const Header = () => {
                 <li><a href="/shop">Shop</a></li>
                 <li><a href='/contact'>Contact</a></li>
                 <li><a href=""><i className="fab fa-instagram"></i></a></li>
-            { userInfo &&
-                <li><a href="/" className="logout" onClick={handleLogout}>Logout</a></li>
-            }
+                { userInfo && 
+                   <Link to={'/gestion'}><li className="gestionLink">Gestion</li></Link> }
+                { userInfo &&
+                    <li><a href="/" className="logout" onClick={handleLogout}>Logout</a></li>
+                }
             </ul>
         </div>
     )

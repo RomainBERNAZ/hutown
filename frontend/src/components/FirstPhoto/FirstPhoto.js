@@ -10,7 +10,7 @@ const FirstPhoto = () => {
     
     return (
         <div className="first-photo">
-            
+            <h1>RB</h1>
         </div>
     );
 };

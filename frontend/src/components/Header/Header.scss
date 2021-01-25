@@ -6,6 +6,9 @@
     width: 100vw;
     font-family: Grotesque;
     mix-blend-mode: difference;
+    .gestionLink{
+        text-decoration: none;
+    }
 
     .logo{
         margin: 2vw;
@@ -34,6 +37,7 @@
             color: white;
             font-family: Halyard;
             padding-right: 0.6em;
+            
             a{
                 text-decoration: none;
                 color: white;

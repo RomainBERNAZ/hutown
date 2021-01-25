@@ -1,0 +1,49 @@
+.gestion{
+    padding-top: 30vh;
+    height: 220vh;
+    width: 100vw;
+    background-color: white;
+
+.first-section{
+    margin-left: 10vw;
+    margin-bottom: 20vh;
+    font-family: Halyard;
+    h2{
+        font-size: 3rem;
+        margin-bottom: 3vh;
+    }
+    .titre-menu{
+        display: flex;
+        padding-bottom: 5vh;
+        input{
+            margin-left: 4vw;
+        }
+    }
+    .main-photo{
+        display: flex;
+        align-items: center;
+        img{
+            margin-left: 3vw;
+            margin-right: 3vw;
+            height: 5vh;
+            width: 5vw;
+        }
+    }
+    .multiple-photo{
+        display: flex;
+        align-items: center;
+        padding-top: 5vh;
+        h3{
+            margin-right: 3vw;
+        }
+    }
+    .text-photo{
+        display: flex;
+        align-items: center;
+        padding-top: 5vh;
+        h3{
+            margin-right: 3vw;
+        }
+    }
+}
+}

@@ -10,6 +10,10 @@
   mix-blend-mode: difference;
 }
 
+.navbar .gestionLink {
+  text-decoration: none;
+}
+
 .navbar .logo {
   margin: 2vw;
   font-weight: 700;
