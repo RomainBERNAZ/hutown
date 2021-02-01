@@ -1,81 +1,87 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import './Gestion.css'
+import { updatePage } from '../../actions/pageActions'
+import { useDispatch, useSelector} from 'react-redux'
+import Tableau from '../Tableau/Tableau';
 
 const Gestion = () => {
 
+    const [ title, setTitle ] = useState('');
+    const [ description, setDescription ] = useState('')
+    const [ category, setCategory ] = useState('');
+    const [ pages, setPages ] = useState([]);
+    const [ id, setId ] = useState('');
 
-    const handleGestionFirst = () => {
-        
+    const pageUpdate = useSelector(state => state.pageUpdate);
+    const {loading : loadingUpdate, success: successUpdate, error: errorUpdate} = pageUpdate;
+
+    const dispatch = useDispatch();
+
+    const handleListPage = async (e) => {
+        try {
+            e.preventDefault();
+            const res = await axios.get('/api/pages/');
+            const data = await res.data;
+            setPages(data);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const updateInfoPage = async (e) => {
+            try {
+                e.preventDefault()
+                dispatch(updatePage({_id:id, title, description, category}))
+                alert('Mise à jour réussie !')
+            } catch (error) {
+                console.log(error);
+            }
+
+
+        console.log(title, description, category);
+
     }
 
+    useEffect(() => {
+    }, []);
 
 
     return (
+           
+        <div>
         <div className="gestion">
-                <form className="first-section" onSubmit={handleGestionFirst}>
-                    <h2>Première Page</h2>
-                    <div className="titre-menu">
-                        <h3>TITRE DU MENU</h3>
-                        <input type="text" name="" id=""/>
-                    </div>
-                    <div className="main-photo">
-                        <h3>PHOTO PRINCIPALE</h3>
-                        <img src="" alt=""/>
-                        <input type="file" name="" id=""/>
-                    </div>
-                    <div className="multiple-photo">
-                        <h3>PHOTOS DE LA PAGE</h3>
-                        <input type="file" name="" id=""/>
-                    </div>  
-                    <div className="text-photo">
-                        <h3>TEXTE DESCRIPTIF</h3>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                    </div>
-                    <button>VALIDER</button>
-                </form>
-
                 <div className="first-section">
-                    <h2>Deuxième Page</h2>
-                    <div className="titre-menu">
-                        <h3>TITRE DU MENU</h3>
-                        <input type="text" name="" id=""/>
+                    <div className="title-category">
+                        <h2>INFOS</h2>
+                        <form className="category-photo" onSubmit={handleListPage}>
+                                <h3>CHOIX DE LA PAGE</h3>
+                                <select name="" id="" onChange={ (e) => setCategory(e.target.value)}>
+                                    <option defaultChecked>Choisir une catégorie</option>
+                                    <option value="first">Première page</option>
+                                    <option value="second">Deuxième page</option>
+                                    <option value="third">Troisième page</option>
+                                </select>
+                                <button type="submit"><i className="fas fa-search"></i></button>
+                        </form>
                     </div>
-                    <div className="main-photo">
-                        <h3>PHOTO PRINCIPALE</h3>
-                        <img src="" alt=""/>
-                        <input type="file" name="" id=""/>
-                    </div>
-                    <div className="multiple-photo">
-                        <h3>PHOTOS DE LA PAGE</h3>
-                        <input type="file" name="" id=""/>
-                    </div>  
-                    <div className="text-photo">
-                        <h3>TEXTE DESCRIPTIF</h3>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                    </div>
-                </div>
-
-                <div className="first-section">
-                    <h2>Troisième Page</h2>
-                    <div className="titre-menu">
-                        <h3>TITRE DU MENU</h3>
-                        <input type="text" name="" id=""/>
-                    </div>
-                    <div className="main-photo">
-                        <h3>PHOTO PRINCIPALE</h3>
-                        <img src="" alt=""/>
-                        <input type="file" name="" id=""/>
-                    </div>
-                    <div className="multiple-photo">
-                        <h3>PHOTOS DE LA PAGE</h3>
-                        <input type="file" name="" id=""/>
-                    </div>  
-                    <div className="text-photo">
-                        <h3>TEXTE DESCRIPTIF</h3>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                    </div>
+                
+                    {pages.map(page  => {
+                return page.category === category ?
+                    <form className="description-page-upload" key={page._id} onSubmit={updateInfoPage}>
+                        <input required type="text" placeholder={page.title} onChange={(e) => setTitle(e.target.value)}/>
+                        <textarea required name="" id="" cols="50" rows="10" placeholder={page.description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                        <button onClick={() => setId(page._id)} type="submit">VALIDER</button>
+                    </form>: ''
+            }
+                )}
+                    
                 </div>
         </div>
+        <div className="tableau-container">
+            <Tableau/>
+        </div>
+    </div>
     );
 };
 

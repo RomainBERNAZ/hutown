@@ -20,13 +20,12 @@
 .modal input {
   margin-left: 1.5vw;
   height: 3rem;
-  border: 3px solid black;
   padding-left: 0.3vw;
   font-size: 1.2rem;
 }
 
 .modal .modal-container {
-  height: 72vh;
+  height: auto;
   width: 40vw;
   background-color: white;
 }
@@ -122,12 +121,23 @@
   width: 100%;
 }
 
+.modal .modal-container .modal-body .modal-image input {
+  margin-top: 2.5vh;
+}
+
 .modal .modal-container .modal-body .modal-image p {
   font-size: 2rem;
 }
 
-.modal .modal-container .modal-body .modal-image input {
-  margin-bottom: 1vh;
+.modal .modal-container .modal-body .previewImage {
+  text-align: center;
+}
+
+.modal .modal-container .modal-body .previewImage img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
+  width: 400px;
 }
 
 .modal .modal-container .modal-body .modal-submit {
@@ -138,6 +148,7 @@
 .modal .modal-container .modal-body .modal-submit button {
   height: 5vh;
   width: 5vw;
+  margin-bottom: 5vh;
   font-family: Halyard;
   font-size: 1.5rem;
   background-color: black;

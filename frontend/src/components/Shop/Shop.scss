@@ -34,6 +34,8 @@ $white: #FFFFFF;
     }
     .product-grid{
         display: grid;
+        min-height: 66.5vh;
+        background-color: white;
         grid-template-columns: 50% 50%;
         .single-product{
             padding-bottom: 5vh;

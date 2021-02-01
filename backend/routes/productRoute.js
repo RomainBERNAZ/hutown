@@ -3,12 +3,12 @@ import Product from '../models/productModel'
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/products", async (req, res) => {
     const products = await Product.find({});
     res.send(products);
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/products/:id', async (req, res) => {
     const product = await Product.findOne({ _id: req.params.id });
     if (product) {
       res.send(product);
@@ -17,7 +17,7 @@ router.get('/:id', async (req, res) => {
     }
   });
 
-router.delete('/:id', async (req,res) => {
+router.delete('/products/:id', async (req,res) => {
     const deleteProduct = await Product.findById(req.params.id);
     if(deleteProduct){
         await deleteProduct.remove();
@@ -27,13 +27,11 @@ router.delete('/:id', async (req,res) => {
     }
 })
 
-router.post('/', async (req, res) => {
+router.post('/products', async (req, res) => {
     const product = new Product({
         name: req.body.name,
         price: req.body.price,
-        image: req.body.image,
         description: req.body.description,
-        category: req.body.category,
     }); 
     const newProduct = await product.save();
     if(newProduct){

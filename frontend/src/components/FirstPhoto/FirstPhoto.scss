@@ -1,11 +1,36 @@
 .first-photo{
-    padding-top: 20vh;
+    padding-top: 30vh;
     height: 100vh;
     width: 100vw;
     background-color: white;
     text-align: center;
-    h1{
-        font-size: 4rem;
-        font-family: Grotesque;
+    .texte-photos{
+        margin-bottom: -25vh;
+        h1{
+            font-size: 6rem;
+            font-family: Grotesque;
+        }
+        .descriptionPage{
+            margin-top: 15vh;
+            width: 80vw;
+            text-align: justify;
+            font-family: Halyard;
+            font-size: 1.7rem;
+            margin-left: 10vw;
+        }
+    }
+    .picturesUpload{
+        display: block;
+        background-color: white;
+       .item{
+        justify-content: center;
+        margin-top: 40vh;
+        background-color: white;
+        .photoUpload{
+            min-height: 80vh;
+            max-height: 90vh;
+            width: auto;
+        }
+       }
     }
 }

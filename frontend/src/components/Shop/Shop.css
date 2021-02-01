@@ -46,6 +46,8 @@
 .shop .product-grid {
   display: -ms-grid;
   display: grid;
+  min-height: 66.5vh;
+  background-color: white;
   -ms-grid-columns: 50% 50%;
       grid-template-columns: 50% 50%;
 }

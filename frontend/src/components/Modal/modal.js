@@ -1,31 +1,79 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios'
 import { useDispatch, useSelector} from 'react-redux'
 import { saveProduct, listProducts } from '../../actions/productActions'
 import './modal.css'
 
 const Modal = (props) => {
 
-    const [name, setName] = useState('');
-    const [price, setPrice] = useState('');
-    const [description, setDescription] = useState('');
-    const [image, setImage] = useState('');
+    const [ name, setName ] = useState('');
+    const [ price, setPrice ] = useState('');
+    const [ description, setDescription ] = useState('');
+    const [ selectedFile, setSelectedFile] = useState();
+    const [ previewSource, setPreviewSource] = useState('');
+    const [ fileInputState, setFileInputState] = useState('');
+    const [ successMsg, setSuccessMsg ] = useState('')
+    const [ errMsg, setErrMsg ] = useState('')
 
     const productSave = useSelector(state => state.productSave);
     const {loading : loadingSave, success: successSave, error: errorSave} = productSave;
-
     
     const dispatch = useDispatch();
 
-    useEffect(() => {
-
-    })
-
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveProduct({name, price, description, image}))
+        dispatch(saveProduct({name, price, description}))
+        handleSubmitFile();
         closeModal();
     }
+    
+    const handleFileInputChange = (e) => {
+        const file = e.target.files[0];
+        previewFile(file);
+        setSelectedFile(file);
+        setFileInputState(e.target.value);
+    };
 
+    const previewFile = (file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setPreviewSource(reader.result);
+        };
+    };
+
+    const handleSubmitFile = () => {
+        if (!selectedFile) return;
+        const reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onloadend = () => {
+            uploadImage(reader.result);
+        };
+        reader.onerror = () => {
+            console.error('AHHHHHHHH!!');
+            setErrMsg('something went wrong!');
+        };
+    };
+
+    const uploadImage = async (base64EncodedImage) => {
+        try {
+            await axios.post('/api/uploadShop', JSON.stringify({ data: base64EncodedImage,
+            id: name }), {
+                headers: { 'Content-Type': 'application/json' }
+            });
+            setFileInputState('');
+            setPreviewSource('');
+            setSuccessMsg('Image uploaded successfully');
+            console.log(name, 'affichage du nom');
+            setTimeout(function(){
+                window.location.reload(false);}, 1000);
+                //alert("Chargement de l'image effectué")
+            
+        } catch (err) {
+            console.error(err);
+            setErrMsg('Something went wrong!');
+        }
+    };
     
 
     const closeModal = () => {
@@ -64,8 +112,15 @@ const Modal = (props) => {
                     </div>
                     <div className="modal-image">
                         <p className="titreModal">Image:</p>
-                        <input type="text" onChange={(e) => setImage(e.target.value)}/>
+                        <input type="file" value={fileInputState} onChange={handleFileInputChange}/>
+                        
                     </div>
+                    <div className="previewImage">
+                        {previewSource &&
+                            <img src={previewSource} alt=""/>
+                        }
+                    </div>
+                        
                     <div className="modal-submit">
                         <button type="submit">SAVE</button>
                     </div>

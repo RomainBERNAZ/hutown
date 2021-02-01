@@ -1,73 +1,91 @@
 .gestion {
   padding-top: 30vh;
-  height: 220vh;
+  height: 60vh;
   width: 100vw;
   background-color: white;
+  display: inline-block;
 }
 
 .gestion .first-section {
-  margin-left: 10vw;
+  margin-left: 5vw;
   margin-bottom: 20vh;
   font-family: Halyard;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.gestion .first-section h2 {
-  font-size: 3rem;
+.gestion .first-section .title-category h2 {
+  font-size: 3.5rem;
+  text-decoration: underline;
   margin-bottom: 3vh;
 }
 
-.gestion .first-section .titre-menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.gestion .first-section .title-category .category-photo {
+  padding-top: 2vh;
   padding-bottom: 5vh;
-}
-
-.gestion .first-section .titre-menu input {
-  margin-left: 4vw;
-}
-
-.gestion .first-section .main-photo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-.gestion .first-section .main-photo img {
-  margin-left: 3vw;
-  margin-right: 3vw;
-  height: 5vh;
-  width: 5vw;
+.gestion .first-section .title-category .category-photo h3 {
+  font-size: 1.5rem;
 }
 
-.gestion .first-section .multiple-photo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 5vh;
+.gestion .first-section .title-category .category-photo select {
+  margin-left: 2vw;
+  font-size: 1.5rem;
+  border-right: none;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
 }
 
-.gestion .first-section .multiple-photo h3 {
-  margin-right: 3vw;
+.gestion .first-section .title-category .category-photo button {
+  background-color: transparent;
+  padding: 0.7rem;
+  border-left: none;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
-.gestion .first-section .text-photo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 5vh;
+.gestion .first-section .title-category .category-photo button i {
+  background-color: transparent;
+  font-size: 1.2rem;
 }
 
-.gestion .first-section .text-photo h3 {
-  margin-right: 3vw;
+.gestion .first-section .description-page-upload {
+  margin-left: 20vw;
+  width: 40vw;
+}
+
+.gestion .first-section .description-page-upload input {
+  display: block;
+  margin-bottom: 2vh;
+  font-size: 1.5rem;
+  padding-left: 0.3rem;
+}
+
+.gestion .first-section .description-page-upload textarea {
+  display: block;
+  margin-bottom: 2vh;
+  padding-left: 0.3rem;
+  font-size: 1.3rem;
+}
+
+.gestion .first-section .description-page-upload button {
+  display: block;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+}
+
+.tableau-container {
+  margin-top: 10vh;
+  background-color: white;
+}
+
+.tableau-container .gestion-tableau {
+  background-color: white;
 }
 /*# sourceMappingURL=Gestion.css.map */

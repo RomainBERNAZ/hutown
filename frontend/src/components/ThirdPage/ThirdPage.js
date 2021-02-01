@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import './FirstPhoto.css'
+import '../FirstPhoto/FirstPhoto.css'
 import { Image } from 'cloudinary-react'
 import { useDispatch, useSelector } from 'react-redux';
 import { listPages } from '../../actions/pageActions'
 import axios from 'axios';
 
-const FirstPhoto = () => {
+const ThirdPage = () => {
     
     const pageList = useSelector(state => state.pageList);
     const { pages, loading, error } = pageList;
     
     const [imageIds, setImageIds] = useState();
-    const regex = /^first/;
-    
+    const regex = /^third/;
     
     const dispatch = useDispatch();
 
@@ -37,7 +36,7 @@ const FirstPhoto = () => {
            
            <div className="texte-photos">
             {pages.map(page  => {
-                return page.category ==='first' ?
+                return page.category ==='third' ?
                     <div className="photos" key={page._id}>
                         <h1>{page.title}</h1>
                         <p className="descriptionPage">{page.description}</p>
@@ -68,4 +67,4 @@ const FirstPhoto = () => {
     );
 };
 
-export default FirstPhoto;
+export default ThirdPage;

@@ -1,49 +1,82 @@
 .gestion{
     padding-top: 30vh;
-    height: 220vh;
+    height: 60vh;
     width: 100vw;
     background-color: white;
+    display: inline-block;
 
 .first-section{
-    margin-left: 10vw;
+    margin-left: 5vw;
     margin-bottom: 20vh;
     font-family: Halyard;
-    h2{
-        font-size: 3rem;
-        margin-bottom: 3vh;
+    display: flex;
+    .title-category{
+        h2{
+            font-size: 3.5rem;
+            text-decoration: underline;
+            margin-bottom: 3vh;
+        }
+        .category-photo{
+            padding-top: 2vh;
+            padding-bottom: 5vh;
+            display: flex;
+            h3{
+                font-size: 1.5rem;
+            }
+            select{
+                margin-left: 2vw;
+                font-size: 1.5rem;
+                border-right: none;
+                border-top: 2px solid black;
+                border-bottom: 2px solid black;
+                border-left: 2px solid black;
+            }
+            button{
+            background-color: transparent;
+            padding: 0.7rem;
+            border-left: none;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            i{
+                background-color: transparent;
+                font-size: 1.2rem;
+            }
+            }
+            
+        }
+
     }
-    .titre-menu{
-        display: flex;
-        padding-bottom: 5vh;
+    
+    .description-page-upload{
+        margin-left: 20vw;
+        width: 40vw;
         input{
-            margin-left: 4vw;
+            display: block;
+            margin-bottom: 2vh;
+            font-size: 1.5rem;
+            padding-left: 0.3rem;
+        }
+        textarea{
+            display: block;
+            margin-bottom: 2vh;
+            padding-left: 0.3rem;
+            font-size: 1.3rem;
+        }
+        button{
+            display: block;
+            font-size: 1.3rem;
+            padding: 0.5rem;
+           
         }
     }
-    .main-photo{
-        display: flex;
-        align-items: center;
-        img{
-            margin-left: 3vw;
-            margin-right: 3vw;
-            height: 5vh;
-            width: 5vw;
-        }
-    }
-    .multiple-photo{
-        display: flex;
-        align-items: center;
-        padding-top: 5vh;
-        h3{
-            margin-right: 3vw;
-        }
-    }
-    .text-photo{
-        display: flex;
-        align-items: center;
-        padding-top: 5vh;
-        h3{
-            margin-right: 3vw;
-        }
-    }
+    
 }
+
+}
+.tableau-container{
+    margin-top: 10vh;
+    background-color: white;
+    .gestion-tableau{
+        background-color: white; 
+    }
 }

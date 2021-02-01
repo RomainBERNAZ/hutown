@@ -1,6 +1,6 @@
 .navbar{
     position: absolute;
-    z-index: 5;
+    z-index: 6;
     display: inline-flex;
     font-size: 2.5em;
     width: 100vw;
@@ -8,7 +8,10 @@
     mix-blend-mode: difference;
     .gestionLink{
         text-decoration: none;
-    }
+        transition: 0.2s linear;
+        &:hover{
+            color: gray;
+        }}
 
     .logo{
         margin: 2vw;
@@ -16,6 +19,8 @@
         line-height: 1.2em;
         letter-spacing: 0em;
         font-size: 3.6rem;
+        mix-blend-mode: difference;
+        color: white;
         a{
             text-decoration: none;
             color: white;

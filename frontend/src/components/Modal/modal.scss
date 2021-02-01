@@ -14,12 +14,11 @@
     input{
         margin-left: 1.5vw;
         height: 3rem;
-        border: 3px solid black;
         padding-left: 0.3vw;
         font-size: 1.2rem;
     }
     .modal-container{
-        height: 72vh;
+        height: auto;
         width: 40vw;
         background-color: rgb(255,255,255);
         .close-modal{
@@ -82,19 +81,30 @@
                 display: inline-flex;
                 transform: translateX(23%);
                 width: 100%;
+                input{
+                    margin-top: 2.5vh;
+                }
                 p{
                     font-size: 2rem;
                 }
-                input{
-                    margin-bottom: 1vh;
+                
+            }
+            .previewImage{
+                text-align: center;
+                img{
+                    object-fit: cover;
+                    height: 200px;
+                    width: 400px;
                 }
             }
+            
             .modal-submit{
                 margin-top: 3vh;
                 text-align: center;
                 button{
                     height: 5vh;
                     width: 5vw;
+                    margin-bottom: 5vh;
                     font-family: Halyard;
                     font-size: 1.5rem;
                     background-color: black;

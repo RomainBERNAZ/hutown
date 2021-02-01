@@ -28,7 +28,7 @@ const Header = () => {
                 <li><a href='/contact'>Contact</a></li>
                 <li><a href=""><i className="fab fa-instagram"></i></a></li>
                 { userInfo && 
-                   <Link to={'/gestion'}><li className="gestionLink">Gestion</li></Link> }
+                   <Link className='gestionLink' to={'/gestion'}><li className="gestionLink">Gestion</li></Link> }
                 { userInfo &&
                     <li><a href="/" className="logout" onClick={handleLogout}>Logout</a></li>
                 }

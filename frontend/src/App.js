@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 import Header from '../src/components/Header/Header'
 import Main from '../src/components/Main/Main'
@@ -10,11 +11,15 @@ import Product from './components/Product/Product';
 import login from './components/Login/login';
 import FirstPhoto from './components/FirstPhoto/FirstPhoto';
 import Gestion from './components/Gestion/Gestion'
+import GuestPage from './components/GuestPage/GuestPage'
+import ThirdPage from './components/ThirdPage/ThirdPage'
 
 
 
 function App() {
 
+  const userLogin = useSelector(state => state.userLogin);
+  const {userInfo} =userLogin;
 
   return (
     <Router>
@@ -26,8 +31,12 @@ function App() {
         <Route component={Contact} path="/contact" exact/>
         <Route component={Product} path="/product/:id"/>
         <Route component={login} path='/login' />
+        { userInfo &&
         <Route component={Gestion} path='/gestion' exact/>
+        }
         <Route component={FirstPhoto} path='/hustle' exact/>
+        <Route component={GuestPage} path='/guest' exact/>
+        <Route component={ThirdPage} path='/third' exact/>
       </div>
     </Router>
   );
