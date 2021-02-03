@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './Gestion.css'
 import { updatePage } from '../../actions/pageActions'
-import { useDispatch, useSelector} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Tableau from '../Tableau/Tableau';
 
 const Gestion = () => {
@@ -12,9 +12,6 @@ const Gestion = () => {
     const [ category, setCategory ] = useState('');
     const [ pages, setPages ] = useState([]);
     const [ id, setId ] = useState('');
-
-    const pageUpdate = useSelector(state => state.pageUpdate);
-    const {loading : loadingUpdate, success: successUpdate, error: errorUpdate} = pageUpdate;
 
     const dispatch = useDispatch();
 

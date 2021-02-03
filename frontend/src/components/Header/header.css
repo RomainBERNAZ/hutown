@@ -75,4 +75,40 @@
 .navbar .nav li .logout:hover {
   color: gray;
 }
+
+.cart-logo {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background-color: black;
+  right: 5%;
+  bottom: 7%;
+}
+
+.cart-logo a {
+  text-decoration: none;
+}
+
+.cart-logo a .fa-shopping-cart {
+  color: white;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 25%;
+  right: -17%;
+  font-size: 3.5rem;
+}
+
+.cart-logo span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  color: white;
+  top: -52%;
+  right: -75%;
+  font-size: 1.2rem;
+  font-family: Halyard;
+}
 /*# sourceMappingURL=Header.css.map */

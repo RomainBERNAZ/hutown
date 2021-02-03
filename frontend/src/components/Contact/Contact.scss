@@ -41,20 +41,19 @@ $white: #FFFFFF;
 .contact{
     height: 100vh;
     width: 100vw;
-    text-align: center;
-    background-color: $gray;
-    h2{
-        padding-top: 25vh;
-        color: white;
-        font-family: Grotesque;
-        font-size: 3.5rem;
-        text-align: center;
-    }
+    background-color: $white;
+    
     .form-content{
-        margin-top: 6vh;
-        width: 20vw;
+        left: 30%;
         position: relative;
-        left: 40%;
+        width: 40%;
+        h2{
+        padding-top: 25vh;
+        color: black;
+        font-family: Grotesque;
+        font-size: 1.5rem;
+        margin-bottom: 3vh;
+    }
         .email-content{
             display: flex;
             label{
@@ -68,28 +67,31 @@ $white: #FFFFFF;
             }
         }
         input{
+            background-color: 	rgba(211,211,211, 0.15);
             font-size: 1.5rem;
             font-family: Halyard;
+            height: 3rem;
             align-items: center;
+            border: 0.5px solid gray;
             width: 100%;
-            margin-bottom: 1.5vh;
+            margin-bottom: 3.5vh;
             padding-left: 0.5vw;
             }
         textarea{
+            background-color:rgba(211,211,211, 0.15);
             font-size: 1.5rem;
             padding-left: 0.5vw;
             font-family: Halyard;
+            margin-bottom: 3.5vh;
             width: 100%;
             height: 12vh;
         }
     }
     button{
-      height: 3rem;
-      width: 9rem;
-      margin: 1.5rem;
+      padding: 1.5rem;
       margin-bottom: 5vh;
       font-family: Halyard;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       background-color: black;
       color: white;
       border: none;

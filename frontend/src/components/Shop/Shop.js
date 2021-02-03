@@ -33,7 +33,7 @@ const Shop = () => {
     useEffect(() => {
         dispatch(listProducts());
         loadImages();
-    }, [])
+    }, [dispatch])
 
     const openModal = () => {
         let modal = document.getElementById('modal');

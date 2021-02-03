@@ -69,7 +69,7 @@ const Main = () => {
         imageLoading();
         
        
-    },[])
+    },[dispatch])
 
     return (
             loading? <div>Loading...</div>:

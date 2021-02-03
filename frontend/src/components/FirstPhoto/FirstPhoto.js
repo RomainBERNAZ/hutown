@@ -28,7 +28,7 @@ const FirstPhoto = () => {
     useEffect(() => {
         dispatch(listPages());
         loadImages();
-    }, []);
+    }, [dispatch]);
 
     return (
             loading? <div>Loading...</div>:

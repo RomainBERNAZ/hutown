@@ -79,56 +79,56 @@ const Contact =() => {
 
     return (
          <form className="contact">
-          <h2>CONTACTEZ-NOUS</h2>
-        <div className="form-content">
-          <input
-            required
-            type="text"
-            id="name"
-            name="name"
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Nom*"
-            value={name}
-            autoComplete="off"
-          />
-          <input
-            type="text"
-            id="company"
-            name="company"
-            onChange={(e) => setCompany(e.target.value)}
-            placeholder="Société"
-            value={company}
-          />
-          <input
-            type="text"
-            id="phone"
-            name="phone"
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="Téléphone"
-            value={phone}
-          />
-           <div className="email-content">
-            <label id="not-mail">Email non valide</label>
-            <input
-              type="mail"
-              id="email"
-              name="email"
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email *"
-              value={email}
-              autoComplete="off"
-            />
-            </div>
-          <textarea
-            required
-            id="message"
-            name="message"
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Message*"
-            value={message}
-          />
+            <div className="form-content">
+              <h2>CONTACTEZ-NOUS</h2>
+              <input
+                required
+                type="text"
+                id="name"
+                name="name"
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Nom*"
+                value={name}
+                autoComplete="off"
+              />
+              <input
+                type="text"
+                id="company"
+                name="company"
+                onChange={(e) => setCompany(e.target.value)}
+                placeholder="Société"
+                value={company}
+              />
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="Téléphone"
+                value={phone}
+              />
+               <div className="email-content">
+                <label id="not-mail">Email non valide</label>
+                <input
+                  type="mail"
+                  id="email"
+                  name="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email *"
+                  value={email}
+                  autoComplete="off"
+                />
+                </div>
+              <textarea
+                required
+                id="message"
+                name="message"
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Message*"
+                value={message}
+              />
+              <button onClick={handleSubmit}>Confirmer</button>
         </div>
-        <button onClick={handleSubmit}>ENVOYER</button>
         <div className="form-message"></div>
       </form>
     )

@@ -13,6 +13,7 @@ import FirstPhoto from './components/FirstPhoto/FirstPhoto';
 import Gestion from './components/Gestion/Gestion'
 import GuestPage from './components/GuestPage/GuestPage'
 import ThirdPage from './components/ThirdPage/ThirdPage'
+import Panier from './components/Panier/Panier';
 
 
 
@@ -34,6 +35,7 @@ function App() {
         { userInfo &&
         <Route component={Gestion} path='/gestion' exact/>
         }
+        <Route component={Panier} path='/panier/:id?' />
         <Route component={FirstPhoto} path='/hustle' exact/>
         <Route component={GuestPage} path='/guest' exact/>
         <Route component={ThirdPage} path='/third' exact/>

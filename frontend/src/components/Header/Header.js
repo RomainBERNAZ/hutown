@@ -15,6 +15,13 @@ const Header = () => {
         dispatch(logout());
     }
 
+
+    let values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+        while ( i-- ) {
+            values.push( localStorage.getItem(keys[i]) );
+        }
   
 
     return  ( 
@@ -26,7 +33,9 @@ const Header = () => {
                 <li><a title="Notre travail" href='/'>Notre travail</a></li>
                 <li><a href="/shop">Shop</a></li>
                 <li><a href='/contact'>Contact</a></li>
-                <li><a href=""><i className="fab fa-instagram"></i></a></li>
+                <li><a href="/panier"><i className="fab fa-instagram"></i></a></li>
+                <li><a href="/panier"><i className="fas fa-shopping-cart"></i></a><span>{values.length}</span></li>
+                
                 { userInfo && 
                    <Link className='gestionLink' to={'/gestion'}><li className="gestionLink">Gestion</li></Link> }
                 { userInfo &&

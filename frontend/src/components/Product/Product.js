@@ -23,6 +23,7 @@ const Product = (props) => {
     const productDelete = useSelector(state => state.productDelete);
     const {loading : loadingDelete, success: successDelete, error: errorDelete} = productDelete;
 
+
     const deleteImage = async (imageId) => {
         console.log(imageId);
         try {
@@ -49,7 +50,7 @@ const Product = (props) => {
     useEffect(() => {
         dispatch(detailsProduct(props.match.params.id));
         loadImages();
-    },[])
+    },[props.match.params.id, dispatch])
 
     const deleteHandler = (products, id) => {
        
@@ -57,6 +58,18 @@ const Product = (props) => {
         deleteImage(id)
         history.push('/shop');
     }
+
+    const addItem = (id) => {
+        
+        let cartList = []
+        //let cartList = JSON.parse(localStorage.getItem('cart')) || [];
+        //console.log(localStorage.getItem('cart'));
+        cartList.push(id);
+        localStorage.setItem(id, JSON.stringify(cartList));
+        console.log(localStorage.getItem(id));
+        history.push('/panier')
+}
+     
 
     return(
         loading? <div>Loading</div>:
@@ -89,9 +102,7 @@ const Product = (props) => {
                     <p className='product-name'>{products.name}</p>
                     <p className='product-price'>{products.price} €</p>
                     <p className="product-description">{products.description}</p>
-                    <button onClick={
-                        () => console.log(JSON.stringify(imageIds[0]))
-                    } className="product-cart">Ajouter au panier</button>
+                    <button onClick={() => addItem(products._id)} className="product-cart">Ajouter au panier</button>
                 </div>
             </div>
         </div>

@@ -1,0 +1,112 @@
+.panier-container {
+  width: 100vw;
+  min-height: 65vh;
+  padding-top: 20vh;
+  background-color: white;
+}
+
+.panier-container .liste-panier {
+  width: 90vw;
+}
+
+.panier-container .liste-panier .totalPrice {
+  margin-top: 5vh;
+  font-size: 2.5rem;
+  margin-bottom: 3vh;
+  float: right;
+}
+
+.panier-container .liste-panier h3 {
+  font-size: 2rem;
+  -webkit-transform: translateX(5%);
+          transform: translateX(5%);
+  text-align: left;
+  font-family: Grotesque;
+}
+
+.panier-container .liste-panier .liste-item ul li {
+  -webkit-transform: translateX(5%);
+          transform: translateX(5%);
+  list-style: none;
+}
+
+.panier-container .liste-panier .liste-item ul li .nom-categorie-panier {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 3vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: gray;
+  font-size: 0.9rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.panier-container .liste-panier .liste-item ul li .nom-categorie-panier h4 {
+  margin-bottom: 1vh;
+  font-weight: 100;
+}
+
+.panier-container .liste-panier .liste-item ul li .nom-categorie-panier .nom-item-panier {
+  margin-right: 15vw;
+}
+
+.panier-container .liste-panier .liste-item ul li .nom-categorie-panier .nom-item-panier .fa-times {
+  margin-right: 2vw;
+}
+
+.panier-container .liste-panier .liste-item ul li .nom-categorie-panier .image-item-panier {
+  margin-right: 10vw;
+}
+
+.panier-container .liste-panier .liste-item ul li .liste-item-panier {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: Halyard;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 3vh;
+  font-size: 2rem;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 2vh;
+}
+
+.panier-container .liste-panier .liste-item ul li .liste-item-panier .title-item-panier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 22vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2rem;
+}
+
+.panier-container .liste-panier .liste-item ul li .liste-item-panier .title-item-panier span {
+  margin-right: 1.7vw;
+  opacity: 0.5;
+  color: gray;
+  -webkit-transform: scale(1, 0.8);
+          transform: scale(1, 0.8);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+
+.panier-container .liste-panier .liste-item ul li .liste-item-panier .panier-image-container {
+  margin-right: 5vw;
+}
+
+.panier-container .liste-panier .liste-item .panier-image {
+  height: 150px;
+  width: 250px;
+}
+/*# sourceMappingURL=Panier.css.map */
