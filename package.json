@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch backend --exec babel-node backend/server.js"
+    "install-client": "cd frontend && npm install",
+    "build": "cd frontend &&  npm run build",
+    "client": "cd frontend && npm start",
+    "heroku-postbuild": "npm run install-clien && npm run build",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
