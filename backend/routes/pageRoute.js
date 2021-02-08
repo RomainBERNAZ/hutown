@@ -1,4 +1,4 @@
-import Page from '../models/pageModel'
+import Page from '../models/pageModel.js'
 import express from 'express'
 
 
