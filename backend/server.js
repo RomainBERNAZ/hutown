@@ -1,6 +1,7 @@
 import express from 'express';
 import config from './config.js'
 import dotenv from 'dotenv';
+import * as path from 'path';
 import mongoose from 'mongoose'
 import userRoute from './routes/userRoute.js'
 import productRoute from './routes/productRoute.js';
@@ -27,6 +28,9 @@ app.use('/api', uploadRoute)
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('./frontend/build'))
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname,'frontend', 'build', 'index.html'));
+    })
 }
 
 
