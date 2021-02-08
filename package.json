@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type":"module",
   "scripts": {
     "install-client": "cd frontend && npm install",
     "build": "cd frontend && npm run build",
@@ -11,6 +10,7 @@
     "heroku-postbuild": "npm run install-client && npm run build",
     "start": "node backend/server.js"
   },
+  "type":"module",
   "author": "",
   "license": "ISC",
   "dependencies": {
