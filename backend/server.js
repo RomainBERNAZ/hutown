@@ -26,7 +26,7 @@ app.use('/api', pageRoute)
 app.use('/api', uploadRoute)
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('frontend/build'))
+    app.use(express.static('./frontend/build'))
 }
 
 
