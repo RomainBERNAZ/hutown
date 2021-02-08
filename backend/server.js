@@ -1,5 +1,5 @@
 import express from 'express';
-import config from './config'
+config = require('./config');
 import dotenv from 'dotenv';
 import mongoose from 'mongoose'
 import userRoute from './routes/userRoute'
