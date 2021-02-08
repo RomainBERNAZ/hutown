@@ -1,23 +1,20 @@
-const express = require('express')
-const config =require('./config')
-const dotenv =require('dotenv')
-const mongoose =require('mongoose')
-const userRoute =require('./routes/userRoute')
-const productRoute=require('./routes/productRoute')
-const pageRoute =require('./routes/pageRoute')
-const uploadRoute =require('./routes/uploadRoute')
-
-
-
-
-//import express from 'express';
-//import config from './config'
-//import dotenv from 'dotenv';
-//import mongoose from 'mongoose'
-//import userRoute from './routes/userRoute'
-//import productRoute from './routes/productRoute';
-//import pageRoute from './routes/pageRoute';
-//import uploadRoute from './routes/uploadRoute'
+//const express = require('express')
+//const config =require('./config')
+//const dotenv =require('dotenv')
+//const mongoose =require('mongoose')
+//const userRoute =require('./routes/userRoute')
+//const productRoute=require('./routes/productRoute')
+//const pageRoute =require('./routes/pageRoute')
+//const uploadRoute =require('./routes/uploadRoute')
+//
+import express from 'express';
+import config from './config'
+import dotenv from 'dotenv';
+import mongoose from 'mongoose'
+import userRoute from './routes/userRoute.js'
+import productRoute from './routes/productRoute.js';
+import pageRoute from './routes/pageRoute.js';
+import uploadRoute from './routes/uploadRoute.js'
 
 dotenv.config();
 const mongodbUrl = config.MONGODB_URL;
