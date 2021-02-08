@@ -1,7 +1,9 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
-const cl = cloudinary.Cloudinary({
+import Cloudinary from 'cloudinary-core';
+
+const cl = Cloudinary({
     cloud_name: 'drefurx4l',
     api_key: '394767766592868',
     api_secret: '1zTfp--_hcBGyVjbOJx-u2ZO8Y8'
