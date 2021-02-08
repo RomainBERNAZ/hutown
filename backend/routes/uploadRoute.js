@@ -5,6 +5,7 @@ import cloudinary from '../cloudinary.js'
 const router = express.Router();
 
 router.get('/images', async (req, res) => {
+    console.log('dans la route upload');
     const { resources } = await cloudinary.search
         .sort_by('public_id', 'desc')
         .max_results(100)

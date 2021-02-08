@@ -5,6 +5,7 @@ import express from 'express'
 const router = express.Router();
 
 router.get("/pages", async (req, res) => {
+  console.log("dans la route pages");
     const pages = await Page.find({});
     res.send(pages);
 })
