@@ -1,5 +1,4 @@
 import express from 'express';
-config = require('./config');
 import dotenv from 'dotenv';
 import mongoose from 'mongoose'
 import userRoute from './routes/userRoute'
@@ -9,7 +8,7 @@ import uploadRoute from './routes/uploadRoute'
 
 dotenv.config();
 const mongodbUrl = config.MONGODB_URL;
-mongoose.connect(process.env.MONGODB_URI || mongodbUrl, {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/hutown', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
