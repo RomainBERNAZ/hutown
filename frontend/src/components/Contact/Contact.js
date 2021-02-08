@@ -80,7 +80,7 @@ const Contact =() => {
     return (
          <form className="contact">
             <div className="form-content">
-              <h2>CONTACTEZ-NOUS</h2>
+              <h2>COLLABORONS ENSEMBLE</h2>
               <input
                 required
                 type="text"
@@ -91,14 +91,7 @@ const Contact =() => {
                 value={name}
                 autoComplete="off"
               />
-              <input
-                type="text"
-                id="company"
-                name="company"
-                onChange={(e) => setCompany(e.target.value)}
-                placeholder="Société"
-                value={company}
-              />
+              
               <input
                 type="text"
                 id="phone"

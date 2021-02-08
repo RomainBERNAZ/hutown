@@ -77,7 +77,7 @@ const Shop = () => {
                 
                 <div className="shop-description">
                     <p className='shop-name'>{product.name}</p>
-                    <p className='shop-price'>{product.price}€</p>
+                    <p className='shop-price'>{product.priceSm}€</p>
                 </div>
           </div>
                 )}

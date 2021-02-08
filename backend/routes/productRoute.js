@@ -30,7 +30,10 @@ router.delete('/products/:id', async (req,res) => {
 router.post('/products', async (req, res) => {
     const product = new Product({
         name: req.body.name,
-        price: req.body.price,
+        priceSm: req.body.priceSm,
+        priceM: req.body.priceM,
+        priceL: req.body.priceL,
+        priceXl: req.body.priceXl,
         description: req.body.description,
     }); 
     const newProduct = await product.save();

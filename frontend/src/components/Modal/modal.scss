@@ -11,15 +11,10 @@
     align-items: center;
     padding-right: 15px;
 
-    input{
-        margin-left: 1.5vw;
-        height: 3rem;
-        padding-left: 0.3vw;
-        font-size: 1.2rem;
-    }
+    
     .modal-container{
         height: auto;
-        width: 40vw;
+        width: 45vw;
         background-color: rgb(255,255,255);
         .close-modal{
             position: relative;
@@ -38,86 +33,54 @@
             text-decoration: underline;
         }
         .modal-body{
-            padding-top: 6vh;
-            display: block;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
             .modal-name{
-                width: 100vw;
-                display: inline-flex;
-                transform: translateX(10%);
-                margin-bottom: 2vh;
-                p{
-                    font-size: 2rem;
-                }
-            }
-            .modal-price{
+                margin-top: 5vh;
+                display: flex;
                 align-items: center;
-                transform: translateX(25%);
-                display: inline-flex;
-                margin-bottom: 2vh;
-                width: 100%;
-                p{
-                    font-size: 2rem;
-                }
-            }
-            .modal-description{
-                align-items: center;
-                display: inline-flex;
-                transform: translateX(13%);
-                margin-bottom: 2vh;
-                width: 100%;
-                textarea{
-                    border: 3px solid black;
-                    margin-left: 1.5vw;
-                    padding-left: 0.3vw;
-                    padding-top: 0.3vh;
-                    font-size: 1.2rem;
-                }
-                p{
-                    font-size: 2rem;
-                }
             }
             .modal-image{
-                align-items: center;
-                display: inline-flex;
-                transform: translateX(23%);
-                width: 100%;
-                input{
-                    margin-top: 2.5vh;
-                }
-                p{
-                    font-size: 2rem;
-                }
-                
-            }
-            .previewImage{
-                text-align: center;
-                img{
-                    object-fit: cover;
-                    height: 200px;
-                    width: 400px;
-                }
-            }
-            
-            .modal-submit{
-                margin-top: 3vh;
-                text-align: center;
-                button{
-                    height: 5vh;
-                    width: 5vw;
-                    margin-bottom: 5vh;
-                    font-family: Halyard;
-                    font-size: 1.5rem;
-                    background-color: black;
-                    color: white;
+                .inputFile{
                     border: none;
-                    transition: 0.3s linear;
-                    &:hover{
-                        background-color: white;
-                        color: black;
-                        border: 3px solid black;
-                    }
                 }
+
             }
-        }
+            h3{
+                font-size: 2rem;
+                margin-bottom: 3vh;
+            }
     }
+    .modal-body > div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3vh;
+            p {
+                margin-left: 1.5vw;
+                font-size: 1.5rem;
+            }
+            span{
+                font-size: 1.5rem;
+            }
+            input{
+                margin-left: 1.5vw;
+                padding-left: 0.3vw;
+                height: 3rem;
+                border: 2px solid black;
+            }
+            textarea{
+                margin-left: 1.5vw ;
+                border: 2px solid black;
+            }
+            button{
+                font-size: 2rem;
+            }
+            img{
+                height: 100px;
+                width: 500px;
+            }
+    }
+}
 }

@@ -1,3 +1,7 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
 .panier-container{
     width: 100vw;
     min-height: 65vh;
@@ -22,6 +26,7 @@
                li{
                    transform: translateX(5%);
                    list-style: none;
+                   font-family: Halyard;
                    .nom-categorie-panier{
                     align-items: center;
                     justify-content: space-between;
@@ -48,14 +53,14 @@
                         align-items: center;
                         display: flex;
                         font-family: Halyard;
-                        justify-content: space-between;
                         margin-top: 3vh;
                         font-size: 2rem;
                         border-bottom: 1px solid lightgray;
                         padding-bottom: 2vh;
                         .title-item-panier{
                             display: flex;
-                            width: 22vw;
+                            width: 30vw;
+                            font-size: 2rem;
                             align-items: center;
                             span{
                                 margin-right: 1.7vw;
@@ -63,12 +68,26 @@
                                 color: gray;
                                 transform: scale(1,0.8);
                                 font-family: Arial, Helvetica, sans-serif;
-                                font-size: 2rem;
                             }
-                            font-size: 2rem;
                         }
                         .panier-image-container{
+                            width: 22vw;
                             margin-right: 5vw;
+                        }
+                        .size-item-panier{
+                            width:17vw ;
+                        }
+                        .qte-item-panier{
+                            width:11vw ;
+                            input{
+                                font-size: 1.5rem;
+                                width:2.5rem;
+                                padding-left: 0.5rem;
+                                border: 1px solid gray;
+                            }
+                        }
+                        .price-item-panier{
+                            display: flex;
                         }
                    }
                }

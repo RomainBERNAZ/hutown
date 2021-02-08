@@ -33,7 +33,7 @@ const Header = () => {
                 <li><a title="Notre travail" href='/'>Notre travail</a></li>
                 <li><a href="/shop">Shop</a></li>
                 <li><a href='/contact'>Contact</a></li>
-                <li><a href="/panier"><i className="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.instagram.com/mh_hypo/?hl=fr"><i className="fab fa-instagram"></i></a></li>
                 <li><a href="/panier"><i className="fas fa-shopping-cart"></i></a><span>{values.length}</span></li>
                 
                 { userInfo && 

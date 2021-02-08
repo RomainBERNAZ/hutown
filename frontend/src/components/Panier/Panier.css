@@ -1,3 +1,8 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
 .panier-container {
   width: 100vw;
   min-height: 65vh;
@@ -28,6 +33,7 @@
   -webkit-transform: translateX(5%);
           transform: translateX(5%);
   list-style: none;
+  font-family: Halyard;
 }
 
 .panier-container .liste-panier .liste-item ul li .nom-categorie-panier {
@@ -71,9 +77,6 @@
   display: -ms-flexbox;
   display: flex;
   font-family: Halyard;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   margin-top: 3vh;
   font-size: 2rem;
   border-bottom: 1px solid lightgray;
@@ -84,11 +87,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 22vw;
+  width: 30vw;
+  font-size: 2rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 2rem;
 }
 
 .panier-container .liste-panier .liste-item ul li .liste-item-panier .title-item-panier span {
@@ -98,11 +101,32 @@
   -webkit-transform: scale(1, 0.8);
           transform: scale(1, 0.8);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 2rem;
 }
 
 .panier-container .liste-panier .liste-item ul li .liste-item-panier .panier-image-container {
+  width: 22vw;
   margin-right: 5vw;
+}
+
+.panier-container .liste-panier .liste-item ul li .liste-item-panier .size-item-panier {
+  width: 17vw;
+}
+
+.panier-container .liste-panier .liste-item ul li .liste-item-panier .qte-item-panier {
+  width: 11vw;
+}
+
+.panier-container .liste-panier .liste-item ul li .liste-item-panier .qte-item-panier input {
+  font-size: 1.5rem;
+  width: 2.5rem;
+  padding-left: 0.5rem;
+  border: 1px solid gray;
+}
+
+.panier-container .liste-panier .liste-item ul li .liste-item-panier .price-item-panier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .panier-container .liste-panier .liste-item .panier-image {

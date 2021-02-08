@@ -7,7 +7,10 @@ import './modal.css'
 const Modal = (props) => {
 
     const [ name, setName ] = useState('');
-    const [ price, setPrice ] = useState('');
+    const [ priceSm, setPriceSm ] = useState('');
+    const [ priceM, setPriceM ] = useState('');
+    const [ priceL, setPriceL ] = useState('');
+    const [ priceXl, setPriceXl ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ selectedFile, setSelectedFile] = useState();
     const [ previewSource, setPreviewSource] = useState('');
@@ -22,7 +25,7 @@ const Modal = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveProduct({name, price, description}))
+        dispatch(saveProduct({name, priceSm, priceM, priceL, priceXl, description}))
         handleSubmitFile();
         closeModal();
     }
@@ -99,20 +102,33 @@ const Modal = (props) => {
                 </div>
                 <form className="modal-body" onSubmit={submitHandler}>
                     <div className="modal-name">
-                        <p className="titreModal">Nom:</p>
+                        <p className="titreModal">Nom :</p>
                         <input type="text" onChange={(e) => setName(e.target.value)}/>
                     </div>
-                    <div className="modal-price">
-                        <p className="titreModal">Price:</p>
-                        <input type="number" onChange={(e) => setPrice(e.target.value)}/>
+                    <h3>PRIX</h3>
+                    <div className="modal-price-size">
+                        <span>15x15 :</span>
+                        <input type="number" onChange={(e) => setPriceSm(e.target.value)}/>
+                    </div>
+                    <div className="modal-price-size">
+                        <span>20x20 :</span>
+                        <input type="number" onChange={(e) => setPriceM(e.target.value)}/>
+                    </div>
+                    <div className="modal-price-size">
+                        <span>30x45 :</span>
+                        <input type="number" onChange={(e) => setPriceL(e.target.value)}/>
+                    </div>
+                    <div className="modal-price-size">
+                        <span>40x60 :</span>
+                        <input type="number" onChange={(e) => setPriceXl(e.target.value)}/>
                     </div>
                     <div className="modal-description">
-                        <p className="titreModal">Description:</p>
+                        <p className="titreModal">Description :</p>
                         <textarea name="" id="" cols="40" rows="15" onChange={(e) => setDescription(e.target.value)}></textarea>
                     </div>
                     <div className="modal-image">
                         <p className="titreModal">Image:</p>
-                        <input type="file" value={fileInputState} onChange={handleFileInputChange}/>
+                        <input className="inputFile" type="file" value={fileInputState} onChange={handleFileInputChange}/>
                         
                     </div>
                     <div className="previewImage">
