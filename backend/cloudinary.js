@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
+import cloudinary from 'cloudinary'
 dotenv.config()
 
-const cloudinary = require('cloudinary').v2;
 cloudinary.config({
     cloud_name: 'drefurx4l',
     api_key: '394767766592868',
