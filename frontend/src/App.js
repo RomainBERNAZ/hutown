@@ -6,7 +6,7 @@ import Header from '../src/components/Header/Header'
 import Main from '../src/components/Main/Main'
 import Cursor from '../src/components/Cursor/Cursor'
 import Shop from '../src/components/Shop/Shop'
-import Contact from '../src/components/Contact/Contact.js'
+import Contact from '../src/components/Contact/Contact'
 import Product from './components/Product/Product';
 import login from './components/Login/login';
 import FirstPhoto from './components/FirstPhoto/FirstPhoto';
