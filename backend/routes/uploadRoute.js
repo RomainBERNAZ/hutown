@@ -23,7 +23,7 @@ router.get('/imagesShop', async (req, res) => {
 
     const publicIds = resources.map((file) => file.public_id);
     res.send(publicIds);
-});
+}); 
 
 router.post('/destroy', (req, res) =>{
     try {
