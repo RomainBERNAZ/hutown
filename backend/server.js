@@ -9,6 +9,8 @@ import pageRoute from './routes/pageRoute.js';
 import uploadRoute from './routes/uploadRoute.js'
 
 dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 8080;
 const app = express();
 const mongodbUrl = config.MONGODB_URL;
@@ -28,9 +30,9 @@ app.use('/api', uploadRoute)
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('./frontend/build'))
-    //app.get('*', (req, res) => {
-    //    res.sendFile(path.join(__dirname,'frontend', 'build', 'index.html'));
-    //})
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname,'frontend', 'build', 'index.html'));
+    })
 }
 
 
