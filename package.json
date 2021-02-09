@@ -10,6 +10,7 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run client-install && npm run build",
     "start": "node backend/server.js"
   },
+  "type": "module",
   "author": "Romain BERNAZ",
   "license": "ISC",
   "dependencies": {
