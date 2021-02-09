@@ -2,6 +2,7 @@ import express from 'express';
 import config from './config.js'
 import dotenv from 'dotenv';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
 import mongoose from 'mongoose'
 import userRoute from './routes/userRoute.js'
 import productRoute from './routes/productRoute.js';
