@@ -35,6 +35,7 @@ if(process.env.NODE_ENV === 'production'){
         res.sendFile(path.join(__dirname,'..','frontend', 'build', 'index.html'));
     })
 }
-  
+
+
 
 app.listen(PORT, () => {console.log("Le serveur a bien démarré sur le port 5000")});
