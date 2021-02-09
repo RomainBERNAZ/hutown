@@ -1,11 +1,11 @@
 import express from 'express'
-import cloudinaryCore from '../cloudinary.js'
+import cloudinary from '../cloudinary.js'
 
 
 const router = express.Router();
 
 router.get('/images', async (req, res) => {
-    const { resources } = await cloudinaryCore.search
+    const { resources } = await cloudinary.search
         .sort_by('public_id', 'desc')
         .max_results(100)
         .execute();
@@ -15,7 +15,7 @@ router.get('/images', async (req, res) => {
 });
 
 router.get('/imagesShop', async (req, res) => {
-    const { resources } = await cloudinaryCore.search
+    const { resources } = await cloudinary.search
         .expression('hutownshop')
         .sort_by('public_id', 'desc')
         .max_results(100)
@@ -30,7 +30,7 @@ router.post('/destroy', (req, res) =>{
         const public_id = req.body.imageId;
         if(!public_id) return res.status(400).json({msg: 'No images Selected'})
 
-        cloudinaryCore.api.delete_resources([public_id], async(err, result) =>{
+        cloudinary.api.delete_resources([public_id], async(err, result) =>{
             if(err) throw err;
 
             res.json({msg: "Deleted Image"})
@@ -44,7 +44,7 @@ router.post('/destroy', (req, res) =>{
 router.post('/upload', async (req, res) => {
     try {
         const fileStr = req.body.data;
-        const uploadResponse = await cloudinaryCore.uploader.upload(fileStr, {
+        const uploadResponse = await cloudinary.uploader.upload(fileStr, {
             upload_preset: 'ml_default',
             folder: req.body.cat
         });
@@ -59,7 +59,7 @@ router.post('/upload', async (req, res) => {
 router.post('/uploadShop', async (req, res) => {
     try {
         const fileStr = req.body.data;
-        const uploadResponse = await cloudinaryCore.uploader.upload(fileStr, {
+        const uploadResponse = await cloudinary.uploader.upload(fileStr, {
             upload_preset: 'ml_default',
             folder: 'hutownshop',
             overwrite:true,
