@@ -66,10 +66,10 @@ const Main = () => {
                 backgroundThird.style.opacity='0';
              })
         } 
-        if (window.matchMedia('(min-width: 600px)')){
-            imageLoading();
-        }else {
+        if (window.matchMedia('(max-width: 600px)')){
             console.log('Les images ne sont pas affichées');
+        }else {
+            imageLoading();
         }
         
        
