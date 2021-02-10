@@ -7,7 +7,7 @@ import './main.css'
 
 const Main = () => {
 
-    const mql = window.matchMedia('(max-width: 600px)');
+    
     const [imageIds, setImageIds] = useState();
     const pageList = useSelector(state => state.pageList);
     const { pages, loading, error } = pageList;
@@ -66,10 +66,10 @@ const Main = () => {
                 backgroundThird.style.opacity='0';
              })
         } 
-        if (mql){
-        console.log('Pas de chargement d"images pour la version mobile');
-        }else {
+        if (window.matchMedia('(min-width: 600px)')){
             imageLoading();
+        }else {
+            console.log('Les images ne sont pas affichées');
         }
         
        
