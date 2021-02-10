@@ -182,4 +182,19 @@
   background-color: black;
   font-family: Halyard;
 }
+
+@media screen and (max-width: 890px) {
+  .contact .form-content {
+    width: 80vw;
+    left: 10%;
+  }
+  .contact .form-content h2 {
+    font-size: 1.5rem;
+    padding-top: 18vh;
+  }
+  .contact button {
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+}
 /*# sourceMappingURL=Contact.css.map */

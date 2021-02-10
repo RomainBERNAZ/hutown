@@ -133,4 +133,39 @@ input[type=number]::-webkit-outer-spin-button {
   height: 150px;
   width: 250px;
 }
+
+@media screen and (max-width: 890px) {
+  .panier-container .liste-panier {
+    width: 92vw;
+  }
+  .panier-container .liste-panier .totalPrice {
+    font-size: 1.5rem;
+  }
+  .panier-container .liste-panier .liste-item ul li .liste-item-panier .title-item-panier {
+    width: 29vw;
+    font-size: 0.9rem;
+  }
+  .panier-container .liste-panier .liste-item ul li .liste-item-panier .title-item-panier span {
+    margin-right: 3.5vw;
+    margin-left: -3vw;
+  }
+  .panier-container .liste-panier .liste-item ul li .liste-item-panier .size-item-panier {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .panier-container .liste-panier .liste-item ul li .liste-item-panier .qte-item-panier {
+    text-align: center;
+    font-size: 0.9rem;
+    width: 7vw;
+  }
+  .panier-container .liste-panier .liste-item ul li .liste-item-panier .price-item-panier {
+    font-size: 0.9rem;
+    margin-left: 1.5vw;
+  }
+  .panier-container .liste-panier .liste-item .panier-image {
+    height: 50px;
+    width: 80px;
+    margin-left: 2vw;
+  }
+}
 /*# sourceMappingURL=Panier.css.map */

@@ -115,3 +115,19 @@ $white: #FFFFFF;
         font-family: Halyard;
     }
 }
+@media screen and (max-width: 890px) {
+  .contact{
+    .form-content{
+      width: 80vw;
+      left: 10%;
+        h2{
+          font-size: 1.5rem;
+          padding-top: 18vh;
+    }
+    }
+    button{
+      padding: 1rem;
+      font-size: 1.5rem;
+  }
+}
+}

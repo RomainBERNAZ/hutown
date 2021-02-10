@@ -100,3 +100,70 @@ input[type=number]::-webkit-outer-spin-button {
         }
     }
 }
+@media screen and (max-width: 890px) {
+    .panier-container{
+        .liste-panier{
+            width: 92vw;
+            .totalPrice{
+                font-size: 1.5rem;
+            }
+            h3{
+            }
+            .liste-item{
+               ul{
+                   li{
+                       .nom-categorie-panier{
+                        
+                        h4{
+                            
+                        }
+                        .nom-item-panier{
+                            .fa-times{
+                            }
+                        }
+                        .image-item-panier{
+                        }
+                       }
+                       .liste-item-panier{
+                            .title-item-panier{
+                                width: 29vw;
+                                font-size: 0.9rem;
+                                span{
+                                margin-right: 3.5vw;
+                                margin-left: -3vw;
+                                }
+                            }
+                            .panier-image-container{
+                                
+                            }
+                            .size-item-panier{
+                                font-size: 0.9rem;
+                                text-align: center;
+                            }
+                            .qte-item-panier{
+                                text-align: center;
+                                font-size: 0.9rem;
+                                width: 7vw;
+                                input{
+                               
+                                }
+                            }
+                            .price-item-panier{
+                                font-size: 0.9rem;
+                                margin-left: 1.5vw;
+                            }
+                       }
+                   }
+                   
+               }
+               .panier-image{
+                height:50px;
+                width: 80px;
+                margin-left: 2vw;
+               }
+            }
+        }
+    }
+
+
+}
