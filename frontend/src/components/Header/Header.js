@@ -6,7 +6,7 @@ import './header.css'
 
 const Header = () => {
 
-    var mql = window.matchMedia('(max-width: 600px)');
+    const mql = window.matchMedia('(max-width: 600px)');
     const userLogin = useSelector(state => state.userLogin);
     const {userInfo} =userLogin;
     const dispatch = useDispatch();
@@ -16,15 +16,13 @@ const Header = () => {
         dispatch(logout());
     }
     const showMenu = () => {
-        const menu = document.querySelector('.nav-mobile');
-        let toggle = true; 
-        if(toggle){
-            toggle=false;
-            menu.style.display="none";
-        }else {
-            toggle=true;
-            menu.style.display="block";
-       }
+        const menu = document.getElementById('nav-mobile');
+        if (menu.style.opacity === '1') {
+            menu.style.opacity = '0';
+
+          } else {
+            menu.style.opacity = '1';
+          }
 
     }
 
@@ -54,7 +52,7 @@ const Header = () => {
         <div>
         <div className="navbar">
             <div className="logo">
-               <a href='/'>HIPPOLYTHE</a> 
+               <a id="logo-mobile" href='/'>HIPPOLYTHE</a> 
             </div>
             <ul className="nav">
                 <li><a title="Notre travail" href='/'>Notre travail</a></li>
@@ -70,31 +68,31 @@ const Header = () => {
                 }
             </ul>
         </div>
-
-        <div className="navbar-mobile">
-            <div className="logo-mobile">
-               <a href='/'>HIPPOLYTHE</a> 
+        <div className="mobile-container">
+            <div className="navbar-mobile" id='navbar-mobile'>
+                <div className="logo-mobile">
+                   <a href='/'>HIPPOLYTHE</a> 
+                </div>
             </div>
-            <div id="menuToggle" onClick={showMenu}>
-                <input type="checkbox" />
-                <span></span>
-                <span></span>
-            </div>
-            <ul className="nav-mobile" id="nav-mobile" >
-                <li><a title="Notre travail" href='/'>Notre travail</a></li>
-                <li><a href="/shop">Shop</a></li>
-                <li><a href='/contact'>Contact</a></li>
-                { userInfo && 
-                   <Link className='gestionLink' to={'/gestion'}><li className="gestionLink">Gestion</li></Link> }
-                { userInfo &&
-                    <li><a href="/" className="logout" onClick={handleLogout}>Logout</a></li>
-                }
-                <ul className="social-mobile">
-                    <li><a href="https://www.instagram.com/mh_hypo/?hl=fr"><i className="fab fa-instagram"></i></a></li>
-                    <li><a href="/panier"><i className="fas fa-shopping-cart"></i></a><span>{values.length}</span></li>
+                <div id="menuToggle" onClick={showMenu}>
+                    <input type="checkbox" />
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul className="nav-mobile" id="nav-mobile" >
+                    <li><a title="Notre travail" href='/'>Notre travail</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href='/contact'>Contact</a></li>
+                    { userInfo && 
+                       <Link className='gestionLink' to={'/gestion'}><li className="gestionLink">Gestion</li></Link> }
+                    { userInfo &&
+                        <li><a href="/" className="logout" onClick={handleLogout}>Logout</a></li>
+                    }
+                    <ul className="social-mobile">
+                        <li><a href="https://www.instagram.com/mh_hypo/?hl=fr"><i className="fab fa-instagram"></i></a></li>
+                        <li><a href="/panier"><i className="fas fa-shopping-cart"></i></a><span>{values.length}</span></li>
+                    </ul>
                 </ul>
-            </ul>
-            
         </div>
     </div>
     )

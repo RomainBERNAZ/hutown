@@ -7,6 +7,7 @@ import './main.css'
 
 const Main = () => {
 
+    const mql = window.matchMedia('(max-width: 600px)');
     const [imageIds, setImageIds] = useState();
     const pageList = useSelector(state => state.pageList);
     const { pages, loading, error } = pageList;
@@ -32,7 +33,7 @@ const Main = () => {
 
         dispatch(listPages());
 
-        async function imageLoading(){
+         async function imageLoading(){
             await loadImages(); 
             let background = document.getElementById('backgroundImage');
             let backgroundGuest = document.getElementById('backgroundGuest');
@@ -64,9 +65,12 @@ const Main = () => {
             thirdLink.addEventListener('mouseleave', () => {
                 backgroundThird.style.opacity='0';
              })
+        } 
+        if (mql){
+        console.log('Pas de chargement d"images pour la version mobile');
+        }else {
+            imageLoading();
         }
-        
-        imageLoading();
         
        
     },[dispatch])
