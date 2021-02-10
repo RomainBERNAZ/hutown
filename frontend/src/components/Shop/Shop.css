@@ -75,4 +75,52 @@
   font-size: 1.2rem;
   font-weight: 100;
 }
+
+@media screen and (max-width: 890px) {
+  .shop {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    width: 100vw;
+    padding-top: 20vh;
+    background-color: #FFFFFF;
+  }
+  .shop .shop-title {
+    text-align: center;
+  }
+  .shop .shop-title .line-title {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .shop .shop-title .line-title .title {
+    font-family: Halyard;
+    font-size: 3.5rem;
+    margin-bottom: 2vh;
+  }
+  .shop .shop-title .shop-line {
+    width: 95vw;
+    -webkit-transform: translateX(2.5%);
+            transform: translateX(2.5%);
+    margin-bottom: 4vh;
+  }
+  .shop .product-grid {
+    display: block;
+    min-height: 40vh;
+    background-color: white;
+  }
+  .shop .product-grid .single-product {
+    padding-bottom: 20vh;
+    padding-left: 1.5vw;
+  }
+  .shop .product-grid .single-product .shop-img {
+    width: 97vw;
+    height: 40vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
 /*# sourceMappingURL=Shop.css.map */

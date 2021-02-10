@@ -19,9 +19,12 @@ const Header = () => {
         const menu = document.getElementById('nav-mobile');
         if (menu.style.opacity === '1') {
             menu.style.opacity = '0';
-
+            setTimeout(function(){
+                menu.style.display='none'}, 200);
           } else {
-            menu.style.opacity = '1';
+            menu.style.display='block'
+            setTimeout(function(){
+            menu.style.opacity = '1'},100)
           }
 
     }
