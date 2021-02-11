@@ -78,6 +78,8 @@
 
 @media screen and (max-width: 890px) {
   .shop {
+    position: absolute;
+    z-index: -10;
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
@@ -102,6 +104,7 @@
     margin-bottom: 2vh;
   }
   .shop .shop-title .shop-line {
+    position: relative;
     width: 95vw;
     -webkit-transform: translateX(2.5%);
             transform: translateX(2.5%);

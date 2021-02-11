@@ -55,7 +55,9 @@ const Shop = () => {
                         <i onClick={openModal} className="far fa-plus-square"></i>
                     }
                 </div>
-                <hr className="shop-line"/>
+                <div className="line-under-title">
+                    <hr className="shop-line"/>
+                </div>
             </div>
             <div className="product-grid">
             {products.map(product => 

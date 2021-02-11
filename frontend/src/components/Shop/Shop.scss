@@ -65,6 +65,8 @@ $white: #FFFFFF;
 }
 @media screen and (max-width: 890px) {
     .shop{
+        position: absolute;
+        z-index: -10;
         height: max-content;
         width: 100vw;
         padding-top: 20vh;
@@ -81,6 +83,7 @@ $white: #FFFFFF;
                 }
             }
             .shop-line{
+                position: relative;
                 width: 95vw;
                 transform: translateX(2.5%);
                 margin-bottom: 4vh;

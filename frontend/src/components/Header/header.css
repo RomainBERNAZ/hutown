@@ -122,7 +122,7 @@
 
 .mobile-container .navbar-mobile .logo-mobile {
   position: absolute;
-  z-index: 6;
+  z-index: 10;
   margin-top: 2vh;
   margin-left: 5vw;
   font-weight: 700;

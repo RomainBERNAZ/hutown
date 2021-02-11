@@ -11,7 +11,7 @@ const Main = () => {
     const [imageIds, setImageIds] = useState();
     const pageList = useSelector(state => state.pageList);
     const { pages, loading, error } = pageList;
-
+    const mql = window.matchMedia('(max-width: 600px)');
     const randomThird = Math.floor(Math.random() * (14 - 0 + 1)) + 0;
     const randomGuest = Math.floor(Math.random() * (29 - 15 + 1)) + 15;
     const random = Math.floor(Math.random() * (44 - 30 + 1)) + 30;
@@ -66,7 +66,7 @@ const Main = () => {
                 backgroundThird.style.opacity='0';
              })
         } 
-        if (window.matchMedia('(max-width: 600px)')){
+        if (mql.matches){
             console.log('Les images ne sont pas affichées');
         }else {
             imageLoading();

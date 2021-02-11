@@ -37,6 +37,7 @@ const Header = () => {
           document.querySelector('.navbar-mobile').style.display="block"
       }else{
           document.querySelector('.navbar').style.display="block"
+          document.getElementById('menuToggle').style.display='none'
           document.querySelector('.navbar-mobile').style.display="none"
       }
     })
@@ -77,11 +78,14 @@ const Header = () => {
                    <a href='/'>HIPPOLYTHE</a> 
                 </div>
             </div>
+            
                 <div id="menuToggle" onClick={showMenu}>
                     <input type="checkbox" />
                     <span></span>
                     <span></span>
-                </div>
+                </div> 
+            
+                
                 <ul className="nav-mobile" id="nav-mobile" >
                     <li><a title="Notre travail" href='/'>Notre travail</a></li>
                     <li><a href="/shop">Shop</a></li>
