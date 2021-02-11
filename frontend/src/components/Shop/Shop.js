@@ -10,7 +10,6 @@ import { listProducts } from '../../actions/productActions'
 
 const Shop = () => {
 
-    localStorage.clear();
     const [ imageIds, setImageIds ] = useState([]);
 
     const productList = useSelector(state => state.productList);
