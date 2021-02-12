@@ -1,0 +1,192 @@
+.modal-paiement-container {
+  position: absolute;
+  top: 0;
+  display: none;
+  z-index: 500;
+  width: 100vw;
+  min-height: 110vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 15px;
+}
+
+.modal-paiement-container .paiement-container {
+  position: absolute;
+  margin-left: 25vw;
+  margin-top: 3.5vh;
+  width: 50vw;
+  height: 85vh;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement {
+  width: 100%;
+  height: auto;
+  background-color: white;
+  padding-bottom: 3vh;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .title-recap {
+  text-align: center;
+  padding-top: 1vh;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .title-recap h2 {
+  font-family: Halyard;
+  font-size: 1.9rem;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap .totalPrice {
+  margin-top: 2vh;
+  text-align: right;
+  margin-right: 6vw;
+  font-family: Halyard;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul {
+  margin-left: 5vw;
+  padding-top: 0.1vh;
+  width: 40vw;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li {
+  list-style: none;
+  font-family: Halyard;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .nom-categorie-panier {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 3vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: gray;
+  font-size: 0.9rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .nom-categorie-panier h4 {
+  margin-bottom: 1vh;
+  font-weight: 100;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .nom-categorie-panier .nom-item-panier {
+  margin-right: 15vw;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .nom-categorie-panier .nom-item-panier .fa-times {
+  margin-right: 2vw;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: Halyard;
+  margin-top: 0.5vh;
+  font-size: 1rem;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 1vh;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .title-item-panier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30vw;
+  font-size: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .title-item-panier span {
+  margin-right: 1.7vw;
+  opacity: 0.5;
+  color: gray;
+  -webkit-transform: scale(1, 0.8);
+          transform: scale(1, 0.8);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .size-item-panier {
+  width: 19vw;
+  margin-left: 4vw;
+  text-align: center;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .qte-item-panier {
+  margin-left: 1vw;
+  width: 5vw;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .price-item-panier {
+  padding-left: 1vw;
+  text-align: center;
+  width: 10vw;
+}
+
+.modal-paiement-container .paiement-container .paiement-information {
+  background-color: white;
+  height: auto;
+  width: 30vw;
+  margin-left: 10.5vw;
+  margin-top: 5vh;
+  padding-bottom: 3vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+.modal-paiement-container .paiement-container .paiement-information .credit-card {
+  width: 18vw;
+  margin-left: 3vw;
+}
+
+.modal-paiement-container .paiement-container .paiement-information .credit-card .credit-card-information {
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+.modal-paiement-container .paiement-container .paiement-information .credit-card .credit-card-information h2 {
+  font-family: Halyard;
+  font-size: 1.9rem;
+}
+
+.modal-paiement-container .paiement-container .paiement-information .credit-card input {
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.modal-paiement-container .paiement-container .paiement-information .credit-card #inputExpDate {
+  margin-top: 2vh;
+  margin-left: 3vw;
+  margin-right: 2vw;
+  width: 4.7vw;
+}
+
+.modal-paiement-container .paiement-container .paiement-information .credit-card .cvv {
+  width: 3vw;
+}
+
+.modal-paiement-container .paiement-container .paiement-information .credit-card button {
+  margin-top: 2vh;
+  font-family: Halyard;
+  font-size: 1.5rem;
+  padding: 0.8rem;
+  color: white;
+  background-color: black;
+  width: 100%;
+}
+/*# sourceMappingURL=ModalPaiement.css.map */

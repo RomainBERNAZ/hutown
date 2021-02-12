@@ -1,6 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'cloudinary-react'
+
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+
+import ModalPaiement from '../ModalPaiement/ModalPaiement'
 import './Panier.css'
 
 const Panier = () => {
@@ -8,6 +13,8 @@ const Panier = () => {
     const [ imageIds, setImageIds ] = useState([]);
     const [ products, setProducts ] = useState([])
     
+    const stripePromise = loadStripe('pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA');
+
     let values = [], keys = Object.keys(localStorage), i = keys.length;
         while ( i-- ) {
             values.push( localStorage.getItem(keys[i]) );
@@ -48,16 +55,15 @@ const Panier = () => {
             console.error(err); 
         }
     };
-
     const deleteItemCart = (id, size) => {
         localStorage.removeItem(id+'/'+size);
         window.location.reload(false);
     }
 
-    //const setQteCart = (id, qte, size, price) => {
-    //    console.log(id, qte, size, price);
-    //    console.log('["'+id+'/'+qte+'-'+size+'*'+price+'"]'.toString(), 'test');
-    //}
+    const openModalPaiement = () => {
+        let modal = document.querySelector('.modal-paiement-container');
+        modal.style.display="block";
+    }
 
     const loadCart = async () => {
         try {
@@ -87,6 +93,9 @@ const Panier = () => {
  
     return (
         <div className="panier-container">
+            <Elements stripe={stripePromise}>
+                <ModalPaiement/>
+            </Elements>    
             <div className="liste-panier">
                   <h3>
                     PANIER
@@ -138,12 +147,15 @@ const Panier = () => {
                 }
                         </ul>
                       </div>
-                      { products.length === 0 ?
+        </div>
+    { products.length === 0 ?
                         '':    
-                <h3 className="totalPrice">
-                TOTAL : {sum} €
-                </h3>}
-    </div>
+                       <div className="validation-paiement">
+                            <h3 className="totalPrice">
+                            TOTAL : {sum} €
+                            </h3>
+                            <button className="btn-paiement" onClick={openModalPaiement}>PAIEMENT</button>
+                        </div>}
         </div>
     );
 };

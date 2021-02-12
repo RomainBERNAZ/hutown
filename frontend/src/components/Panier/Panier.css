@@ -14,13 +14,6 @@ input[type=number]::-webkit-outer-spin-button {
   width: 90vw;
 }
 
-.panier-container .liste-panier .totalPrice {
-  margin-top: 5vh;
-  font-size: 2.5rem;
-  margin-bottom: 3vh;
-  float: right;
-}
-
 .panier-container .liste-panier h3 {
   font-size: 2rem;
   -webkit-transform: translateX(5%);
@@ -134,6 +127,39 @@ input[type=number]::-webkit-outer-spin-button {
   width: 250px;
 }
 
+.panier-container .validation-paiement {
+  display: block;
+  width: 17vw;
+  margin-right: 5vw;
+  float: right;
+}
+
+.panier-container .validation-paiement .totalPrice {
+  margin-top: 5vh;
+  font-size: 2.5rem;
+  margin-bottom: 3vh;
+  float: right;
+}
+
+.panier-container .validation-paiement .btn-paiement {
+  margin-top: 1vh;
+  color: white;
+  font-family: Halyard;
+  background-color: black;
+  border: none;
+  padding: 1.1vw;
+  font-size: 1.3rem;
+  float: right;
+}
+
+.panier-container .validation-paiement h3 {
+  font-size: 2rem;
+  -webkit-transform: translateX(5%);
+          transform: translateX(5%);
+  text-align: left;
+  font-family: Grotesque;
+}
+
 @media screen and (max-width: 890px) {
   .panier-container {
     position: absolute;
@@ -170,6 +196,35 @@ input[type=number]::-webkit-outer-spin-button {
     height: 50px;
     width: 80px;
     margin-left: 2vw;
+  }
+  .panier-container .validation-paiement {
+    display: block;
+    width: 50vw;
+    margin-right: 5vw;
+    float: right;
+  }
+  .panier-container .validation-paiement .totalPrice {
+    margin-top: 5vh;
+    font-size: 1.3rem;
+    margin-bottom: 3vh;
+    float: right;
+  }
+  .panier-container .validation-paiement .btn-paiement {
+    margin-top: 1vh;
+    color: white;
+    font-family: Halyard;
+    background-color: black;
+    border: none;
+    padding: 1.5vw;
+    font-size: 1.1rem;
+    float: right;
+  }
+  .panier-container .validation-paiement h3 {
+    font-size: 2rem;
+    -webkit-transform: translateX(5%);
+            transform: translateX(5%);
+    text-align: left;
+    font-family: Grotesque;
   }
 }
 /*# sourceMappingURL=Panier.css.map */
