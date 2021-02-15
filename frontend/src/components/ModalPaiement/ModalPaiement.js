@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import {CardElement, ElementsConsumer, useStripe, useElements} from '@stripe/react-stripe-js';
+import { CardElement,useStripe,useElements } from "@stripe/react-stripe-js";
 import './ModalPaiement.css'
 
 
 const ModalPaiement = () => {
 
+    const [succeeded, setSucceeded] = useState(false);
+    const [error, setError] = useState(null);
+    const [processing, setProcessing] = useState('');
+    const [disabled, setDisabled] = useState(true);
+    const [clientSecret, setClientSecret] = useState('');
     const stripe = useStripe();
     const elements = useElements();
     const [ products, setProducts ] = useState([])
+
     let values = [], keys = Object.keys(localStorage), i = keys.length;
         while ( i-- ) {
             values.push( localStorage.getItem(keys[i]) );
@@ -58,45 +64,69 @@ const ModalPaiement = () => {
       }
   }
 
+  useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    window
+      .fetch("/api/pay", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({items: [{ id: "xl-tshirt" }]})
+      })
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        setClientSecret(data.clientSecret);
+      });
+      loadCart();
+  }, []);
 
-
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const {stripe, elements} = this.props;
-
-    if (!stripe || !elements) {
-      return;
-    }
-    const cardElement = elements.getElement(CardElement);
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
-      type: 'card',
-      card: cardElement,
-    });
-
-    if (error) {
-      console.log('[error]', error);
-    } else {
-      console.log('[PaymentMethod]', paymentMethod);
+  const cardStyle = {
+    style: {
+      base: {
+        color: "#32325d",
+        fontFamily: 'Arial, sans-serif',
+        fontSmoothing: "antialiased",
+        fontSize: "16px",
+        "::placeholder": {
+          color: "#32325d"
+        }
+      },
+      invalid: {
+        color: "#fa755a",
+        iconColor: "#fa755a"
+      }
     }
   };
-
-
-
-
-
-
-
-
-  useEffect(()  => {
-      loadCart();
-  }, [])
-
+  const handleChange = async (event) => {
+    // Listen for changes in the CardElement
+    // and display any errors as the customer types their card details
+    setDisabled(event.empty);
+    setError(event.error ? event.error.message : "");
+  };
+  const handleSubmit = async ev => {
+    ev.preventDefault();
+    setProcessing(true);
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)
+      }
+    });
+    if (payload.error) {
+      setError(`Payment failed ${payload.error.message}`);
+      setProcessing(false);
+    } else {
+      setError(null);
+      setProcessing(false);
+      setSucceeded(true);
+    }
+  };
+ 
 
     return (
         <div className="modal-paiement-container">
-
             <div className="paiement-container">
                 <div className="first-block-paiement">
                     <div className="paiement-recap">
@@ -142,32 +172,70 @@ const ModalPaiement = () => {
                             </h3>
                     </div>
                 </div>
-               <form className="paiement-information" onSubmit={handleSubmit}>
-                  <div className="credit-card">
-                  <div className="credit-card-information">
-                       <h2>COORDONNÉES BANCAIRE</h2>
-                   </div>
-                   <CardElement
-                        options={{
-                          style: {
-                            base: {
-                              fontSize: '16px',
-                              color: '#424770',
-                              '::placeholder': {
-                                color: '#aab7c4',
-                              },
-                            },
-                            invalid: {
-                              color: '#9e2146',
-                            },
-                          },
-                        }}
-                    />
-                    <button type="submit" disabled={!stripe}>
-                            Payer {sum}€
-                    </button>
-                  </div>
+                <form id="payment-form" className="paiement-information" onSubmit={handleSubmit}>
+                  <fieldset className="FormInformation">
+                    <div className="name-info">
+                      <h3>Nom & Prénom</h3>
+                      <input type="text" placeholder="Locke John"/>
+                    </div>
+                    <div className="country-info">
+                      <h3>Pays</h3>
+                      <select name="" id="">
+                        <option value="DEFAULT">Choisir une valeur</option>
+                        <option value="FRANCE">France</option>
+                        <option value="EUROPE">Europe</option>
+                        <option value="RESTE DU MONDE">Reste du monde</option>
+                      </select>
+                    </div>
+                    <div className="adresse-info">
+                      <h3>Adresse</h3>
+                      <input type="text" placeholder="N° et nom de rue"/>
+                      <input type="text" placeholder="Bâtiment, appartement, lot, etc. (facultatif)"/>
+                    </div>
+                    <div className="city-info">
+                      <h3>Ville</h3>
+                      <input type="text" placeholder="Nantes"/>
+                    </div>
+                    <div className="codepostal-info">
+                      <h3>Code Postal</h3>
+                      <input type="text" placeholder="44000"/>
+                    </div>
+                    <div className="mail-info">
+                      <h3>Email</h3>
+                      <input type="text" placeholder="mail@mail.com"/>
+                    </div>
+                  </fieldset>
+                  <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
+                  <button
+                    disabled={processing || disabled || succeeded}
+                    id="submit"
+                  >
+                    <span id="button-text">
+                      {processing ? (
+                        <div className="spinner" id="spinner"></div>
+                      ) : (
+                        "Pay now"
+                      )}
+                    </span>
+                  </button>
+                  {/* Show any error that happens when processing the payment */}
+                  {error && (
+                    <div className="card-error" role="alert">
+                      {error}
+                    </div>
+                  )}
+                  {/* Show a success message upon completion */}
+                  <p className={succeeded ? "result-message" : "result-message hidden"}>
+                    Payment succeeded, see the result in your
+                    <a
+                      href={`https://dashboard.stripe.com/test/payments`}
+                    >
+                      {" "}
+                      Stripe dashboard.
+                    </a> Refresh the page to pay again.
+                  </p>
                 </form>
+                
             </div>
         </div>
     );

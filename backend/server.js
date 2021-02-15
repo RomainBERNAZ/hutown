@@ -8,13 +8,17 @@ import userRoute from './routes/userRoute.js'
 import productRoute from './routes/productRoute.js';
 import pageRoute from './routes/pageRoute.js';
 import uploadRoute from './routes/uploadRoute.js'
+import paiementRoute from './routes/paiementRoute.js'
+import { createRequire } from 'module';
 
 dotenv.config();
+const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 5000;
 const app = express();
 const mongodbUrl = config.MONGODB_URL;
+
 
 mongoose.connect(process.env.MONGODB_URI || mongodbUrl, {
     useNewUrlParser: true,
@@ -28,13 +32,9 @@ app.use('/api/users', userRoute)
 app.use('/api', productRoute)
 app.use('/api', pageRoute)
 app.use('/api', uploadRoute)
-      
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('frontend/build'))
-    app.get('/*', (req, res) => {
-        res.sendFile('/app/frontend/build/index.html');
-    })
-}
+app.use('/api', paiementRoute)
+
+
 
 
 

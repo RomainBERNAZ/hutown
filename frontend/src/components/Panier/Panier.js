@@ -2,8 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'cloudinary-react'
 
-import {Elements} from '@stripe/react-stripe-js';
-import {loadStripe} from '@stripe/stripe-js';
 
 import ModalPaiement from '../ModalPaiement/ModalPaiement'
 import './Panier.css'
@@ -13,7 +11,6 @@ const Panier = () => {
     const [ imageIds, setImageIds ] = useState([]);
     const [ products, setProducts ] = useState([])
     
-    const stripePromise = loadStripe('pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA');
 
     let values = [], keys = Object.keys(localStorage), i = keys.length;
         while ( i-- ) {
@@ -93,9 +90,7 @@ const Panier = () => {
  
     return (
         <div className="panier-container">
-            <Elements stripe={stripePromise}>
                 <ModalPaiement/>
-            </Elements>    
             <div className="liste-panier">
                   <h3>
                     PANIER

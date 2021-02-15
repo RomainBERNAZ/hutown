@@ -43,5 +43,3 @@ router.post('/products', async (req, res) => {
     return res.status(500).send({ message: 'Erreur dans la création du produit'})
 })
 
-
-export default router;
