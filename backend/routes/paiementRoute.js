@@ -22,3 +22,5 @@ router.post("/pay", async (req, res) => {
       clientSecret: paymentIntent.client_secret
     });
   });
+
+  export default router;
