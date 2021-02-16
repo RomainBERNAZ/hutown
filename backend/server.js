@@ -12,7 +12,6 @@ import paiementRoute from './routes/paiementRoute.js'
 import { createRequire } from 'module';
 
 dotenv.config();
-const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 5000;
@@ -35,7 +34,12 @@ app.use('/api', uploadRoute)
 app.use('/api', paiementRoute)
 
 
-
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('frontend/build'))
+    app.get('/*', (req, res) => {
+        res.sendFile('/app/frontend/build/index.html');
+    })
+}
 
 
 app.listen(PORT, () => {console.log("Le serveur a bien démarré sur le port 5000")});
