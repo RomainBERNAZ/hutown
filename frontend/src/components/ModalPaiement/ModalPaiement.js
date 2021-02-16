@@ -216,38 +216,6 @@ const ModalPaiement = () => {
                     </div>
                 </div>
                 <form id="payment-form" className="paiement-information" onSubmit={handleFormSubmit}>
-                  <fieldset className="FormInformation">
-                    <div className="name-info">
-                      <h3>Nom & Prénom</h3>
-                      <input type="text" placeholder="Locke John"/>
-                    </div>
-                    <div className="country-info">
-                      <h3>Pays</h3>
-                      <select name="" id="">
-                        <option value="DEFAULT">Choisir une valeur</option>
-                        <option value="FRANCE">France</option>
-                        <option value="EUROPE">Europe</option>
-                        <option value="RESTE DU MONDE">Reste du monde</option>
-                      </select>
-                    </div>
-                    <div className="adresse-info">
-                      <h3>Adresse</h3>
-                      <input type="text" placeholder="N° et nom de rue"/>
-                      <input type="text" placeholder="Bâtiment, appartement, lot, etc. (facultatif)"/>
-                    </div>
-                    <div className="city-info">
-                      <h3>Ville</h3>
-                      <input type="text" placeholder="Nantes"/>
-                    </div>
-                    <div className="codepostal-info">
-                      <h3>Code Postal</h3>
-                      <input type="text" placeholder="44000"/>
-                    </div>
-                    <div className="mail-info">
-                      <h3>Email</h3>
-                      <input type="text" placeholder="mail@mail.com"/>
-                    </div>
-                  </fieldset>
                   <Row>
                    <BillingDetailsFields />
                  </Row>
@@ -263,7 +231,7 @@ const ModalPaiement = () => {
                  <Row>
                    {/* TIP always disable your submit button while processing payments */}
                    <SubmitButton disabled={isProcessing || !stripe}>
-                     {isProcessing ? "Processing..." : `Pay $${sum}`}
+                     {isProcessing ? "Processing..." : `Payer ${sum}€`}
                    </SubmitButton>
                  </Row>
                 </form>

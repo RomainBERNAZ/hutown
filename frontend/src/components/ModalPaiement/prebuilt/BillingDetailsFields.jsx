@@ -5,44 +5,51 @@ const BillingDetailsFields = () => {
     <>
       <FormField
         name="name"
-        label="Name"
+        label="Nom - Prénom"
         type="text"
-        placeholder="Jane Doe"
+        placeholder="Locke John"
         required
       />
       <FormField
         name="email"
         label="Email"
         type="email"
-        placeholder="jane.doe@example.com"
+        placeholder="johnlocke@example.com"
         required
       />
       <FormField
         name="address"
-        label="Address"
+        label="Addresse"
         type="text"
-        placeholder="185 Berry St. Suite 550"
+        placeholder="Sur une île, au milieu de l'océan"
+        required
+      />
+      <FormField
+        name="address"
+        label="Informations complémentaires"
+        type="text"
+        placeholder="Bâtiment, lot etc. (facultatif)"
         required
       />
       <FormField
         name="city"
-        label="City"
+        label="Ville"
         type="text"
-        placeholder="San Francisco"
+        placeholder="Sydney"
         required
       />
       <FormField
         name="state"
-        label="State"
+        label="Pays"
         type="text"
-        placeholder="California"
+        placeholder="Australie"
         required
       />
       <FormField
         name="zip"
-        label="ZIP"
+        label="Code Postal"
         type="text"
-        placeholder="94103"
+        placeholder="75000"
         required
       />
     </>
