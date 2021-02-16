@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
+
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
@@ -18,11 +19,9 @@ import GuestPage from './components/GuestPage/GuestPage'
 import ThirdPage from './components/ThirdPage/ThirdPage'
 import Panier from './components/Panier/Panier';
 
-const promise = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");
-
 
 function App() {
-
+  const promise = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");
 
   const userLogin = useSelector(state => state.userLogin);
   const {userInfo} =userLogin;

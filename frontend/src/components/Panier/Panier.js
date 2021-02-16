@@ -93,7 +93,7 @@ const Panier = () => {
                 <ModalPaiement/>
             <div className="liste-panier">
                   <h3>
-                    PANIER
+                    PANIER {process.env.REACT_APP_SECRET_KEY}
                   </h3>
                       <div className="liste-item" >
                         <ul>
