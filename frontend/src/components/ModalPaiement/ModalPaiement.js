@@ -7,6 +7,7 @@ import BillingDetailsFields from "./prebuilt/BillingDetailsFields";
 import SubmitButton from "./prebuilt/SubmitButton";
 import CheckoutError from "./prebuilt/CheckoutError";
 import './ModalPaiement.css'
+import Rowcard from './prebuilt/Rowcard';
 
 const CardElementContainer = styled.div`
   height: 40px;
@@ -21,6 +22,7 @@ const CardElementContainer = styled.div`
 
 const ModalPaiement = () => {
 
+    const [isPaid, setIsPaid] = useState(false);
     const [isProcessing, setProcessingTo] = useState(false);
     const [checkoutError, setCheckoutError] = useState();
 
@@ -121,6 +123,8 @@ const ModalPaiement = () => {
         payment_method: paymentMethodReq.paymentMethod.id
       });
 
+      setIsPaid(true);
+
       if (error) {
         setCheckoutError(error.message);
         setProcessingTo(false);
@@ -134,11 +138,11 @@ const ModalPaiement = () => {
 
   const iframeStyles = {
     base: {
-      color: "#fff",
+      color: "black",
       fontSize: "16px",
-      iconColor: "#fff",
+      iconColor: "gray",
       "::placeholder": {
-        color: "#87bbfd"
+        color: "gray"
       }
     },
     invalid: {
@@ -216,17 +220,18 @@ const ModalPaiement = () => {
                     </div>
                 </div>
                 <form id="payment-form" className="paiement-information" onSubmit={handleFormSubmit}>
+                  <h3>INFORMATIONS PERSONNELLES</h3>
                   <Row>
                    <BillingDetailsFields />
                  </Row>
-                 <Row>
+                 <Rowcard>
                    <CardElementContainer>
                      <CardElement
                        options={cardElementOpts}
                        onChange={handleCardDetailsChange}
                      />
                    </CardElementContainer>
-                 </Row>
+                 </Rowcard>
                  {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
                  <Row>
                    {/* TIP always disable your submit button while processing payments */}

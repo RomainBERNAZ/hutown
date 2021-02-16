@@ -18,7 +18,6 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 const mongodbUrl = config.MONGODB_URL;
 
-
 mongoose.connect(process.env.MONGODB_URI || mongodbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
