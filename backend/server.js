@@ -1,6 +1,5 @@
 import express from 'express';
 import config from './config.js'
-import dotenv from 'dotenv';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose'
@@ -11,7 +10,6 @@ import uploadRoute from './routes/uploadRoute.js'
 import paiementRoute from './routes/paiementRoute.js'
 import { createRequire } from 'module';
 
-dotenv.config();
 const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
