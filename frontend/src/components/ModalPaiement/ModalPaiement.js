@@ -22,7 +22,6 @@ const CardElementContainer = styled.div`
 
 const ModalPaiement = () => {
 
-    const [isPaid, setIsPaid] = useState(false);
     const [isProcessing, setProcessingTo] = useState(false);
     const [checkoutError, setCheckoutError] = useState();
 
@@ -80,6 +79,13 @@ const ModalPaiement = () => {
       }
   }
 
+  const closeModalPaiement = () => {
+    let modal = document.querySelector('.modal-paiement-container');
+    modal.style.display="none";
+    localStorage.clear();
+    window.location.reload(false);
+}
+
   const handleCardDetailsChange = ev => {
     ev.error ? setCheckoutError(ev.error.message) : setCheckoutError();
   };
@@ -104,7 +110,8 @@ const ModalPaiement = () => {
 
     try {
       const { data: clientSecret } = await axios.post("/api/pay", {
-        amount: sum * 100
+        amount: sum * 100,
+        receipt_email: ev.target.email.value 
       });
 
       const paymentMethodReq = await stripe.createPaymentMethod({
@@ -122,8 +129,9 @@ const ModalPaiement = () => {
       const { error } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: paymentMethodReq.paymentMethod.id
       });
+      
+      closeModalPaiement();
 
-      setIsPaid(true);
 
       if (error) {
         setCheckoutError(error.message);
@@ -164,9 +172,6 @@ const ModalPaiement = () => {
 
 
   useEffect(() => {
-    const { REACT_APP_PUBLISHABLE_KEY } = process.env;
-    console.log(REACT_APP_PUBLISHABLE_KEY, 'process');
-    console.log(process.env);
       loadCart();
   }, []);
 

@@ -12,7 +12,6 @@ const Gestion = () => {
     const [ category, setCategory ] = useState('');
     const [ pages, setPages ] = useState([]);
     const [ id, setId ] = useState('');
-
     const dispatch = useDispatch();
 
     const handleListPage = async (e) => {
@@ -25,7 +24,6 @@ const Gestion = () => {
             console.error(err);
         }
     };
-
     const updateInfoPage = async (e) => {
             try {
                 e.preventDefault()
@@ -34,10 +32,6 @@ const Gestion = () => {
             } catch (error) {
                 console.log(error);
             }
-
-
-        console.log(title, description, category);
-
     }
 
     useEffect(() => {
