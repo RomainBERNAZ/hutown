@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
-
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
