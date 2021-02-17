@@ -146,7 +146,7 @@ const Product = (props) => {
                     </div>
                     <div className="details-price">
                         {defaultPrice ?
-                        <span>{defaultPrice} €</span>:''
+                        <span>{defaultPrice * qte} €</span>:''
                         }
                     </div>
                     <p className="product-description">{products.description}</p>

@@ -300,4 +300,277 @@
     width: 80vw;
   }
 }
+
+@media screen and (max-width: 890px) {
+  .modal-paiement-container {
+    position: absolute;
+    top: 0;
+    display: none;
+    z-index: 500;
+    width: 100vw;
+    min-height: 130vh;
+    background-color: white;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-right: 15px;
+  }
+  .modal-paiement-container .paiement-container {
+    position: absolute;
+    margin-left: 0vw;
+    margin-top: 20vh;
+    width: 100vw;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    padding-bottom: 3vh;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .title-recap {
+    text-align: center;
+    padding-top: 1vh;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .title-recap h2 {
+    font-family: Halyard;
+    font-size: 1.9rem;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap .totalPrice {
+    margin-top: 2vh;
+    text-align: right;
+    margin-right: 1vw;
+    font-family: Halyard;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul {
+    margin-left: 5vw;
+    padding-top: 0.1vh;
+    width: 90vw;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li {
+    list-style: none;
+    font-family: Halyard;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .nom-categorie-panier {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    margin-top: 3vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: gray;
+    font-size: 0.9rem;
+    border-bottom: 1px solid lightgray;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .nom-categorie-panier h4 {
+    margin-bottom: 1vh;
+    font-weight: 100;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .nom-categorie-panier .nom-item-panier {
+    margin-right: 15vw;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .nom-categorie-panier .nom-item-panier .fa-times {
+    margin-right: 2vw;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: Halyard;
+    margin-top: 0.5vh;
+    font-size: 1rem;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 1vh;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .title-item-panier {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 30vw;
+    font-size: 1rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .title-item-panier span {
+    margin-right: 1.7vw;
+    opacity: 0.5;
+    color: gray;
+    -webkit-transform: scale(1, 0.8);
+            transform: scale(1, 0.8);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .size-item-panier {
+    width: 19vw;
+    margin-left: 4vw;
+    text-align: center;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .qte-item-panier {
+    margin-left: 1vw;
+    width: 5vw;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .price-item-panier {
+    padding-left: 1vw;
+    text-align: center;
+    width: 10vw;
+  }
+  .modal-paiement-container .paiement-container .paiement-information {
+    background-color: white;
+    height: auto;
+    width: 120vw;
+    margin-left: -10vw;
+    margin-top: 5vh;
+    padding: 3vh;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    /* Buttons and links */
+    /* spinner/processing state, errors */
+  }
+  .modal-paiement-container .paiement-container .paiement-information h3 {
+    text-align: center;
+    font-size: 1.9rem;
+  }
+  .modal-paiement-container .paiement-container .paiement-information .result-message {
+    line-height: 22px;
+    font-size: 16px;
+  }
+  .modal-paiement-container .paiement-container .paiement-information .result-message a {
+    color: #596fd6;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .modal-paiement-container .paiement-container .paiement-information .hidden {
+    display: none;
+  }
+  .modal-paiement-container .paiement-container .paiement-information #card-error {
+    color: #697386;
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 12px;
+    text-align: center;
+  }
+  .modal-paiement-container .paiement-container .paiement-information #card-element {
+    border-radius: 4px 4px 0 0;
+    padding: 12px;
+    border: 1px solid rgba(50, 50, 93, 0.1);
+    max-height: 44px;
+    width: 100%;
+    background: white;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .modal-paiement-container .paiement-container .paiement-information #payment-request-button {
+    margin-bottom: 32px;
+  }
+  .modal-paiement-container .paiement-container .paiement-information button {
+    background-color: black;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    border-radius: 0 0 4px 4px;
+    border: 0;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    -webkit-box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+            box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+    width: 100%;
+  }
+  .modal-paiement-container .paiement-container .paiement-information button:hover {
+    -webkit-filter: contrast(115%);
+            filter: contrast(115%);
+  }
+  .modal-paiement-container .paiement-container .paiement-information button:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  .modal-paiement-container .paiement-container .paiement-information .spinner,
+  .modal-paiement-container .paiement-container .paiement-information .spinner:before,
+  .modal-paiement-container .paiement-container .paiement-information .spinner:after {
+    border-radius: 50%;
+  }
+  .modal-paiement-container .paiement-container .paiement-information .spinner {
+    color: #ffffff;
+    font-size: 22px;
+    text-indent: -99999px;
+    margin: 0px auto;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    -webkit-box-shadow: inset 0 0 0 2px;
+            box-shadow: inset 0 0 0 2px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  .modal-paiement-container .paiement-container .paiement-information .spinner:before,
+  .modal-paiement-container .paiement-container .paiement-information .spinner:after {
+    position: absolute;
+    content: "";
+  }
+  .modal-paiement-container .paiement-container .paiement-information .spinner:before {
+    width: 10.4px;
+    height: 20.4px;
+    background: #5469d4;
+    border-radius: 20.4px 0 0 20.4px;
+    top: -0.2px;
+    left: -0.2px;
+    -webkit-transform-origin: 10.4px 10.2px;
+    transform-origin: 10.4px 10.2px;
+    -webkit-animation: loading 2s infinite ease 1.5s;
+    animation: loading 2s infinite ease 1.5s;
+  }
+  .modal-paiement-container .paiement-container .paiement-information .spinner:after {
+    width: 10.4px;
+    height: 10.2px;
+    background: #5469d4;
+    border-radius: 0 10.2px 10.2px 0;
+    top: -0.1px;
+    left: 10.2px;
+    -webkit-transform-origin: 0px 10.2px;
+    transform-origin: 0px 10.2px;
+    -webkit-animation: loading 2s infinite ease;
+    animation: loading 2s infinite ease;
+  }
+  @-webkit-keyframes loading {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes loading {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@media only screen and (max-width: 890px) and (max-width: 600px) {
+  .modal-paiement-container .paiement-container .paiement-information form {
+    width: 80vw;
+  }
+}
 /*# sourceMappingURL=ModalPaiement.css.map */

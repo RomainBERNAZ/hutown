@@ -1,0 +1,50 @@
+@-webkit-keyframes loading {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+@keyframes loading {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.success-container {
+  position: absolute;
+  left: 15vw;
+  display: none;
+  top: 45vh;
+  z-index: 3000;
+  height: 12vh;
+  width: 20vw;
+  background-color: black;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  font-family: Halyard;
+  font-size: 1.7rem;
+}
+
+.success-container div {
+  top: 0.5rem;
+  position: absolute;
+  height: 1vh;
+  width: 95%;
+  background-color: white;
+  -webkit-animation: loading 2s linear;
+          animation: loading 2s linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+/*# sourceMappingURL=SuccessPayment.css.map */

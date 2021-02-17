@@ -8,6 +8,8 @@ import SubmitButton from "./prebuilt/SubmitButton";
 import CheckoutError from "./prebuilt/CheckoutError";
 import './ModalPaiement.css'
 import Rowcard from './prebuilt/Rowcard';
+import ErrorPayment from './ErrorPayment';
+import SuccessPayment from './SuccessPayment';
 
 const CardElementContainer = styled.div`
   height: 40px;
@@ -80,10 +82,13 @@ const ModalPaiement = () => {
   }
 
   const closeModalPaiement = () => {
+    document.querySelector('.success-container').style.display="flex"
+    setTimeout(() => {
     let modal = document.querySelector('.modal-paiement-container');
     modal.style.display="none";
     localStorage.clear();
-    window.location.reload(false);
+      window.location.reload(false);
+    }, 2050);
 }
 
   const handleCardDetailsChange = ev => {
@@ -111,7 +116,7 @@ const ModalPaiement = () => {
     try {
       const { data: clientSecret } = await axios.post("/api/pay", {
         amount: sum * 100,
-        receipt_email: ev.target.email.value 
+        receipt_email: billingDetails.email
       });
 
       const paymentMethodReq = await stripe.createPaymentMethod({
@@ -224,6 +229,8 @@ const ModalPaiement = () => {
                             </h3>
                     </div>
                 </div>
+                <ErrorPayment/>
+                <SuccessPayment/>
                 <form id="payment-form" className="paiement-information" onSubmit={handleFormSubmit}>
                   <h3>INFORMATIONS PERSONNELLES</h3>
                   <Row>
