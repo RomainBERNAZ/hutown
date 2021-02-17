@@ -108,7 +108,7 @@
   }
   .first-photo .btn-to-top a {
     mix-blend-mode: difference;
-    color: black;
+    color: white;
     border: none;
   }
   .first-photo .btn-to-top a i {

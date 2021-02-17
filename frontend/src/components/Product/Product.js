@@ -25,6 +25,7 @@ const Product = (props) => {
     const {loading : loadingDelete, success: successDelete, error: errorDelete} = productDelete;
 
     const [ defaultPrice, setDefaultPrice ] = useState('')
+    const mql = window.matchMedia('(max-width: 600px)');
 
 
     const deleteImage = async (imageId) => {
@@ -91,13 +92,8 @@ const Product = (props) => {
         let cartList = []
         let key = id+'/'+size;
         cartList.push(id+'/'+qte+'-'+size+'*'+defaultPrice);
-
         localStorage.getItem(key)
-        console.log(key);
-
         localStorage.setItem(key, JSON.stringify(cartList));
-        console.log(localStorage, 'test local');
-        console.log(localStorage.getItem(id));
         msgCart.style.opacity=1;
         setTimeout(() => {
             window.location.reload(false);
@@ -142,7 +138,7 @@ const Product = (props) => {
                             <option value="priceL">30x45</option>
                             <option value="priceXl">40x60</option>
                         </select>
-                        <span>QUANTITÉ : </span><input type="number" defaultValue='1' min='0' onChange={(e) => setQte(e.target.value)}/>
+                        <span>QUANTITÉ : </span> { mql.matches ? <input inputmode="numeric" pattern="[0-9]*" type="text" defaultValue='1' min='0' onChange={(e) => setQte(e.target.value)}/> : <input type="number" defaultValue='1' min='0' onChange={(e) => setQte(e.target.value)}/> }
                     </div>
                     <div className="details-price">
                         {defaultPrice ?

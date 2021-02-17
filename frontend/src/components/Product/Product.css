@@ -152,12 +152,13 @@
     -webkit-transition: 0.5s linear;
     transition: 0.5s linear;
     opacity: 0;
+    width: 90%;
     position: absolute;
     left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-    top: 50%;
-    font-size: 1.5rem;
+    top: 10%;
+    font-size: 0.6rem;
     background-color: whitesmoke;
     border: 2px solid black;
     padding: 2rem;

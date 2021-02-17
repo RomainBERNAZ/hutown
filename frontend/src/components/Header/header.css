@@ -121,6 +121,8 @@
 }
 
 .mobile-container .navbar-mobile {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
   position: absolute;
   z-index: 4;
   overflow: hidden;

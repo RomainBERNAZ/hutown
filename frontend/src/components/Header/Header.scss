@@ -99,6 +99,7 @@
 //AFFICHAGE DE LA VERSION MOBILE
 .mobile-container{
 .navbar-mobile{
+    touch-action: manipulation;
     position: absolute;
     z-index: 4;
     overflow: hidden;
