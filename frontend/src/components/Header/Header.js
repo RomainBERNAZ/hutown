@@ -26,11 +26,7 @@ const Header = () => {
             setTimeout(function(){
             menu.style.opacity = '1'},100)
           }
-
     }
-
-
-
     useEffect(() => {
       if (mql.matches) {
           document.querySelector('.navbar').style.display="none"
@@ -56,7 +52,8 @@ const Header = () => {
         <div>
         <div className="navbar">
             <div className="logo">
-               <a id="logo-mobile" href='/'>HIPPOLYTHE</a> 
+               <a id="logo-mobile" href='/'>HIPPOLYTHE</a>
+               <h2>"Artistic Platform"</h2>
             </div>
             <ul className="nav">
                 <li><a title="Notre travail" href='/'>Notre travail</a></li>
@@ -75,7 +72,8 @@ const Header = () => {
         <div className="mobile-container">
             <div className="navbar-mobile" id='navbar-mobile'>
                 <div className="logo-mobile">
-                   <a href='/'>HIPPOLYTHE</a> 
+                   <a href='/'>HIPPOLYTHE</a>
+                   <h2>"Artistic Platform"</h2>
                 </div>
             </div>
             

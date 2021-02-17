@@ -33,6 +33,19 @@
         }
        }
     }
+    .btn-to-top{
+        position: fixed;
+        right: 3.5%;
+        bottom: 5%;
+        a{
+            mix-blend-mode: difference;
+            color: black;
+            border: none;
+            i{
+                font-size: 4rem;
+            }
+        }
+    }
 }
 @media screen and (max-width: 890px) {
 
@@ -72,6 +85,19 @@
                 width: 95vw;
             }
            }
+        }
+        .btn-to-top{
+            position: fixed;
+            right: 8%;
+            bottom: 3%;
+            a{
+                mix-blend-mode: difference;
+                color: black;
+                border: none;
+                i{
+                    font-size: 2rem;
+                }
+            }
         }
     }
 

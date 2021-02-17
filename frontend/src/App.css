@@ -19,4 +19,8 @@
 body {
   overflow-x: hidden;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 /*# sourceMappingURL=App.css.map */

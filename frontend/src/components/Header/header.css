@@ -24,6 +24,8 @@
   margin: 2vw;
   font-weight: 700;
   line-height: 1.2em;
+  display: block;
+  width: 30vw;
   letter-spacing: 0em;
   font-size: 3.6rem;
   mix-blend-mode: difference;
@@ -33,6 +35,12 @@
 .navbar .logo a {
   text-decoration: none;
   color: white;
+}
+
+.navbar .logo h2 {
+  font-size: 1.5rem;
+  margin-left: 9vw;
+  margin-top: -1vh;
 }
 
 .navbar .nav {
@@ -116,7 +124,7 @@
   position: absolute;
   z-index: 4;
   overflow: hidden;
-  height: 10vh;
+  height: 15vh;
   width: 100vw;
 }
 
@@ -134,6 +142,12 @@
 .mobile-container .navbar-mobile .logo-mobile a {
   text-decoration: none;
   color: black;
+}
+
+.mobile-container .navbar-mobile .logo-mobile h2 {
+  font-size: 1rem;
+  margin-top: -1.5vh;
+  margin-left: 14vw;
 }
 
 .mobile-container li {

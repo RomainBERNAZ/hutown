@@ -62,8 +62,9 @@ const FirstPhoto = () => {
                 }
                      )}
                      </div>
-            
-            
+            <div className="btn-to-top">
+                <a href="#"><i className="fas fa-arrow-up"></i></a>
+            </div>
         </div>
     );
 };
