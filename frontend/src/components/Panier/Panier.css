@@ -22,6 +22,29 @@ input[type=number]::-webkit-outer-spin-button {
   font-family: Grotesque;
 }
 
+.panier-container .liste-panier .liste-item ul .empty-cart {
+  width: 25vw;
+  margin-left: 35vw;
+  display: block;
+  margin-top: 20vh;
+  font-family: Halyard;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.panier-container .liste-panier .liste-item ul .empty-cart h2 {
+  width: 100%;
+}
+
+.panier-container .liste-panier .liste-item ul .empty-cart h2 i {
+  color: black;
+  margin-left: 0.5vw;
+}
+
+.panier-container .liste-panier .liste-item ul .empty-cart h2 i:hover {
+  color: gray;
+}
+
 .panier-container .liste-panier .liste-item ul li {
   -webkit-transform: translateX(5%);
           transform: translateX(5%);

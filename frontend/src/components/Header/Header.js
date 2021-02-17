@@ -11,6 +11,8 @@ const Header = () => {
     const {userInfo} =userLogin;
     const dispatch = useDispatch();
 
+
+
     //Gestion de la déconnexion de l'utilisateur.
     const handleLogout = () => {
         dispatch(logout());
@@ -24,7 +26,8 @@ const Header = () => {
           } else {
             menu.style.display='block'
             setTimeout(function(){
-            menu.style.opacity = '1'},100)
+            menu.style.opacity = '1';
+        },100)
           }
     }
     useEffect(() => {

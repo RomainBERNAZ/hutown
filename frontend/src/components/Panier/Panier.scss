@@ -17,6 +17,25 @@ input[type=number]::-webkit-outer-spin-button {
         }
         .liste-item{
            ul{
+               .empty-cart{
+                   width: 25vw;
+                   margin-left: 35vw;
+                   display: block;
+                   margin-top: 20vh;
+                   font-family: Halyard;
+                   text-align: center;
+                   font-size: 1.8rem;
+                   h2{
+                       width: 100%;
+                       i{
+                           color: black;
+                           margin-left: 0.5vw;
+                           &:hover{
+                               color: gray;
+                           }
+                       }
+                   }
+               }
                li{
                    transform: translateX(5%);
                    list-style: none;

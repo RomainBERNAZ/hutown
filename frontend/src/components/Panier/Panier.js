@@ -84,6 +84,7 @@ const Panier = () => {
     }
  
     useEffect(()  => {
+        console.log(values);
         loadCart();
         loadImages();
     }, [])
@@ -93,11 +94,11 @@ const Panier = () => {
                 <ModalPaiement/>
             <div className="liste-panier">
                   <h3>
-                    PANIER {process.env.REACT_APP_SECRET_KEY}
+                    PANIER
                   </h3>
                       <div className="liste-item" >
                         <ul>
-                        { products.length === 0 ?
+                        { values.length === 0 ?
                         '':
                             <li>
                                 <div className="nom-categorie-panier">
@@ -108,8 +109,12 @@ const Panier = () => {
                                     <h4 className="prix-item-panier">PRIX</h4>
                                 </div>
                             </li>}
-                            { products.length === 0 ?
-                            <div>Le panier est vide</div>
+                            { values.length === 0 ?
+                            <div className="empty-cart">
+                                <h2>Votre panier est vide</h2>
+                                <h2>Venez visiter notre shop !</h2>
+                                <h2>C'est par ici <a href="/shop"><i className="fas fa-store"></i></a></h2>
+                            </div>
                             : products.map(item =>
                             <li className="ligne-item" key={Math.floor(Math.random() * Math.floor(15000))}>
                                 <div className="liste-item-panier">
@@ -143,7 +148,7 @@ const Panier = () => {
                         </ul>
                       </div>
         </div>
-    { products.length === 0 ?
+    { values.length === 0 ?
                         '':    
                        <div className="validation-paiement">
                             <h3 className="totalPrice">
