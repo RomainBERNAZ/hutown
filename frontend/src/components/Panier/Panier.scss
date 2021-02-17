@@ -18,7 +18,7 @@ input[type=number]::-webkit-outer-spin-button {
         .liste-item{
            ul{
                .empty-cart{
-                   width: 25vw;
+                   width: 30vw;
                    margin-left: 35vw;
                    display: block;
                    margin-top: 20vh;
@@ -153,9 +153,29 @@ input[type=number]::-webkit-outer-spin-button {
                 font-size: 1.5rem;
             }
             h3{
+                text-align: center;
             }
             .liste-item{
                ul{
+                .empty-cart{
+                    width: 90vw;
+                    margin-left: 5vw;
+                    display: block;
+                    margin-top: 20vh;
+                    font-family: Halyard;
+                    text-align: center;
+                    font-size: 1.1rem;
+                    h2{
+                        width: 100%;
+                        i{
+                            color: black;
+                            margin-left: 0.5vw;
+                            &:hover{
+                                color: gray;
+                            }
+                        }
+                    }
+                }
                    li{
                        .nom-categorie-panier{
                         

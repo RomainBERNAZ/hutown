@@ -32,3 +32,35 @@
         animation-fill-mode: forwards;
     }
 }
+@media screen and (max-width: 890px) {
+    .success-container{
+        position: absolute;
+        left: 10vw;
+        display: none;
+        top: 85vh;
+        z-index: 3000;
+        height: 12vh;
+        width: 80vw;
+        background-color: black;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: Halyard;
+        font-size: 1.1rem;
+        h2{
+            margin-top: 3vh;
+            text-align: center;
+        }
+        div{
+            top: 0.5rem;
+            position: absolute;
+            height: 1vh;
+            width: 95%;
+            background-color: white;
+            animation: loading 2s linear;
+            animation-fill-mode: forwards;
+        }
+    }
+
+
+}

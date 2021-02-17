@@ -100,7 +100,6 @@
 .mobile-container{
 .navbar-mobile{
     touch-action: manipulation;
-    mix-blend-mode: difference;
     position: absolute;
     z-index: 4;
     height: 15vh;
@@ -117,13 +116,14 @@
         font-size: 2rem;
         a{
             text-decoration: none;
-            color: white;
+            mix-blend-mode: difference;
+            color: black;
         }
         h2{
             font-size: 1rem;
             margin-top: -1.5vh;
             margin-left: 14vw;
-            color: white;
+            color: black;
         }
     }
 }

@@ -240,14 +240,15 @@
     position: absolute;
     top: 0;
     display: none;
-    z-index: 500; 
+    background-color: white;
+    z-index: 3; 
     width: 100vw;
     min-height: 130vh;
-    background-color:white;
     justify-content: center;
     align-items: center;
     padding-right: 15px;
     .paiement-container{
+        background-color: white;
         position: absolute;
         margin-left: 0vw;
         margin-top: 20vh;
@@ -274,9 +275,8 @@
                     font-family: Halyard;
                 }
                 ul{
-                    
                     margin-left:5vw;
-                    padding-top: 0.1vh;
+                    padding-top: 3vh;
                     width: 90vw;
                     li{
                         list-style: none;
@@ -290,7 +290,7 @@
                          font-size: 0.9rem;
                          border-bottom: 1px solid lightgray;
                          h4{
-                             margin-bottom: 1vh;
+                             margin-bottom: 2vh;
                              font-weight: 100;
                          }
                          .nom-item-panier{
@@ -310,7 +310,7 @@
                              padding-bottom: 1vh;
                              .title-item-panier{
                                  display: flex;
-                                 width: 30vw;
+                                 width: 37vw;
                                  font-size: 1rem;
                                  align-items: center;
                                  span{
@@ -322,22 +322,26 @@
                                  }
                              }
                              .size-item-panier{
-                                 width:19vw ;
-                                 margin-left: 4vw;
+                                 width:28vw ;
+                                 margin-left: -1vw;
                                  text-align: center;
                              }
                              .qte-item-panier{
-                                 margin-left: 1vw;
+                                 margin-left: 2vw;
                                  width:5vw ;
                              }
                              .price-item-panier{
-                                 padding-left: 1vw;
+                                 padding-left: 6vw;
                                  text-align: center;
-                                 width: 10vw;
+                                 width: 21vw;
                              }
                         }
                     }
                     
+                }
+                .totalPrice{
+                  font-size: 1rem;
+                  margin-right: 6vw;
                 }
             }
         }

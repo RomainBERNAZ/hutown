@@ -27,7 +27,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className="App" id="App">
         <Elements stripe={promise}>
           <Cursor />
           <Header/>

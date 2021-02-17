@@ -306,10 +306,10 @@
     position: absolute;
     top: 0;
     display: none;
-    z-index: 500;
+    background-color: white;
+    z-index: 3;
     width: 100vw;
     min-height: 130vh;
-    background-color: white;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -319,6 +319,7 @@
     padding-right: 15px;
   }
   .modal-paiement-container .paiement-container {
+    background-color: white;
     position: absolute;
     margin-left: 0vw;
     margin-top: 20vh;
@@ -349,7 +350,7 @@
   }
   .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul {
     margin-left: 5vw;
-    padding-top: 0.1vh;
+    padding-top: 3vh;
     width: 90vw;
   }
   .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li {
@@ -371,7 +372,7 @@
     border-bottom: 1px solid lightgray;
   }
   .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .nom-categorie-panier h4 {
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     font-weight: 100;
   }
   .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .nom-categorie-panier .nom-item-panier {
@@ -397,7 +398,7 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 30vw;
+    width: 37vw;
     font-size: 1rem;
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -412,18 +413,22 @@
     font-family: Arial, Helvetica, sans-serif;
   }
   .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .size-item-panier {
-    width: 19vw;
-    margin-left: 4vw;
+    width: 28vw;
+    margin-left: -1vw;
     text-align: center;
   }
   .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .qte-item-panier {
-    margin-left: 1vw;
+    margin-left: 2vw;
     width: 5vw;
   }
   .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap ul li .liste-item-panier .price-item-panier {
-    padding-left: 1vw;
+    padding-left: 6vw;
     text-align: center;
-    width: 10vw;
+    width: 21vw;
+  }
+  .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap .totalPrice {
+    font-size: 1rem;
+    margin-right: 6vw;
   }
   .modal-paiement-container .paiement-container .paiement-information {
     background-color: white;

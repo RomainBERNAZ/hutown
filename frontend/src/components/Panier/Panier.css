@@ -23,7 +23,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .panier-container .liste-panier .liste-item ul .empty-cart {
-  width: 25vw;
+  width: 30vw;
   margin-left: 35vw;
   display: block;
   margin-top: 20vh;
@@ -193,6 +193,28 @@ input[type=number]::-webkit-outer-spin-button {
   }
   .panier-container .liste-panier .totalPrice {
     font-size: 1.5rem;
+  }
+  .panier-container .liste-panier h3 {
+    text-align: center;
+  }
+  .panier-container .liste-panier .liste-item ul .empty-cart {
+    width: 90vw;
+    margin-left: 5vw;
+    display: block;
+    margin-top: 20vh;
+    font-family: Halyard;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  .panier-container .liste-panier .liste-item ul .empty-cart h2 {
+    width: 100%;
+  }
+  .panier-container .liste-panier .liste-item ul .empty-cart h2 i {
+    color: black;
+    margin-left: 0.5vw;
+  }
+  .panier-container .liste-panier .liste-item ul .empty-cart h2 i:hover {
+    color: gray;
   }
   .panier-container .liste-panier .liste-item ul li .liste-item-panier .title-item-panier {
     width: 29vw;
