@@ -48,7 +48,7 @@ const Shop = () => {
 
         loading? <div>Loading...</div> :
         error? <div>{error}</div>:
-        <div className="shop">
+        <div className="shop" id="shop">
             <Modal/>
             <div className="shop-title">
                 <div className="line-title">

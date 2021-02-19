@@ -9,12 +9,19 @@ const Main = () => {
 
     
     const [imageIds, setImageIds] = useState();
+
+    const [ first, setFirst ]= useState([]);
+    const [ second, setSecond ]= useState([]);
+    const [ third, setThird ]= useState([]);
+
+
     const pageList = useSelector(state => state.pageList);
     const { pages, loading, error } = pageList;
     const mql = window.matchMedia('(max-width: 600px)');
-    const randomThird = Math.floor(Math.random() * (14 - 0 + 1)) + 0;
-    const randomGuest = Math.floor(Math.random() * (29 - 15 + 1)) + 15;
-    const random = Math.floor(Math.random() * (44 - 30 + 1)) + 30;
+
+    const randomThird = Math.floor(Math.random() * (first.length - 0 + 1)) + 0;
+    const randomSecond = Math.floor(Math.random() * (second.length - 0 + 1)) + 0;
+    const random = Math.floor(Math.random() * (third.length - 0 + 1)) + 0;
  
     const dispatch = useDispatch();
 
@@ -23,16 +30,15 @@ const Main = () => {
             const res = await axios.get('/api/images/');
             const data = await res.data;
             setImageIds(data);
+            setFirst(data.filter((id) => id.startsWith("first")))
+            setSecond(data.filter((id) => id.startsWith("second")))
+            setThird(data.filter((id) => id.startsWith("third")))
         } catch (err) {
             console.error(err);
         }
     };
-      
-
     useEffect(() => {
-
         dispatch(listPages());
-
          async function imageLoading(){
             await loadImages(); 
             let background = document.getElementById('backgroundImage');
@@ -85,7 +91,7 @@ const Main = () => {
                 id="backgroundImage"
                 className="photoUpload"
                 cloudName='drefurx4l'
-                publicId={imageIds[random]}
+                publicId={first[random]}
                 width="1600"
                 crop="scale"/>:''}
 
@@ -93,7 +99,7 @@ const Main = () => {
                 id="backgroundGuest"
                 className="photoUpload"
                 cloudName='drefurx4l'
-                publicId={imageIds[randomGuest]}
+                publicId={second[randomSecond]}
                 width="1600"
                 crop="scale"/>:''}
             
@@ -101,7 +107,7 @@ const Main = () => {
                 id="backgroundThird"
                 className="photoUpload"
                 cloudName='drefurx4l'
-                publicId={imageIds[randomThird]}
+                publicId={third[randomThird]}
                 width="1600"
                 crop="scale"/>:''}
                 

@@ -19,7 +19,7 @@
 
 .modal .modal-container {
   height: auto;
-  width: 45vw;
+  width: 60vw;
   background-color: white;
 }
 
@@ -45,74 +45,80 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.modal .modal-container .modal-body .modal-name {
-  margin-top: 5vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.modal .modal-container .modal-body .modal-image .inputFile {
-  border: none;
+.modal .modal-container .modal-body p {
+  font-size: 1.2rem;
 }
 
 .modal .modal-container .modal-body h3 {
+  margin-bottom: 3vh;
+  font-family: Halyard;
   font-size: 2rem;
+  text-align: center;
+}
+
+.modal .modal-container .modal-body input {
+  width: 80%;
+  height: 3vh;
   margin-bottom: 3vh;
 }
 
-.modal .modal-container .modal-body > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 3vh;
+.modal .modal-container .modal-body textarea {
+  width: 80%;
 }
 
-.modal .modal-container .modal-body > div p {
-  margin-left: 1.5vw;
-  font-size: 1.5rem;
+.modal .modal-container .modal-body span {
+  font-family: Halyard;
+  font-size: 1.2rem;
+  margin-right: 1.5vw;
 }
 
-.modal .modal-container .modal-body > div span {
-  font-size: 1.5rem;
+.modal .modal-container .modal-body button {
+  -webkit-transition: 0.5s linear;
+  transition: 0.5s linear;
+  color: white;
+  background-color: black;
+  font-family: Halyard;
+  font-size: 1.8rem;
+  padding: 1rem;
+  border: none;
 }
 
-.modal .modal-container .modal-body > div input {
-  margin-left: 1.5vw;
-  padding-left: 0.3vw;
-  height: 3rem;
-  border: 2px solid black;
+.modal .modal-container .modal-body button:hover {
+  color: black;
+  background-color: gray;
 }
 
-.modal .modal-container .modal-body > div textarea {
-  margin-left: 1.5vw;
-  border: 2px solid black;
+.modal .modal-container .modal-body .informationscontainer {
+  text-align: center;
+  margin-top: 10vh;
+  width: 50%;
 }
 
-.modal .modal-container .modal-body > div button {
-  font-size: 2rem;
+.modal .modal-container .modal-body .informationscontainer .modal-submit {
+  text-align: center;
+  margin-bottom: 5vh;
 }
 
-.modal .modal-container .modal-body > div img {
-  height: 100px;
+.modal .modal-container .modal-body .pricecontainer {
+  text-align: center;
+  margin-top: 10vh;
+  width: 50%;
+}
+
+.modal .modal-container .modal-body .pricecontainer input {
+  width: 20%;
+}
+
+.modal .modal-container .modal-body .pricecontainer .previewImage img {
+  height: 300px;
   width: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 5vh;
 }
 /*# sourceMappingURL=modal.css.map */

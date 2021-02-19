@@ -14,7 +14,7 @@
     
     .modal-container{
         height: auto;
-        width: 45vw;
+        width: 60vw;
         background-color: rgb(255,255,255);
         .close-modal{
             position: relative;
@@ -34,53 +34,68 @@
         }
         .modal-body{
             display: flex;
-            align-items: center;
-            flex-direction: column;
             justify-content: center;
-            .modal-name{
-                margin-top: 5vh;
-                display: flex;
-                align-items: center;
-            }
-            .modal-image{
-                .inputFile{
-                    border: none;
-                }
-
+            p{
+                font-size: 1.2rem;
             }
             h3{
-                font-size: 2rem;
                 margin-bottom: 3vh;
-            }
-    }
-    .modal-body > div {
-            display: flex;
-            align-items: center;
-            margin-bottom: 3vh;
-            p {
-                margin-left: 1.5vw;
-                font-size: 1.5rem;
-            }
-            span{
-                font-size: 1.5rem;
+                font-family: Halyard;
+                font-size: 2rem;
+                text-align: center;
             }
             input{
-                margin-left: 1.5vw;
-                padding-left: 0.3vw;
-                height: 3rem;
-                border: 2px solid black;
+                width: 80%;
+                height: 3vh;
+                margin-bottom: 3vh;
             }
             textarea{
-                margin-left: 1.5vw ;
-                border: 2px solid black;
+                width: 80%;
+            }
+            span{
+                font-family: Halyard;
+                font-size: 1.2rem;
+                margin-right: 1.5vw;
             }
             button{
-                font-size: 2rem;
+                transition: 0.5s linear;
+                color: white;
+                background-color: black;
+                font-family: Halyard;
+                font-size: 1.8rem;
+                padding: 1rem;
+                border: none;
+                &:hover{
+                    color: black;
+                    background-color: gray;
+                }
             }
-            img{
-                height: 100px;
-                width: 500px;
+            .informationscontainer{
+                text-align: center;
+                margin-top: 10vh;
+                width: 50%;
+                .modal-submit{
+                    text-align: center;
+                    margin-bottom: 5vh;
+                }
             }
+            .pricecontainer{
+                text-align: center;
+                margin-top: 10vh;
+                width: 50%;
+                input{
+                    width: 20%;
+                }
+                .previewImage{
+                    img{
+                        height: 300px;
+                        width: 500px;
+                        object-fit: cover;
+                        margin-bottom: 5vh;
+                    }
+                }
+            }
+           
     }
 }
 }

@@ -11,23 +11,18 @@ const Header = () => {
     const {userInfo} =userLogin;
     const dispatch = useDispatch();
 
-
-
     //Gestion de la déconnexion de l'utilisateur.
     const handleLogout = () => {
         dispatch(logout());
     }
     const showMenu = () => {
         const menu = document.getElementById('nav-mobile');
-        const body = document.getElementsByTagName("BODY")[0]
         if (menu.style.opacity === '1') {
-            body.style.overflowY='initial';
             menu.style.opacity = '0';
             setTimeout(function(){
                 menu.style.display='none'}, 200);
           } else {
             menu.style.display='block'
-            body.style.overflowY='hidden';
             setTimeout(function(){
             menu.style.opacity = '1';
         },100)
@@ -59,7 +54,7 @@ const Header = () => {
         <div className="navbar">
             <div className="logo">
                <a id="logo-mobile" href='/'>HIPPOLYTHE</a>
-               <h2>"Artistic Platform"</h2>
+               <h2>Artistic Platform</h2>
             </div>
             <ul className="nav">
                 <li><a title="Notre travail" href='/'>Notre travail</a></li>

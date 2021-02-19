@@ -21,6 +21,7 @@
 }
 
 .navbar .logo {
+  text-align: center;
   margin: 2vw;
   font-weight: 700;
   line-height: 1.2em;
@@ -38,8 +39,7 @@
 }
 
 .navbar .logo h2 {
-  font-size: 1.5rem;
-  margin-left: 9vw;
+  font-size: 1.2rem;
   margin-top: -1vh;
 }
 
