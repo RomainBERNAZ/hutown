@@ -1,4 +1,6 @@
 import './App.css';
+
+import HttpsRedirect from 'react-https-redirect';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
@@ -28,6 +30,7 @@ function App() {
   return (
     <Router>
       <div className="App" id="App">
+      <HttpsRedirect>
         <Elements stripe={promise}>
           <Cursor />
           <Header/>
@@ -44,6 +47,7 @@ function App() {
           <Route component={GuestPage} path='/guest' exact/>
           <Route component={ThirdPage} path='/third' exact/>
         </Elements>
+      </HttpsRedirect>
       </div>
     </Router>
   );

@@ -79,7 +79,7 @@ const Main = () => {
         }
         
        
-    },[dispatch])
+    },[dispatch, mql.matches])
 
     return (
             loading? <div>Loading...</div>:

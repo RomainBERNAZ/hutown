@@ -30,6 +30,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.12",
     "react-credit-card-input": "^1.1.5",
+    "react-https-redirect": "^1.1.0",
     "react-router-dom": "^5.2.0",
     "stripe": "^8.135.0",
     "styled-components": "^5.2.1"

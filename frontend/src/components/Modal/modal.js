@@ -15,8 +15,6 @@ const Modal = (props) => {
     const [ selectedFile, setSelectedFile] = useState();
     const [ previewSource, setPreviewSource] = useState('');
     const [ fileInputState, setFileInputState] = useState('');
-    const [ successMsg, setSuccessMsg ] = useState('')
-    const [ errMsg, setErrMsg ] = useState('')
 
     const productSave = useSelector(state => state.productSave);
     const {loading : loadingSave, success: successSave, error: errorSave} = productSave;
@@ -27,7 +25,6 @@ const Modal = (props) => {
         e.preventDefault();
         dispatch(saveProduct({name, priceSm, priceM, priceL, priceXl, description}))
         handleSubmitFile();
-        closeModal();
     }
     
     const handleFileInputChange = (e) => {
@@ -54,7 +51,6 @@ const Modal = (props) => {
         };
         reader.onerror = () => {
             console.error('AHHHHHHHH!!');
-            setErrMsg('something went wrong!');
         };
     };
 
@@ -66,15 +62,12 @@ const Modal = (props) => {
             });
             setFileInputState('');
             setPreviewSource('');
-            setSuccessMsg('Image uploaded successfully');
-            console.log(name, 'affichage du nom');
             setTimeout(function(){
                 window.location.reload(false);}, 1000);
                 //alert("Chargement de l'image effectué")
             
         } catch (err) {
             console.error(err);
-            setErrMsg('Something went wrong!');
         }
     };
     
