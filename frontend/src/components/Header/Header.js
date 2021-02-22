@@ -74,7 +74,7 @@ const Header = () => {
             <div className="navbar-mobile" id='navbar-mobile'>
                 <div className="logo-mobile">
                    <a href='/'>HIPPOLYTHE</a>
-                   <h2>"Artistic Platform"</h2>
+                   <h2>Artistic Platform</h2>
                 </div>
             </div>
             

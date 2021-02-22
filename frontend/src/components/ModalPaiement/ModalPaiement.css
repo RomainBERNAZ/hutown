@@ -31,13 +31,27 @@
 }
 
 .modal-paiement-container .paiement-container .first-block-paiement .title-recap {
-  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-top: 1vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .modal-paiement-container .paiement-container .first-block-paiement .title-recap h2 {
   font-family: Halyard;
   font-size: 1.9rem;
+}
+
+.modal-paiement-container .paiement-container .first-block-paiement .title-recap .close-modal {
+  position: absolute;
+  right: 5%;
+  font-size: 1.5rem;
 }
 
 .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap .totalPrice {
@@ -148,6 +162,16 @@
           align-items: center;
   /* Buttons and links */
   /* spinner/processing state, errors */
+}
+
+.modal-paiement-container .paiement-container .paiement-information span {
+  margin-left: 15px;
+  font-weight: 600;
+  margin-right: 4.25vw;
+}
+
+.modal-paiement-container .paiement-container .paiement-information select {
+  font-size: 1.2rem;
 }
 
 .modal-paiement-container .paiement-container .paiement-information h3 {
@@ -442,6 +466,13 @@
             align-items: center;
     /* Buttons and links */
     /* spinner/processing state, errors */
+  }
+  .modal-paiement-container .paiement-container .paiement-information span {
+    margin-left: 15px;
+    font-weight: 600;
+  }
+  .modal-paiement-container .paiement-container .paiement-information select {
+    font-size: 0.8rem;
   }
   .modal-paiement-container .paiement-container .paiement-information h3 {
     text-align: center;

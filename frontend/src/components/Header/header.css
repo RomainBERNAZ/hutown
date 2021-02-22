@@ -147,9 +147,9 @@
 }
 
 .mobile-container .navbar-mobile .logo-mobile h2 {
-  font-size: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
   margin-top: -1.5vh;
-  margin-left: 14vw;
   color: black;
 }
 

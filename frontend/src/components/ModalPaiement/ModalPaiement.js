@@ -11,6 +11,8 @@ import Rowcard from './prebuilt/Rowcard';
 import ErrorPayment from './ErrorPayment';
 import SuccessPayment from './SuccessPayment';
 
+
+
 const CardElementContainer = styled.div`
   height: 40px;
   display: flex;
@@ -22,8 +24,11 @@ const CardElementContainer = styled.div`
 `;
 
 
+
+
 const ModalPaiement = () => {
 
+    const [ deliveryPrice, setDeliveryPrice] = useState(0);
     const [isProcessing, setProcessingTo] = useState(false);
     const [checkoutError, setCheckoutError] = useState();
 
@@ -59,6 +64,16 @@ const ModalPaiement = () => {
     for(let i=0; i< arrayOfPrice.length; i++) {
     sum += arrayOfPrice[i]*arrayOfQte[i];
     }
+
+    let sumDelivery = sum + parseInt(deliveryPrice);
+
+    const closeModal = () => {
+      let modal = document.querySelector('.modal-paiement-container')
+      document.body.style.position = '';
+      document.body.style.top = '';
+      modal.style.display='none';
+    }
+  
 
     const loadCart = async () => {
       try {
@@ -112,10 +127,10 @@ const ModalPaiement = () => {
     setProcessingTo(true);
 
     const cardElement = elements.getElement("card");
-
+    
     try {
       const { data: clientSecret } = await axios.post("/api/pay", {
-        amount: sum * 100,
+        amount: sum * 100 + deliveryPrice,
         receipt_email: billingDetails.email
       });
 
@@ -187,10 +202,11 @@ const ModalPaiement = () => {
             <div className="paiement-container">
                 <div className="first-block-paiement">
                     <div className="paiement-recap">
-                        
-
                         <div className="title-recap">
                             <h2>RECAP COMMANDE</h2>
+                            <div className="close-modal">
+                    <i onClick={closeModal} className="far fa-window-close"></i>
+                </div>
                         </div>
                     <ul>
                             { products.length === 0 ?
@@ -235,7 +251,16 @@ const ModalPaiement = () => {
                   <h3>INFORMATIONS PERSONNELLES</h3>
                   <Row>
                    <BillingDetailsFields />
+                   <span>Pays (frais de livraison)</span>
+                    <select className="" onChange={ (e) => setDeliveryPrice(e.target.value)}>
+                      <option value="0">Choisir un pays</option>
+                      <option value='0' >France</option>
+                      <option value="4">Europe</option>
+                      <option value="8">Reste du monde</option>
+                    </select>
                  </Row>
+                    
+                 
                  <Rowcard>
                    <CardElementContainer>
                      <CardElement
@@ -248,7 +273,7 @@ const ModalPaiement = () => {
                  <Row>
                    {/* TIP always disable your submit button while processing payments */}
                    <SubmitButton disabled={isProcessing || !stripe}>
-                     {isProcessing ? "Processing..." : `Payer ${sum}€`}
+                     {isProcessing ? "Processing..." : `Payer ${sumDelivery}€`}
                    </SubmitButton>
                  </Row>
                 </form>

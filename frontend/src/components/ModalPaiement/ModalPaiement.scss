@@ -21,11 +21,18 @@
             background-color: white;
             padding-bottom: 3vh;
             .title-recap{
-                text-align: center;
+              justify-content: center;
                 padding-top: 1vh;
+                display: flex;
+                align-items: center;
                 h2{
                     font-family: Halyard;
                     font-size: 1.9rem;
+                }
+                .close-modal{
+                  position: absolute;
+                  right: 5%;
+                  font-size: 1.5rem;
                 }
             }
             .paiement-recap{
@@ -111,6 +118,15 @@
             margin-top: 5vh;
             padding: 3vh;
             align-items: center;
+            span{
+              margin-left: 15px;
+              font-weight: 600;
+              margin-right: 4.25vw;
+            }
+            select{
+              font-size: 1.2rem;
+            }
+            
             h3{
               text-align: center;
               font-size:1.9rem;
@@ -354,6 +370,13 @@
             margin-top: 5vh;
             padding: 3vh;
             align-items: center;
+            span{
+              margin-left: 15px;
+              font-weight: 600;
+            }
+            select{
+              font-size: 0.8rem;
+            }
             h3{
               text-align: center;
               font-size:1.9rem;

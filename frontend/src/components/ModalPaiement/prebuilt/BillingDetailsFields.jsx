@@ -19,7 +19,7 @@ const BillingDetailsFields = () => {
       />
       <FormField
         name="address"
-        label="Addresse"
+        label="Adresse"
         type="text"
         placeholder="Sur une île, au milieu de l'océan"
         required
@@ -36,13 +36,6 @@ const BillingDetailsFields = () => {
         label="Ville"
         type="text"
         placeholder="Sydney"
-        required
-      />
-      <FormField
-        name="state"
-        label="Pays"
-        type="text"
-        placeholder="Australie"
         required
       />
       <FormField

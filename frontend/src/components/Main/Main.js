@@ -38,6 +38,8 @@ const Main = () => {
         }
     };
     useEffect(() => {
+        console.log(imageIds, 'images');
+        console.log(third);
         dispatch(listPages());
          async function imageLoading(){
             await loadImages(); 
