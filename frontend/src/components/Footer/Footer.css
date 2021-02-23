@@ -1,0 +1,30 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  height: 5vh;
+  font-family: Halyard;
+  width: 100vw;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer ul li {
+  font-size: 1.2rem;
+  margin-right: 3vw;
+  color: white;
+  list-style: none;
+}
+/*# sourceMappingURL=Footer.css.map */

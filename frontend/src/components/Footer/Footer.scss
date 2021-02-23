@@ -1,0 +1,20 @@
+.footer{
+    position: absolute;
+    bottom: 0;
+    height: 5vh;
+    font-family: Halyard;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    ul{
+        display: flex;
+        li{
+            font-size: 1.2rem;
+            margin-right: 3vw;
+            color: white;
+            list-style: none;
+        }
+    }
+}

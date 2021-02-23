@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Image } from 'cloudinary-react'
 import { useDispatch, useSelector } from 'react-redux';
 import { listPages } from '../../actions/pageActions'
+import CookieConsent, { Cookies } from "react-cookie-consent";
 import './main.css'
 
 const Main = () => {
@@ -88,6 +89,16 @@ const Main = () => {
             error? <div>{error}</div>:  
             <div className="main" id="main">
                 
+                <CookieConsent
+                  location="bottom"
+                  buttonText="J'accepte"
+                  cookieName="myAwesomeCookieName2"
+                  style={{ background: "black" }}
+                  buttonStyle={{ color: "white", fontSize: "13px" }}
+                  expires={150}
+                >
+                  Ce site web utilise des cookies pour une meilleur expérience utilisateur.{" "}
+                </CookieConsent>
 
             { imageIds ?<Image
                 id="backgroundImage"

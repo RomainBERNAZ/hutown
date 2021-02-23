@@ -19,6 +19,9 @@ import Gestion from './components/Gestion/Gestion'
 import GuestPage from './components/GuestPage/GuestPage'
 import ThirdPage from './components/ThirdPage/ThirdPage'
 import Panier from './components/Panier/Panier';
+import Mentions from './components/Footer/Mentions';
+import Utilisation from './components/Footer/Utilisation';
+import Vente from './components/Footer/Vente';
 
 const promise = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");
 
@@ -44,6 +47,9 @@ function App() {
           }
           <Route component={Panier} path='/panier/:id?' />
           <Route component={FirstPhoto} path='/hustle' exact/>
+          <Route component={Mentions} path='/mentions-legales' exact />
+          <Route component={Utilisation} path='/conditions-utilisation' exact />
+          <Route component={Vente} path='/conditions-vente' exact />
           <Route component={GuestPage} path='/guest' exact/>
           <Route component={ThirdPage} path='/third' exact/>
         </Elements>

@@ -4,6 +4,10 @@
   background-color: #38383B;
 }
 
+.main #rcc-confirm-button {
+  background: gray !important;
+}
+
 .main .photoUpload {
   position: absolute;
   opacity: 0;

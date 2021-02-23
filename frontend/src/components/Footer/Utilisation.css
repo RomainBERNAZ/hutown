@@ -1,0 +1,67 @@
+.utilisation {
+  color: black;
+  font-family: Halyard;
+  padding-top: 20vh;
+  width: 90vw;
+  text-align: justify;
+  padding-left: 10vw;
+  font-size: 1.5rem;
+  height: auto;
+  background-color: white;
+}
+
+.utilisation h1 {
+  margin-bottom: 5vh;
+  text-align: center;
+}
+
+.utilisation h2 {
+  margin-bottom: 4vh;
+}
+
+.utilisation h3 {
+  margin-bottom: 2vh;
+}
+
+.utilisation p, .utilisation ul {
+  margin-bottom: 2vh;
+}
+
+.utilisation li {
+  margin-bottom: 1vh;
+  list-style: none;
+}
+
+@media screen and (max-width: 890px) {
+  .utilisation {
+    color: black;
+    font-family: Halyard;
+    padding-top: 20vh;
+    width: 90vw;
+    text-align: justify;
+    padding-left: 10vw;
+    font-size: 1.1rem;
+    height: auto;
+    background-color: white;
+  }
+  .utilisation h1 {
+    margin-bottom: 5vh;
+    text-align: center;
+  }
+  .utilisation h3 {
+    margin-bottom: 2vh;
+  }
+  .utilisation h2 {
+    margin-bottom: 4vh;
+    font-size: 1.2rem;
+    text-align: start;
+  }
+  .utilisation p, .utilisation ul {
+    margin-bottom: 2vh;
+  }
+  .utilisation li {
+    margin-bottom: 1vh;
+    list-style: none;
+  }
+}
+/*# sourceMappingURL=Utilisation.css.map */

@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import emailjs from 'emailjs-com'
 import './Contact.css'
 import{ init } from 'emailjs-com';
+import Footer from '../Footer/Footer';
 init("user_r3SpDDPv18OmWrSh8zTIY");
 
 const Contact =() => {
@@ -123,6 +124,7 @@ const Contact =() => {
               <button onClick={handleSubmit}>Confirmer</button>
         </div>
         <div className="form-message"></div>
+        <Footer/>
       </form>
     )
 }
