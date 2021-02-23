@@ -73,7 +73,7 @@ const Shop = () => {
                             key={product._id}
                             className="shop-img"
                             publicId={imageId}
-                            cloudName='drefurx4l'
+                            cloudName='hippolythe'
                         />
                         :'' })
             } 

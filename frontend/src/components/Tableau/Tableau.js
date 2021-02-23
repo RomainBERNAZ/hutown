@@ -126,7 +126,7 @@ const Tableau = () => {
                     <Image
                         onClick={() => deleteImage(imageId)}
                         className="photo-tableau"
-                        cloudName='drefurx4l'
+                        cloudName='hippolythe'
                         publicId={imageId}
                         width="1600"
                         crop="scale"
@@ -143,7 +143,7 @@ const Tableau = () => {
                     <Image
                         onClick={() => deleteImage(imageId)}
                         className="photo-tableau"
-                        cloudName='drefurx4l'
+                        cloudName='hippolythe'
                         publicId={imageId}
                         width="1600"
                         crop="scale"
@@ -160,7 +160,7 @@ const Tableau = () => {
                     <Image
                         onClick={() => deleteImage(imageId)}
                         className="photo-tableau"
-                        cloudName='drefurx4l'
+                        cloudName='hippolythe'
                         publicId={imageId}
                         width="1600"
                         crop="scale"

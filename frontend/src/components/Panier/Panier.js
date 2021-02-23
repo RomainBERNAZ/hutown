@@ -129,7 +129,7 @@ const Panier = () => {
                                                     key={imageId}
                                                     className="panier-image"
                                                     publicId={imageId}
-                                                    cloudName='drefurx4l'
+                                                    cloudName='hippolythe'
                                                 />:'' })
                                         }
                                     </div>

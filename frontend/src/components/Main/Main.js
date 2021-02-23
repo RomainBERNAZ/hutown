@@ -103,7 +103,7 @@ const Main = () => {
             { imageIds ?<Image
                 id="backgroundImage"
                 className="photoUpload"
-                cloudName='drefurx4l'
+                cloudName='hippolythe'
                 publicId={first[random]}
                 width="1600"
                 crop="scale"/>:''}
@@ -111,7 +111,7 @@ const Main = () => {
             { imageIds ?<Image
                 id="backgroundGuest"
                 className="photoUpload"
-                cloudName='drefurx4l'
+                cloudName='hippolythe'
                 publicId={second[randomSecond]}
                 width="1600"
                 crop="scale"/>:''}
@@ -119,7 +119,7 @@ const Main = () => {
             { imageIds ?<Image
                 id="backgroundThird"
                 className="photoUpload"
-                cloudName='drefurx4l'
+                cloudName='hippolythe'
                 publicId={third[randomThird]}
                 width="1600"
                 crop="scale"/>:''}

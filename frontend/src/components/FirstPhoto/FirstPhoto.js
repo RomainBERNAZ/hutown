@@ -26,6 +26,7 @@ const FirstPhoto = () => {
         }
     };
     useEffect(() => {
+        console.log(imageIds);
         dispatch(listPages());
         loadImages();
     }, [dispatch]);
@@ -54,7 +55,7 @@ const FirstPhoto = () => {
                     <div className="item" key={index}>
                     <Image
                         className="photoUpload"
-                        cloudName='drefurx4l'
+                        cloudName='hippolythe'
                         publicId={imageId}
                         width="1600"
                         crop="scale"

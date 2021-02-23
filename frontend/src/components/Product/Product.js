@@ -122,7 +122,7 @@ const Product = (props) => {
                             onClick={() => console.log(imageId)}
                             className="product-img"
                             publicId={imageId}
-                            cloudName='drefurx4l'
+                            cloudName='hippolythe'
                         />{userInfo &&
                             <button onClick={() => deleteHandler(products, imageId)}>DELETE</button>
                         }</div> :'' })

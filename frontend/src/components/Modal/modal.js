@@ -23,8 +23,8 @@ const Modal = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveProduct({name, priceSm, priceM, priceL, priceXl, description}))
         handleSubmitFile();
+        dispatch(saveProduct({name, priceSm, priceM, priceL, priceXl, description}))
     }
     
     const handleFileInputChange = (e) => {
@@ -63,8 +63,8 @@ const Modal = (props) => {
             setFileInputState('');
             setPreviewSource('');
             setTimeout(function(){
-                window.location.reload(false);}, 1000);
-                //alert("Chargement de l'image effectué")
+                window.location.reload(false);}, 1500);
+                alert("Le produit à bien été ajouté !")
             
         } catch (err) {
             console.error(err);
@@ -98,15 +98,15 @@ const Modal = (props) => {
                     <h3>INFORMATIONS</h3>
                         <div className="modal-name">
                             <p className="titreModal">Nom :</p>
-                            <input type="text" onChange={(e) => setName(e.target.value)}/>
+                            <input type="text" onChange={(e) => setName(e.target.value)} required/>
                         </div>
                         <div className="modal-description">
                             <p className="titreModal">Description :</p>
-                            <textarea name="" id="" cols="40" rows="15" onChange={(e) => setDescription(e.target.value)}></textarea>
+                            <textarea name="" id="" cols="40" rows="15" onChange={(e) => setDescription(e.target.value)} required></textarea>
                         </div>
                         <div className="modal-image">
                             <p className="titreModal">Image:</p>
-                            <input className="inputFile" type="file" value={fileInputState} onChange={handleFileInputChange}/>
+                            <input className="inputFile" type="file" value={fileInputState} onChange={handleFileInputChange} required/>
 
                         </div>
                         <div className="modal-submit">
@@ -118,19 +118,19 @@ const Modal = (props) => {
                         <h3>PRIX</h3>
                         <div className="modal-price-size">
                             <span>15x15 :</span>
-                            <input type="number" onChange={(e) => setPriceSm(e.target.value)}/>
+                            <input type="number" onChange={(e) => setPriceSm(e.target.value)} required/>
                         </div>
                         <div className="modal-price-size">
                             <span>20x20 :</span>
-                            <input type="number" onChange={(e) => setPriceM(e.target.value)}/>
+                            <input type="number" onChange={(e) => setPriceM(e.target.value)} required/>
                         </div>
                         <div className="modal-price-size">
                             <span>30x45 :</span>
-                            <input type="number" onChange={(e) => setPriceL(e.target.value)}/>
+                            <input type="number" onChange={(e) => setPriceL(e.target.value)}required />
                         </div>
                         <div className="modal-price-size">
                             <span>40x60 :</span>
-                            <input type="number" onChange={(e) => setPriceXl(e.target.value)}/>
+                            <input type="number" onChange={(e) => setPriceXl(e.target.value)} required/>
                         </div>
                         <div className="previewImage">
                             {previewSource &&
