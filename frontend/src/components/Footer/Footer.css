@@ -4,7 +4,7 @@
   height: 5vh;
   font-family: Halyard;
   width: 100vw;
-  background-color: black;
+  background-color: transparent;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,10 +21,18 @@
   display: flex;
 }
 
+.footer ul a {
+  text-decoration: none;
+}
+
 .footer ul li {
   font-size: 1.2rem;
   margin-right: 3vw;
-  color: white;
+  color: black;
   list-style: none;
+}
+
+.footer ul li:hover {
+  color: gray;
 }
 /*# sourceMappingURL=Footer.css.map */

@@ -97,7 +97,7 @@ const Main = () => {
                   buttonStyle={{ color: "white", fontSize: "13px" }}
                   expires={150}
                 >
-                  Ce site web utilise des cookies pour une meilleur expérience utilisateur.{" "}
+                  Ce site web utilise des cookies pour une meilleure expérience utilisateur.{" "}
                 </CookieConsent>
 
             { imageIds ?<Image

@@ -4,17 +4,24 @@
     height: 5vh;
     font-family: Halyard;
     width: 100vw;
-    background-color: black;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: space-around;
     ul{
         display: flex;
+        a{
+            text-decoration: none;
+            
+        }
         li{
             font-size: 1.2rem;
             margin-right: 3vw;
-            color: white;
+            color: black;
             list-style: none;
+            &:hover{
+                color:gray;
+            }
         }
     }
 }
