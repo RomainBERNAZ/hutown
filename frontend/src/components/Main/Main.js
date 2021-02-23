@@ -19,10 +19,6 @@ const Main = () => {
     const pageList = useSelector(state => state.pageList);
     const { pages, loading, error } = pageList;
     const mql = window.matchMedia('(max-width: 600px)');
-
-    const randomThird = Math.floor(Math.random() * (first.length - 0 + 1)) + 0;
-    const randomSecond = Math.floor(Math.random() * (second.length - 0 + 1)) + 0;
-    const random = Math.floor(Math.random() * (third.length - 0 + 1)) + 0;
  
     const dispatch = useDispatch();
 
@@ -104,7 +100,7 @@ const Main = () => {
                 id="backgroundImage"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={first[random]}
+                publicId={first[0]}
                 width="1600"
                 crop="scale"/>:''}
 
@@ -112,7 +108,7 @@ const Main = () => {
                 id="backgroundGuest"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={second[randomSecond]}
+                publicId={second[0]}
                 width="1600"
                 crop="scale"/>:''}
             
@@ -120,7 +116,7 @@ const Main = () => {
                 id="backgroundThird"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={third[randomThird]}
+                publicId={third[0]}
                 width="1600"
                 crop="scale"/>:''}
                 
