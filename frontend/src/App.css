@@ -23,4 +23,8 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+img {
+  pointer-events: none;
+}
 /*# sourceMappingURL=App.css.map */

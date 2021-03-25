@@ -18,6 +18,7 @@
 .first-photo .texte-photos .descriptionPage {
   margin-top: 15vh;
   width: 80vw;
+  white-space: pre-wrap;
   text-align: justify;
   font-family: Halyard;
   font-size: 1.7rem;

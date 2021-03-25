@@ -11,6 +11,10 @@ const Modal = (props) => {
     const [ priceM, setPriceM ] = useState('');
     const [ priceL, setPriceL ] = useState('');
     const [ priceX, setPriceX ] = useState('');
+    const [ sizeS, setSizeS ] = useState('');
+    const [ sizeM, setSizeM ] = useState('');
+    const [ sizeL, setSizeL ] = useState('');
+    const [ sizeX, setSizeX ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ selectedFile, setSelectedFile] = useState();
     const [ previewSource, setPreviewSource] = useState('');
@@ -28,7 +32,7 @@ const Modal = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         handleSubmitFile();
-        dispatch(saveProduct({name, priceS, priceM, priceL, priceX, description, lieu, papier, livraison}))
+        dispatch(saveProduct({name, priceS, priceM, priceL, priceX, sizeS, sizeM, sizeL, sizeX, description, lieu, papier, livraison}))
     }
     
     const handleFileInputChange = (e) => {
@@ -130,22 +134,41 @@ const Modal = (props) => {
                         </div>
                         
                     </div>
+                    <div className="sizecontainer">
+                        <h3>TAILLES</h3>
+                        <div className="modal-price-size">
+                            <span>Small :</span>
+                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeS(e.target.value)} />
+                        </div>
+                        <div className="modal-price-size">
+                            <span>Medium :</span>
+                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeM(e.target.value)} />
+                        </div>
+                        <div className="modal-price-size">
+                            <span>Large :</span>
+                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeL(e.target.value)} />
+                        </div>
+                        <div className="modal-price-size">
+                            <span>Extra Large :</span>
+                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeX(e.target.value)} />
+                        </div>
+                    </div>
                     <div className="pricecontainer">
                         <h3>PRIX</h3>
                         <div className="modal-price-size">
-                            <span>15x15 :</span>
+                            <span>Small :</span>
                             <input type="number" onChange={(e) => setPriceS(e.target.value)} />
                         </div>
                         <div className="modal-price-size">
-                            <span>20x20 :</span>
+                            <span>Medium :</span>
                             <input type="number" onChange={(e) => setPriceM(e.target.value)} />
                         </div>
                         <div className="modal-price-size">
-                            <span>30x45 :</span>
+                            <span>Large :</span>
                             <input type="number" onChange={(e) => setPriceL(e.target.value)} />
                         </div>
                         <div className="modal-price-size">
-                            <span>40x60 :</span>
+                            <span>Extra Large :</span>
                             <input type="number" onChange={(e) => setPriceX(e.target.value)} />
                         </div>
                         <div className="previewImage">

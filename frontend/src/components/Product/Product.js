@@ -31,7 +31,6 @@ const Product = (props) => {
   const mql = window.matchMedia("(max-width: 600px)");
 
   const deleteImage = async (imageId) => {
-    console.log(imageId);
     try {
       await axios.post(
         "/api/destroy",
@@ -154,28 +153,28 @@ const Product = (props) => {
               <option value="">Tailles disponibles</option>
               {products.priceS !== null ? (
                 <option id="priceS" value="priceS">
-                  15x15
+                  {products.sizeS}
                 </option>
               ) : (
                 ""
               )}
               {products.priceM !== null ? (
                 <option id="priceM" value="priceM">
-                  20x20
+                  {products.sizeM}
                 </option>
               ) : (
                 ""
               )}
               {products.priceL !== null ? (
                 <option id="priceL" value="priceL">
-                  30x45
+                  {products.sizeL}
                 </option>
               ) : (
                 ""
               )}
               {products.priceX !== null ? (
                 <option id="priceX" value="priceX">
-                  40x60
+                  {products.sizeX}
                 </option>
               ) : (
                 ""
