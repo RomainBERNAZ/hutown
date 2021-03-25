@@ -250,6 +250,7 @@ const ModalPaiement = () => {
                 <form id="payment-form" className="paiement-information" onSubmit={handleFormSubmit}>
                   <h3>INFORMATIONS PERSONNELLES</h3>
                   <Row>
+                    <div id="info-perso">
                    <BillingDetailsFields />
                    <span>Pays (frais de livraison)</span>
                     <select className="" onChange={ (e) => setDeliveryPrice(e.target.value)}>
@@ -258,6 +259,7 @@ const ModalPaiement = () => {
                       <option value="4">Europe</option>
                       <option value="8">Reste du monde</option>
                     </select>
+                    </div>
                  </Row>
                     
                  

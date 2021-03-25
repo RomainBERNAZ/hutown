@@ -74,16 +74,16 @@ const Product = (props) => {
     let target = e.target.value;
     if (target === "priceS") {
       setDefaultPrice(products.priceS);
-      setSize("15x15");
+      setSize(products.sizeS);
     } else if (target === "priceM") {
       setDefaultPrice(products.priceM);
-      setSize("20x20");
+      setSize(products.sizeM);
     } else if (target === "priceL") {
       setDefaultPrice(products.priceL);
-      setSize("30x45");
+      setSize(products.sizeL);
     } else if (target === "priceX") {
       setDefaultPrice(products.priceX);
-      setSize("40x60");
+      setSize(products.sizeX);
     } else {
       
     }
