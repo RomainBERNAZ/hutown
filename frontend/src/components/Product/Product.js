@@ -134,8 +134,8 @@ const Product = (props) => {
                   cloudName="hippolythe"
                 />
                 {userInfo && (
-                  <button onClick={() => deleteHandler(products, imageId)}>
-                    DELETE
+                  <button className="button-delete-product" onClick={() => deleteHandler(products, imageId)}>
+                    SUPPRIMER PRODUIT
                   </button>
                 )}
               </div>
@@ -203,10 +203,10 @@ const Product = (props) => {
           <div className="details-price">
             {defaultPrice ? <span>{defaultPrice * qte} €</span> : ""}
           </div>
-          <p className="product-description">{products.description}</p>
-          <p className="product-description">{products.lieu}</p>
-          <p className="product-description">{products.papier}</p>
-          <p className="product-description">{products.livraison}</p>
+          <div className="product-description"><p>Description:</p>  <span>{products.description}</span> </div>
+          <div className="product-description"><p>Lieu:</p> <span>{products.lieu}</span></div>
+          <div className="product-description"><p>Papier utilisé: </p><span>{products.papier}</span></div>
+          <div className="product-description"><p>Livraison: </p><span>{products.livraison}</span></div>
           <button className="product-cart">Ajouter au panier</button>
         </form>
       </div>
