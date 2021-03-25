@@ -13,8 +13,8 @@
 
     
     .modal-container{
-        height: auto;
-        width: 60vw;
+        height: 90vh;
+        width: 80vw;
         background-color: rgb(255,255,255);
         .close-modal{
             position: relative;
@@ -33,6 +33,7 @@
             text-decoration: underline;
         }
         .modal-body{
+            margin-top: -2vh;
             display: flex;
             justify-content: center;
             p{

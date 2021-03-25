@@ -18,8 +18,8 @@
 }
 
 .modal .modal-container {
-  height: auto;
-  width: 60vw;
+  height: 90vh;
+  width: 80vw;
   background-color: white;
 }
 
@@ -42,6 +42,7 @@
 }
 
 .modal .modal-container .modal-body {
+  margin-top: -2vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

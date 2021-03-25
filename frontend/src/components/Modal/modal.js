@@ -7,14 +7,18 @@ import './modal.css'
 const Modal = (props) => {
 
     const [ name, setName ] = useState('');
-    const [ priceSm, setPriceSm ] = useState('');
+    const [ priceS, setPriceS ] = useState('');
     const [ priceM, setPriceM ] = useState('');
     const [ priceL, setPriceL ] = useState('');
-    const [ priceXl, setPriceXl ] = useState('');
+    const [ priceX, setPriceX ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ selectedFile, setSelectedFile] = useState();
     const [ previewSource, setPreviewSource] = useState('');
     const [ fileInputState, setFileInputState] = useState('');
+    const [ lieu, setLieu ] = useState('')
+    const [ livraison, setLivraison ] = useState('')
+    const [ papier, setPapier ] = useState('')
+
 
     const productSave = useSelector(state => state.productSave);
     const {loading : loadingSave, success: successSave, error: errorSave} = productSave;
@@ -24,7 +28,7 @@ const Modal = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         handleSubmitFile();
-        dispatch(saveProduct({name, priceSm, priceM, priceL, priceXl, description}))
+        dispatch(saveProduct({name, priceS, priceM, priceL, priceX, description, lieu, papier, livraison}))
     }
     
     const handleFileInputChange = (e) => {
@@ -102,7 +106,19 @@ const Modal = (props) => {
                         </div>
                         <div className="modal-description">
                             <p className="titreModal">Description :</p>
-                            <textarea name="" id="" cols="40" rows="15" onChange={(e) => setDescription(e.target.value)} required></textarea>
+                            <textarea name="" id="" cols="20" rows="10" onChange={(e) => setDescription(e.target.value)} required></textarea>
+                        </div>
+                        <div className="modal-lieu">
+                            <p className="titreModal">Lieu :</p>
+                            <input type="text" onChange={(e) => setLieu(e.target.value)} required/>
+                        </div>
+                        <div className="modal-papier">
+                            <p className="titreModal">Papier :</p>
+                            <input type="text" onChange={(e) => setPapier(e.target.value)} required/>
+                        </div>
+                        <div className="modal-livraison">
+                            <p className="titreModal">Livraison :</p>
+                            <input type="text" onChange={(e) => setLivraison(e.target.value)} required/>
                         </div>
                         <div className="modal-image">
                             <p className="titreModal">Image:</p>
@@ -118,19 +134,19 @@ const Modal = (props) => {
                         <h3>PRIX</h3>
                         <div className="modal-price-size">
                             <span>15x15 :</span>
-                            <input type="number" onChange={(e) => setPriceSm(e.target.value)} required/>
+                            <input type="number" onChange={(e) => setPriceS(e.target.value)} />
                         </div>
                         <div className="modal-price-size">
                             <span>20x20 :</span>
-                            <input type="number" onChange={(e) => setPriceM(e.target.value)} required/>
+                            <input type="number" onChange={(e) => setPriceM(e.target.value)} />
                         </div>
                         <div className="modal-price-size">
                             <span>30x45 :</span>
-                            <input type="number" onChange={(e) => setPriceL(e.target.value)}required />
+                            <input type="number" onChange={(e) => setPriceL(e.target.value)} />
                         </div>
                         <div className="modal-price-size">
                             <span>40x60 :</span>
-                            <input type="number" onChange={(e) => setPriceXl(e.target.value)} required/>
+                            <input type="number" onChange={(e) => setPriceX(e.target.value)} />
                         </div>
                         <div className="previewImage">
                             {previewSource &&
