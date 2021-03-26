@@ -58,6 +58,7 @@ const Header = () => {
             </div>
             <ul className="nav">
                 <li><a title="Notre travail" href='/'>Notre travail</a></li>
+                <li><a href='/histoire'>Histoire</a></li>
                 <li><a href="/shop">Shop</a></li>
                 <li><a href='/contact'>Contact</a></li>
                 <li><a href="https://www.instagram.com/hippolythe._/" target="_blank"><i className="fab fa-instagram"></i></a></li>

@@ -22,6 +22,7 @@ import Panier from './components/Panier/Panier';
 import Mentions from './components/Footer/Mentions';
 import Utilisation from './components/Footer/Utilisation';
 import Vente from './components/Footer/Vente';
+import Histoire from './components/Histoire/histoire';
 
 const promise = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");
 
@@ -39,6 +40,7 @@ function App() {
           <Header/>
           <Route component={Main} path="/" exact/>
           <Route component={Shop} path="/shop" exact/>
+          <Route component={Histoire} path="/histoire" exact/>
           <Route component={Contact} path="/contact" exact/>
           <Route component={Product} path="/product/:id"/>
           <Route component={login} path='/login' />
