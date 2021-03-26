@@ -289,7 +289,13 @@
     font-weight: 100;
     font-family: Halyard;
     text-align: justify;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+  .product-single .single-body .product-contenu .product-description p {
+    min-width: 35vw;
+  }
+  .product-single .single-body .product-contenu .product-description span {
+    font-size: 0.8rem;
   }
   .product-single .single-body .product-contenu .product-cart {
     margin-top: 3vh;
