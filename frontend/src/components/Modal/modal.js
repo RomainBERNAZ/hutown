@@ -32,7 +32,19 @@ const Modal = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         handleSubmitFile();
-        dispatch(saveProduct({name, priceS, priceM, priceL, priceX, sizeS, sizeM, sizeL, sizeX, description, lieu, papier, livraison}))
+        dispatch(saveProduct({name, 
+                              price:{
+                                    Small: priceS,
+                                    Medium: priceM,
+                                    Large: priceL,
+                                    Xtra: priceX,
+                                },
+                                size:{
+                                    Small:  sizeS,
+                                    Medium: sizeM, 
+                                    Large:  sizeL, 
+                                    Xtra:  sizeX,
+                                }, description, lieu, papier, livraison}))
     }
     
     const handleFileInputChange = (e) => {
@@ -70,9 +82,9 @@ const Modal = (props) => {
             });
             setFileInputState('');
             setPreviewSource('');
-            setTimeout(function(){
-                window.location.reload(false);}, 1500);
-                alert("Le produit à bien été ajouté !")
+            //setTimeout(function(){
+            //    window.location.reload(false);}, 1500);
+            //    alert("Le produit à bien été ajouté !")
             
         } catch (err) {
             console.error(err);

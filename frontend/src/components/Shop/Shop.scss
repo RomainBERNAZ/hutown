@@ -7,6 +7,19 @@ $white: #FFFFFF;
     width: 100vw;
     padding-top: 20vh;
     background-color: $white;
+    .modal-newsletter{
+        height: 10vh;
+        display: none;
+        width: 20vw;
+        position: absolute;
+        top: 35vh;
+        background: white;
+        border: 2px solid black;
+        margin-left: 40vw;
+        text-align: center;
+        input{
+        }
+    }
     .shop-title{
         text-align: center;
         .line-title{

@@ -30,14 +30,18 @@ router.delete('/products/:id', async (req,res) => {
 router.post('/products', async (req, res) => {
     const product = new Product({
         name: req.body.name,
-        priceS: req.body.priceS,
-        priceM: req.body.priceM,
-        priceL: req.body.priceL,
-        priceX: req.body.priceX,
-        sizeS: req.body.sizeS,
-        sizeM: req.body.sizeM,
-        sizeL: req.body.sizeL,
-        sizeX: req.body.sizeX,
+        price:{
+            Small: req.body.price.Small,
+            Medium: req.body.price.Medium,
+            Large: req.body.price.Large,
+            Xtra: req.body.price.Xtra,
+        }, 
+        size:{
+            Small: req.body.size.Small,
+            Medium: req.body.size.Medium,
+            Large: req.body.size.Large,
+            Xtra: req.body.size.Xtra,
+        }, 
         description: req.body.description,
         lieu: req.body.lieu, 
         papier: req.body.papier, 

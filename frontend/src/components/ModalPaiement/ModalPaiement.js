@@ -119,7 +119,6 @@ const ModalPaiement = () => {
       address: {
         city: ev.target.city.value,
         line1: ev.target.address.value,
-        state: ev.target.state.value,
         postal_code: ev.target.zip.value
       }
     };
@@ -130,7 +129,7 @@ const ModalPaiement = () => {
     
     try {
       const { data: clientSecret } = await axios.post("/api/pay", {
-        amount: sum * 100 + deliveryPrice,
+        amount: sum * 10 + deliveryPrice,
         receipt_email: billingDetails.email
       });
 

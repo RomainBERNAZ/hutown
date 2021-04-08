@@ -10,8 +10,9 @@ router.get("/histoires", async (req, res) => {
     res.send(histoire);
 })
 
-router.put('/histoires', async (req, res) => {
-    const histoire = await Histoire.find();
+router.put('/histoires/:id', async (req, res) => {
+    const histoireId = req.params.id;
+    const histoire = await Histoire.findById(histoireId);
     if (histoire) {
       histoire.description = req.body.description;
       const updatedHistoire = await histoire.save();
@@ -23,17 +24,6 @@ router.put('/histoires', async (req, res) => {
     }
     return res.status(500).send({ message: ' Error in Updating Product.' });
   });
-
-router.post('/histoires', async (req, res) =>{
-    const histoire = new Histoire({
-        description: req.body.description,
-    });
-    const newHistoire = await histoire.save();
-    if(newHistoire){
-        return res.status(201).send( { message: 'Nouvelle page créée', data: newHistoire})
-    }
-    return res.status(500).send({ message: 'Erreur dans la création du produit'})
-})
 
 
 export default router;

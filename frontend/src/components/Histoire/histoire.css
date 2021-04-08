@@ -12,8 +12,42 @@
   width: 75vw;
   margin-left: 12.5vw;
   text-align: justify;
+  white-space: pre-wrap;
   font-size: 2rem;
   margin-top: 3vh;
+}
+
+.histoire-input {
+  margin-top: 10vh;
+  display: block;
+  margin-left: 15vw;
+  text-align: center;
+  width: 70vw;
+}
+
+.histoire-input textarea {
+  width: 100%;
+  min-height: 30vh;
+  display: block;
+  margin-bottom: 3vh;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.histoire-input button {
+  margin-bottom: 10vh;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  color: white;
+  background-color: black;
+  border: none;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.histoire-input button:hover {
+  background-color: gray;
 }
 
 @media screen and (max-width: 890px) {

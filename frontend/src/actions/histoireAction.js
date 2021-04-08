@@ -20,7 +20,7 @@ const updateHistoire = (histoire) => async (dispatch, getState) => {
     try {
         dispatch({type: HISTOIRE_UPDATE_REQUEST, payload: histoire})
         const { userLogin:{userInfo}} = getState();
-        const { data } = await axios.put("/api/histoires", {
+        const { data } = await axios.put("/api/histoires/" +histoire._id , histoire, {
             headers: {
                 'Authorization':'Bearer' +userInfo.token,
             }

@@ -5,11 +5,11 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { detailsProduct, deleteProduct } from "../../actions/productActions";
 import "./Product.css";
-import { USER_LOGIN_FAIL } from "../../constants/userConstant";
 
 const Product = (props) => {
   const [imageIds, setImageIds] = useState([]);
   const [size, setSize] = useState("");
+  let length = 0;
 
   const productDetails = useSelector((state) => state.productDetails);
   const { products, loading, error } = productDetails;
@@ -19,6 +19,7 @@ const Product = (props) => {
 
   const history = useHistory();
   const dispatch = useDispatch();
+
 
   const productDelete = useSelector((state) => state.productDelete);
   const {
@@ -50,7 +51,6 @@ const Product = (props) => {
     try {
       const res = await axios.get("/api/imagesShop");
       const data = await res.data;
-      console.log(data, "affichage des datas");
       setImageIds(data);
     } catch (err) {
       console.error(err);
@@ -70,22 +70,24 @@ const Product = (props) => {
     history.push("/shop");
   };
 
+  
+
   const handleChangeSize = (e) => {
     let target = e.target.value;
     if (target === "priceS") {
-      setDefaultPrice(products.priceS);
-      setSize(products.sizeS);
+      setDefaultPrice(products.price.Small);
+      setSize(products.size.Small);
     } else if (target === "priceM") {
-      setDefaultPrice(products.priceM);
-      setSize(products.sizeM);
+      setDefaultPrice(products.price.Medium);
+      setSize(products.size.Medium);
     } else if (target === "priceL") {
-      setDefaultPrice(products.priceL);
-      setSize(products.sizeL);
+      setDefaultPrice(products.price.Large);
+      setSize(products.size.Large);
     } else if (target === "priceX") {
-      setDefaultPrice(products.priceX);
-      setSize(products.sizeX);
+      setDefaultPrice(products.price.Xtra);
+      setSize(products.size.Xtra);
     } else {
-      
+      setDefaultPrice(null)
     }
   };
 
@@ -127,7 +129,7 @@ const Product = (props) => {
             return JSON.stringify(imageId).includes(products.name) ? (
               <div key={products._id}>
                 <Image
-                  onClick={() => console.log(imageId)}
+                  onClick={() => console.log(products)}
                   className="product-img"
                   publicId={imageId}
                   cloudName="hippolythe"
@@ -149,37 +151,38 @@ const Product = (props) => {
         >
           <p className="product-name">{products.name}</p>
           <div className="product-details">
+            { products.price ? (
             <select name="taille" id="" onChange={handleChangeSize} required>
               <option value="">Tailles disponibles</option>
-              {products.priceS !== null ? (
+              {products.price.Small !== null ? (
                 <option id="priceS" value="priceS">
-                  {products.sizeS}
+                  {products.size.Small}
                 </option>
               ) : (
                 ""
               )}
-              {products.priceM !== null ? (
+              {products.price.Medium !== null ? (
                 <option id="priceM" value="priceM">
-                  {products.sizeM}
+                  {products.size.Medium}
                 </option>
               ) : (
                 ""
               )}
-              {products.priceL !== null ? (
+              {products.price.Large !== null ? (
                 <option id="priceL" value="priceL">
-                  {products.sizeL}
+                  {products.size.Large}
                 </option>
               ) : (
                 ""
               )}
-              {products.priceX !== null ? (
+              {products.price.Xtra !== null ? (
                 <option id="priceX" value="priceX">
-                  {products.sizeX}
+                  {products.size.Xtra}
                 </option>
               ) : (
                 ""
               )}
-            </select>
+            </select> ) :"" }
             <span>QUANTITÉ : </span>{" "}
             {mql.matches ? (
               <input

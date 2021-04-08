@@ -9,6 +9,8 @@ import { listProducts } from "../../actions/productActions";
 
 const Shop = () => {
   const [imageIds, setImageIds] = useState([]);
+  //const [lengthArray, setLengthArray] = useState(0);
+  let lengthArray = 0;
 
   const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList;
@@ -21,25 +23,34 @@ const Shop = () => {
 
   const setMinimumProductPrice = () => {
 
-    if(products.priceS != null){
-      setMinimumPrice(products.priceS);
-    }
-    else if(products.priceS === null && products.priceM != null){
-      setMinimumPrice(products.priceM);
-    }
-    else if(products.priceS === null && products.priceM === null && products.priceL != null){
-      setMinimumPrice(products.priceL);
-    }
-    else {
-      setMinimumPrice(products.priceX);
-    }
+    products.forEach(product => {
+      
+      if(product.price.Small != null){
+        setMinimumPrice(product.price.Small);
+      }
+      else if(product.price.Small === null && product.price.Medium != null){
+        setMinimumPrice(product.price.Medium);
+      }
+      else if(product.price.Small === null && product.price.Medium === null && product.price.Large != null){
+        setMinimumPrice(product.price.Large);
+      }
+      else {
+        setMinimumPrice(product.price.Xtra);
+      }
+
+    });
+  }
+
+  const checkLengthOfPriceArray = () => {
+    products.forEach(product => {
+      console.log(product.price.Small);
+  });
     
   }
 
-
   const loadImages = async () => {
     try {
-      const res = await axios.get("/api/imagesShop");
+      const res = await axios.get("/api/imagesShop") 
       const data = await res.data;
       setImageIds(data);
     } catch (err) {
@@ -51,10 +62,11 @@ const Shop = () => {
     dispatch(listProducts());
     loadImages();
     setMinimumProductPrice();
+    checkLengthOfPriceArray()
   }, [dispatch]);
 
   const openModal = () => {
-    let modal = document.getElementById("modal");
+    let modal = document.getElementById("modal")
     document.body.style.position = "fixed";
     document.body.style.top = `-${window.scrollY}px`;
     modal.style.display = "flex";
@@ -66,6 +78,11 @@ const Shop = () => {
     <div>{error}</div>
   ) : (
     <div className="shop" id="shop">
+      <div className="modal-newsletter">
+        <h2>Newsletter ?</h2>
+        <input type="text"/>
+        <button>CONFIRMER</button>
+      </div>
       <Modal />
       <div className="shop-title">
         <div className="line-title">
@@ -95,13 +112,15 @@ const Shop = () => {
                 );
               })}
             </Link>
-
             <div className="shop-description">
               <p className="shop-name">{product.name}</p>
-              <p className="shop-price">À partir de {product.priceS ? <p>{product.priceS}</p> : 
-                                                     product.priceM ? <p>{product.priceM}</p> :   
-                                                     product.priceL ? <p>{product.priceL}</p> :   
-                                                     product.priceX ? <p>{product.priceX}</p> : ''  } €</p>
+               <div className="shop-price">    
+              {lengthArray > 1 ?
+              <p>A partir de :</p> : ""}
+              {product.price.Small ? <p>{product.price.Small}</p> : 
+               product.price.Medium ? <p>{product.price.Medium}</p> :   
+               product.price.Large ? <p>{product.price.Large}</p> :   
+               product.price.Xtra ? <p>{product.price.Xtra}</p> : ''  } €</div>
             </div>
           </div>
         ))}

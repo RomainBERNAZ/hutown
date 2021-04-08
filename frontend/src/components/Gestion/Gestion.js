@@ -56,6 +56,7 @@ const Gestion = () => {
                                 <button type="submit"><i className="fas fa-search"></i></button>
                         </form>
                     </div>
+                    
                 
                     {pages.map(page  => {
                 return page.category === category ?
