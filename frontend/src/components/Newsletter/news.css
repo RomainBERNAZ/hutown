@@ -1,0 +1,49 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 25vh;
+  min-width: 32vw;
+  border: 2px solid black;
+  background: white;
+  font-size: Grotesque;
+  text-align: center;
+}
+
+.container .title {
+  margin-top: 2vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .title h2 {
+  margin-right: 2vw;
+}
+
+.container .title i {
+  font-size: 2rem;
+}
+
+.container input {
+  margin-top: 4vh;
+  font-size: 2.5rem;
+  border: 1px solid black;
+}
+
+.container button {
+  display: block;
+  margin: auto;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin-top: 3vh;
+}
+/*# sourceMappingURL=news.css.map */

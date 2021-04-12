@@ -8,6 +8,16 @@
   font-size: 4rem;
 }
 
+.histoire img {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  height: 7rem;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
 .histoire p {
   width: 75vw;
   margin-left: 12.5vw;

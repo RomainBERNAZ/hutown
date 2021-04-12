@@ -76,14 +76,18 @@
                 margin-bottom: 4vh;
             }
             .product-details{
+                
                 display: flex;
                 font-family: Halyard;
-                margin-top: 3vh;
+                margin-top: 8vh;
                 align-items: center;
                 span{
-                    margin-left: 6vw;
                     font-weight: 100;
-                    font-size: 1.2rem;
+                    font-size: 2.85rem;
+                    margin-right: 5vw;
+                }
+                p{
+                    font-size: 1.3rem;
                 }
                 input{
                     text-align: center;
@@ -96,9 +100,6 @@
                     font-size: 1.2rem;
                     height: 5vh;
                 }
-                //#priceS, #priceM, #priceL, #priceX {
-                //    display: none;
-                //}
             }
             .details-price{
                     font-family: Halyard;
@@ -127,7 +128,7 @@
                 }
             }
             .product-cart{
-                margin-top: 3vh;
+                margin-top: 10vh;
                 width: 90%;
                 height: 4rem;
                 font-size: 1.8rem;

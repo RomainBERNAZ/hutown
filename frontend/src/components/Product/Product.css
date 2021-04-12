@@ -105,16 +105,20 @@
   display: -ms-flexbox;
   display: flex;
   font-family: Halyard;
-  margin-top: 3vh;
+  margin-top: 8vh;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 .product-single .single-body .product-contenu .product-details span {
-  margin-left: 6vw;
   font-weight: 100;
-  font-size: 1.2rem;
+  font-size: 2.85rem;
+  margin-right: 5vw;
+}
+
+.product-single .single-body .product-contenu .product-details p {
+  font-size: 1.3rem;
 }
 
 .product-single .single-body .product-contenu .product-details input {
@@ -162,7 +166,7 @@
 }
 
 .product-single .single-body .product-contenu .product-cart {
-  margin-top: 3vh;
+  margin-top: 10vh;
   width: 90%;
   height: 4rem;
   font-size: 1.8rem;

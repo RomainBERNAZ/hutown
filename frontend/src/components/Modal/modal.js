@@ -82,9 +82,9 @@ const Modal = (props) => {
             });
             setFileInputState('');
             setPreviewSource('');
-            //setTimeout(function(){
-            //    window.location.reload(false);}, 1500);
-            //    alert("Le produit à bien été ajouté !")
+            setTimeout(function(){
+                window.location.reload(false);}, 1500);
+                alert("Le produit à bien été ajouté !")
             
         } catch (err) {
             console.error(err);
@@ -150,7 +150,7 @@ const Modal = (props) => {
                         <h3>TAILLES</h3>
                         <div className="modal-price-size">
                             <span>Small :</span>
-                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeS(e.target.value)} />
+                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeS(e.target.value)} disabled/>
                         </div>
                         <div className="modal-price-size">
                             <span>Medium :</span>
@@ -158,18 +158,18 @@ const Modal = (props) => {
                         </div>
                         <div className="modal-price-size">
                             <span>Large :</span>
-                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeL(e.target.value)} />
+                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeL(e.target.value)} disabled/>
                         </div>
                         <div className="modal-price-size">
                             <span>Extra Large :</span>
-                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeX(e.target.value)} />
+                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeX(e.target.value)} disabled/>
                         </div>
                     </div>
                     <div className="pricecontainer">
                         <h3>PRIX</h3>
                         <div className="modal-price-size">
                             <span>Small :</span>
-                            <input type="number" onChange={(e) => setPriceS(e.target.value)} />
+                            <input type="number" onChange={(e) => setPriceS(e.target.value)} disabled/>
                         </div>
                         <div className="modal-price-size">
                             <span>Medium :</span>
@@ -177,11 +177,11 @@ const Modal = (props) => {
                         </div>
                         <div className="modal-price-size">
                             <span>Large :</span>
-                            <input type="number" onChange={(e) => setPriceL(e.target.value)} />
+                            <input type="number" onChange={(e) => setPriceL(e.target.value)} disabled/>
                         </div>
                         <div className="modal-price-size">
                             <span>Extra Large :</span>
-                            <input type="number" onChange={(e) => setPriceX(e.target.value)} />
+                            <input type="number" onChange={(e) => setPriceX(e.target.value)} disabled/>
                         </div>
                         <div className="previewImage">
                             {previewSource &&

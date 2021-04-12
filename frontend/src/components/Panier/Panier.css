@@ -5,7 +5,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .panier-container {
   width: 100vw;
-  min-height: 65vh;
+  height: 100vh;
   padding-top: 20vh;
   background-color: white;
 }
@@ -14,12 +14,34 @@ input[type=number]::-webkit-outer-spin-button {
   width: 90vw;
 }
 
-.panier-container .liste-panier h3 {
+.panier-container .liste-panier .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 5vw;
+}
+
+.panier-container .liste-panier .title h3 {
   font-size: 2rem;
   -webkit-transform: translateX(5%);
           transform: translateX(5%);
   text-align: left;
   font-family: Grotesque;
+  margin-right: 3rem;
+}
+
+.panier-container .liste-panier .title button {
+  background: white;
+  border: 2px solid black;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.panier-container .liste-panier .title button:hover {
+  background: black;
+  color: white;
 }
 
 .panier-container .liste-panier .liste-item ul .empty-cart {

@@ -248,6 +248,7 @@ const ModalPaiement = () => {
                 <SuccessPayment/>
                 <form id="payment-form" className="paiement-information" onSubmit={handleFormSubmit}>
                   <h3>INFORMATIONS PERSONNELLES</h3>
+                  <h4>Dans le cadre d'une remise en main propre, merci de l'indiquer dans informations complémentaires.</h4>
                   <Row>
                     <div id="info-perso">
                    <BillingDetailsFields />
@@ -255,7 +256,6 @@ const ModalPaiement = () => {
                     <select className="" onChange={ (e) => setDeliveryPrice(e.target.value)}>
                       <option value="0">Choisir un pays</option>
                       <option value='0' >France</option>
-                      <option value="4">Europe</option>
                       <option value="8">Reste du monde</option>
                     </select>
                     </div>

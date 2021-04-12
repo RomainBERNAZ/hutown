@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'cloudinary-react'
+import { useDispatch, useSelector} from 'react-redux'
 
 
 import ModalPaiement from '../ModalPaiement/ModalPaiement'
@@ -10,6 +11,8 @@ const Panier = () => {
 
     const [ imageIds, setImageIds ] = useState([]);
     const [ products, setProducts ] = useState([])
+    const userLogin = useSelector(state => state.userLogin);
+    const {userInfo} =userLogin;
     
 
     let values = [], keys = Object.keys(localStorage), i = keys.length;
@@ -42,6 +45,12 @@ const Panier = () => {
     sum += arrayOfPrice[i]*arrayOfQte[i];
 }
 
+    const clearLocalStorage = () => {
+    setTimeout(() => {
+      localStorage.clear();
+        window.location.reload(false);
+      }, 2050);
+  }
 
     const loadImages = async () => {
         try {
@@ -93,9 +102,15 @@ const Panier = () => {
         <div className="panier-container">
                 <ModalPaiement/>
             <div className="liste-panier">
+                <div className="title">
                   <h3>
                     PANIER
                   </h3>
+                  { userInfo && 
+                  <button onClick={clearLocalStorage}>
+                    VIDER PANIER
+                    </button> }
+                </div>
                       <div className="liste-item" >
                         <ul>
                         { values.length === 0 ?

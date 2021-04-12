@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Shop.css";
 import axios from "axios";
 import Modal from "../Modal/modal";
+import Newsletter from "../Newsletter/news";
 import { Link } from "react-router-dom";
 import { Image } from "cloudinary-react";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,6 +49,8 @@ const Shop = () => {
     
   }
 
+  
+
   const loadImages = async () => {
     try {
       const res = await axios.get("/api/imagesShop") 
@@ -83,7 +86,9 @@ const Shop = () => {
         <input type="text"/>
         <button>CONFIRMER</button>
       </div>
+    
       <Modal />
+      <Newsletter />
       <div className="shop-title">
         <div className="line-title">
           <h1 className="title">Shop</h1>

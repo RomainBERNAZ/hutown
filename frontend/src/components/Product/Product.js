@@ -57,6 +57,8 @@ const Product = (props) => {
     }
   };
 
+
+
   const [qte, setQte] = useState("1");
 
   useEffect(() => {
@@ -72,36 +74,24 @@ const Product = (props) => {
 
   
 
-  const handleChangeSize = (e) => {
-    let target = e.target.value;
-    if (target === "priceS") {
-      setDefaultPrice(products.price.Small);
-      setSize(products.size.Small);
-    } else if (target === "priceM") {
+  const handleChangeSize = () => {
       setDefaultPrice(products.price.Medium);
       setSize(products.size.Medium);
-    } else if (target === "priceL") {
-      setDefaultPrice(products.price.Large);
-      setSize(products.size.Large);
-    } else if (target === "priceX") {
-      setDefaultPrice(products.price.Xtra);
-      setSize(products.size.Xtra);
-    } else {
-      setDefaultPrice(null)
-    }
   };
 
   const addItem = (id) => {
     let msgCart = document.getElementById("validation-add-cart");
+    let price = document.getElementById('price')
+    alert(price)
     let cartList = [];
     let key = id + "/" + size;
     cartList.push(id + "/" + qte + "-" + size + "*" + defaultPrice);
     localStorage.getItem(key);
     localStorage.setItem(key, JSON.stringify(cartList));
     msgCart.style.opacity = 1;
-    setTimeout(() => {
-      window.location.reload(false);
-    }, 11500);
+    //setTimeout(() => {
+    //  window.location.reload(false);
+    //}, 11500);
   };
 
   return loading ? (
@@ -147,11 +137,20 @@ const Product = (props) => {
         </div>
         <form
           className="product-contenu"
-          onSubmit={() => addItem(products._id)}
+          onSubmit={() =>addItem(products._id)}
         >
           <p className="product-name">{products.name}</p>
           <div className="product-details">
-            { products.price ? (
+          {products.price ? (
+            <div>
+                {products.price.Small ? <span>{products.price.Small} €</span> : 
+                 products.price.Medium ? <span>{products.price.Medium} €</span> :   
+                 products.price.Large ? <span>{products.price.Large} €</span> :   
+                 products.price.Xtra ? <span>{products.price.Xtra} €</span> : ''  }  
+            </div> ) : ""}
+
+
+           {/** { products.price ? (
             <select name="taille" id="" onChange={handleChangeSize} required>
               <option value="">Tailles disponibles</option>
               {products.price.Small !== null ? (
@@ -183,7 +182,8 @@ const Product = (props) => {
                 ""
               )}
             </select> ) :"" }
-            <span>QUANTITÉ : </span>{" "}
+            */} 
+            <p>QUANTITÉ : </p>{" "}
             {mql.matches ? (
               <input
                 inputmode="numeric"
@@ -206,10 +206,17 @@ const Product = (props) => {
             {defaultPrice ? <span>{defaultPrice * qte} €</span> : ""}
           </div>
           <div className="product-description"><p>Description:</p>  <span>{products.description}</span> </div>
+          <div className="product-description"><p>Taille:</p> {products.size ? (
+            <div>
+                {products.size.Small ? <span id="price">{products.size.Small}</span> : 
+                 products.size.Medium ? <span id="price">{products.size.Medium}</span> :   
+                 products.size.Large ? <span id="price">{products.size.Large}</span> :   
+                 products.size.Xtra ? <span id="price">{products.size.Xtra}</span> : ''  }
+            </div> ) : ""}</div>
           <div className="product-description"><p>Lieu:</p> <span>{products.lieu}</span></div>
           <div className="product-description"><p>Papier utilisé: </p><span>{products.papier}</span></div>
           <div className="product-description"><p>Livraison: </p><span>{products.livraison}</span></div>
-          <button className="product-cart">Ajouter au panier</button>
+          <button className="product-cart" onClick={handleChangeSize}>Ajouter au panier</button>
         </form>
       </div>
     </div>

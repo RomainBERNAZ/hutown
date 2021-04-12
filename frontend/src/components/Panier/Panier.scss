@@ -4,17 +4,33 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .panier-container{
     width: 100vw;
-    min-height: 65vh;
+    height: 100vh;
     padding-top: 20vh;
     background-color: white;
     .liste-panier{
         width: 90vw;
-        h3{
-            font-size: 2rem;
-            transform: translateX(5%);
-            text-align: left;
-            font-family: Grotesque;
+        .title{
+            display: flex;
+            margin-left: 5vw;
+            h3{
+                font-size: 2rem;
+                transform: translateX(5%);
+                text-align: left;
+                font-family: Grotesque;
+                margin-right: 3rem;
+            }
+            button{
+                background: white;
+                border: 2px solid black;
+                padding: 0.5rem;
+                font-size: 1.5rem;
+                transition: 0.3s linear;
+                &:hover{
+                    background: black;
+                    color: white;
+                }
         }
+    }        
         .liste-item{
            ul{
                .empty-cart{

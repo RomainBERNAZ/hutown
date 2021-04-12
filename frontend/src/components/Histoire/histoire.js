@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Image } from 'cloudinary-react'
 import { useDispatch, useSelector } from 'react-redux';
 import { listHistoire, updateHistoire } from '../../actions/histoireAction.js'
+import contour from './remplissage.jpg'
 import './histoire.css'
-import axios from 'axios';
 
 const Histoire = () => {
 
@@ -41,7 +40,7 @@ const Histoire = () => {
         error? <div>{error}</div>:
         <div className="histoire">
            <h1>NOTRE HISTOIRE</h1>
-           <img src="" alt=""/>
+           <img src={contour} alt=""/>
            
            {histoires.map(histoire  => {
                return histoire ?
