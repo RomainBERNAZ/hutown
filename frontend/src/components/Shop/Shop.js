@@ -122,10 +122,10 @@ const Shop = () => {
                <div className="shop-price">    
               {lengthArray > 1 ?
               <p>A partir de :</p> : ""}
-              {product.price.Small ? <p>{product.price.Small}</p> : 
-               product.price.Medium ? <p>{product.price.Medium}</p> :   
-               product.price.Large ? <p>{product.price.Large}</p> :   
-               product.price.Xtra ? <p>{product.price.Xtra}</p> : ''  } €</div>
+              {product.price.Small ? <p>{product.price.Small} €</p> : 
+               product.price.Medium ? <p>{product.price.Medium} €</p> :   
+               product.price.Large ? <p>{product.price.Large} €</p> :   
+               product.price.Xtra ? <p>{product.price.Xtra} €</p> : ''  }</div>
             </div>
           </div>
         ))}

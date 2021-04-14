@@ -81,8 +81,6 @@ const Product = (props) => {
 
   const addItem = (id) => {
     let msgCart = document.getElementById("validation-add-cart");
-    let price = document.getElementById('price')
-    alert(price)
     let cartList = [];
     let key = id + "/" + size;
     cartList.push(id + "/" + qte + "-" + size + "*" + defaultPrice);

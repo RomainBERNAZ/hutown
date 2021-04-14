@@ -41,6 +41,18 @@ const ModalPaiement = () => {
         while ( i-- ) {
             values.push( localStorage.getItem(keys[i]) );
         }
+
+        const checkNewsletter = () => {
+          for( let i = 0; i < values.length; i++){ 
+          
+              if ( values[i] === '1') { 
+          
+                  values.splice(i, 1); 
+              }
+          
+          }
+          }
+          checkNewsletter();
     const arrayOfSize = []
     //Retourne les tailles dans un array.
     values.map( nb => {
@@ -248,7 +260,7 @@ const ModalPaiement = () => {
                 <SuccessPayment/>
                 <form id="payment-form" className="paiement-information" onSubmit={handleFormSubmit}>
                   <h3>INFORMATIONS PERSONNELLES</h3>
-                  <h4>Dans le cadre d'une remise en main propre, merci de l'indiquer dans informations complémentaires.</h4>
+                  <h4>Dans le cadre d'une remise en main propre sur Paris "intra-muros", merci de l'indiquer dans informations complémentaires.</h4>
                   <Row>
                     <div id="info-perso">
                    <BillingDetailsFields />

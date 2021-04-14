@@ -31,8 +31,6 @@ const Histoire = () => {
     useEffect(() => {
 
         dispatch(listHistoire());
-        console.log(histoires);
-    
     }, [dispatch]);
 
     return (

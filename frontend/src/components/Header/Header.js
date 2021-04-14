@@ -48,6 +48,16 @@ const Header = () => {
             values.push( localStorage.getItem(keys[i]) );
         }
   
+        const checkNewsletter = () => {
+            for( let i = 0; i < values.length; i++){ 
+            
+                if ( values[i] === '1') { 
+            
+                    values.length --;
+                }
+            }
+            }
+            checkNewsletter();
 
     return  ( 
         <div>
@@ -88,6 +98,7 @@ const Header = () => {
                 
                 <ul className="nav-mobile" id="nav-mobile" >
                     <li><a title="Notre travail" href='/'>Notre travail</a></li>
+                    <li><a href='/histoire'>Histoire</a></li>
                     <li><a href="/shop">Shop</a></li>
                     <li><a href='/contact'>Contact</a></li>
                     { userInfo && 

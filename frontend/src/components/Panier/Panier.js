@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Image } from 'cloudinary-react'
-import { useDispatch, useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 
 
 import ModalPaiement from '../ModalPaiement/ModalPaiement'
@@ -19,8 +19,24 @@ const Panier = () => {
         while ( i-- ) {
             values.push( localStorage.getItem(keys[i]) );
         }
+    
+    const checkNewsletter = () => {
+    for( let i = 0; i < values.length; i++){ 
+    
+        if ( values[i] === '1') { 
+    
+            values.splice(i, 1); 
+        }
+    
+    }
+    }
+    checkNewsletter();
+
+
+
     const arrayOfSize = []
     //Retourne les tailles dans un array.
+    console.log(values, 'tets');
     values.map( nb => {
         arrayOfSize.push(nb.slice(29).replace(/[[\]"]+/g,'').split('*').splice(0,1));
         return arrayOfSize;
@@ -93,7 +109,6 @@ const Panier = () => {
     }
  
     useEffect(()  => {
-        console.log(values);
         loadCart();
         loadImages();
     }, [])

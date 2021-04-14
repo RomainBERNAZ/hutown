@@ -1,5 +1,5 @@
 .container {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -26,24 +26,106 @@
 }
 
 .container .title h2 {
-  margin-right: 2vw;
+  margin-right: vw;
 }
 
-.container .title i {
+.container i {
+  position: absolute;
+  right: 20px;
+  top: 20px;
   font-size: 2rem;
 }
 
 .container input {
   margin-top: 4vh;
-  font-size: 2.5rem;
+  font-size: 2rem;
+  padding: 0.5rem;
   border: 1px solid black;
 }
 
 .container button {
   display: block;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
   margin: auto;
   font-size: 1.5rem;
+  border: none;
   padding: 0.5rem;
+  background: black;
   margin-top: 3vh;
+  color: white;
+}
+
+.container button:hover {
+  background: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.none {
+  display: none;
+}
+
+@media screen and (max-width: 890px) {
+  .container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    height: 30vh;
+    min-width: 85vw;
+    border: 2px solid black;
+    background: white;
+    font-size: Grotesque;
+    text-align: center;
+  }
+  .container .title {
+    margin-top: 5vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .container .title h2 {
+    font-size: 1rem;
+  }
+  .container i {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1rem;
+  }
+  .container input {
+    margin-top: 4vh;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+  }
+  .container button {
+    display: block;
+    -webkit-transition: 0.3s linear;
+    transition: 0.3s linear;
+    margin: auto;
+    font-size: 1rem;
+    border: none;
+    padding: 0.5rem;
+    background: black;
+    margin-top: 3vh;
+    color: white;
+  }
+  .container button:hover {
+    background: white;
+    color: black;
+    border: 2px solid black;
+  }
+  .none {
+    display: none;
+  }
 }
 /*# sourceMappingURL=news.css.map */

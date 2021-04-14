@@ -1,5 +1,5 @@
 .container{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -15,23 +15,98 @@
         justify-content: center;
         align-items: center;
         h2{
-            margin-right: 2vw;
+            margin-right: vw;
         }
-        i{
-            font-size: 2rem;
-        }
+        
+    }
+    i{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 2rem;
     }
     
     input{
         margin-top: 4vh;
-        font-size: 2.5rem;
+        font-size: 2rem;
+        padding: 0.5rem;
         border: 1px solid black;
     }
     button{
         display: block;
+        transition: 0.3s linear;
         margin: auto;
         font-size: 1.5rem;
+        border: none;
         padding: 0.5rem;
+        background: black;
         margin-top: 3vh;
+        color: white;
+        &:hover{
+            background: white;
+            color: black;
+            border: 2px solid black;
+        }
+    }
+}
+.none{
+    display: none;
+}
+
+@media screen and (max-width: 890px) {
+
+    .container{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 30vh;
+        min-width: 85vw;
+        border: 2px solid black;
+        background: white;
+        font-size: Grotesque;
+        text-align: center;
+        .title{
+            margin-top: 5vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h2{
+                font-size: 1rem;
+            }
+            
+        }
+        i{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 1rem;
+        }
+        
+        input{
+            margin-top: 4vh;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            border: 1px solid black;
+        }
+        button{
+            display: block;
+            transition: 0.3s linear;
+            margin: auto;
+            font-size: 1rem;
+            border: none;
+            padding: 0.5rem;
+            background: black;
+            margin-top: 3vh;
+            color: white;
+            &:hover{
+                background: white;
+                color: black;
+                border: 2px solid black;
+            }
+        }
+    }
+    .none{
+        display: none;
     }
 }
