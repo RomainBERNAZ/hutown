@@ -60,6 +60,7 @@
   .main .photoUpload {
     position: absolute;
     opacity: 0;
+    z-index: 0;
     -webkit-transition: 0.6s linear;
     transition: 0.6s linear;
     height: 100vh;

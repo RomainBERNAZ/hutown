@@ -127,6 +127,7 @@
   z-index: 4;
   height: 15vh;
   width: 100vw;
+  mix-blend-mode: difference;
 }
 
 .mobile-container .navbar-mobile .logo-mobile {
@@ -138,19 +139,22 @@
   line-height: 1.2em;
   letter-spacing: 0em;
   font-size: 2rem;
+  mix-blend-mode: difference;
 }
 
-.mobile-container .navbar-mobile .logo-mobile a {
-  text-decoration: none;
-  mix-blend-mode: difference;
-  color: black;
+.mobile-container .navbar-mobile .logo-mobile h1 button {
+  color: white;
+  background-color: transparent;
+  font-family: Grotesque;
+  font-size: 1.9rem;
+  border: none;
 }
 
 .mobile-container .navbar-mobile .logo-mobile h2 {
   text-align: center;
   font-size: 0.8rem;
   margin-top: -1.5vh;
-  color: black;
+  color: white;
 }
 
 .mobile-container li {
@@ -176,6 +180,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
+  z-index: 2;
   top: 0vh;
   left: 0;
   right: 0;
@@ -206,6 +211,7 @@
   display: block;
   position: absolute;
   top: 40px;
+  mix-blend-mode: difference;
   right: 50px;
   z-index: 4;
 }
@@ -231,7 +237,7 @@
   height: 2px;
   margin-bottom: 5px;
   position: relative;
-  background: black;
+  background: white;
   z-index: 1;
   -webkit-transform-origin: 13px 0px;
           transform-origin: 13px 0px;

@@ -18,11 +18,13 @@ const Header = () => {
     const showMenu = () => {
         const menu = document.getElementById('nav-mobile');
         if (menu.style.opacity === '1') {
+            document.getElementById('App').style.overflow="initial"
             menu.style.opacity = '0';
             setTimeout(function(){
                 menu.style.display='none'}, 200);
           } else {
             menu.style.display='block'
+            document.getElementById('App').style.overflow="hidden"
             setTimeout(function(){
             menu.style.opacity = '1';
         },100)
@@ -84,7 +86,7 @@ const Header = () => {
         <div className="mobile-container">
             <div className="navbar-mobile" id='navbar-mobile'>
                 <div className="logo-mobile">
-                   <a href='/'>HIPPOLYTHE</a>
+                  <h1><a href='/'><button>HIPPOLYTHE</button></a></h1>
                    <h2>Artistic Platform</h2>
                 </div>
             </div>
