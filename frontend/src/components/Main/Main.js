@@ -14,6 +14,9 @@ const Main = () => {
     const [ first, setFirst ]= useState([]);
     const [ second, setSecond ]= useState([]);
     const [ third, setThird ]= useState([]);
+    const [ all, setAll ]= useState([]);
+    const [ randomImage, setRandomImage ]= useState([]);
+
 
 
     const pageList = useSelector(state => state.pageList);
@@ -30,6 +33,8 @@ const Main = () => {
             setFirst(data.filter((id) => id.startsWith("first")))
             setSecond(data.filter((id) => id.startsWith("second")))
             setThird(data.filter((id) => id.startsWith("third")))
+            setAll(data)
+            setRandomImage(Math.floor(Math.random() * data.length - 1) + 1  )
         } catch (err) {
             console.error(err);
         }
@@ -69,8 +74,15 @@ const Main = () => {
                 backgroundThird.style.opacity='0';
              })
         } 
+
+        async function mobileBackground(){
+            await loadImages(); 
+            let background = document.getElementById('backgroundMobile');
+            background.style.opacity = '1'
+            
+        }
         if (mql.matches){
-            console.log('Les images ne sont pas affichées');
+            mobileBackground()
         }else {
             imageLoading();
         }
@@ -115,6 +127,14 @@ const Main = () => {
                 className="photoUpload"
                 cloudName='hippolythe'
                 publicId={third[0]}
+                width="1600"
+                crop="scale"/>:''}
+
+            { imageIds ?<Image
+                id="backgroundMobile"
+                className="photoUpload"
+                cloudName='hippolythe'
+                publicId={all[randomImage]}
                 width="1600"
                 crop="scale"/>:''}
                 

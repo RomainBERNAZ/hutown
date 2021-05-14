@@ -55,11 +55,18 @@ const Modal = (props) => {
     };
 
     const previewFile = (file) => {
+        const max_Size = 2000000
         const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            setPreviewSource(reader.result);
-        };
+        if( file && file.size < max_Size){
+            reader.readAsDataURL(file);
+            reader.onloadend = () => {
+                setPreviewSource(reader.result);
+            };
+        }
+        else{
+            alert('Fichier trop grand, ça passera pas !')
+        }
+        
     };
 
     const handleSubmitFile = () => {

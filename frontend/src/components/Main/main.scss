@@ -43,6 +43,7 @@ $white: #FFFFFF;
 
     .main{
         position: initial;
+        transition: 0.5s linear;
         z-index: 1;
         width: 100vw;
         height: 100vh;
@@ -61,9 +62,11 @@ $white: #FFFFFF;
             padding-top: 35vh;
             width: 100vw;
             display: block;
+            mix-blend-mode: difference;
             li{
                 padding-right: 0;
                 list-style: none;
+                font-size: 1.8rem;
                 button{
                     background-color: transparent;
                     color: white;
