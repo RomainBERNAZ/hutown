@@ -73,7 +73,7 @@ const Header = () => {
                 <li><a href='/histoire'>Histoire</a></li>
                 <li><a href="/shop">Shop</a></li>
                 <li><a href='/contact'>Contact</a></li>
-                <li><a href="https://www.instagram.com/hippolythe._/" target="_blank"><i className="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.instagram.com/hippolythe_/" target="_blank"><i className="fab fa-instagram"></i></a></li>
                 <li><a href="/panier"><i className="fas fa-shopping-cart"></i></a><span>{values.length}</span></li>
                 
                 { userInfo && 

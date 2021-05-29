@@ -125,7 +125,7 @@ type de navigateur, nous vous invitons à consulter le lien suivant : www.cnil.f
 compétence des tribunaux du siège social de l'éditeur, sous réserve d'une attribution de
 compétence spécifique découlant d'un texte de loi ou réglementaire particulier.</p>
 <h2>ARTICLE 13 : CONTACT</h2>
-<p>Pour toute question, information sur les produits présentés sur le site, ou concernant le site luimême, vous pouvez laisser un message à l'adresse suivante : contact@fairmade.fr</p>
+<p>Pour toute question, information sur les produits présentés sur le site, ou concernant le site lui même, vous pouvez laisser un message à l'adresse suivante : contact@fairmade.fr</p>
 
             </div>
     );
