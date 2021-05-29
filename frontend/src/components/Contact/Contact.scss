@@ -118,7 +118,8 @@ $white: #FFFFFF;
 @media screen and (max-width: 890px) {
   .contact{
     position: absolute;
-    z-index: -10;
+    height: 100vh;
+    z-index: 0;
     .form-content{
       width: 80vw;
       left: 10%;

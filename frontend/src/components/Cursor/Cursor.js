@@ -19,7 +19,7 @@ const Cursor = () => {
 
 
     return (
-        <div className="cursor" ref={cursorRef}></div>
+        <div className="cursor"></div>
     )
 }
 
