@@ -12,7 +12,8 @@ router.post("/pay", async (req, res) => {
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
       receipt_email,
-      currency: "eur"
+      currency: "eur", 
+      payment_method: "card"
     });
 
     res.status(200).send(paymentIntent.client_secret);

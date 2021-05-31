@@ -21,7 +21,7 @@ la durée d'utilisation du site et jusqu'à ce qu'une nouvelle version la rempla
 <ul><li>1. Site (ci-après « le site ») : www.hippolythe.com</li>
 <li>2. Éditeur (ci-après « l'éditeur ») : Hippolythe
 Les données personnelles sont collectées par Hippolythe, dont le siège social est situé : 3 passage
-de la moselle, 75019 Paris, immatriculée au RCS de Paris, n° SIREN : 88213153500016</li>
+de la moselle, 75019 Paris, immatriculée au RCS de Paris, n° SIREN : 882131535.</li>
 <li>3. Hébergeur (ci-après « l'hébergeur ») : OVH
 Le site www.hippolythe.com est hébergé par la société OVH, dont le siège social est situé au 2 rue
 Kellermann - 59100 Roubaix - France
@@ -82,7 +82,7 @@ commandes. Elles sont enregistrées dans le fichier de clients de l'éditeur et 
 personnelles. Chaque personne dispose aussi du droit de limitation du traitement relatif à sa
 personne, du droit de dé référencement et du droit à la portabilité des données personnelles
 qu’elle a transmise au responsable de traitement.
-Vous pouvez exercer ce droit en nous contactant, à l’adresse suivante : contact@fairmade.fr</p>
+Vous pouvez exercer ce droit en nous contactant, à l’adresse suivante : contacthippolythe@gmail.com</p>
 <h2>ARTICLE 9 : UTILISATION DES DONNÉES</h2>
 <p>Les informations recueillies pourront éventuellement être communiquées à des tiers liés à l'éditeur
 par contrat pour l'exécution de tâches sous-traitées nécessaires à la gestion de votre compte et
@@ -125,7 +125,7 @@ type de navigateur, nous vous invitons à consulter le lien suivant : www.cnil.f
 compétence des tribunaux du siège social de l'éditeur, sous réserve d'une attribution de
 compétence spécifique découlant d'un texte de loi ou réglementaire particulier.</p>
 <h2>ARTICLE 13 : CONTACT</h2>
-<p>Pour toute question, information sur les produits présentés sur le site, ou concernant le site lui même, vous pouvez laisser un message à l'adresse suivante : contact@fairmade.fr</p>
+<p>Pour toute question, information sur les produits présentés sur le site, ou concernant le site lui même, vous pouvez laisser un message à l'adresse suivante : contacthippolythe@gmail.com</p>
 
             </div>
     );

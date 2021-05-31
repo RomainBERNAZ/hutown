@@ -81,7 +81,7 @@ const Contact =() => {
     return (
          <form className="contact">
             <div className="form-content">
-              <h2>COLLABORONS ENSEMBLE</h2>
+              <h2>Des questions ? Des projets ?  Contactez-nous</h2>
               <input
                 required
                 type="text"

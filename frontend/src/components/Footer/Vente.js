@@ -25,7 +25,7 @@ const Vente = () => {
 <p>Les Conditions Générales de Ventes (ci après « les CGV ») régissent les conditions de ventes de
 produits de Hippolythe en vente sur https://www.hippolythe.com (ci-après le «Site»), éditée en auto
 entreprise. Dont le siege social est situé au 3 passage de la moselle, 75019 inscrite au registre du
-Commerce et des Sociétés de Paris sous le numéro 88213153500016.
+Commerce et des Sociétés de Paris sous le numéro 88213153500024.
 Toute personne physique ou morale, non commerçante, souhaitant procéder à l’achat d’un Produit
 est dénommé «Le Client» ou «Acheteur». La personne souhaitant acheter sur le Site déclare avoir
 la pleine capacité juridique. Les présentes CGV sont disponibles uniquement en langue française,
@@ -178,7 +178,7 @@ Hippolythe dans un délai d’un mois maximum.</p>
 délai de quatorze jours francs pour exercer son droit de rétractation sans avoir à justifier de motifs
 ni à payer de pénalités, à l’exception, le cas échéant, des frais de retour ».
 Le droit de rétractation peut être exercé en contactant la société par mail à l’adresse
-contact@fairmade.fr . Nous vous ferons parvenir un formulaire de rétractation et un bon Colissimo
+contacthippolythe@gmail.com . Nous vous ferons parvenir un formulaire de rétractation et un bon Colissimo
 prépayé. Le retour devra être exclusivement effectué à l’adresse du fabricant.
 Comme pour un retour produit, les produits doivent impérativement être en bon état et remis dans
 leur emballage d’origine, auquel il est ajouté un emballage couvrant la totalité du produit ; ils ne
@@ -186,7 +186,7 @@ doivent porter aucune trace d’utilisation, être accompagnés de leurs accesso
 contraire, aucun remboursement ne saurait être exigible, le client restera propriétaire du produit.</p>
 <h2>ARTICLE 10 : RÉCLAMATIONS</h2>
 <p>Le cas échéant, l’Acheteur peut présenter toute réclamation en contactant la société au moyen des
-coordonnées suivantes : contact@fairmade.fr</p>
+coordonnées suivantes : contacthippolythe@gmail.com</p>
 <h2>ARTICLE 11 : DROIT DE PROPRIÉTÉ INTELLECTUELLE</h2>
 <p>Les marques, noms de domaines, produits, logiciels, images, vidéos, textes ou plus généralement
 toute information objet de droits de propriété intellectuelle sont et restent la propriété exclusive de

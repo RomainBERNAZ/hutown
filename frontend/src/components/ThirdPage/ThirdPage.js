@@ -9,6 +9,14 @@ const ThirdPage = () => {
     
     const pageList = useSelector(state => state.pageList);
     const { pages, loading, error } = pageList;
+
+    const sortBySensitivity = sensitivity => (a, b) => a.localeCompare(
+        b,
+        undefined, // locale string -- undefined means to use browser default
+        { sensitivity }
+      );
+
+    const byBase    = sortBySensitivity('base');
     
     const [imageIds, setImageIds] = useState();
     const regex = /^third/;
@@ -19,12 +27,13 @@ const ThirdPage = () => {
         try {
             const res = await axios.get('/api/images/');
             const data = await res.data;
-            setImageIds(data);
+            setImageIds(data.sort(byBase));
         } catch (err) {
             console.error(err);
         }
     };
     useEffect(() => {
+        console.log(imageIds);
         dispatch(listPages());
         loadImages();
     }, [dispatch]);
