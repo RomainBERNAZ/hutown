@@ -142,7 +142,8 @@ const ModalPaiement = () => {
     try {
       const { data: clientSecret } = await axios.post("/api/pay", {
         amount: sum * 10 + deliveryPrice,
-        receipt_email: billingDetails.email
+        receipt_email: billingDetails.email,
+        payment_method:'card'
       });
 
       const paymentMethodReq = await stripe.createPaymentMethod({

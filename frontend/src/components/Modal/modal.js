@@ -157,7 +157,7 @@ const Modal = (props) => {
                         <h3>TAILLES</h3>
                         <div className="modal-price-size">
                             <span>Small :</span>
-                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeS(e.target.value)} disabled/>
+                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeS(e.target.value)} />
                         </div>
                         <div className="modal-price-size">
                             <span>Medium :</span>
@@ -176,7 +176,7 @@ const Modal = (props) => {
                         <h3>PRIX</h3>
                         <div className="modal-price-size">
                             <span>Small :</span>
-                            <input type="number" onChange={(e) => setPriceS(e.target.value)} disabled/>
+                            <input type="number" onChange={(e) => setPriceS(e.target.value)}/>
                         </div>
                         <div className="modal-price-size">
                             <span>Medium :</span>
