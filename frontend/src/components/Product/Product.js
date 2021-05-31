@@ -148,7 +148,7 @@ const Product = (props) => {
             </div> ) : ""}
 
 
-           {/** { products.price ? (
+            { products.price ? (
             <select name="taille" id="" onChange={handleChangeSize} required>
               <option value="">Tailles disponibles</option>
               {products.price.Small !== null ? (
@@ -180,7 +180,7 @@ const Product = (props) => {
                 ""
               )}
             </select> ) :"" }
-            */} 
+            
             <p>QUANTITÉ : </p>{" "}
             {mql.matches ? (
               <input
