@@ -17,7 +17,6 @@ router.post("/pay", async (req, res) => {
 
     res.status(200).send(paymentIntent.client_secret);
   } catch (err) {
-    console.log('cest la merde');
     res.status(500).json({ statusCode: 500, message: err.message });
   }
   });

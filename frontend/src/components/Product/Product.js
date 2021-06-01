@@ -5,11 +5,11 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { detailsProduct, deleteProduct } from "../../actions/productActions";
 import "./Product.css";
+import Mondial from "../MondialRelay/Mondial";
 
 const Product = (props) => {
   const [imageIds, setImageIds] = useState([]);
   const [size, setSize] = useState("");
-  let length = 0;
 
   const productDetails = useSelector((state) => state.productDetails);
   const { products, loading, error } = productDetails;
@@ -31,6 +31,7 @@ const Product = (props) => {
   const [defaultPrice, setDefaultPrice] = useState("");
   const mql = window.matchMedia("(max-width: 600px)");
 
+
   const deleteImage = async (imageId) => {
     try {
       await axios.post(
@@ -41,7 +42,6 @@ const Product = (props) => {
         }
       );
       loadImages();
-      //alert('Suppression réussie')
     } catch (err) {
       console.error(err);
     }
@@ -64,6 +64,7 @@ const Product = (props) => {
   useEffect(() => {
     dispatch(detailsProduct(props.match.params.id));
     loadImages();
+
   }, [props.match.params.id, dispatch]);
 
   const deleteHandler = (products, id) => {
@@ -76,6 +77,7 @@ const Product = (props) => {
 
   const handleChangeSize = () => {
       setDefaultPrice(products.price.Medium);
+      console.log(defaultPrice);
       setSize(products.size.Medium);
   };
 
@@ -133,22 +135,17 @@ const Product = (props) => {
             );
           })}
         </div>
-        <form
-          className="product-contenu"
-          onSubmit={() =>addItem(products._id)}
-        >
+        <form className="product-contenu" onSubmit={() =>addItem(products._id)}>
           <p className="product-name">{products.name}</p>
           <div className="product-details">
-          {products.price ? (
+          
+          {products.price ? <span>{products.price.Medium} €</span> : ""}
+
+
+
+         {/* { products.price ? (
             <div>
-                {products.price.Small ? <span>{products.price.Small} €</span> : 
-                 products.price.Medium ? <span>{products.price.Medium} €</span> :   
-                 products.price.Large ? <span>{products.price.Large} €</span> :   
-                 products.price.Xtra ? <span>{products.price.Xtra} €</span> : ''  }  
-            </div> ) : ""}
-
-
-            { products.price ? (
+            { products.price.Medium && products.price.Small ? (
             <select name="taille" id="" onChange={handleChangeSize} required>
               <option value="">Tailles disponibles</option>
               {products.price.Small !== null ? (
@@ -181,6 +178,9 @@ const Product = (props) => {
               )}
             </select> ) :"" }
             
+            </div>
+                  ) :"" } */}
+            
             <p>QUANTITÉ : </p>{" "}
             {mql.matches ? (
               <input
@@ -199,18 +199,21 @@ const Product = (props) => {
                 onChange={(e) => setQte(e.target.value)}
               />
             )}
+            
           </div>
-          <div className="details-price">
-            {defaultPrice ? <span>{defaultPrice * qte} €</span> : ""}
-          </div>
+          
           <div className="product-description"><p>Description:</p>  <span>{products.description}</span> </div>
-          <div className="product-description"><p>Taille:</p> {products.size ? (
+          <div className="product-description"><p>Taille:</p> 
+           
+            {products.size ? (
             <div>
                 {products.size.Small ? <span id="price">{products.size.Small}</span> : 
                  products.size.Medium ? <span id="price">{products.size.Medium}</span> :   
                  products.size.Large ? <span id="price">{products.size.Large}</span> :   
                  products.size.Xtra ? <span id="price">{products.size.Xtra}</span> : ''  }
-            </div> ) : ""}</div>
+            </div> ) : ""}
+          </div>
+
           <div className="product-description"><p>Lieu:</p> <span>{products.lieu}</span></div>
           <div className="product-description"><p>Papier utilisé: </p><span>{products.papier}</span></div>
           <div className="product-description"><p>Livraison: </p><span>{products.livraison}</span></div>

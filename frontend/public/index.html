@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app"/>
+    <link rel="stylesheet" type="text/css" href="//unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
@@ -13,5 +14,38 @@
   </head>
   <body>
     <div id="root"></div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="//widget.mondialrelay.com/parcelshop-picker/jquery.plugin.mondialrelay.parcelshoppicker.min.js"></script>
+    <script>
+      $(document).ready(function() {
+  // Loading the Parcelshop picker widget into the <div> with id "Zone_Widget" with such settings:
+  $("#Zone_Widget").MR_ParcelShopPicker({
+    //
+    // Settings relating to the HTML.
+    //
+    // JQuery selector of the HTML element receiving the Parcelshop Number (ex: here, input type text, but should be input hidden)
+    Target: "#Target_Widget",
+    Brand: "CC220KO1",
+    // Default Country (2 letters) used for search at loading
+    Country: "FR",
+    // Default postal Code used for search at loading
+    PostCode: "75000",
+    // Delivery mode (Standard [24R], XL [24L], XXL [24X], Drive [DRI])
+    ColLivMod: "24R",
+    // Number of parcelshops requested (must be less than 20)
+    NbResults: "7",
+    //
+    // Display settings
+    //
+    // Enable Responsive (nb: non responsive corresponds to the Widget used in older versions=
+    Responsive: true,
+		// Show the results on Leaflet map usng OpenStreetMap. 
+    ShowResultsOnMap: true
+  });
+
+});
+
+    </script>
   </body>
 </html>

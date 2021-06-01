@@ -10,6 +10,7 @@ import './ModalPaiement.css'
 import Rowcard from './prebuilt/Rowcard';
 import ErrorPayment from './ErrorPayment';
 import SuccessPayment from './SuccessPayment';
+import Mondial from '../MondialRelay/Mondial';
 
 
 
