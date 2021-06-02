@@ -20,6 +20,13 @@ const BillingDetailsFields = () => {
         required
       />
       <FormField
+        name="telephone"
+        label="Telephone"
+        type="text"
+        placeholder="06 00 00 00 00"
+        required
+      />
+      <FormField
         name="line1"
         id="line1Form"
         label="Adresse"

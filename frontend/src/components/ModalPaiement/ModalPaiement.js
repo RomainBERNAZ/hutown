@@ -159,6 +159,7 @@ const ModalPaiement = () => {
       message.push("Acheteur: "+ev.target.name.value +" / "+
                    "Adresse : " + ev.target.line1.value+" "+ev.target.zip.value+" "+ev.target.city.value+ " / " +
                    "Email: " +ev.target.email.value+" / "+
+                   "Telephone: " +ev.target.telephone.value+" / "+
                    "Point relai: " +ev.target.relai.value+" / "+
                    "Nom du produit: " + item.name + " / " +
                    "Taille :" + (arrayOfSize[products.indexOf(item)]).toString() + " / "+
