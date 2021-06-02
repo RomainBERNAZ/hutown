@@ -39,4 +39,10 @@
   -webkit-animation: 1ms void-animation-out;
   animation: 1ms void-animation-out;
 }
+
+h4 {
+  margin-bottom: 2vh;
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
 /*# sourceMappingURL=Mondial.css.map */

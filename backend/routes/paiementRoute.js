@@ -3,7 +3,7 @@ import Stripe from 'stripe'
 
 const router = express.Router();
 
-const stripe = new Stripe(process.env.REACT_APP_SECRET_KEY);
+const stripe = new Stripe(process.env.REACT_APP_TEST_SECRET_KEY);
 
 router.post("/pay", async (req, res) => {
 

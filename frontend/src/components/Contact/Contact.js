@@ -3,7 +3,7 @@ import emailjs from 'emailjs-com'
 import './Contact.css'
 import{ init } from 'emailjs-com';
 import Footer from '../Footer/Footer';
-init("user_r3SpDDPv18OmWrSh8zTIY");
+init("user_P4Eon9dIyOON2EipVbccW");
 
 const Contact =() => {
 
@@ -47,7 +47,7 @@ const Contact =() => {
         e.preventDefault();
     
         if(name && isEmail() && message) {
-          sendFeedback("template_6ahbmsh", {
+          sendFeedback("template_dkqc1vg", {
             name,
             company,
             phone,
@@ -63,7 +63,7 @@ const Contact =() => {
       const sendFeedback = (templateId, variables) => {
 
         emailjs
-          .send("service_zs6lxcc", templateId, variables)
+          .send("service_dwbtqpg", templateId, variables)
           .then((res) => {
             console.log('success !');
             setName("");

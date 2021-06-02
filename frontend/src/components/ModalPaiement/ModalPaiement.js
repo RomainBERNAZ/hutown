@@ -96,7 +96,7 @@ const ModalPaiement = () => {
     const sendFeedback = (templateId, variables) => {
 
       emailjs
-        .send("service_zs6lxcc", templateId, variables)
+        .send("service_dwbtqpg", templateId, variables)
         .then((res) => {
           console.log('success !');
         })
@@ -109,7 +109,7 @@ const ModalPaiement = () => {
 
 
     const handleSubmit = () => {
-      sendFeedback("template_6ahbmsh", {
+      sendFeedback("template_dkqc1vg", {
           message
         });
       
@@ -204,7 +204,7 @@ const ModalPaiement = () => {
       });
       
       handleSubmit()
-      closeModalPaiement();
+      //closeModalPaiement();
 
 
       if (error) {
@@ -306,6 +306,9 @@ const ModalPaiement = () => {
                   <Row>
                     <div id="info-perso">
                    <BillingDetailsFields />
+                   <h4>Merci de sélectionner un Point Relais via le widget ci-dessous. <br/>
+                   Le champ se remplira automatiquement avec le code de la boutique.
+                   </h4>
                    <Mondial/>
                    <span>Pays (frais de livraison)</span>
                     <select className="" onChange={ (e) => setDeliveryPrice(e.target.value)}>

@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { detailsProduct, deleteProduct } from "../../actions/productActions";
 import "./Product.css";
-import Mondial from "../MondialRelay/Mondial";
 
 const Product = (props) => {
   const [imageIds, setImageIds] = useState([]);
