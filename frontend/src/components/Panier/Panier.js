@@ -36,7 +36,6 @@ const Panier = () => {
 
     const arrayOfSize = []
     //Retourne les tailles dans un array.
-    console.log(values, 'tets');
     values.map( nb => {
         arrayOfSize.push(nb.slice(29).replace(/[[\]"]+/g,'').split('*').splice(0,1));
         return arrayOfSize;

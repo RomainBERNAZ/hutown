@@ -1,0 +1,42 @@
+#Zone_Widget {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+#Zone_Widget button {
+  display: none;
+}
+
+.relai-container {
+  margin-left: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.relai-container label {
+  width: 50%;
+  min-width: 70px;
+  padding: 11px 0;
+  color: black;
+  overflow: hidden;
+  font-family: Halyard;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.relai-container input {
+  width: 100%;
+  float: right;
+  font-size: 16px;
+  padding: 11px 15px 11px 8px;
+  color: black;
+  background-color: transparent;
+  -webkit-animation: 1ms void-animation-out;
+  animation: 1ms void-animation-out;
+}
+/*# sourceMappingURL=Mondial.css.map */

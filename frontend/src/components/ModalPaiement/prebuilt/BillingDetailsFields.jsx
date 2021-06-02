@@ -6,23 +6,26 @@ const BillingDetailsFields = () => {
       <FormField
         name="name"
         label="Nom - Prénom"
+        id="nameForm"
         type="text"
         placeholder="Locke John"
         required
       />
       <FormField
         name="email"
+        id="emailForm"
         label="Email"
         type="email"
         placeholder="johnlocke@example.com"
         required
       />
       <FormField
-        name="address"
+        name="line1"
+        id="line1Form"
         label="Adresse"
         type="text"
         placeholder="Sur une île, au milieu de l'océan"
-        required
+        required 
       />
       <FormField
         name="address"
@@ -34,6 +37,7 @@ const BillingDetailsFields = () => {
       <FormField
         name="city"
         label="Ville"
+        id="cityForm"
         type="text"
         placeholder="Sydney"
         required
@@ -41,6 +45,7 @@ const BillingDetailsFields = () => {
       <FormField
         name="zip"
         label="Code Postal"
+        id="zipForm"
         type="text"
         placeholder="75000"
         required

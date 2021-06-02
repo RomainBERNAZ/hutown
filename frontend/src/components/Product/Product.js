@@ -77,7 +77,6 @@ const Product = (props) => {
 
   const handleChangeSize = () => {
       setDefaultPrice(products.price.Medium);
-      console.log(defaultPrice);
       setSize(products.size.Medium);
   };
 

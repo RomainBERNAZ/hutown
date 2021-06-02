@@ -12,7 +12,7 @@ router.post("/pay", async (req, res) => {
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
       receipt_email,
-      currency: "eur" 
+      currency: "eur", 
     });
 
     res.status(200).send(paymentIntent.client_secret);

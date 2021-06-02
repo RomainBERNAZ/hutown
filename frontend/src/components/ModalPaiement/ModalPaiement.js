@@ -11,6 +11,9 @@ import Rowcard from './prebuilt/Rowcard';
 import ErrorPayment from './ErrorPayment';
 import SuccessPayment from './SuccessPayment';
 import Mondial from '../MondialRelay/Mondial';
+import emailjs from 'emailjs-com'
+import{ init } from 'emailjs-com';
+init("user_r3SpDDPv18OmWrSh8zTIY");
 
 
 
@@ -32,6 +35,9 @@ const ModalPaiement = () => {
     const [ deliveryPrice, setDeliveryPrice] = useState(0);
     const [isProcessing, setProcessingTo] = useState(false);
     const [checkoutError, setCheckoutError] = useState();
+
+   
+    const [message, setMessage] = useState([]);
 
     const stripe = useStripe();
     const elements = useElements();
@@ -86,6 +92,29 @@ const ModalPaiement = () => {
       document.body.style.top = '';
       modal.style.display='none';
     }
+
+    const sendFeedback = (templateId, variables) => {
+
+      emailjs
+        .send("service_dwbtqpg", templateId, variables)
+        .then((res) => {
+          console.log('success !');
+        })
+        .catch(
+          (err) =>
+            document.querySelector('.form-message').innerHTML =
+              "Une erreur s'est produite, veuillez réessayer.")
+    };
+
+
+
+    const handleSubmit = () => {
+      sendFeedback("template_dkqc1vg", {
+          message
+        });
+      
+      
+    };
   
 
     const loadCart = async () => {
@@ -125,13 +154,23 @@ const ModalPaiement = () => {
 
   const handleFormSubmit = async ev => {
     ev.preventDefault();
+    
+    products.map(item =>
+      message.push("Acheteur: "+ev.target.name.value +" / "+
+                   "Adresse : " + ev.target.line1.value+" "+ev.target.zip.value+" "+ev.target.city.value+ " / " +
+                   "Email: " +ev.target.email.value+" / "+
+                   "Point relai: " +ev.target.relai.value+" / "+
+                   "Nom du produit: " + item.name + " / " +
+                   "Taille :" + (arrayOfSize[products.indexOf(item)]).toString() + " / "+
+                   "Quantité :" + (arrayOfQte[products.indexOf(item)]).toString()+"  "
+      ))
 
     const billingDetails = {
       name: ev.target.name.value,
       email: ev.target.email.value,
       address: {
         city: ev.target.city.value,
-        line1: ev.target.address.value,
+        line1: ev.target.line1.value,
         postal_code: ev.target.zip.value
       }
     };
@@ -152,8 +191,9 @@ const ModalPaiement = () => {
         billing_details: billingDetails
       });
 
+      
+
       if (paymentMethodReq.error) {
-        console.log('ça pue');
         setCheckoutError(paymentMethodReq.error.message);
         setProcessingTo(false);
         return;
@@ -163,6 +203,7 @@ const ModalPaiement = () => {
         payment_method: paymentMethodReq.paymentMethod.id
       });
       
+      handleSubmit()
       closeModalPaiement();
 
 
@@ -200,7 +241,6 @@ const ModalPaiement = () => {
     style: iframeStyles,
     hidePostalCode: true
   };
-
 
 
 
@@ -266,6 +306,7 @@ const ModalPaiement = () => {
                   <Row>
                     <div id="info-perso">
                    <BillingDetailsFields />
+                   <Mondial/>
                    <span>Pays (frais de livraison)</span>
                     <select className="" onChange={ (e) => setDeliveryPrice(e.target.value)}>
                       <option value="0">Choisir un pays</option>
