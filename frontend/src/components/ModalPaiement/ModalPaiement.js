@@ -204,7 +204,7 @@ const ModalPaiement = () => {
       });
       
       handleSubmit()
-      //closeModalPaiement();
+      closeModalPaiement();
 
 
       if (error) {

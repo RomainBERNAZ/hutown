@@ -36,7 +36,7 @@ function App() {
     <Router>
       <div className="App" id="App">
       <HttpsRedirect>
-        <Elements stripe={promiseTest}>
+        <Elements stripe={promise}>
           <Cursor />
           <Header/>
           <Route component={Main} path="/" exact/>
