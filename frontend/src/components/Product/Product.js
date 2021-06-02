@@ -206,7 +206,7 @@ const Product = (props) => {
            
             {products.size ? (
             <div>
-                {products.size.Small ? <span id="price">{products.size.Small}</span> : 
+                { 
                  products.size.Medium ? <span id="price">{products.size.Medium}</span> :   
                  products.size.Large ? <span id="price">{products.size.Large}</span> :   
                  products.size.Xtra ? <span id="price">{products.size.Xtra}</span> : ''  }
