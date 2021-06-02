@@ -96,7 +96,7 @@ const ModalPaiement = () => {
     const sendFeedback = (templateId, variables) => {
 
       emailjs
-        .send("service_dwbtqpg", templateId, variables)
+        .send("service_zs6lxcc", templateId, variables)
         .then((res) => {
           console.log('success !');
         })
@@ -109,7 +109,7 @@ const ModalPaiement = () => {
 
 
     const handleSubmit = () => {
-      sendFeedback("template_dkqc1vg", {
+      sendFeedback("template_6ahbmsh", {
           message
         });
       
