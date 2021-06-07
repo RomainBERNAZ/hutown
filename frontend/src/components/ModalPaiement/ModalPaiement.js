@@ -160,7 +160,6 @@ const ModalPaiement = () => {
                    "Adresse : " + ev.target.line1.value+" "+ev.target.zip.value+" "+ev.target.city.value+ " / " +
                    "Email: " +ev.target.email.value+" / "+
                    "Telephone: " +ev.target.telephone.value+" / "+
-                   "Point relai: " +ev.target.relai.value+" / "+
                    "Nom du produit: " + item.name + " / " +
                    "Taille :" + (arrayOfSize[products.indexOf(item)]).toString() + " / "+
                    "Quantité :" + (arrayOfQte[products.indexOf(item)]).toString()+"  "
@@ -307,10 +306,6 @@ const ModalPaiement = () => {
                   <Row>
                     <div id="info-perso">
                    <BillingDetailsFields />
-                   <h4>Merci de sélectionner un Point Relais via le widget ci-dessous. <br/>
-                   Le champ se remplira automatiquement avec le code de la boutique.
-                   </h4>
-                   <Mondial/>
                    <span>Pays (frais de livraison)</span>
                     <select className="" onChange={ (e) => setDeliveryPrice(e.target.value)}>
                       <option value="0">Choisir un pays</option>
