@@ -7,19 +7,18 @@ import { detailsProduct, deleteProduct } from "../../actions/productActions";
 import "./Product.css";
 
 const Product = (props) => {
-  const [imageIds, setImageIds] = useState([]);
-  const [size, setSize] = useState("");
 
+  const [imageIds, setImageIds] = useState([]);
   const productDetails = useSelector((state) => state.productDetails);
   const { products, loading, error } = productDetails;
-
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-
+  const [defaultPrice, setDefaultPrice] = useState("");
+  const [defaultSize, setDefaultSize] = useState("");
+  const mql = window.matchMedia("(max-width: 600px)");
   const history = useHistory();
   const dispatch = useDispatch();
-
-
+  const [qte, setQte] = useState("1");
   const productDelete = useSelector((state) => state.productDelete);
   const {
     loading: loadingDelete,
@@ -27,10 +26,9 @@ const Product = (props) => {
     error: errorDelete,
   } = productDelete;
 
-  const [defaultPrice, setDefaultPrice] = useState("");
-  const mql = window.matchMedia("(max-width: 600px)");
+  
 
-
+  //Fonction qui supprime l'image de Cloudinary lorsque le produit à été supprimé.
   const deleteImage = async (imageId) => {
     try {
       await axios.post(
@@ -46,6 +44,8 @@ const Product = (props) => {
     }
   };
 
+
+  //Fonction qui récupère l'image du produit en fonction de son id via Cloudinary
   const loadImages = async () => {
     try {
       const res = await axios.get("/api/imagesShop");
@@ -56,41 +56,46 @@ const Product = (props) => {
     }
   };
 
-
-
-  const [qte, setQte] = useState("1");
-
-  useEffect(() => {
-    dispatch(detailsProduct(props.match.params.id));
-    loadImages();
-
-  }, [props.match.params.id, dispatch]);
-
+  //Fonction qui fait appel aux deux autres qui permettent de supprimer un produit en base et sur Cloudinary
   const deleteHandler = (products, id) => {
     dispatch(deleteProduct(products._id));
     deleteImage(id);
     history.push("/shop");
   };
 
-  
+  //Permet de modifier le format choisi et donc le prix associé.
+  const handleChangeSize = (e) => {
+      let res = e.target.value 
+      const S = "Small"
 
-  const handleChangeSize = () => {
-      setDefaultPrice(products.price.Medium);
-      setSize(products.size.Medium);
+      if(res === S)
+      {
+        setDefaultPrice(products.price.Small)
+        setDefaultSize(products.size.Small)
+      }
+      else
+      {
+        setDefaultPrice(products.price.Medium)
+        setDefaultSize(products.size.Medium)
+      }
   };
 
+  //Ajoute l'objet choisi au panier.
   const addItem = (id) => {
     let msgCart = document.getElementById("validation-add-cart");
     let cartList = [];
-    let key = id + "/" + size;
-    cartList.push(id + "/" + qte + "-" + size + "*" + defaultPrice);
+    let key = id + "/" + defaultSize;
+    cartList.push(id + "/" + qte + "-" + defaultSize + "*" + defaultPrice);
     localStorage.getItem(key);
     localStorage.setItem(key, JSON.stringify(cartList));
     msgCart.style.opacity = 1;
-    //setTimeout(() => {
-    //  window.location.reload(false);
-    //}, 11500);
   };
+
+
+  useEffect(() => {
+    dispatch(detailsProduct(props.match.params.id));
+    loadImages();
+  }, [props.match.params.id, dispatch]);
 
   return loading ? (
     <div>Loading</div>
@@ -136,40 +141,25 @@ const Product = (props) => {
         <form className="product-contenu" onSubmit={() =>addItem(products._id)}>
           <p className="product-name">{products.name}</p>
           <div className="product-details">
-          
-          {products.price ? <span>{products.price.Medium} €</span> : ""}
-
-
-
-         {/* { products.price ? (
+            {defaultPrice ? 
+            <span>{defaultPrice} €</span>
+          :""}
+            
+          { products.price ? (
             <div>
             { products.price.Medium && products.price.Small ? (
             <select name="taille" id="" onChange={handleChangeSize} required>
               <option value="">Tailles disponibles</option>
               {products.price.Small !== null ? (
-                <option id="priceS" value="priceS">
+                <option id="priceS" value="Small">
                   {products.size.Small}
                 </option>
               ) : (
                 ""
               )}
               {products.price.Medium !== null ? (
-                <option id="priceM" value="priceM">
+                <option id="priceM" value="Medium">
                   {products.size.Medium}
-                </option>
-              ) : (
-                ""
-              )}
-              {products.price.Large !== null ? (
-                <option id="priceL" value="priceL">
-                  {products.size.Large}
-                </option>
-              ) : (
-                ""
-              )}
-              {products.price.Xtra !== null ? (
-                <option id="priceX" value="priceX">
-                  {products.size.Xtra}
                 </option>
               ) : (
                 ""
@@ -177,7 +167,7 @@ const Product = (props) => {
             </select> ) :"" }
             
             </div>
-                  ) :"" } */}
+                  ) :"" } 
             
             <p>QUANTITÉ : </p>{" "}
             {mql.matches ? (
@@ -201,21 +191,11 @@ const Product = (props) => {
           </div>
           
           <div className="product-description"><p>Description:</p>  <span>{products.description}</span> </div>
-          <div className="product-description"><p>Taille:</p> 
-           
-            {products.size ? (
-            <div>
-                { 
-                 products.size.Medium ? <span id="price">{products.size.Medium}</span> :   
-                 products.size.Large ? <span id="price">{products.size.Large}</span> :   
-                 products.size.Xtra ? <span id="price">{products.size.Xtra}</span> : ''  }
-            </div> ) : ""}
-          </div>
-
+          <div className="product-description"><p>Taille:</p><span id="price">{defaultSize}</span></div> 
           <div className="product-description"><p>Lieu:</p> <span>{products.lieu}</span></div>
           <div className="product-description"><p>Papier utilisé: </p><span>{products.papier}</span></div>
           <div className="product-description"><p>Livraison: </p><span>{products.livraison}</span></div>
-          <button className="product-cart" onClick={handleChangeSize}>Ajouter au panier</button>
+          <button className="product-cart" >Ajouter au panier</button>
         </form>
       </div>
     </div>

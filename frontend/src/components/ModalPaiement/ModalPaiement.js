@@ -10,7 +10,6 @@ import './ModalPaiement.css'
 import Rowcard from './prebuilt/Rowcard';
 import ErrorPayment from './ErrorPayment';
 import SuccessPayment from './SuccessPayment';
-import Mondial from '../MondialRelay/Mondial';
 import emailjs from 'emailjs-com'
 import{ init } from 'emailjs-com';
 init("user_r3SpDDPv18OmWrSh8zTIY");

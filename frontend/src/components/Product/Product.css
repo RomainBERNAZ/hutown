@@ -101,6 +101,7 @@
 }
 
 .product-single .single-body .product-contenu .product-details {
+  gap: 1vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

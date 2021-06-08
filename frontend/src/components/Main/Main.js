@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Image } from 'cloudinary-react'
 import { useDispatch, useSelector } from 'react-redux';
 import { listPages } from '../../actions/pageActions'
-import CookieConsent, { Cookies } from "react-cookie-consent";
+import CookieConsent from "react-cookie-consent";
 import './main.css'
 
 const Main = () => {
