@@ -36,7 +36,7 @@ const ModalPaiement = () => {
     const [checkoutError, setCheckoutError] = useState();
 
    
-    const [message, setMessage] = useState([]);
+    const message = []
 
     const stripe = useStripe();
     const elements = useElements();

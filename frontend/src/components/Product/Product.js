@@ -22,11 +22,20 @@ const Product = (props) => {
   const productDelete = useSelector((state) => state.productDelete);
   const {
     loading: loadingDelete,
-    success: successDelete,
+    /* success: successDelete, */
     error: errorDelete,
   } = productDelete;
 
-  
+
+  function testSolo (e)
+  {
+    e.preventDefault()
+    if(defaultPrice === "")
+    {
+      setDefaultPrice(products.price.Medium)
+      console.log(defaultPrice);
+    }
+  }
 
   //Fonction qui supprime l'image de Cloudinary lorsque le produit à été supprimé.
   const deleteImage = async (imageId) => {
@@ -82,13 +91,31 @@ const Product = (props) => {
 
   //Ajoute l'objet choisi au panier.
   const addItem = (id) => {
-    let msgCart = document.getElementById("validation-add-cart");
-    let cartList = [];
-    let key = id + "/" + defaultSize;
-    cartList.push(id + "/" + qte + "-" + defaultSize + "*" + defaultPrice);
-    localStorage.getItem(key);
-    localStorage.setItem(key, JSON.stringify(cartList));
-    msgCart.style.opacity = 1;
+    
+    
+    if(defaultPrice === "")
+    {
+      let soloPrice = products.price.Medium
+      let  soloSize = products.size.Medium
+      let msgCart = document.getElementById("validation-add-cart");
+      let cartList = [];
+      let key = id + "/" + soloSize;
+      cartList.push(id + "/" + qte + "-" + soloSize + "*" + soloPrice);
+      localStorage.getItem(key);
+      localStorage.setItem(key, JSON.stringify(cartList));
+      msgCart.style.opacity = 1;
+    }
+    else
+    {
+      let msgCart = document.getElementById("validation-add-cart");
+      let cartList = [];
+      let key = id + "/" + defaultSize;
+      cartList.push(id + "/" + qte + "-" + defaultSize + "*" + defaultPrice);
+      localStorage.getItem(key);
+      localStorage.setItem(key, JSON.stringify(cartList));
+      msgCart.style.opacity = 1;
+    }
+
   };
 
 
@@ -138,11 +165,19 @@ const Product = (props) => {
             );
           })}
         </div>
-        <form className="product-contenu" onSubmit={() =>addItem(products._id)}>
+        <form className="product-contenu" onSubmit={() => addItem( products._id) }>
           <p className="product-name">{products.name}</p>
           <div className="product-details">
+            {products.price ? 
+            <div>
+              {products.price.Small === null ?
+              <span>{products.price.Medium} €</span>
+              :""  
+            }
+            </div>:""
+          }
             {defaultPrice ? 
-            <span>{defaultPrice} €</span>
+              <span>{defaultPrice} €</span>
           :""}
             
           { products.price ? (
@@ -191,7 +226,12 @@ const Product = (props) => {
           </div>
           
           <div className="product-description"><p>Description:</p>  <span>{products.description}</span> </div>
-          <div className="product-description"><p>Taille:</p><span id="price">{defaultSize}</span></div> 
+
+          <div className="product-description"><p>Taille:</p>
+            { products.size ? <div> {products.size.Small === "" ? <span id="price"> {products.size.Medium} </span> : "" } </div>: "" }
+            { defaultSize ? <span> {defaultSize} </span> : "" } 
+          </div> 
+          
           <div className="product-description"><p>Lieu:</p> <span>{products.lieu}</span></div>
           <div className="product-description"><p>Papier utilisé: </p><span>{products.papier}</span></div>
           <div className="product-description"><p>Livraison: </p><span>{products.livraison}</span></div>

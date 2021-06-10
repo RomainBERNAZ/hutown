@@ -16,31 +16,10 @@ const Shop = () => {
   const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList;
 
-  const [ minimumPrice, setMinimumPrice ] = useState('')
-
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const dispatch = useDispatch();
 
-  const setMinimumProductPrice = () => {
-
-    products.forEach(product => {
-      
-      if(product.price.Small != null){
-        setMinimumPrice(product.price.Small);
-      }
-      else if(product.price.Small === null && product.price.Medium != null){
-        setMinimumPrice(product.price.Medium);
-      }
-      else if(product.price.Small === null && product.price.Medium === null && product.price.Large != null){
-        setMinimumPrice(product.price.Large);
-      }
-      else {
-        setMinimumPrice(product.price.Xtra);
-      }
-
-    });
-  }
 
   const checkLengthOfPriceArray = () => {
     products.forEach(product => {
@@ -48,8 +27,6 @@ const Shop = () => {
   });
     
   }
-
-  
 
   const loadImages = async () => {
     try {
@@ -64,7 +41,6 @@ const Shop = () => {
   useEffect(() => {
     dispatch(listProducts());
     loadImages();
-    setMinimumProductPrice();
     checkLengthOfPriceArray()
   }, [dispatch]);
 

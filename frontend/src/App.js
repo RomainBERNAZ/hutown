@@ -25,7 +25,7 @@ import Vente from './components/Footer/Vente';
 import Histoire from './components/Histoire/histoire';
 
 const promise = loadStripe("pk_live_51IIXlWLt56Zxnj4xA4lrJXceCjhbBXrFGB0XzYzhuBEtOjhsebBqj1msbirp0N5WkTsQG7bR18LW5p5Pukl16XBm00Y8TcU9eh");
-const promiseTest = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");
+//const promiseTest = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");
 
 function App() {
 
