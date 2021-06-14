@@ -31,7 +31,7 @@ const CardElementContainer = styled.div`
 
 const ModalPaiement = () => {
 
-    const [ deliveryPrice, setDeliveryPrice] = useState(0);
+    const [ deliveryPrice, setDeliveryPrice] = useState('0');
     const [isProcessing, setProcessingTo] = useState(false);
     const [checkoutError, setCheckoutError] = useState();
 
@@ -203,7 +203,7 @@ const ModalPaiement = () => {
       });
       
       handleSubmit()
-      closeModalPaiement();
+      //closeModalPaiement();
 
 
       if (error) {
@@ -307,9 +307,9 @@ const ModalPaiement = () => {
                    <BillingDetailsFields />
                    <span>Pays (frais de livraison)</span>
                     <select className="" onChange={ (e) => setDeliveryPrice(e.target.value)}>
-                      <option value="0">Choisir un pays</option>
+                      <option value='0'>Choisir un pays</option>
                       <option value='0' >France</option>
-                      <option value="8">Reste du monde</option>
+                      <option value='8'>Reste du monde</option>
                     </select>
                     </div>
                  </Row>
