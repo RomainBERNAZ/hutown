@@ -1,0 +1,43 @@
+.confirmation{
+padding-top: 20vh;
+min-height: 100vh;
+background: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+h2{
+    margin-bottom: 5vh;
+    font-size: 2.3em;
+}
+h3{
+    margin-top: 15vh;
+    font-size: 1.5em;
+}
+}
+@media screen and (max-width: 890px) {
+
+    .confirmation{
+        padding-top: 0vh;
+        min-height: 100vh;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+        h2{
+            margin-bottom: 5vh;
+            font-size: 1.3em;
+        }
+        h3{
+            margin-top: 5vh;
+            font-size: 0.9em;
+        }
+        }
+
+
+
+}

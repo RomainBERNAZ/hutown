@@ -114,6 +114,8 @@ const ModalPaiement = () => {
       
       
     };
+
+    
   
 
     const loadCart = async () => {
@@ -143,7 +145,7 @@ const ModalPaiement = () => {
     let modal = document.querySelector('.modal-paiement-container');
     modal.style.display="none";
     localStorage.clear();
-      window.location.reload(false);
+    window.location.href = '/confirmation'
     }, 2050);
 }
 
@@ -202,8 +204,17 @@ const ModalPaiement = () => {
         payment_method: paymentMethodReq.paymentMethod.id
       });
       
+      const validationEmailClient = () => {
+        sendFeedback("template_uldur75", {
+          email: ev.target.email.value,
+          article: products.map( item => item.name)
+        });
+      }
+      validationEmailClient()
+
+
       handleSubmit()
-      //closeModalPaiement();
+      closeModalPaiement();
 
 
       if (error) {
