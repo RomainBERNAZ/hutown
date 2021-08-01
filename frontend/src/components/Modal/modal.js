@@ -55,7 +55,7 @@ const Modal = (props) => {
     };
 
     const previewFile = (file) => {
-        const max_Size = 2000000
+        const max_Size = 4000000
         const reader = new FileReader();
         if( file && file.size < max_Size){
             reader.readAsDataURL(file);
