@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Image } from 'cloudinary-react'
 import { useDispatch, useSelector } from 'react-redux';
+import { motion } from 'framer-motion'
 import { listPages } from '../../actions/pageActions'
 import CookieConsent from "react-cookie-consent";
 import './main.css'
@@ -23,6 +24,8 @@ const Main = () => {
     const { pages, loading, error } = pageList;
     const mql = window.matchMedia('(max-width: 600px)');
  
+    const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
+
     const dispatch = useDispatch();
 
     const loadImages = async () => {
@@ -94,7 +97,7 @@ const Main = () => {
             loading? <div>Loading...</div>:
             error? <div>{error}</div>:  
             <div className="main" id="main">
-                
+                <motion.div exit={{ opacity: 1 }} transition={transition} className="window"></motion.div>
                 <CookieConsent
                   location="bottom"
                   buttonText="J'accepte"
@@ -152,7 +155,7 @@ const Main = () => {
                 
                 
 
-        </div>
+                    </div>
     )
 }
 
