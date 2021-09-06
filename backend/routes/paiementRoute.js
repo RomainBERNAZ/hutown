@@ -8,10 +8,11 @@ const stripe = new Stripe(process.env.REACT_APP_SECRET_KEY);
 router.post("/pay", async (req, res) => {
 
   try {
-    const { amount, receipt_email} = req.body;
+    const { amount, receipt_email, description } = req.body;
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
       receipt_email,
+      description, 
       currency: "eur", 
     });
 
