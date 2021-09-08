@@ -32,6 +32,7 @@
     "mongoose": "^5.12.2",
     "react-cookie-consent": "^6.2.3",
     "react-credit-card-input": "^1.1.5",
+    "react-facebook-pixel": "^1.0.4",
     "react-https-redirect": "^1.1.0",
     "react-router-dom": "^5.2.0",
     "stripe": "^8.135.0",

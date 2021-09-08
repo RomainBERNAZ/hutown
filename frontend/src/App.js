@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
+import { useEffect } from 'react'
+
 import Header from '../src/components/Header/Header'
 import Main from '../src/components/Main/Main'
 import Cursor from '../src/components/Cursor/Cursor'
@@ -24,9 +26,26 @@ import Utilisation from './components/Footer/Utilisation';
 import Vente from './components/Footer/Vente';
 import Histoire from './components/Histoire/histoire';
 import Confirmation from './components/ConfirmationPage/Confirmation';
+
 const promise = loadStripe("pk_live_51IIXlWLt56Zxnj4xA4lrJXceCjhbBXrFGB0XzYzhuBEtOjhsebBqj1msbirp0N5WkTsQG7bR18LW5p5Pukl16XBm00Y8TcU9eh");
 //const promiseTest = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");
 
+
+function FacebookPixel() {
+  useEffect(() => {
+    import("react-facebook-pixel")
+      .then((x) => x.default)
+      .then((ReactPixel) => {
+        ReactPixel.init('254107243247954');
+        ReactPixel.pageView();
+
+        Router.events.on("routeChangeComplete", () => {
+          ReactPixel.pageView();
+        });
+      });
+  });
+  return null;
+}
 function App() {
 
   const userLogin = useSelector(state => state.userLogin);
@@ -34,6 +53,7 @@ function App() {
 
   return (
     <Router>
+      <FacebookPixel/>
       <div className="App" id="App">
       <HttpsRedirect>
         <Elements stripe={promise}>
