@@ -109,7 +109,7 @@ const Header = () => {
                         <li><a href="/" className="logout" onClick={handleLogout}>Logout</a></li>
                     }
                     <ul className="social-mobile">
-                        <li><a href="https://www.instagram.com/mh_hypo/?hl=fr"><i className="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/hippolythe_/"><i className="fab fa-instagram"></i></a></li>
                         <li><a href="/panier"><i className="fas fa-shopping-cart"></i></a><span>{values.length}</span></li>
                     </ul>
                 </ul>
