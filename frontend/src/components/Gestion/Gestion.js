@@ -52,6 +52,9 @@ const Gestion = () => {
                                     <option value="first">Première page</option>
                                     <option value="second">Deuxième page</option>
                                     <option value="third">Troisième page</option>
+                                    <option value="four">Quatrième page</option>
+                                    <option value="five">Cinquième page</option>
+                                    <option value="six">Sixième page</option>
                                 </select>
                                 <button type="submit"><i className="fas fa-search"></i></button>
                         </form>

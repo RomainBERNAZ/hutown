@@ -6,9 +6,9 @@ dotenv.config()
 const cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
-    cloud_name: 'hippolythe',
-    api_key: '188214897979445',
-    api_secret: 'fuTa7pdpw8r3UOS2KloKHSbhGfc'
+    cloud_name: process.env.REACT_APP_CLOUDINARY_NAME,
+    api_key: process.env.REACT_APP_CLOUDINARY_API_KEY,
+    api_secret: process.env.REACT_APP_CLOUDINARY_API_SECRET
 });
  
 export default cloudinary;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../actions/userActions';
+import { motion } from 'framer-motion'
 import './login.css'
 
 const Login = (props) => {
@@ -24,6 +25,10 @@ const Login = (props) => {
     }
 
     return (
+        <motion.div initial={{ opacity: 0 }}
+                    animate={{ opacity:1 }}
+                    exit={{ opacity: 0}}
+                    transition={{ duration: 2 }}>
         <div className="login">
             <div className="login-box">
                 { loading && <div>Loading...</div> }
@@ -43,6 +48,7 @@ const Login = (props) => {
                 </form>
             </div>
         </div>
+        </motion.div>
     );
 };
 

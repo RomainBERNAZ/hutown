@@ -72,6 +72,7 @@ const Panier = () => {
             const res = await axios.get('/api/imagesShop');
             const data = await res.data;
             setImageIds(data)
+            console.log(data);
         } catch (err) {
             console.error(err); 
         }
@@ -152,14 +153,13 @@ const Panier = () => {
                                     </div>
                                     <div className="panier-image-container">
                                         {
-                                            imageIds.map( imageId => {
-                                                return JSON.stringify(imageId).includes(item.name) ?
+                                     
                                             <Image  
-                                                    key={imageId}
+                                                    key={'test'}
                                                     className="panier-image"
-                                                    publicId={imageId}
+                                                    publicId={item.image}
                                                     cloudName='hippolythe'
-                                                />:'' })
+                                                />
                                         }
                                     </div>
                                     <div className="size-item-panier">

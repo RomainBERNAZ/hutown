@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listHistoire, updateHistoire } from '../../actions/histoireAction.js'
+import { motion } from "framer-motion"
 import contour from './remplissage.jpg'
 import './histoire.css'
 
@@ -17,6 +18,25 @@ const Histoire = () => {
    
     const dispatch = useDispatch();
 
+    setTimeout(() => {
+        
+    }, 1800);
+
+   /*  const variants = { 
+      hidden: { opacity: 1}, 
+      visible: { 
+        opacity: 0,
+        zIndex:0,
+        transition:{
+          duration:1.2,
+          ease: [0.7, 0, 0.84, 0],
+        zIndex:{
+          delay:1.2
+        } 
+        }
+      } 
+    } */
+
     const updateDescriptionPage = async (e) => {
         try {
             e.preventDefault()
@@ -29,13 +49,16 @@ const Histoire = () => {
 }
 
     useEffect(() => {
-
         dispatch(listHistoire());
     }, [dispatch]);
 
     return (
-        loading? <div>Loading...</div>:
+        loading? <div className="loadingTest"></div>:
         error? <div>{error}</div>:
+        <motion.div initial={{ opacity: 0 }}
+                animate={{ opacity:1 }}
+                exit={{ opacity: 0}}
+                transition={{ duration: 2 }}>
         <div className="histoire">
            <h1>NOTRE HISTOIRE</h1>
            <img src={contour} alt=""/>
@@ -61,6 +84,7 @@ const Histoire = () => {
 
           
         </div>
+        </motion.div>
     );
 };
 
