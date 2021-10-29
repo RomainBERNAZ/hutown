@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/images', async (req, res) => {
     const { resources } = await cloudinary.search
-        .sort_by('public_id', 'desc')
+        .sort_by('uploaded_at', 'asc')
         .max_results(100)
         .execute();
 
@@ -16,12 +16,13 @@ router.get('/images', async (req, res) => {
 
 router.get('/imagesShop', async (req, res) => {
     const { resources } = await cloudinary.search
-        .expression('hutownshop')
-        .sort_by('public_id', 'desc')
+        .expression('test')
+        .sort_by('uploaded_at', 'asc')
         .max_results(100)
         .execute();
 
     const publicIds = resources.map((file) => file.public_id);
+    console.log(publicIds);
     res.send(publicIds);
 }); 
 
@@ -48,8 +49,7 @@ router.post('/upload', async (req, res) => {
             upload_preset: 'ml_default',
             folder: req.body.cat
         });
-        console.log(uploadResponse);
-        res.json({ msg: 'yay' });
+        res.json({ msg: 'Tout a bien fonctionné', uploadResponse });
     } catch (err) {
         console.error(err);
         res.status(500).json({ err: 'Something went wrong' });
@@ -61,12 +61,11 @@ router.post('/uploadShop', async (req, res) => {
         const fileStr = req.body.data;
         const uploadResponse = await cloudinary.uploader.upload(fileStr, {
             upload_preset: 'ml_default',
-            folder: 'hutownshop',
-            overwrite:true,
-            public_id: req.body.id
+            folder: 'test',
+            use_filename: true, 
+            unique_filename: true
         });
-        console.log(uploadResponse);
-        res.json({ msg: 'yay' });
+        res.json({ msg: 'Tout a bien fonctionné', uploadResponse });
     } catch (err) {
         console.error(err);
         res.status(500).json({ err: 'Something went wrong' });

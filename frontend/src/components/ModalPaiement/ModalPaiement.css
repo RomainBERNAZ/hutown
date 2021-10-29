@@ -337,7 +337,7 @@
     top: 0;
     display: none;
     background-color: white;
-    z-index: 3;
+    z-index: 1;
     width: 100vw;
     min-height: 130vh;
     -webkit-box-pack: center;
@@ -370,7 +370,7 @@
   }
   .modal-paiement-container .paiement-container .first-block-paiement .title-recap h2 {
     font-family: Halyard;
-    font-size: 1.9rem;
+    font-size: 1.4rem;
   }
   .modal-paiement-container .paiement-container .first-block-paiement .paiement-recap .totalPrice {
     margin-top: 2vh;
@@ -463,10 +463,10 @@
   .modal-paiement-container .paiement-container .paiement-information {
     background-color: white;
     height: auto;
-    width: 120vw;
-    margin-left: -10vw;
+    width: 100vw;
+    margin-left: 0vw;
     margin-top: 5vh;
-    padding: 3vh;
+    padding: 0vh;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -482,7 +482,7 @@
   }
   .modal-paiement-container .paiement-container .paiement-information h3 {
     text-align: center;
-    font-size: 1.9rem;
+    font-size: 1.4rem;
   }
   .modal-paiement-container .paiement-container .paiement-information h4 {
     width: 90%;

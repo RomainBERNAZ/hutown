@@ -1,28 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useDispatch, useSelector} from 'react-redux'
 import { saveProduct, listProducts } from '../../actions/productActions'
 import './modal.css'
 
-const Modal = (props) => {
+const Modal = () => {
 
     const [ name, setName ] = useState('');
     const [ priceS, setPriceS ] = useState('');
     const [ priceM, setPriceM ] = useState('');
-    const [ priceL, setPriceL ] = useState('');
-    const [ priceX, setPriceX ] = useState('');
+    const [ pages, setPages ] = useState([]);
     const [ sizeS, setSizeS ] = useState('');
     const [ sizeM, setSizeM ] = useState('');
-    const [ sizeL, setSizeL ] = useState('');
-    const [ sizeX, setSizeX ] = useState('');
+    const [ image, setImage ] = useState('');
+    const [ artiste, setArtiste ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ selectedFile, setSelectedFile] = useState();
     const [ previewSource, setPreviewSource] = useState('');
     const [ fileInputState, setFileInputState] = useState('');
-    const [ lieu, setLieu ] = useState('')
-    const [ livraison, setLivraison ] = useState('')
-    const [ papier, setPapier ] = useState('')
-
 
     const productSave = useSelector(state => state.productSave);
     const {loading : loadingSave, /* success: successSave ,*/ error: errorSave} = productSave;
@@ -31,20 +26,14 @@ const Modal = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        handleSubmitFile();
-        dispatch(saveProduct({name, 
-                              price:{
-                                    Small: priceS,
-                                    Medium: priceM,
-                                    Large: priceL,
-                                    Xtra: priceX,
-                                },
-                                size:{
-                                    Small:  sizeS,
-                                    Medium: sizeM, 
-                                    Large:  sizeL, 
-                                    Xtra:  sizeX,
-                                }, description, lieu, papier, livraison}))
+        dispatch(saveProduct({name, image,  price:{
+                      Small: priceS,
+                      Medium: priceM
+                  },
+                  size:{
+                      Small:  sizeS,
+                      Medium: sizeM, 
+                  }, description, artiste}))
     }
     
     const handleFileInputChange = (e) => {
@@ -60,25 +49,13 @@ const Modal = (props) => {
         if( file && file.size < max_Size){
             reader.readAsDataURL(file);
             reader.onloadend = () => {
+                uploadImage(reader.result);
                 setPreviewSource(reader.result);
             };
         }
         else{
             alert('Fichier trop grand, ça passera pas !')
         }
-        
-    };
-
-    const handleSubmitFile = () => {
-        if (!selectedFile) return;
-        const reader = new FileReader();
-        reader.readAsDataURL(selectedFile);
-        reader.onloadend = () => {
-            uploadImage(reader.result);
-        };
-        reader.onerror = () => {
-            console.error('AHHHHHHHH!!');
-        };
     };
 
     const uploadImage = async (base64EncodedImage) => {
@@ -86,13 +63,11 @@ const Modal = (props) => {
             await axios.post('/api/uploadShop', JSON.stringify({ data: base64EncodedImage,
             id: name }), {
                 headers: { 'Content-Type': 'application/json' }
+            })
+            .then( res => {
+                console.log(res.data.uploadResponse.public_id);
+                setImage(res.data.uploadResponse.public_id)
             });
-            setFileInputState('');
-            setPreviewSource('');
-            setTimeout(function(){
-                window.location.reload(false);}, 1500);
-                alert("Le produit à bien été ajouté !")
-            
         } catch (err) {
             console.error(err);
         }
@@ -104,10 +79,22 @@ const Modal = (props) => {
         document.body.style.position = '';
         document.body.style.top = '';
         modal.style.display='none';
-        dispatch(listProducts());
     }
 
+    const handleListPage = async (e) => {
+        try {
+            const res = await axios.get('/api/pages/');
+            const data = await res.data;
+            setPages(data);
+            setArtiste(data[0].title);
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
+    useEffect(() => {
+        handleListPage();
+    }, [])
 
     return (
         <div className="modal" id='modal'>
@@ -117,31 +104,24 @@ const Modal = (props) => {
                 <div className="close-modal">
                     <i onClick={closeModal} className="far fa-window-close"></i>
                 </div>
-                <div className="title-modal">
-                    <h2>Ajouter produit</h2>
-                </div>
                 <form className="modal-body" onSubmit={submitHandler}>
                     <div className="informationscontainer">
                     <h3>INFORMATIONS</h3>
                         <div className="modal-name">
-                            <p className="titreModal">Nom :</p>
+                            <p className="titreModal">Titre :</p>
                             <input type="text" onChange={(e) => setName(e.target.value)} required/>
                         </div>
                         <div className="modal-description">
                             <p className="titreModal">Description :</p>
                             <textarea name="" id="" cols="20" rows="10" onChange={(e) => setDescription(e.target.value)} required></textarea>
                         </div>
-                        <div className="modal-lieu">
-                            <p className="titreModal">Lieu :</p>
-                            <input type="text" onChange={(e) => setLieu(e.target.value)} required/>
-                        </div>
-                        <div className="modal-papier">
-                            <p className="titreModal">Papier :</p>
-                            <input type="text" onChange={(e) => setPapier(e.target.value)} required/>
-                        </div>
-                        <div className="modal-livraison">
-                            <p className="titreModal">Livraison :</p>
-                            <input type="text" onChange={(e) => setLivraison(e.target.value)} required/>
+                        <div className="modal-serie">
+                            <p className="titreModal">Artiste :</p>
+                            { pages != null ?
+                            <select name="" id="" onChange={(e) => setArtiste(e.target.value)}>
+                               {pages.map((page) => (
+                                   <option>{page.title}</option>))}
+                            </select>:""}
                         </div>
                         <div className="modal-image">
                             <p className="titreModal">Image:</p>
@@ -149,56 +129,39 @@ const Modal = (props) => {
 
                         </div>
                         <div className="modal-submit">
-                            <button type="submit">SAVE</button>
+                            <button type="submit">Ajouter le produit</button>
                         </div>
                         
                     </div>
-                    <div className="sizecontainer">
-                        <h3>TAILLES</h3>
-                        <div className="modal-price-size">
-                            <span>Small :</span>
-                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeS(e.target.value)} />
+                    <div className="sizePrice">
+                        <div className="sizecontainer">
+                            <h3>TAILLES</h3>
+                            <div className="modal-price-size">
+                                <span>Small :</span>
+                                <input type="texte" placeholder="15x15" onChange={(e) => setSizeS(e.target.value)} />
+                            </div>
+                            <div className="modal-price-size">
+                                <span>Medium :</span>
+                                <input type="texte" placeholder="15x15" onChange={(e) => setSizeM(e.target.value)} />
+                            </div>
                         </div>
-                        <div className="modal-price-size">
-                            <span>Medium :</span>
-                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeM(e.target.value)} />
-                        </div>
-                        <div className="modal-price-size">
-                            <span>Large :</span>
-                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeL(e.target.value)} disabled/>
-                        </div>
-                        <div className="modal-price-size">
-                            <span>Extra Large :</span>
-                            <input type="texte" placeholder="15x15" onChange={(e) => setSizeX(e.target.value)} disabled/>
-                        </div>
-                    </div>
-                    <div className="pricecontainer">
-                        <h3>PRIX</h3>
-                        <div className="modal-price-size">
-                            <span>Small :</span>
-                            <input type="number" onChange={(e) => setPriceS(e.target.value)}/>
-                        </div>
-                        <div className="modal-price-size">
-                            <span>Medium :</span>
-                            <input type="number" onChange={(e) => setPriceM(e.target.value)} />
-                        </div>
-                        <div className="modal-price-size">
-                            <span>Large :</span>
-                            <input type="number" onChange={(e) => setPriceL(e.target.value)} disabled/>
-                        </div>
-                        <div className="modal-price-size">
-                            <span>Extra Large :</span>
-                            <input type="number" onChange={(e) => setPriceX(e.target.value)} disabled/>
-                        </div>
-                        <div className="previewImage">
-                            {previewSource &&
-                                <img src={previewSource} alt=""/>
-                            }
+                        <div className="pricecontainer">
+                            <h3>PRIX</h3>
+                            <div className="modal-price-size">
+                                <span>Small :</span>
+                                <input type="number" onChange={(e) => setPriceS(e.target.value)}/>
+                            </div>
+                            <div className="modal-price-size">
+                                <span>Medium :</span>
+                                <input type="number" onChange={(e) => setPriceM(e.target.value)} />
+                            </div>
+                            <div className="previewImage">
+                                {previewSource &&
+                                    <img src={previewSource} alt=""/>
+                                }
+                            </div>
                         </div>
                     </div>
-                    
-                    
-                    
                 </form>
             </div>
         </div>

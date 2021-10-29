@@ -266,7 +266,7 @@ const ModalPaiement = () => {
                 <div className="first-block-paiement">
                     <div className="paiement-recap">
                         <div className="title-recap">
-                            <h2>RECAP COMMANDE</h2>
+                            <h2>RÉCAPITULATIF COMMANDE</h2>
                             <div className="close-modal">
                     <i onClick={closeModal} className="far fa-window-close"></i>
                 </div>

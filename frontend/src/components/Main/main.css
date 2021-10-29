@@ -4,6 +4,15 @@
   background-color: #38383B;
 }
 
+.main .window {
+  position: absolute;
+  z-index: 50000;
+  top: 0;
+  height: 100%;
+  width: 100vw;
+  background: black;
+}
+
 .main #rcc-confirm-button {
   background: gray !important;
 }
@@ -33,11 +42,11 @@
 .main ul {
   position: absolute;
   top: 50%;
-  left: 5%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100vw;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 80vw;
+  margin-left: 10vw;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -45,7 +54,6 @@
 
 .main ul li {
   list-style: none;
-  padding-right: 8em;
 }
 
 .main ul li button {
@@ -54,6 +62,12 @@
   font-family: Grotesque;
   font-size: 4em;
   border: none;
+}
+
+.main .old-pictures {
+  margin-top: 15vh;
+  font-size: 0.45rem;
+  left: 0;
 }
 
 @media screen and (max-width: 890px) {
@@ -80,8 +94,9 @@
   .main ul {
     position: initial;
     text-align: center;
-    padding-top: 35vh;
-    width: 100vw;
+    padding-top: 25vh;
+    margin-left: 0;
+    width: auto;
     display: block;
     mix-blend-mode: difference;
   }
@@ -97,6 +112,12 @@
     margin-bottom: 1.5rem;
     font-size: 2em;
     border: none;
+  }
+  .main .old-pictures {
+    margin-top: -20vh;
+  }
+  .main .old-pictures li {
+    font-size: 1rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

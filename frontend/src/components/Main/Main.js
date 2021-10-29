@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Image } from 'cloudinary-react'
 import { useDispatch, useSelector } from 'react-redux';
-import { motion } from 'framer-motion'
 import { listPages } from '../../actions/pageActions'
+import { motion } from "framer-motion"
 import CookieConsent from "react-cookie-consent";
 import './main.css'
 
@@ -15,6 +15,9 @@ const Main = () => {
     const [ first, setFirst ]= useState([]);
     const [ second, setSecond ]= useState([]);
     const [ third, setThird ]= useState([]);
+    const [ four, setFour ] = useState([]);
+    const [ five, setFive ] = useState([]);
+    const [ six, setSix ] = useState([]);
     const [ all, setAll ]= useState([]);
     const [ randomImage, setRandomImage ]= useState([]);
 
@@ -28,6 +31,21 @@ const Main = () => {
 
     const dispatch = useDispatch();
 
+    const variants = { 
+        hidden: { opacity: 1}, 
+        visible: { 
+          opacity: 0,
+          zIndex:0,
+          transition:{
+            duration:1.2,
+            ease: [0.7, 0, 0.84, 0],
+          zIndex:{
+            delay:1.2
+          } 
+          }
+        } 
+      }
+
     const loadImages = async () => {
         try {
             const res = await axios.get('/api/images/');
@@ -36,6 +54,9 @@ const Main = () => {
             setFirst(data.filter((id) => id.startsWith("first")))
             setSecond(data.filter((id) => id.startsWith("second")))
             setThird(data.filter((id) => id.startsWith("third")))
+            setFour(data.filter((id) => id.startsWith("four")))
+            setFive(data.filter((id) => id.startsWith("five")))
+            setSix(data.filter((id) => id.startsWith("six")))
             setAll(data)
             setRandomImage(Math.floor(Math.random() * data.length - 1) + 1  )
         } catch (err) {
@@ -96,8 +117,17 @@ const Main = () => {
     return (
             loading? <div>Loading...</div>:
             error? <div>{error}</div>:  
+            <motion.div initial={{ opacity: 0 }}
+                animate={{ opacity:1 }}
+                exit={{ opacity: 0}}
+                transition={{ duration: 2 }}>
             <div className="main" id="main">
-                <motion.div exit={{ opacity: 1 }} transition={transition} className="window"></motion.div>
+                <motion.div  initial="hidden" 
+                       animate="visible" 
+                       variants={variants} 
+                       className="window">
+                </motion.div>
+                <div exit={{ opacity: 1 }} transition={transition} className="window"></div>
                 <CookieConsent
                   location="bottom"
                   buttonText="J'accepte"
@@ -153,9 +183,21 @@ const Main = () => {
                         <li id="out" key={page._id}><a href='/third'><button id="Outdoors" className="Outdoors">{page.title}</button></a></li>: ''})}
                     </ul>
                 
+                    <ul className="old-pictures">
+                    {pages.map(page  => {
+                        return page.category ==='four' ?
+                        <li id="hustle" key={page._id}><a href='/four'><button className="Hustle">{page.title}</button></a></li>: ''})}
+                    {pages.map(page  => {
+                        return page.category ==='five' ?
+                        <li id="guest" key={page._id}><a href='/five'><button id="Nick" className="Nick">{page.title}</button></a></li>: ''})}
+                    {pages.map(page  => {
+                        return page.category ==='six' ?
+                        <li id="out" key={page._id}><a href='/six'><button id="Outdoors" className="Outdoors">{page.title}</button></a></li>: ''})}
+                    </ul>
                 
 
                     </div>
+                    </motion.div>
     )
 }
 

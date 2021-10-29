@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
 import emailjs from 'emailjs-com'
 import './Contact.css'
+import { motion } from "framer-motion"
 import{ init } from 'emailjs-com';
 import Footer from '../Footer/Footer';
 init("user_P4Eon9dIyOON2EipVbccW");
@@ -60,6 +61,21 @@ const Contact =() => {
         
       };
 
+      const variants = { 
+        hidden: { opacity: 1}, 
+        visible: { 
+          opacity: 0,
+          zIndex:-100,
+          transition:{
+            duration:1.2,
+            ease: [0.7, 0, 0.84, 0],
+          zIndex:{
+            delay:1.2
+          } 
+          }
+        } 
+      }
+
       const sendFeedback = (templateId, variables) => {
 
         emailjs
@@ -79,6 +95,10 @@ const Contact =() => {
       };
 
     return (
+      <motion.div initial={{ opacity: 0 }}
+                animate={{ opacity:1 }}
+                exit={{ opacity: 0}}
+                transition={{ duration: 2 }}>
          <form className="contact">
             <div className="form-content">
               <h2>Des questions ? Des projets ?  Contactez-nous</h2>
@@ -126,6 +146,7 @@ const Contact =() => {
         <div className="form-message"></div>
         <Footer/>
       </form>
+      </motion.div>
     )
 }
 

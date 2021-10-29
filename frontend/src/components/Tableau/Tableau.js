@@ -67,7 +67,6 @@ const Tableau = () => {
     };
 
     const deleteImage = async (imageId) => {
-        console.log(imageId);
         try {
             await axios.post('/api/destroy', {imageId}, {
                 headers: { 'Content-Type': 'application/json' }
@@ -108,6 +107,9 @@ const Tableau = () => {
                             <option value="first">Première page</option>
                             <option value="second">Deuxième page</option>
                             <option value="third">Troisième page</option>
+                            <option value="four">Quatrième page</option>
+                            <option value="five">Cinquième page</option>
+                            <option value="six">Sixième page</option>
                         </select>
                     </div>
                     {previewSource &&

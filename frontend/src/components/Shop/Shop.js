@@ -1,47 +1,40 @@
 import React, { useEffect, useState } from "react";
 import "./Shop.css";
-import axios from "axios";
+import { motion } from "framer-motion"
 import Modal from "../Modal/modal";
-import Newsletter from "../Newsletter/news";
+import axios from "axios";
 import { Link } from "react-router-dom";
-import { Image } from "cloudinary-react";
+import { Image } from 'cloudinary-react'
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../../actions/productActions";
 
 const Shop = () => {
-  const [imageIds, setImageIds] = useState([]);
-  //const [lengthArray, setLengthArray] = useState(0);
   let lengthArray = 0;
 
+  const [ pages, setPages ] = useState([]);
   const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const dispatch = useDispatch();
-
-
-  const checkLengthOfPriceArray = () => {
-    products.forEach(product => {
-      console.log(product.price.Small);
-  });
-    
-  }
-
-  const loadImages = async () => {
+  
+  const handleListPage = async (e) => {
     try {
-      const res = await axios.get("/api/imagesShop") 
-      const data = await res.data;
-      setImageIds(data);
+        const res = await axios.get('/api/pages/');
+        const data = await res.data;
+        setPages(data);
     } catch (err) {
-      console.error(err);
+        console.error(err);
     }
-  };
+};
+const filterArtiste = (e) => {
+  products.filter( product => console.log(product.artiste));
+}
 
   useEffect(() => {
     dispatch(listProducts());
-    loadImages();
-    checkLengthOfPriceArray()
+    handleListPage();
   }, [dispatch]);
 
   const openModal = () => {
@@ -52,46 +45,42 @@ const Shop = () => {
   };
 
   return loading ? (
-    <div>Loading...</div>
+    <motion.div initial={{ opacity: 0 }}
+                animate={{ opacity:1 }}
+                exit={{ opacity: 0}}
+                transition={{ duration: 2 }}></motion.div>
   ) : error ? (
     <div>{error}</div>
   ) : (
+    <motion.div initial={{ opacity: 0 }}
+                animate={{ opacity:1 }}
+                exit={{ opacity: 0}}
+                transition={{ duration: 3.5 }}>
     <div className="shop" id="shop">
-      <div className="modal-newsletter">
-        <h2>Newsletter ?</h2>
-        <input type="text"/>
-        <button>CONFIRMER</button>
-      </div>
-    
       <Modal />
-      <Newsletter />
       <div className="shop-title">
-        <div className="line-title">
           <h1 className="title">Shop</h1>
           {userInfo && (
             <i onClick={openModal} className="far fa-plus-square"></i>
           )}
-        </div>
-        <div className="line-under-title">
-          <hr className="shop-line" />
-        </div>
+          { pages != null ?
+                            <select name="Filtrer" id="" className="filter" onChange={(e) => filterArtiste(e.target.value)}>
+                              <option value="" disabled selected hidden>Filtrer</option>
+                              <option>Tous les artistes</option>
+                               {pages.map((page) => (
+                                   <option id={page.title}>{page.title}</option>))}
+                            </select>:""}
       </div>
       <div className="product-grid">
         {products.map((product) => (
           <div key={product._id} className="single-product">
             <Link to={"/product/" + product._id}>
-              {imageIds.map((imageId) => {
-                return JSON.stringify(imageId).includes(product.name) ? (
-                  <Image
+              <Image
                     key={product._id}
                     className="shop-img"
-                    publicId={imageId}
+                    publicId={product.image}
                     cloudName="hippolythe"
                   />
-                ) : (
-                  ""
-                );
-              })}
             </Link>
             <div className="shop-description">
               <p className="shop-name">{product.name}</p>
@@ -107,6 +96,7 @@ const Shop = () => {
         ))}
       </div>
     </div>
+    </motion.div>
   );
 };
 

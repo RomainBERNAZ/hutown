@@ -30,22 +30,17 @@ router.delete('/products/:id', async (req,res) => {
 router.post('/products', async (req, res) => {
     const product = new Product({
         name: req.body.name,
+        image: req.body.image, 
         price:{
             Small: req.body.price.Small,
             Medium: req.body.price.Medium,
-            Large: req.body.price.Large,
-            Xtra: req.body.price.Xtra,
         }, 
         size:{
             Small: req.body.size.Small,
             Medium: req.body.size.Medium,
-            Large: req.body.size.Large,
-            Xtra: req.body.size.Xtra,
         }, 
         description: req.body.description,
-        lieu: req.body.lieu, 
-        papier: req.body.papier, 
-        livraison: req.body.livraison
+        artiste: req.body.artiste
     }); 
     const newProduct = await product.save();
     if(newProduct){
