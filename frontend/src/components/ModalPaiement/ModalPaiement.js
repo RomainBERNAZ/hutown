@@ -155,7 +155,7 @@ const ModalPaiement = () => {
 
   const handleFormSubmit = async ev => {
     ev.preventDefault();
-    
+     
     products.map(item =>
       message.push("Acheteur: "+ev.target.name.value +" / "+
                    "Adresse : " + ev.target.line1.value+" "+ev.target.zip.value+" "+ev.target.city.value+ " / " +
@@ -183,6 +183,7 @@ const ModalPaiement = () => {
     try {
       const { data: clientSecret } = await axios.post("/api/pay", {
         amount: sum * 10 + deliveryPrice,
+        description:  "Article: "+ products.map( item => item.name +" - Taille: "+(arrayOfSize[products.indexOf(item)]).toString()+" - Quantité: "+(arrayOfQte[products.indexOf(item)]).toString()+" "),
         receipt_email: billingDetails.email
       });
 

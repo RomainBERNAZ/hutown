@@ -44,7 +44,7 @@ const Modal = () => {
     };
 
     const previewFile = (file) => {
-        const max_Size = 2000000
+        const max_Size = 4000000
         const reader = new FileReader();
         if( file && file.size < max_Size){
             reader.readAsDataURL(file);
@@ -68,6 +68,13 @@ const Modal = () => {
                 console.log(res.data.uploadResponse.public_id);
                 setImage(res.data.uploadResponse.public_id)
             });
+
+            setFileInputState('');
+            setPreviewSource('');
+            /*setTimeout(function(){
+                window.location.reload(false);}, 1500);*/
+                alert("Le produit à bien été ajouté !")
+
         } catch (err) {
             console.error(err);
         }

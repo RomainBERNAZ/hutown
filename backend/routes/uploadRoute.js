@@ -61,9 +61,11 @@ router.post('/uploadShop', async (req, res) => {
         const fileStr = req.body.data;
         const uploadResponse = await cloudinary.uploader.upload(fileStr, {
             upload_preset: 'ml_default',
-            folder: 'test',
+
+            folder: 'hutownshop',
             use_filename: true, 
             unique_filename: true
+
         });
         res.json({ msg: 'Tout a bien fonctionné', uploadResponse });
     } catch (err) {
