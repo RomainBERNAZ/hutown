@@ -69,12 +69,6 @@ const Modal = () => {
                 setImage(res.data.uploadResponse.public_id)
             });
 
-            setFileInputState('');
-            setPreviewSource('');
-            /*setTimeout(function(){
-                window.location.reload(false);}, 1500);*/
-                alert("Le produit à bien été ajouté !")
-
         } catch (err) {
             console.error(err);
         }
