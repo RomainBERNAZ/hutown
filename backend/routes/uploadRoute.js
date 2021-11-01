@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/images', async (req, res) => {
     const { resources } = await cloudinary.search
-        .sort_by('uploaded_at', 'asc')
+        .sort_by('public_id', 'asc')
         .max_results(100)
         .execute();
 
@@ -16,7 +16,7 @@ router.get('/images', async (req, res) => {
 
 router.get('/imagesShop', async (req, res) => {
     const { resources } = await cloudinary.search
-        .expression('test')
+        .expression('hutownshop')
         .sort_by('uploaded_at', 'asc')
         .max_results(100)
         .execute();

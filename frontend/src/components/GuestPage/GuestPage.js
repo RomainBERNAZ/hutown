@@ -20,6 +20,7 @@ const GuestPage = () => {
             const res = await axios.get('/api/images/');
             const data = await res.data;
             setImageIds(data);
+            console.log(data);
         } catch (err) {
             console.error(err);
         }

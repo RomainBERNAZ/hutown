@@ -26,7 +26,6 @@ const FirstPhoto = () => {
         }
     };
     useEffect(() => {
-        console.log(imageIds);
         dispatch(listPages());
         loadImages();
     }, [dispatch]);
