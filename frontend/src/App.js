@@ -7,8 +7,6 @@ import { useSelector } from 'react-redux';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
-import { useEffect } from 'react'
-
 import Header from '../src/components/Header/Header'
 import Main from '../src/components/Main/Main'
 import Cursor from '../src/components/Cursor/Cursor'
@@ -35,21 +33,7 @@ const promise = loadStripe("pk_live_51IIXlWLt56Zxnj4xA4lrJXceCjhbBXrFGB0XzYzhuBE
 //const promiseTest = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");
 
 
-function FacebookPixel() {
-  useEffect(() => {
-    import("react-facebook-pixel")
-      .then((x) => x.default)
-      .then((ReactPixel) => {
-        ReactPixel.init('254107243247954');
-        ReactPixel.pageView();
 
-        Router.events.on("routeChangeComplete", () => {
-          ReactPixel.pageView();
-        });
-      });
-  });
-  return null;
-}
 function App() {
 
   const userLogin = useSelector(state => state.userLogin);
