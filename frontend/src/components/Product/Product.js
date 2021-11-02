@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Image } from "cloudinary-react";
 import { motion } from "framer-motion"
+import axios from 'axios'
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { detailsProduct } from "../../actions/productActions";
+import { detailsProduct, deleteProduct } from "../../actions/productActions";
 import "./Product.css";
 
 const Product = (props) => {
@@ -11,17 +13,53 @@ const Product = (props) => {
   const { products, loading, error } = productDetails;
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  const [imageIds, setImageIds] = useState([]);
   const [defaultPrice, setDefaultPrice] = useState("");
   const [defaultSize, setDefaultSize] = useState("");
   const mql = window.matchMedia("(max-width: 600px)");
   const dispatch = useDispatch();
   const [qte, setQte] = useState("1");
+  const history = useHistory();
   const productDelete = useSelector((state) => state.productDelete);
   const {
     loading: loadingDelete,
     /* success: successDelete, */
     error: errorDelete,
   } = productDelete;
+
+   //Fonction qui fait appel aux deux autres qui permettent de supprimer un produit en base et sur Cloudinary
+   const deleteHandler = (products, id) => {
+    dispatch(deleteProduct(products._id));
+    deleteImage(id);
+    history.push("/shop");
+  };
+
+  //Fonction qui supprime l'image de Cloudinary lorsque le produit à été supprimé.
+  const deleteImage = async (imageId) => {
+    try {
+      await axios.post(
+        "/api/destroy",
+        { imageId },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      loadImages();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  //Fonction qui récupère l'image du produit en fonction de son id via Cloudinary
+  const loadImages = async () => {
+    try {
+      const res = await axios.get("/api/imagesShop");
+      const data = await res.data;
+      setImageIds(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   //Permet de modifier le format choisi et donc le prix associé.
   const handleChangeSize = (e) => {
@@ -97,6 +135,11 @@ const Product = (props) => {
                   publicId={products.image}
                   cloudName="hippolythe"
                 />
+                {userInfo && (
+                  <button className="button-delete-product" onClick={() => deleteHandler(products, products.image)}>
+                    SUPPRIMER PRODUIT
+                  </button>
+                )}
         </div>
         <form className="product-contenu" onSubmit={() => addItem( products._id) }>
           <p className="product-name">{products.name}</p>
