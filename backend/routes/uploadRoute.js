@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/images', async (req, res) => {
     const { resources } = await cloudinary.search
         .sort_by('public_id', 'asc')
-        .max_results(100)
+        .max_results(200)
         .execute();
 
     const publicIds = resources.map((file) => file.public_id);
@@ -18,7 +18,7 @@ router.get('/imagesShop', async (req, res) => {
     const { resources } = await cloudinary.search
         .expression('hutownshop')
         .sort_by('public_id', 'asc')
-        .max_results(100)
+        .max_results(200)
         .execute();
 
     const publicIds = resources.map((file) => file.public_id);
