@@ -3,13 +3,14 @@ import "./Shop.css";
 import { motion } from "framer-motion"
 import Modal from "../Modal/modal";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { Image } from 'cloudinary-react'
+
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../../actions/productActions";
+import { listPages } from "../../actions/pageActions";
+import ArtistShop from "../ProductImage/ProductImage";
 
 const Shop = () => {
-  let lengthArray = 0;
+
 
   const [ pages, setPages ] = useState([]);
   const productList = useSelector((state) => state.productList);
@@ -17,6 +18,10 @@ const Shop = () => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const pageList = useSelector((state) => state.pageList);
+  const { page } = pageList;
+
   const dispatch = useDispatch();
   
   const handleListPage = async (e) => {
@@ -28,13 +33,13 @@ const Shop = () => {
         console.error(err);
     }
 };
-const filterArtiste = (e) => {
-  products.filter( product => console.log(product.artiste));
-}
+
 
   useEffect(() => {
-    dispatch(listProducts());
     handleListPage();
+    dispatch(listProducts());
+    dispatch(listPages())
+    console.log(page);
   }, [dispatch]);
 
   const openModal = () => {
@@ -57,44 +62,47 @@ const filterArtiste = (e) => {
                 exit={{ opacity: 0}}
                 transition={{ duration: 3.5 }}>
     <div className="shop" id="shop">
+ 
       <Modal />
       <div className="shop-title">
           <h1 className="title">Shop</h1>
           {userInfo && (
             <i onClick={openModal} className="far fa-plus-square"></i>
           )}
-          { pages != null ?
-                            <select name="Filtrer" id="" className="filter" onChange={(e) => filterArtiste(e.target.value)}>
-                              <option value="" disabled selected hidden>Filtrer</option>
-                              <option>Tous les artistes</option>
-                               {pages.map((page) => (
-                                   <option id={page.title}>{page.title}</option>))}
-                            </select>:""}
       </div>
-      <div className="product-grid">
-        {products.map((product) => (
-          <div key={product._id} className="single-product">
-            <Link to={"/product/" + product._id}>
-              <Image
-                    key={product._id}
-                    className="shop-img"
-                    publicId={product.image}
-                    cloudName="hippolythe"
-                  />
-            </Link>
-            <div className="shop-description">
-              <p className="shop-name">{product.name}</p>
-               <div className="shop-price">    
-              {lengthArray > 1 ?
-              <p>A partir de :</p> : ""}
-              {/* product.price.Small ? <p>{product.price.Small} €</p> :  */
-               product.price.Medium ? <p>{product.price.Medium} €</p> :   
-               product.price.Large ? <p>{product.price.Large} €</p> :   
-               product.price.Xtra ? <p>{product.price.Xtra} €</p> : ''  }</div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <ul className="list-button">
+        <li><a href="#premierArtiste">ASTRID</a></li>
+        <li><a href="#deuxiemeArtiste">NIKI</a></li>
+        <li><a href="#troisiemeArtiste">AKYA</a></li>
+        <li><a href="#quatriemeArtiste">BASILE</a></li>
+        <li><a href="#cinquiemeArtiste">GEOFFREY</a></li>
+        <li><a href="#sixiemeArtiste">KHALAF</a></li>
+      </ul>
+        <ArtistShop 
+          artist="ASTRID"
+          products={products}
+          id="premierArtiste"/>                       
+      <ArtistShop 
+          artist="NIKI"
+          products={products}
+          id="deuxiemeArtiste"/>                       
+      <ArtistShop 
+          artist="AKYA"
+          products={products}
+          id="troisiemeArtiste"/>                       
+      <ArtistShop 
+          artist="BASILE"
+          products={products}
+          id="quatriemeArtiste"/>                       
+      <ArtistShop 
+          artist="GEOFFREY"
+          products={products}
+          id="cinquiemeArtiste"/>                       
+      <ArtistShop 
+          artist="Hutown"
+          products={products}
+          id="sixiemeArtiste"/>  
+
     </div>
     </motion.div>
   );
