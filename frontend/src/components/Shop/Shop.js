@@ -99,7 +99,7 @@ const Shop = () => {
           products={products}
           id="cinquiemeArtiste"/>                       
       <ArtistShop 
-          artist="Hutown"
+          artist="KHALAF"
           products={products}
           id="sixiemeArtiste"/>  
 
