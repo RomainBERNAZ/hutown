@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import { Image } from "cloudinary-react";
+import { Image, Transformation } from "cloudinary-react";
 import { Link } from "react-router-dom";
+import Img from 'react-cloudinary-lazy-image'
 import './ProductImage.css'
 
 const ArtistShop = (props) =>  {
@@ -17,11 +18,19 @@ const ArtistShop = (props) =>  {
             return product.artiste === props.artist ?
             <div key={product._id} className="single-product">
               <Link to={"/product/" + product._id}>
-                <Image
+                <Img
                       key={product._id}
                       className="shop-img"
-                      publicId={product.image}
-                      cloudName="hippolythe"
+                      cloudName={'hippolythe'}
+                      imageName={product.image}
+                      fluid={{
+                        maxWidth: 1500,
+                        height: 1500
+                    }}
+                    style={{
+                        width: '47vw',
+                        height: '80vh'
+                    }}
                     />
               </Link>
               <div className="shop-description">

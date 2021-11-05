@@ -79,7 +79,7 @@ const Shop = () => {
         <li><a href="#sixiemeArtiste">KHALAF</a></li>
       </ul>
         <ArtistShop 
-          artist="ASTRID"
+          artist="Hutown"
           products={products}
           id="premierArtiste"/>                       
       <ArtistShop 
