@@ -31,6 +31,7 @@ const ArtistShop = (props) =>  {
                         width: '47vw',
                         height: '80vh'
                     }}
+                    imgFormat={'webp'}
                     />
               </Link>
               <div className="shop-description">
