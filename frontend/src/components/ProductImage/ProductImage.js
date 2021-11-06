@@ -24,12 +24,8 @@ const ArtistShop = (props) =>  {
                       cloudName={'hippolythe'}
                       imageName={product.image}
                       fluid={{
-                        maxWidth: 1500,
-                        height: 1500
-                    }}
-                    style={{
-                        width: '47vw',
-                        height: '80vh'
+                        maxWidth: 1000,
+                        height: 1000
                     }}
                     imgFormat={false}
                     />

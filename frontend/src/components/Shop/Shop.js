@@ -39,7 +39,6 @@ const Shop = () => {
     handleListPage();
     dispatch(listProducts());
     dispatch(listPages())
-    console.log(page);
   }, [dispatch]);
 
   const openModal = () => {
@@ -79,7 +78,7 @@ const Shop = () => {
         <li><a href="#sixiemeArtiste">KHALAF</a></li>
       </ul>
         <ArtistShop 
-          artist="Hutown"
+          artist="ASTRID"
           products={products}
           id="premierArtiste"/>                       
       <ArtistShop 
