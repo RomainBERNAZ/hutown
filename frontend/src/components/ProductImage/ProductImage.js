@@ -6,15 +6,31 @@ import './ProductImage.css'
 
 const ArtistShop = (props) =>  {
   let lengthArray = 0;
+
+  function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        /* next line works with strings and numbers, 
+         * and you may want to customize it to your needs
+         */
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+
     useEffect(() => {
-        console.log(props);
+        console.log(props.products.sort(dynamicSort('name')))
       }, [])
       
     return (   
     <>
     <h2 id={props.id}>{props.artist}</h2>
     <div className="product-grid" >
-          {props.products.map(product => {
+          {props.products.sort().map(product => {
             return product.artiste === props.artist ?
             <div key={product._id} className="single-product">
               <Link to={"/product/" + product._id}>
