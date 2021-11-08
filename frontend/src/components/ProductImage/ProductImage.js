@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { Image, Transformation } from "cloudinary-react";
 import { Link } from "react-router-dom";
 import Img from 'react-cloudinary-lazy-image'
 import './ProductImage.css'
@@ -7,14 +6,22 @@ import './ProductImage.css'
 const ArtistShop = (props) =>  {
   let lengthArray = 0;
 
+   props.products.sort(function(a, b) {
+    return a.name.localeCompare(b.name, undefined, {
+      numeric: true,
+      sensitivity: 'base'
+    });
+  });
+
     useEffect(() => {
+      console.log(props.products.sort());
       }, [])
       
     return (   
     <>
     <h2 id={props.id}>{props.artist}</h2>
     <div className="product-grid" >
-          {props.products.sort(function(a,b){return a.name - b.name}).map(product => {
+          {props.products.map(product => {
             return product.artiste === props.artist ?
             <div key={product._id} className="single-product">
               <Link to={"/product/" + product._id}>
