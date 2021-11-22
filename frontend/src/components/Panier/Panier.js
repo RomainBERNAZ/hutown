@@ -38,6 +38,7 @@ const Panier = () => {
     //Retourne les tailles dans un array.
     values.map( nb => {
         arrayOfSize.push(nb.slice(29).replace(/[[\]"]+/g,'').split('*').splice(0,1));
+        console.log(arrayOfSize, 'size');
         return arrayOfSize;
     })
 
@@ -46,12 +47,14 @@ const Panier = () => {
     values.map( nb => {
         arrayOfPrice.push(nb.slice(29).replace(/[[\]"]+/g,'').split('*').pop());
         for(let i=0; i<arrayOfPrice.length;i++) arrayOfPrice[i] = parseInt(arrayOfPrice[i], 10);
+        console.log(arrayOfPrice,'price');
         return arrayOfPrice;
     })
     const arrayOfQte= []
     //Retourne un tableau avec les quantités des produits dans le panier 
     values.map( qte => {
         arrayOfQte.push(qte.slice(27).replace(/[[\]"]+/g,'').split('-').splice(0,1));
+        console.log(arrayOfQte, 'qte');
         return arrayOfQte;
     })
 
@@ -72,7 +75,6 @@ const Panier = () => {
             const res = await axios.get('/api/imagesShop');
             const data = await res.data;
             setImageIds(data)
-            console.log(data);
         } catch (err) {
             console.error(err); 
         }
@@ -91,7 +93,8 @@ const Panier = () => {
         try {
             const arrayOfId = []
             //Retourne un array avec les id des item dans le panier
-            let idItem = values.join().substring(1).replace(/[[\]"]+/g,'').split(',');
+            let idItem = values.join().substring(1).replace(/[[\]"]+/g,'').split('.');
+            console.log(idItem, 'iditem');
             idItem.map( id =>{
                 arrayOfId.push(id.split('/')[0].split(','))
                 return arrayOfId;
@@ -111,6 +114,8 @@ const Panier = () => {
     useEffect(()  => {
         loadCart();
         loadImages();
+        console.log(values);
+        console.log(products, 'products');
     }, [])
  
     return (

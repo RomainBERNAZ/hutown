@@ -79,15 +79,16 @@ const Product = (props) => {
   };
 
   //Ajoute l'objet choisi au panier.
-  const addItem = (id) => {
+  const addItem = (id, e) => {
     if(defaultPrice === "")
     {
       let soloPrice = products.price.Medium
       let  soloSize = products.size.Medium
-      let msgCart = document.getElementById("validation-add-cart");
       let cartList = [];
+      let msgCart = document.getElementById("validation-add-cart");
       let key = id + "/" + soloSize;
       cartList.push(id + "/" + qte + "-" + soloSize + "*" + soloPrice);
+      console.log(cartList, "kjhrkjazher");
       localStorage.getItem(key);
       localStorage.setItem(key, JSON.stringify(cartList));
       msgCart.style.opacity = 1;
@@ -141,7 +142,7 @@ const Product = (props) => {
                   </button>
                 )}
         </div>
-        <form className="product-contenu" onSubmit={() => addItem( products._id) }>
+        <form className="product-contenu">
           <p className="product-name">{products.name}</p>
           <div className="bloc-information">
             <div className="product-size">
@@ -191,7 +192,7 @@ const Product = (props) => {
                 />
             </div>
           </div>        
-          <button className="product-cart" >Ajouter au panier</button>
+          <button onClick={() => addItem( products._id) } className="product-cart" >Ajouter au panier</button>
         </form>
       </div>
     </div>
