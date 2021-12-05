@@ -14,7 +14,6 @@ const ArtistShop = (props) =>  {
   });
 
     useEffect(() => {
-      console.log(props.products.sort());
       }, [])
       
     return (   

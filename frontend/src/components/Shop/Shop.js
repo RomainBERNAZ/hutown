@@ -36,6 +36,7 @@ const Shop = () => {
 
 
   useEffect(() => {
+    console.log(products, 'test');
     handleListPage();
     dispatch(listProducts());
     dispatch(listPages())
