@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Image } from 'cloudinary-react'
 import { useDispatch, useSelector } from 'react-redux';
 import { listPages } from '../../actions/pageActions'
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion"
 import CookieConsent from "react-cookie-consent";
 import './main.css'
@@ -64,15 +65,24 @@ const Main = () => {
         }
     };
     useEffect(() => {
+
+
         dispatch(listPages());
          async function imageLoading(){
             await loadImages(); 
             let background = document.getElementById('backgroundImage');
             let backgroundGuest = document.getElementById('backgroundGuest');
             let backgroundThird = document.getElementById('backgroundThird');
+            let backgroundFour = document.getElementById('backgroundFour');
+            let backgroundFive = document.getElementById('backgroundFive');
+            let backgroundSix = document.getElementById('backgroundSix');
+
             let firstLink = document.getElementById('hustle');
             let guestLink = document.getElementById('guest');
             let thirdLink = document.getElementById('out');
+            let fourthLink = document.getElementById('four');
+            let fifthLink = document.getElementById('five');
+            let sixthLink = document.getElementById('six');
            
             firstLink.addEventListener('mouseover', () => {
                 background.style.transition = '0.6s linear';
@@ -96,6 +106,30 @@ const Main = () => {
             })
             thirdLink.addEventListener('mouseleave', () => {
                 backgroundThird.style.opacity='0';
+             })
+
+            fourthLink.addEventListener('mouseover', () => {
+                backgroundFour.style.transition = '0.6s linear';
+                backgroundFour.style.opacity='1';
+            })
+            fourthLink.addEventListener('mouseleave', () => {
+                backgroundFour.style.opacity='0';
+             })
+
+             fifthLink.addEventListener('mouseover', () => {
+                backgroundFive.style.transition = '0.6s linear';
+                backgroundFive.style.opacity='1';
+            })
+            fifthLink.addEventListener('mouseleave', () => {
+                backgroundFive.style.opacity='0';
+             })
+             
+            sixthLink.addEventListener('mouseover', () => {
+                backgroundSix.style.transition = '0.6s linear';
+                backgroundSix.style.opacity='1';
+            })
+            sixthLink.addEventListener('mouseleave', () => {
+                backgroundSix.style.opacity='0';
              })
         } 
 
@@ -164,6 +198,30 @@ const Main = () => {
                 crop="scale"/>:''}
 
             { imageIds ?<Image
+                id="backgroundFour"
+                className="photoUpload"
+                cloudName='hippolythe'
+                publicId={four[0]}
+                width="1600"
+                crop="scale"/>:''}
+
+            { imageIds ?<Image
+                id="backgroundFive"
+                className="photoUpload"
+                cloudName='hippolythe'
+                publicId={five[0]}
+                width="1600"
+                crop="scale"/>:''}
+
+            { imageIds ?<Image
+                id="backgroundSix"
+                className="photoUpload"
+                cloudName='hippolythe'
+                publicId={six[0]}
+                width="1600"
+                crop="scale"/>:''}
+
+            { imageIds ?<Image
                 id="backgroundMobile"
                 className="photoUpload"
                 cloudName='hippolythe'
@@ -174,7 +232,7 @@ const Main = () => {
                     <ul >
                     {pages.map(page  => {
                         return page.category ==='first' ?
-                        <li id="hustle" key={page._id}><a href='/hustle'><button className="Hustle">{page.title}</button></a></li>: ''})}
+                        <li id="hustle" key={page._id}><Link params={pages} to='/hustle'><button className="Hustle">{page.title}</button></Link></li>: ''})}
                     {pages.map(page  => {
                         return page.category ==='second' ?
                         <li id="guest" key={page._id}><a href='/guest'><button id="Nick" className="Nick">{page.title}</button></a></li>: ''})}
@@ -186,13 +244,13 @@ const Main = () => {
                     <ul className="old-pictures">
                     {pages.map(page  => {
                         return page.category ==='four' ?
-                        <li id="hustle" key={page._id}><a href='/four'><button className="Hustle">{page.title}</button></a></li>: ''})}
+                        <li id="four" key={page._id}><a href='/four'><button className="Hustle">{page.title}</button></a></li>: ''})}
                     {pages.map(page  => {
                         return page.category ==='five' ?
-                        <li id="guest" key={page._id}><a href='/five'><button id="Nick" className="Nick">{page.title}</button></a></li>: ''})}
+                        <li id="five" key={page._id}><a href='/five'><button id="Nick" className="Nick">{page.title}</button></a></li>: ''})}
                     {pages.map(page  => {
                         return page.category ==='six' ?
-                        <li id="out" key={page._id}><a href='/six'><button id="Outdoors" className="Outdoors">{page.title}</button></a></li>: ''})}
+                        <li id="six" key={page._id}><a href='/six'><button id="Outdoors" className="Outdoors">{page.title}</button></a></li>: ''})}
                     </ul>
                 
 

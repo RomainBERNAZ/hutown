@@ -1,55 +1,30 @@
-.first-photo{
-    padding-top: 30vh;
-    height: 100vh;
-    width: 100vw;
+.artistMainPhoto{
     display: flex;
+    font-family: Halyard;
     flex-direction: column;
-    background-color: white;
-    text-align: center;
-    .texte-photos{
-        margin-bottom: -25vh;
-        h1{
+    align-items: center;
+    .texte-photos-main{
+        h2{
             font-size: 6rem;
-            font-family: Grotesque;
         }
-        .descriptionPage{
-            margin-top: 15vh;
-            width: 80vw;
-            white-space: pre-wrap;
-            text-align: justify;
-            font-family: Halyard;
-            font-size: 1.7rem;
-            margin-left: 10vw;
-        }
-    }
-    .picturesUpload{
-        display: block;
-        background-color: white;
-       .item{
-        justify-content: center;
-        margin-top: 40vh;
-        background-color: white;
-        .photoUpload{
-            min-height: 80vh;
-            max-height: 90vh;
-            width: auto;
-        }
-       }
-    }
-    .btn-to-top{
-        position: fixed;
-        right: 3.5%;
-        bottom: 5%;
-        a{
-            mix-blend-mode: difference;
-            color: black;
-            border: none;
-            i{
-                font-size: 4rem;
+        .photos-description{
+            .descriptionPage{
+                font-size: 2rem;
+                margin-bottom: 5vh;
             }
         }
     }
+    .product-grid-main{
+        img{
+            max-width: 90vw;
+            max-height: 90vh;
+            margin-bottom: 5vh;
+        }
+    }
 }
+
+
+
 @media screen and (max-width: 890px) {
 
     .first-photo{

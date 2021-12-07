@@ -1,8 +1,10 @@
 import './App.css';
 
+import React, { useEffect } from 'react'
 import HttpsRedirect from 'react-https-redirect';
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -28,6 +30,7 @@ import Vente from './components/Footer/Vente';
 import Histoire from './components/Histoire/histoire';
 import { AnimatePresence } from "framer-motion"
 import Confirmation from './components/ConfirmationPage/Confirmation';
+import { listPages } from './actions/pageActions'
 
 const promise = loadStripe("pk_live_51IIXlWLt56Zxnj4xA4lrJXceCjhbBXrFGB0XzYzhuBEtOjhsebBqj1msbirp0N5WkTsQG7bR18LW5p5Pukl16XBm00Y8TcU9eh");
 //const promiseTest = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");
@@ -36,8 +39,17 @@ const promise = loadStripe("pk_live_51IIXlWLt56Zxnj4xA4lrJXceCjhbBXrFGB0XzYzhuBE
 
 function App() {
 
+  const pageList = useSelector(state => state.pageList);
+  const { pages, loading, error } = pageList;
   const userLogin = useSelector(state => state.userLogin);
   const {userInfo} =userLogin;
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(listPages());
+    console.log(pages)
+  }, [dispatch])
 
   return (
     <AnimatePresence onExitComplete>
