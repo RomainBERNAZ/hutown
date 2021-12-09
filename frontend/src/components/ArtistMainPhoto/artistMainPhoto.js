@@ -5,15 +5,18 @@ import './ArtistMainPhotos.css'
 
 const ArtistMainPhotos = (props) =>  {
 
-   props.products.sort(function(a, b) {
-    return a.name.localeCompare(b.name, undefined, {
-      numeric: true,
-      sensitivity: 'base'
+  const sortProducts = () => {
+    props.products.sort(function(a, b) {
+      return a.name.localeCompare(b.name, undefined, {
+        numeric: true,
+        sensitivity: 'base'
+      });
     });
-  });
+  }
+ 
 
     useEffect(() => {
-      console.log(props.test);
+      sortProducts();
       }, [])
       
     return (   
