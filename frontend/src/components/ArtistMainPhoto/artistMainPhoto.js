@@ -5,14 +5,16 @@ import './ArtistMainPhotos.css'
 
 const ArtistMainPhotos = (props) =>  {
 
+  props.products.sort(function(a, b) {
+    return a.name.localeCompare(b.name, undefined, {
+      numeric: true,
+      sensitivity: 'base'
+    });
+  });
+
     useEffect(() => {
 
-      props.products.sort(function(a, b) {
-        return a.name.localeCompare(b.name, undefined, {
-          numeric: true,
-          sensitivity: 'base'
-        });
-      });
+
 
       }, [])
       

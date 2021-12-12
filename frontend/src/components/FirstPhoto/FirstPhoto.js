@@ -7,10 +7,11 @@ import ArtistMainPhotos from '../ArtistMainPhoto/artistMainPhoto';
 
 const FirstPhoto = () => {
     
-    const pageList = useSelector(state => state.pageList);
-    const { pages, loading, error } = pageList;
     const productList = useSelector((state) => state.productList);
-    const { products } = productList;
+    const { products, loading, error  } = productList;
+    const pageList = useSelector(state => state.pageList);
+    const { pages} = pageList;
+
     const dispatch = useDispatch();
 
     useEffect(() => {
