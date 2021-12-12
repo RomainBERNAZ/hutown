@@ -23,13 +23,13 @@ const FirstPhoto = () => {
             error? <div>{error}</div>:
         <div className="first-photo">
             <div className="picturesUpload">
-            { products ? 
+            { products && 
             <ArtistMainPhotos 
                 artist="Hutown"
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}
-                page="first"/>    : "" }
+                page="first"/> }
                      </div>
             <div className="btn-to-top">
                 <a href="#"><i className="fas fa-arrow-up"></i></a>
