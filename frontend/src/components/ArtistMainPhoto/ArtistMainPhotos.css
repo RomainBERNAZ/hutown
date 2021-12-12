@@ -28,59 +28,30 @@
 }
 
 @media screen and (max-width: 890px) {
-  .first-photo {
-    padding-top: 20vh;
-    height: 100vh;
-    width: 100vw;
-    background-color: white;
-    text-align: center;
-  }
-  .first-photo .texte-photos {
-    margin-bottom: -25vh;
-  }
-  .first-photo .texte-photos h1 {
-    font-size: 2.3rem;
-    font-family: Grotesque;
-  }
-  .first-photo .texte-photos .descriptionPage {
-    margin-top: 5vh;
-    width: 80vw;
-    text-align: justify;
+  .artistMainPhoto {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     font-family: Halyard;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .artistMainPhoto .texte-photos-main h2 {
+    font-size: 3.5rem;
+  }
+  .artistMainPhoto .texte-photos-main .photos-description .descriptionPage {
     font-size: 1rem;
-    margin-left: 10vw;
+    margin-bottom: 5vh;
   }
-  .first-photo .picturesUpload {
-    display: block;
-    background-color: white;
-  }
-  .first-photo .picturesUpload .item {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin-top: 40vh;
-    margin-bottom: -30vh;
-    background-color: white;
-  }
-  .first-photo .picturesUpload .item .photoUpload {
-    height: auto;
-    min-height: auto;
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 95vw;
-  }
-  .first-photo .btn-to-top {
-    position: fixed;
-    right: 8%;
-    bottom: 3%;
-  }
-  .first-photo .btn-to-top a {
-    mix-blend-mode: difference;
-    color: white;
-    border: none;
-  }
-  .first-photo .btn-to-top a i {
-    font-size: 2rem;
+  .artistMainPhoto .product-grid-main img {
+    max-width: 90vw;
+    max-height: 90vh;
+    margin-bottom: 5vh;
   }
 }
 /*# sourceMappingURL=ArtistMainPhotos.css.map */
