@@ -6,7 +6,7 @@ import './ArtistMainPhotos.css'
 const ArtistMainPhotos = (props) =>  {
 
     useEffect(() => {
-      
+
       props.products.sort(function(a, b) {
         return a.name.localeCompare(b.name, undefined, {
           numeric: true,

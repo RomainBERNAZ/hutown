@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion"
 import CookieConsent from "react-cookie-consent";
 import './main.css'
-import FirstPhoto from '../FirstPhoto/FirstPhoto';
 
 const Main = () => {
 
@@ -27,10 +26,6 @@ const Main = () => {
 
     const productList = useSelector((state) => state.productList);
     const { products } = productList;
-
-
-
-
     const pageList = useSelector(state => state.pageList);
     const { pages, loading, error } = pageList;
     const mql = window.matchMedia('(max-width: 600px)');
@@ -38,11 +33,6 @@ const Main = () => {
     const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
     const dispatch = useDispatch();
-    
-    useEffect(() => {
-        dispatch(listProducts());
-        dispatch(listPages());
-    }, [dispatch]);
 
     const variants = { 
         hidden: { opacity: 1}, 
@@ -78,7 +68,7 @@ const Main = () => {
     };
     useEffect(() => {
 
-
+        dispatch(listProducts());
         dispatch(listPages());
          async function imageLoading(){
             await loadImages(); 
