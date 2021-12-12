@@ -3,10 +3,12 @@ import axios from 'axios'
 import { Image } from 'cloudinary-react'
 import { useDispatch, useSelector } from 'react-redux';
 import { listPages } from '../../actions/pageActions'
+import { listProducts } from "../../actions/productActions";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion"
 import CookieConsent from "react-cookie-consent";
 import './main.css'
+import FirstPhoto from '../FirstPhoto/FirstPhoto';
 
 const Main = () => {
 
@@ -23,6 +25,11 @@ const Main = () => {
     const [ randomImage, setRandomImage ]= useState([]);
 
 
+    const productList = useSelector((state) => state.productList);
+    const { products } = productList;
+
+
+
 
     const pageList = useSelector(state => state.pageList);
     const { pages, loading, error } = pageList;
@@ -31,6 +38,11 @@ const Main = () => {
     const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
     const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(listProducts());
+        dispatch(listPages());
+    }, [dispatch]);
 
     const variants = { 
         hidden: { opacity: 1}, 
@@ -232,7 +244,7 @@ const Main = () => {
                     <ul >
                     {pages.map(page  => {
                         return page.category ==='first' ?
-                        <li id="hustle" key={page._id}><Link params={pages} to='/hustle'><button className="Hustle">{page.title}</button></Link></li>: ''})}
+                        <li id="hustle" key={page._id}><Link to={{ pathname:'/hustle', testProps: products }}><button className="Hustle">{page.title}</button></Link></li>: ''})}
                     {pages.map(page  => {
                         return page.category ==='second' ?
                         <li id="guest" key={page._id}><a href='/guest'><button id="Nick" className="Nick">{page.title}</button></a></li>: ''})}

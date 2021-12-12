@@ -15,7 +15,6 @@ const FirstPhoto = () => {
 
     useEffect(() => {
         dispatch(listProducts());
-        console.log(products);
         dispatch(listPages());
     }, [dispatch]);
 
@@ -25,7 +24,7 @@ const FirstPhoto = () => {
         <div className="first-photo">
             <div className="picturesUpload">
             <ArtistMainPhotos 
-                artist="TOM"
+                artist="Hutown"
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}
