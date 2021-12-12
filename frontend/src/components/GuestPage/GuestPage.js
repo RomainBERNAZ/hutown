@@ -8,10 +8,10 @@ import { listPages } from '../../actions/pageActions'
 
 const GuestPage = () => {
     
-    const pageList = useSelector(state => state.pageList);
-    const { pages, loading, error } = pageList;
     const productList = useSelector((state) => state.productList);
-    const { products } = productList;
+    const { products, loading, error  } = productList;
+    const pageList = useSelector(state => state.pageList);
+    const { pages} = pageList;
 
     
     const dispatch = useDispatch();
@@ -26,12 +26,13 @@ const GuestPage = () => {
             error? <div>{error}</div>:
             <div className="first-photo">
             <div className="picturesUpload">
+            { products && 
             <ArtistMainPhotos 
                 artist="ESTELLE"
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}
-                page="second"/>    
+                page="second"/> }    
                      </div>
             <div className="btn-to-top">
                 <a href="#"><i className="fas fa-arrow-up"></i></a>
