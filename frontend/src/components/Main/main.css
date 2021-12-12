@@ -114,7 +114,8 @@
     border: none;
   }
   .main .old-pictures {
-    margin-top: -20vh;
+    margin-top: 0;
+    padding-top: 0;
   }
   .main .old-pictures li {
     font-size: 1rem;
