@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './FirstPhoto.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from "../../actions/productActions";
 import { listPages } from '../../actions/pageActions'
 import ArtistMainPhotos from '../ArtistMainPhoto/artistMainPhoto';
+import axios from "axios"
 
 const FirstPhoto = () => {
     
@@ -13,6 +14,8 @@ const FirstPhoto = () => {
     const { pages} = pageList;
 
     const dispatch = useDispatch();
+
+
 
     useEffect(() => {
         dispatch(listProducts());
@@ -26,7 +29,7 @@ const FirstPhoto = () => {
             <div className="picturesUpload">
             { products && 
             <ArtistMainPhotos 
-                artist="TOM"
+                artist="ALBAN"
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}
