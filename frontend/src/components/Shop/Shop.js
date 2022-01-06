@@ -70,35 +70,35 @@ const Shop = () => {
           )}
       </div>
       <ul className="list-button">
-        <li><a href="#premierArtiste">TOM</a></li>
-        <li><a href="#deuxiemeArtiste">ESTELLE</a></li>
-        <li><a href="#troisiemeArtiste">CHARLOTTE</a></li>
-        <li><a href="#quatriemeArtiste">ASTRID</a></li>
-        <li><a href="#cinquiemeArtiste">NIKI</a></li>
-        <li><a href="#sixiemeArtiste">AKYA</a></li>
+        <li><a href="#premierArtiste">ALBAN</a></li>
+        <li><a href="#deuxiemeArtiste">MATTHIEU</a></li>
+        <li><a href="#troisiemeArtiste">ROMAIN</a></li>
+        <li><a href="#quatriemeArtiste">TOM</a></li>
+        <li><a href="#cinquiemeArtiste">GOODIES</a></li>
+        <li><a href="#sixiemeArtiste">CHARLOTTE</a></li>
       </ul>
         <ArtistShop 
-          artist="TOM"
+          artist="ALBAN"
           products={products}
           id="premierArtiste"/>                       
       <ArtistShop 
-          artist="ESTELLE"
+          artist="MATTHIEU"
           products={products}
           id="deuxiemeArtiste"/>                       
       <ArtistShop 
-          artist="CHARLOTTE"
+          artist="ROMAIN"
           products={products}
           id="troisiemeArtiste"/>                       
       <ArtistShop 
-          artist="ASTRID"
+          artist="TOM"
           products={products}
           id="quatriemeArtiste"/>                       
       <ArtistShop 
-          artist="NIKI"
+          artist="GOODIES"
           products={products}
           id="cinquiemeArtiste"/>                       
       <ArtistShop 
-          artist="AKYA"
+          artist="CHARLOTTE"
           products={products}
           id="sixiemeArtiste"/>  
 
