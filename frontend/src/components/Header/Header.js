@@ -78,6 +78,8 @@ const Header = () => {
                 
                 { userInfo && 
                    <Link className='gestionLink' to={'/gestion'}><li className="gestionLink">Gestion</li></Link> }
+                { userInfo &&     
+                    <li><a href="/shop">Shop</a></li> }
                 { userInfo &&
                     <li><a href="/" className="logout" onClick={handleLogout}>Logout</a></li>
                 }
@@ -101,7 +103,6 @@ const Header = () => {
                 <ul className="nav-mobile" id="nav-mobile" >
                     <li><a title="Notre travail" href='/'>Notre travail</a></li>
                     <li><a href='/histoire'>Histoire</a></li>
-                    <li><a href="/shop">Shop</a></li>
                     <li><a href='/contact'>Contact</a></li>
                     { userInfo && 
                        <Link className='gestionLink' to={'/gestion'}><li className="gestionLink">Gestion</li></Link> }
