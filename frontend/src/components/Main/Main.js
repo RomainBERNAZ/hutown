@@ -70,6 +70,8 @@ const Main = () => {
 
         dispatch(listProducts());
         dispatch(listPages());
+
+        console.log(pages);
          async function imageLoading(){
             await loadImages(); 
             let background = document.getElementById('backgroundImage');
@@ -253,8 +255,10 @@ const Main = () => {
                     {pages.map(page  => {
                         return page.category ==='six' ?
                         <li id="six" key={page._id}><a href='/six'><button id="Outdoors" className="Outdoors">{page.title}</button></a></li>: ''})}
+                    {pages.map(page  => {
+                        return page.category ==='seven' ?
+                        <li id="seven" key={page._id}><a href='/seven'><button id="Outdoors" className="Outdoors">{page.title}</button></a></li>: ''})}   
                     </ul>
-                
 
                     </div>
                     </motion.div>

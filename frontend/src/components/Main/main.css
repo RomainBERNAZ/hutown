@@ -64,6 +64,11 @@
   border: none;
 }
 
+.main .goodies {
+  top: 80vh;
+  font-size: 0.70vh;
+}
+
 .main .old-pictures {
   margin-top: 15vh;
   font-size: 0.45rem;

@@ -31,6 +31,7 @@ import Histoire from './components/Histoire/histoire';
 import { AnimatePresence } from "framer-motion"
 import Confirmation from './components/ConfirmationPage/Confirmation';
 import { listPages } from './actions/pageActions'
+import PageSeven from './components/Seven/PageSeven';
 
 const promise = loadStripe("pk_live_51IIXlWLt56Zxnj4xA4lrJXceCjhbBXrFGB0XzYzhuBEtOjhsebBqj1msbirp0N5WkTsQG7bR18LW5p5Pukl16XBm00Y8TcU9eh");
 //const promiseTest = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");
@@ -78,6 +79,7 @@ function App() {
             <Route component={PageFour} path='/four' exact/>
             <Route component={PageFive} path='/five' exact/>
             <Route component={PageSix} path='/six' exact/>
+            <Route component={PageSeven} path='/seven' exact/>
             <Route component={Confirmation} path='/confirmation' exact/>
           </Elements>
         </HttpsRedirect>
