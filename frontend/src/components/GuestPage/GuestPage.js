@@ -28,7 +28,7 @@ const GuestPage = () => {
             <div className="picturesUpload">
             { products && 
             <ArtistMainPhotos 
-                artist="MATTHIEU"
+                artist="JEANNE"
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}

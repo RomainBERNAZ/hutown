@@ -29,7 +29,7 @@ const FirstPhoto = () => {
             <div className="picturesUpload">
             { products && 
             <ArtistMainPhotos 
-                artist="ALBAN"
+                artist="MAX"
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}

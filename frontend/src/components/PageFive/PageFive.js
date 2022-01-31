@@ -27,7 +27,7 @@ const PageFive = () => {
             <div className="picturesUpload">
             { products && 
             <ArtistMainPhotos 
-                artist="GOODIES"
+                artist="MATTHIEU"
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}
