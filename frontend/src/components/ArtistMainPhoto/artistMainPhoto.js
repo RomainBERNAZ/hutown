@@ -12,9 +12,27 @@ const ArtistMainPhotos = (props) =>  {
     });
   });
 
+
+
+
+
     useEffect(() => {
 
+      // Permet d'afficher le nom de la photo au survol de l'image
+      const imageHover = document.querySelectorAll('.productImageHover');
+      const textHover = document.querySelectorAll('.imageName');
+      for (let i = 0; i < imageHover.length; i++){
 
+        imageHover[i].addEventListener("mouseenter", () => {
+          textHover[i].style.transition = "0.3s linear"
+          textHover[i].style.opacity = 1;
+        })
+
+        imageHover[i].addEventListener("mouseleave", () => {
+          textHover[i].style.transition = "0.3s linear"
+          textHover[i].style.opacity = 0;
+        })
+      }
 
       }, [])
       
@@ -22,17 +40,17 @@ const ArtistMainPhotos = (props) =>  {
     <div className="artistMainPhoto">
       <div className="texte-photos-main">
       <h2 id={props.id}>{props.artist}</h2>
-              {props.test.map(page  => {
+{/*               {props.test.map(page  => {
                   return page.category === props.page ?
                       <div className="photos-description" key={page._id}>
                           <p className="descriptionPage">{page.description}</p>
-                      </div> : ''})}
+                      </div> : ''})} */}
 
       </div>
       <div className="product-grid-main" >
             {props.products.map(product => {
               return product.artiste === props.artist ?
-              <div key={product._id} className="single-product-main">
+              <div key={product._id} className="single-product-main productImageHover">
                 <Link to={"/product/" + product._id}>
                   <Img
                         key={product._id}
@@ -46,6 +64,9 @@ const ArtistMainPhotos = (props) =>  {
                       imgFormat={false}
                       />
                 </Link>
+                <div className="imageName">
+                  <span>{product.name}</span>
+                </div>
               </div> :""
             })}
       </div> 

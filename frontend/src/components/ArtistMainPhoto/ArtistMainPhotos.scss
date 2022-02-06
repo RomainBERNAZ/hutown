@@ -20,6 +20,20 @@
             max-height: 90vh;
             margin-bottom: 5vh;
         }
+        .imageName{
+            color: white;
+            background-color: black;
+            opacity: 0;
+            position: relative;
+            top: -16vh;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span{
+                font-size: 2rem;
+            }
+        }
     }
 }
 

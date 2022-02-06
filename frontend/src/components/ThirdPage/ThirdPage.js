@@ -17,6 +17,8 @@ const ThirdPage = () => {
     useEffect(() => {
         dispatch(listProducts());
         dispatch(listPages());
+  
+
     }, [dispatch]);
 
     return (
@@ -26,7 +28,7 @@ const ThirdPage = () => {
             <div className="picturesUpload">
             { products && 
             <ArtistMainPhotos 
-                artist="VINCENT"
+                artist="Hutown"
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}

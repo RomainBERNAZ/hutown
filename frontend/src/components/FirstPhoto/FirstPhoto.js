@@ -20,6 +20,8 @@ const FirstPhoto = () => {
     useEffect(() => {
         dispatch(listProducts());
         dispatch(listPages());
+
+
     }, [dispatch]);
 
     return (
