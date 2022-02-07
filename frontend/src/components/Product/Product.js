@@ -78,24 +78,24 @@ const Product = (props) => {
       }
   };
 
-  function getRandomInt(n) {
-    return Math.floor(Math.random() * n);
-  }
-  function shuffle(s) {
-    var arr = s.split('');           // Convert String to array
-    var n = arr.length;              // Length of the array
+function getRandomInt(n) {
+  return Math.floor(Math.random() * n);
+}
+function shuffle(s) {
+  var arr = s.split('');           // Convert String to array
+  var n = arr.length;              // Length of the array
+  
+  for(var i=0 ; i<n-1 ; ++i) {
+    var j = getRandomInt(n);       // Get random of [0, n-1]
     
-    for(var i=0 ; i<n-1 ; ++i) {
-      var j = getRandomInt(n);       // Get random of [0, n-1]
-      
-      var temp = arr[i];             // Swap arr[i] and arr[j]
-      arr[i] = arr[j];
-      arr[j] = temp;
-    }
-    
-    s = arr.join('');                // Convert Array to string
-    return s;                        // Return shuffled string
+    var temp = arr[i];             // Swap arr[i] and arr[j]
+    arr[i] = arr[j];
+    arr[j] = temp;
   }
+  
+  s = arr.join('');                // Convert Array to string
+  return s;                        // Return shuffled string
+}
 
   //Ajoute l'objet choisi au panier.
   const addItem = (id, e) => {
@@ -107,7 +107,8 @@ const Product = (props) => {
       let msgCart = document.getElementById("validation-add-cart");
       let product = {idObject: id, quantite: qte, taille: soloSize, prix: soloPrice }
       cartList.push(product);
-      localStorage.setItem(shuffle(id), JSON.stringify(cartList));
+      localStorage.getItem(id);
+      localStorage.setItem(id, JSON.stringify(cartList));
       msgCart.style.opacity = 1;
     }
     else
