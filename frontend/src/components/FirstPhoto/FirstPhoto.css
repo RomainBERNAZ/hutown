@@ -46,8 +46,7 @@
 }
 
 .first-photo .picturesUpload .item .photoUpload {
-  min-height: 80vh;
-  max-height: 90vh;
+  height: auto;
   width: auto;
 }
 

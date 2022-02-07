@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Image } from 'cloudinary-react'
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import Img from 'react-cloudinary-lazy-image'
 import {useSelector} from 'react-redux'
 
 
@@ -13,48 +13,46 @@ const Panier = () => {
     const [ products, setProducts ] = useState([])
     const userLogin = useSelector(state => state.userLogin);
     const {userInfo} =userLogin;
-    
 
     let values = [], keys = Object.keys(localStorage), i = keys.length;
         while ( i-- ) {
             values.push( localStorage.getItem(keys[i]) );
         }
+    let listeDesProduits = []
+
+    values.forEach(element => {
+        listeDesProduits.push(JSON.parse(element))
+    });
+
+    const merged = [].concat.apply([], listeDesProduits);
     
     const checkNewsletter = () => {
-    for( let i = 0; i < values.length; i++){ 
-    
+    for( let i = 0; i < values.length; i++){   
         if ( values[i] === '1') { 
-    
             values.splice(i, 1); 
-        }
-    
+        }   
     }
     }
     checkNewsletter();
 
 
-
     const arrayOfSize = []
     //Retourne les tailles dans un array.
-    values.map( nb => {
-        arrayOfSize.push(nb.slice(29).replace(/[[\]"]+/g,'').split('*').splice(0,1));
-        console.log(arrayOfSize, 'size');
+    merged.map( nb => {
+        arrayOfSize.push(nb.taille);
         return arrayOfSize;
     })
-
     const arrayOfPrice = []
     //Retourne les tailles dans un array.
-    values.map( nb => {
-        arrayOfPrice.push(nb.slice(29).replace(/[[\]"]+/g,'').split('*').pop());
+    merged.map( nb => {
+            arrayOfPrice.push(nb.prix);
         for(let i=0; i<arrayOfPrice.length;i++) arrayOfPrice[i] = parseInt(arrayOfPrice[i], 10);
-        console.log(arrayOfPrice,'price');
         return arrayOfPrice;
     })
     const arrayOfQte= []
     //Retourne un tableau avec les quantités des produits dans le panier 
-    values.map( qte => {
-        arrayOfQte.push(qte.slice(27).replace(/[[\]"]+/g,'').split('-').splice(0,1));
-        console.log(arrayOfQte, 'qte');
+    merged.map( qte => {
+        arrayOfQte.push(qte.quantite);
         return arrayOfQte;
     })
 
@@ -62,6 +60,12 @@ const Panier = () => {
     for(let i=0; i< arrayOfPrice.length; i++) {
     sum += arrayOfPrice[i]*arrayOfQte[i];
 }
+    const arrayOfId = []
+    //Retourne un array avec les id des item dans le panier
+    merged.forEach( id =>{
+        arrayOfId.push(id.idObject)
+        return arrayOfId;
+    })
 
     const clearLocalStorage = () => {
     setTimeout(() => {
@@ -79,8 +83,8 @@ const Panier = () => {
             console.error(err); 
         }
     };
-    const deleteItemCart = (id, size) => {
-        localStorage.removeItem(id+'/'+size);
+    const deleteItemCart = (id) => {
+        localStorage.removeItem(id);
         window.location.reload(false);
     }
 
@@ -93,30 +97,31 @@ const Panier = () => {
         try {
             const arrayOfId = []
             //Retourne un array avec les id des item dans le panier
-            let idItem = values.join().substring(1).replace(/[[\]"]+/g,'').split('.');
-            console.log(idItem, 'iditem');
-            idItem.map( id =>{
-                arrayOfId.push(id.split('/')[0].split(','))
+            merged.map( id =>{
+                arrayOfId.push(id.idObject)
                 return arrayOfId;
             })
+
             let productsList = arrayOfId.map(async (id) => { 
                 const result =  await axios.get('/api/products/' +id)
+
                     return result.data;
                 })
-                
+
             productsList = await Promise.all(productsList);
             setProducts(productsList)
         } catch (error) {
             console.log(error);
         }
     }
- 
-    useEffect(()  => {
-        loadCart();
+
+    useLayoutEffect(() => {
         loadImages();
-        console.log(values);
-        console.log(products, 'products');
-    }, [])
+        loadCart();
+        console.log("PRODUITS:",products);
+    }, []);
+    
+    
  
     return (
         <div className="panier-container">
@@ -158,13 +163,17 @@ const Panier = () => {
                                     </div>
                                     <div className="panier-image-container">
                                         {
-                                     
-                                            <Image  
-                                                    key={'test'}
-                                                    className="panier-image"
-                                                    publicId={item.image}
-                                                    cloudName='hippolythe'
-                                                />
+                                     <Img
+                                        key={item._id}
+                                        className="shop-img-main"
+                                        cloudName={'hippolythe'}
+                                        imageName={item.image}
+                                        fluid={{
+                                          maxWidth: 1000,
+                                          height: 1000
+                                    }}
+                                    />
+                                
                                         }
                                     </div>
                                     <div className="size-item-panier">

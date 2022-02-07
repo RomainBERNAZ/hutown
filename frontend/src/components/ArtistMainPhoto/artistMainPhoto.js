@@ -12,10 +12,6 @@ const ArtistMainPhotos = (props) =>  {
     });
   });
 
-
-
-
-
     useEffect(() => {
 
       // Permet d'afficher le nom de la photo au survol de l'image
@@ -40,11 +36,11 @@ const ArtistMainPhotos = (props) =>  {
     <div className="artistMainPhoto">
       <div className="texte-photos-main">
       <h2 id={props.id}>{props.artist}</h2>
-{/*               {props.test.map(page  => {
+              {props.test.map(page  => {
                   return page.category === props.page ?
                       <div className="photos-description" key={page._id}>
                           <p className="descriptionPage">{page.description}</p>
-                      </div> : ''})} */}
+                      </div> : ''})}
 
       </div>
       <div className="product-grid-main" >
@@ -61,7 +57,6 @@ const ArtistMainPhotos = (props) =>  {
                           maxWidth: 1000,
                           height: 1000
                       }}
-                      imgFormat={false}
                       />
                 </Link>
                 <div className="imageName">

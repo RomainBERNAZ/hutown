@@ -2,6 +2,7 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {  
    opacity: 1;
 }
+
 .panier-container{
     width: 100vw;
     height: 100vh;
@@ -103,9 +104,10 @@ input[type=number]::-webkit-outer-spin-button {
                         .panier-image-container{
                             width: 22vw;
                             margin-right: 5vw;
-                            .panier-image{
-                                object-fit: cover;
+                            .shop-img-main{
+                                max-height: 50px;
                             }
+
                         }
                         .size-item-panier{
                             width:17vw ;

@@ -146,9 +146,8 @@ input[type=number]::-webkit-outer-spin-button {
   margin-right: 5vw;
 }
 
-.panier-container .liste-panier .liste-item ul li .liste-item-panier .panier-image-container .panier-image {
-  -o-object-fit: cover;
-     object-fit: cover;
+.panier-container .liste-panier .liste-item ul li .liste-item-panier .panier-image-container .shop-img-main {
+  max-height: 50px;
 }
 
 .panier-container .liste-panier .liste-item ul li .liste-item-panier .size-item-panier {
