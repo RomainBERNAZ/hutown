@@ -156,6 +156,7 @@ const Panier = () => {
                                 <h2>C'est par ici <a href="/shop"><i className="fas fa-store"></i></a></h2>
                             </div>
                             : products.map(item =>
+                            
                             <li className="ligne-item" key={Math.floor(Math.random() * Math.floor(15000))}>
                                 <div className="liste-item-panier">
                                     <div className="title-item-panier">
