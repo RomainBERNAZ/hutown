@@ -103,23 +103,18 @@ function shuffle(s) {
     {
       let soloPrice = products.price.Medium
       let  soloSize = products.size.Medium
-      let cartList = [];
       let msgCart = document.getElementById("validation-add-cart");
       let product = {idObject: id, quantite: qte, taille: soloSize, prix: soloPrice }
-      cartList.push(product);
       localStorage.getItem(id);
-      localStorage.setItem(id, JSON.stringify(cartList));
+      localStorage.setItem(id, JSON.stringify(product));
       msgCart.style.opacity = 1;
     }
     else
     {
       let msgCart = document.getElementById("validation-add-cart");
-      let cartList = [];
-
       let product = {idObject: id, quantite: qte, taille: defaultSize, prix: defaultPrice }
-      cartList.push(product);
       localStorage.getItem(id);
-      localStorage.setItem(id, JSON.stringify(cartList));
+      localStorage.setItem(id, JSON.stringify(product));
       msgCart.style.opacity = 1;
     }
 
