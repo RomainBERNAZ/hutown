@@ -28,7 +28,7 @@ const ThirdPage = () => {
             <div className="picturesUpload">
             { products && 
             <ArtistMainPhotos 
-                artist="Hutown"
+                artist="VINCENT"
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}
