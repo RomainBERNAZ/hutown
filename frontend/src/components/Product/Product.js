@@ -98,15 +98,15 @@ function shuffle(s) {
 }
 
   //Ajoute l'objet choisi au panier.
-  const addItem = (id, e) => {
+  const addItem = (id) => {
     if(defaultPrice === "")
     {
       let soloPrice = products.price.Medium
       let  soloSize = products.size.Medium
       let msgCart = document.getElementById("validation-add-cart");
       let product = {idObject: id, quantite: qte, taille: soloSize, prix: soloPrice }
-      localStorage.getItem(id);
-      localStorage.setItem(id, JSON.stringify(product));
+      localStorage.getItem(product.idObject);
+      localStorage.setItem(product.idObject, JSON.stringify(product));
       msgCart.style.opacity = 1;
     }
     else

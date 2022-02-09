@@ -121,7 +121,7 @@ const Panier = () => {
     useLayoutEffect(() => {
         loadImages();
         loadCart();
-        console.log("PRODUITS:",products);
+        console.log("PRODUITS:",localStorage);
     }, []);
     
     
