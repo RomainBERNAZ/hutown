@@ -9,12 +9,17 @@ router.get("/products", async (req, res) => {
 })
 
 router.get('/products/:id', async (req, res) => {
+
+    if (req.params.id.match(/^[0-9a-fA-F]{24}$/)){
     const product = await Product.findOne({ _id: req.params.id });
     if (product) {
       res.send(product);
     } else {
       res.status(404).send({ message: 'Product Not Found.' });
     }
+} else {    
+    res.status(404).send({ message: 'Id du produit ne passe pas' });
+}
   });
 
 router.delete('/products/:id', async (req,res) => {
