@@ -105,8 +105,8 @@ const Panier = () => {
                 return arrayOfId;
             })
 
-            let productsList = arrayOfId.map(async (id) => { 
-                const result =  await axios.get('/api/products/' +id)
+            let productsList = arrayOfId.map(async (produitId) => { 
+                const result =  await axios.get('/api/products/'+produitId)
 
                     return result.data;
                 })
