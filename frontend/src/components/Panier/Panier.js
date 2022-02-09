@@ -25,6 +25,8 @@ const Panier = () => {
     });
 
     const merged = [].concat.apply([], listeDesProduits);
+
+    console.log(merged, "LOL STP MARCHE")
     
     const checkNewsletter = () => {
     for( let i = 0; i < values.length; i++){   
@@ -98,6 +100,7 @@ const Panier = () => {
             const arrayOfId = []
             //Retourne un array avec les id des item dans le panier
             merged.map( id =>{
+                console.log(id, "LOL STP MARCHE MAIS DANS LA METHODE")
                 arrayOfId.push(id.idObject)
                 return arrayOfId;
             })
