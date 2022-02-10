@@ -25,8 +25,6 @@ const Panier = () => {
     });
 
     const merged = [].concat.apply([], listeDesProduits);
-
-    console.log(merged, "LOL STP MARCHE")
     
     const checkNewsletter = () => {
     for( let i = 0; i < values.length; i++){   
@@ -100,14 +98,11 @@ const Panier = () => {
             const arrayOfId = []
             //Retourne un array avec les id des item dans le panier
             merged.map( id =>{
-                console.log(id, "LOL STP MARCHE MAIS DANS LA METHODE")
                 arrayOfId.push(id.idObject)
                 return arrayOfId;
             })
-
             let productsList = arrayOfId.map(async (produitId) => { 
                 const result =  await axios.get('/api/products/'+produitId)
-
                     return result.data;
                 })
 
@@ -121,14 +116,13 @@ const Panier = () => {
     useLayoutEffect(() => {
         loadImages();
         loadCart();
-        console.log("PRODUITS:",localStorage);
     }, []);
     
     
  
     return (
         <div className="panier-container">
-                <ModalPaiement/>
+                <ModalPaiement listProduits={merged}/>
             <div className="liste-panier">
                 <div className="title">
                   <h3>

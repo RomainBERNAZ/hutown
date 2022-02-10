@@ -29,13 +29,12 @@ const CardElementContainer = styled.div`
 
 
 
-const ModalPaiement = () => {
+const ModalPaiement = (listProducts) => {
 
     const [ deliveryPrice, setDeliveryPrice] = useState('0');
     const [isProcessing, setProcessingTo] = useState(false);
     const [checkoutError, setCheckoutError] = useState();
 
-   
     const message = []
 
     const stripe = useStripe();
@@ -47,6 +46,13 @@ const ModalPaiement = () => {
         while ( i-- ) {
             values.push( localStorage.getItem(keys[i]) );
         }
+        let listeDesProduits = []
+
+        values.forEach(element => {
+            listeDesProduits.push(JSON.parse(element))
+        });
+    
+        const merged = [].concat.apply([], listeDesProduits);
 
         const checkNewsletter = () => {
           for( let i = 0; i < values.length; i++){ 
@@ -59,29 +65,36 @@ const ModalPaiement = () => {
           }
           }
           checkNewsletter();
-    const arrayOfSize = []
-    //Retourne les tailles dans un array.
-    values.map( nb => {
-        arrayOfSize.push(nb.slice(29).replace(/[[\]"]+/g,'').split('*').splice(0,1));
-        return arrayOfSize;
-    })
-    const arrayOfPrice = []
-    //Retourne les tailles dans un array.
-    values.map( nb => {
-        arrayOfPrice.push(nb.slice(29).replace(/[[\]"]+/g,'').split('*').pop());
-        for(let i=0; i<arrayOfPrice.length;i++) arrayOfPrice[i] = parseInt(arrayOfPrice[i], 10);
-        return arrayOfPrice;
-    })
-    const arrayOfQte= []
-    //Retourne un tableau avec les quantités des produits dans le panier 
-    values.map( qte => {
-        arrayOfQte.push(qte.slice(27).replace(/[[\]"]+/g,'').split('-').splice(0,1));
-        return arrayOfQte;
-    })
-    let sum = 0;
-    for(let i=0; i< arrayOfPrice.length; i++) {
-    sum += arrayOfPrice[i]*arrayOfQte[i];
-    }
+          const arrayOfSize = []
+          //Retourne les tailles dans un array.
+          merged.map( nb => {
+              arrayOfSize.push(nb.taille);
+              return arrayOfSize;
+          })
+          const arrayOfPrice = []
+          //Retourne les tailles dans un array.
+          merged.map( nb => {
+                  arrayOfPrice.push(nb.prix);
+              for(let i=0; i<arrayOfPrice.length;i++) arrayOfPrice[i] = parseInt(arrayOfPrice[i], 10);
+              return arrayOfPrice;
+          })
+          const arrayOfQte= []
+          //Retourne un tableau avec les quantités des produits dans le panier 
+          merged.map( qte => {
+              arrayOfQte.push(qte.quantite);
+              return arrayOfQte;
+          })
+      
+          let sum = 0;
+          for(let i=0; i< arrayOfPrice.length; i++) {
+          sum += arrayOfPrice[i]*arrayOfQte[i];
+      }
+          const arrayOfId = []
+          //Retourne un array avec les id des item dans le panier
+          merged.forEach( id =>{
+              arrayOfId.push(id.idObject)
+              return arrayOfId;
+          })
 
     let sumDelivery = sum + parseInt(deliveryPrice);
 
@@ -122,16 +135,15 @@ const ModalPaiement = () => {
       try {
           const arrayOfId = []
           //Retourne un array avec les id des item dans le panier
-          let idItem = values.join().substring(1).replace(/[[\]"]+/g,'').split(',');
-          idItem.map( id =>{
-              arrayOfId.push(id.split('/')[0].split(','))
+          merged.map( id =>{
+              arrayOfId.push(id.idObject)
               return arrayOfId;
           })
-          let productsList = arrayOfId.map(async (id) => { 
-              const result =  await axios.get('/api/products/' +id)
+          let productsList = arrayOfId.map(async (produitId) => { 
+              const result =  await axios.get('/api/products/'+produitId)
                   return result.data;
               })
-              
+
           productsList = await Promise.all(productsList);
           setProducts(productsList)
       } catch (error) {
@@ -273,7 +285,7 @@ const ModalPaiement = () => {
                 </div>
                         </div>
                     <ul>
-                            { products.length === 0 ?
+                            { listProducts.length === 0 ?
                             '':
                                 <li>
                                     <div className="nom-categorie-panier">
