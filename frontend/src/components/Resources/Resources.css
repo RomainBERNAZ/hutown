@@ -1,0 +1,16 @@
+.resources {
+  padding-top: 20vh;
+  min-height: 100vh;
+  width: 100vw;
+  background: white;
+}
+
+.resources h1 {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.resources h2 {
+  margin-top: 5vh;
+}
+/*# sourceMappingURL=Resources.css.map */

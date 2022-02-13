@@ -32,7 +32,7 @@ import { AnimatePresence } from "framer-motion"
 import Confirmation from './components/ConfirmationPage/Confirmation';
 import { listPages } from './actions/pageActions'
 import PageSeven from './components/Seven/PageSeven';
-import { Resources } from './components/ArtistMainPhoto/Resources/Resources';
+import { Resources } from './components/Resources/Resources';
 
 const promise = loadStripe("pk_live_51IIXlWLt56Zxnj4xA4lrJXceCjhbBXrFGB0XzYzhuBEtOjhsebBqj1msbirp0N5WkTsQG7bR18LW5p5Pukl16XBm00Y8TcU9eh");
 //const promiseTest = loadStripe("pk_test_51IIXlWLt56Zxnj4x0gcDCnYTt9sHp9tuknedxFbfvoFJMEShJwAlOq7qqvgaaADwASuIwr1d6NQkSCzVatpoLpfb005n72l4vA");

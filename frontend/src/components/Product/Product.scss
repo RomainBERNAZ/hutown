@@ -149,6 +149,33 @@
         }
     }
 } 
+
+.modal-image{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    z-index: 999999999;
+    position:fixed; 
+    background-color: rgba(0, 0, 0, 0.7);
+    top: calc(0% ); // half of width
+    left: calc(0); // half of height
+    button{
+        position: absolute;
+        top: 3vh;
+        right: 3vw;
+        font-size: 5vh;
+        background: none;
+        border: none;
+    }
+    img{
+        transition: 1s;
+        top: 2.5vh;
+
+        position: relative;
+        height: 95vh;
+    }
+}
 @media screen and (max-width: 890px) {
 
     .product-single{

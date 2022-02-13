@@ -19,6 +19,7 @@ const Product = (props) => {
   const dispatch = useDispatch();
   const [qte, setQte] = useState("1");
   const history = useHistory();
+  const [srcImage, setSrcImage] = useState(null); 
   const productDelete = useSelector((state) => state.productDelete);
   const {
     // eslint-disable-next-line no-unused-vars
@@ -79,6 +80,19 @@ const Product = (props) => {
       }
   };
 
+  const fullScreen = (e) => {
+    let modal = document.getElementById('modal-image');
+    modal.style.display="block"; 
+
+    console.log(e.target);
+    //let imagesrc = image.src
+    //setSrcImage(imagesrc)
+}
+const closeModal = () => {
+  let modal = document.getElementById('modal-image');
+  modal.style.display="none"; 
+}
+
 
   //Ajoute l'objet choisi au panier.
   const addItem = (id) => {
@@ -133,6 +147,7 @@ const Product = (props) => {
                   className="product-img"
                   publicId={products.image}
                   cloudName="hippolythe"
+                  onClick={fullScreen}
                 />
                 {userInfo && (
                   <button className="button-delete-product" onClick={() => deleteHandler(products, products.image)}>
@@ -193,6 +208,15 @@ const Product = (props) => {
           <button onClick={() => addItem( products._id) } className="product-cart" >Ajouter au panier</button>
         </form>
       </div>
+    </div>
+    <div className="modal-image" id='modal-image' onClick={closeModal}>
+              <Image
+                  key={products._id}
+                  className="product-img-full"
+                  publicId={products.image}
+                  cloudName="hippolythe"
+                  onClick={fullScreen}
+                />
     </div>
     </motion.div>
   );
