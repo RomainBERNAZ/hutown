@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import Img from 'react-cloudinary-lazy-image'
 import {useSelector} from 'react-redux'
 
@@ -9,7 +9,7 @@ import './Panier.css'
 
 const Panier = () => {
 
-    const [ imageIds, setImageIds ] = useState([]);
+    const [setImageIds ] = useState([]);
     const [ products, setProducts ] = useState([])
     const userLogin = useSelector(state => state.userLogin);
     const {userInfo} =userLogin;
@@ -116,6 +116,7 @@ const Panier = () => {
     useLayoutEffect(() => {
         loadImages();
         loadCart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     
@@ -169,6 +170,10 @@ const Panier = () => {
                                         fluid={{
                                           maxWidth: 1000,
                                           height: 1000
+                                    }}
+                                        style={{
+                                            width: '10vw',
+                                            height: '17vh'
                                     }}
                                     />
                                 

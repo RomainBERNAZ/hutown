@@ -11,16 +11,12 @@ import ArtistShop from "../ProductImage/ProductImage";
 
 const Shop = () => {
 
-
-  const [ pages, setPages ] = useState([]);
+  const [ setPages ] = useState([]);
   const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-
-  const pageList = useSelector((state) => state.pageList);
-  const { page } = pageList;
 
   const dispatch = useDispatch();
   
@@ -39,6 +35,7 @@ const Shop = () => {
     handleListPage();
     dispatch(listProducts());
     dispatch(listPages())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   const openModal = () => {

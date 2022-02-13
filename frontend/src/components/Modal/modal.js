@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useDispatch, useSelector} from 'react-redux'
-import { saveProduct, listProducts } from '../../actions/productActions'
+import { saveProduct } from '../../actions/productActions'
+import swal from 'sweetalert';
 import './modal.css'
 
 const Modal = () => {
@@ -25,15 +26,26 @@ const Modal = () => {
     const dispatch = useDispatch();
 
     const submitHandler = (e) => {
-        e.preventDefault();
-        dispatch(saveProduct({name, image,  price:{
-                      Small: priceS,
-                      Medium: priceM
-                  },
-                  size:{
-                      Small:  sizeS,
-                      Medium: sizeM, 
-                  }, description, artiste}))
+        try {
+            e.preventDefault();
+            dispatch(saveProduct({name, image,  price:{
+                          Small: priceS,
+                          Medium: priceM
+                      },
+                      size:{
+                          Small:  sizeS,
+                          Medium: sizeM, 
+                      }, description, artiste}))
+                      swal({
+                        title: "Superbe ! L'article a été ajouté !",
+                        text: "Les informations du produit précédent restent affichées pour ajouter des articles à la chaine !",
+                        icon: "success",
+                        button: "Fermer",
+                      });
+        } catch (error) {
+            console.log(error);
+        }
+
     }
     
     const handleFileInputChange = (e) => {

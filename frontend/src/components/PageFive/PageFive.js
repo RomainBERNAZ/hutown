@@ -34,7 +34,7 @@ const PageFive = () => {
                 page="five"/>  }  
                      </div>
             <div className="btn-to-top">
-                <a href="#"><i className="fas fa-arrow-up"></i></a>
+                <a href="/#"><i className="fas fa-arrow-up"></i></a>
             </div>
         </div>
     );

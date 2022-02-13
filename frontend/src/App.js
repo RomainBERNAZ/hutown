@@ -41,8 +41,6 @@ const promise = loadStripe("pk_live_51IIXlWLt56Zxnj4xA4lrJXceCjhbBXrFGB0XzYzhuBE
 
 function App() {
 
-  const pageList = useSelector(state => state.pageList);
-  const { pages, loading, error } = pageList;
   const userLogin = useSelector(state => state.userLogin);
   const {userInfo} =userLogin;
 
@@ -50,7 +48,6 @@ function App() {
 
   useEffect(() => {
     dispatch(listPages());
-    console.log(pages)
   }, [dispatch])
 
   return (

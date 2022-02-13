@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './Gestion.css'
+import swal from 'sweetalert';
+import Modal from "../Modal/modal";
 import { updatePage } from '../../actions/pageActions'
-import { useDispatch } from 'react-redux'
-import Tableau from '../Tableau/Tableau';
+import { useDispatch } from 'react-redux';
+import { listPages } from '../../actions/pageActions'
+import { listProducts } from "../../actions/productActions";
+
 
 const Gestion = () => {
 
@@ -12,6 +16,7 @@ const Gestion = () => {
     const [ category, setCategory ] = useState('');
     const [ pages, setPages ] = useState([]);
     const [ id, setId ] = useState('');
+
     const dispatch = useDispatch();
 
     const handleListPage = async (e) => {
@@ -28,14 +33,29 @@ const Gestion = () => {
             try {
                 e.preventDefault()
                 dispatch(updatePage({_id:id, title, description, category}))
-                alert('Mise à jour réussie !')
+                swal({
+                    title: "Le nom de l'artiste est modifié !",
+                    text: "Tu peux désormais ajouter des articles le concernant et sa description apparaitra sur sa page.",
+                    icon: "success",
+                    button: "Fermer",
+                  });
             } catch (error) {
                 console.log(error);
             }
     }
 
+    const openModal = () => {
+        let modal = document.getElementById("modal")
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${window.scrollY}px`;
+        modal.style.display = "flex";
+      };
+
+
     useEffect(() => {
-    }, []);
+        dispatch(listProducts());
+        dispatch(listPages());
+    }, [dispatch]);
 
 
     return (
@@ -54,10 +74,15 @@ const Gestion = () => {
                                     <option value="third">Troisième page</option>
                                     <option value="four">Quatrième page</option>
                                     <option value="five">Cinquième page</option>
-                                    <option value="six">Sixième page</option>
+                                    <option value="six">Sixième page</option> 
                                 </select>
                                 <button type="submit"><i className="fas fa-search"></i></button>
                         </form>
+                        <h2>AJOUTER DES PRODUITS</h2>
+                        <div className='iconAdd'>
+                            <i onClick={openModal} className="far fa-plus-square"></i>
+                        </div>
+                        <Modal />
                     </div>
                     
                 
@@ -72,9 +97,6 @@ const Gestion = () => {
                 )}
                     
                 </div>
-        </div>
-        <div className="tableau-container">
-            <Tableau/>
         </div>
     </div>
     );

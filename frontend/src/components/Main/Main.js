@@ -20,6 +20,7 @@ const Main = () => {
     const [ four, setFour ] = useState([]);
     const [ five, setFive ] = useState([]);
     const [ six, setSix ] = useState([]);
+    const [ seven, setSeven ] = useState([]);
     const [ all, setAll ]= useState([]);
     const [ randomImage, setRandomImage ]= useState([]);
 
@@ -49,10 +50,15 @@ const Main = () => {
         } 
       }
 
+      function randomNumber(max) {
+          return Math.floor(Math.random() * max);
+      }
+
     const loadImages = async () => {
         try {
             const res = await axios.get('/api/images/');
             const data = await res.data;
+            console.log(data);
             setImageIds(data);
             setFirst(data.filter((id) => id.startsWith("first")))
             setSecond(data.filter((id) => id.startsWith("second")))
@@ -60,6 +66,7 @@ const Main = () => {
             setFour(data.filter((id) => id.startsWith("four")))
             setFive(data.filter((id) => id.startsWith("five")))
             setSix(data.filter((id) => id.startsWith("six")))
+            setSeven(data.filter((id) => id.startsWith("seven")))
             setAll(data)
             setRandomImage(Math.floor(Math.random() * data.length - 1) + 1  )
         } catch (err) {
@@ -71,7 +78,6 @@ const Main = () => {
         dispatch(listProducts());
         dispatch(listPages());
 
-        console.log(pages);
          async function imageLoading(){
             await loadImages(); 
             let background = document.getElementById('backgroundImage');
@@ -80,6 +86,7 @@ const Main = () => {
             let backgroundFour = document.getElementById('backgroundFour');
             let backgroundFive = document.getElementById('backgroundFive');
             let backgroundSix = document.getElementById('backgroundSix');
+            let backgroundSeven = document.getElementById('backgroundSeven');
 
             let firstLink = document.getElementById('hustle');
             let guestLink = document.getElementById('guest');
@@ -87,6 +94,7 @@ const Main = () => {
             let fourthLink = document.getElementById('four');
             let fifthLink = document.getElementById('five');
             let sixthLink = document.getElementById('six');
+            let sevenLink = document.getElementById('seven');
            
             firstLink.addEventListener('mouseover', () => {
                 background.style.transition = '0.6s linear';
@@ -135,6 +143,14 @@ const Main = () => {
             sixthLink.addEventListener('mouseleave', () => {
                 backgroundSix.style.opacity='0';
              })
+
+            sevenLink.addEventListener('mouseover', () => {
+                backgroundSeven.style.transition = '0.6s linear';
+                backgroundSeven.style.opacity='1';
+            })
+            sevenLink.addEventListener('mouseleave', () => {
+                backgroundSeven.style.opacity='0';
+             })
         } 
 
         async function mobileBackground(){
@@ -150,7 +166,7 @@ const Main = () => {
         }
         
        
-    },[dispatch, mql.matches])
+    },[ mql.matches])
 
     return (
             loading? <div>Loading...</div>:
@@ -181,7 +197,7 @@ const Main = () => {
                 id="backgroundImage"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={first[0]}
+                publicId={first[randomNumber(3)]}
                 width="1600"
                 crop="scale"/>:''}
 
@@ -189,7 +205,7 @@ const Main = () => {
                 id="backgroundGuest"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={second[0]}
+                publicId={second[randomNumber(3)]}
                 width="1600"
                 crop="scale"/>:''}
             
@@ -197,7 +213,7 @@ const Main = () => {
                 id="backgroundThird"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={third[0]}
+                publicId={third[randomNumber(3)]}
                 width="1600"
                 crop="scale"/>:''}
 
@@ -205,7 +221,7 @@ const Main = () => {
                 id="backgroundFour"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={four[0]}
+                publicId={four[randomNumber(3)]}
                 width="1600"
                 crop="scale"/>:''}
 
@@ -213,7 +229,7 @@ const Main = () => {
                 id="backgroundFive"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={five[0]}
+                publicId={five[randomNumber(3)]}
                 width="1600"
                 crop="scale"/>:''}
 
@@ -221,7 +237,15 @@ const Main = () => {
                 id="backgroundSix"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={six[0]}
+                publicId={six[randomNumber(3)]}
+                width="1600"
+                crop="scale"/>:''}
+
+            { imageIds ?<Image
+                id="backgroundSeven"
+                className="photoUpload"
+                cloudName='hippolythe'
+                publicId={seven[randomNumber(3)]}
                 width="1600"
                 crop="scale"/>:''}
 

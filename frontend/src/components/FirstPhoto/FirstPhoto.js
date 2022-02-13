@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './FirstPhoto.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from "../../actions/productActions";
 import { listPages } from '../../actions/pageActions'
 import ArtistMainPhotos from '../ArtistMainPhoto/artistMainPhoto';
-import axios from "axios"
 
 const FirstPhoto = () => {
     
@@ -15,13 +14,9 @@ const FirstPhoto = () => {
 
     const dispatch = useDispatch();
 
-
-
     useEffect(() => {
         dispatch(listProducts());
         dispatch(listPages());
-
-
     }, [dispatch]);
 
     return (
@@ -38,7 +33,7 @@ const FirstPhoto = () => {
                 page="first"/> }
                      </div>
             <div className="btn-to-top">
-                <a href="#"><i className="fas fa-arrow-up"></i></a>
+                <a href="/#"><i className="fas fa-arrow-up"></i></a>
             </div>
         </div>
     );

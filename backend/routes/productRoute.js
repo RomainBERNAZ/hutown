@@ -32,6 +32,20 @@ router.delete('/products/:id', async (req,res) => {
     }
 })
 
+router.put('/products/:id', async (req, res) => {
+    const product = await Product.findOne({ _id: req.params.id });
+    if (product) {
+      page.title = req.body.title;
+      const updatedProduct = await product.save();
+      if (updatedProduct) {
+        return res
+          .status(200)
+          .send({ message: 'Product Updated', data: updatedProduct });
+      }
+    }
+    return res.status(500).send({ message: ' Error in Updating Product.' });
+  });
+
 router.post('/products', async (req, res) => {
     const product = new Product({
         name: req.body.name,

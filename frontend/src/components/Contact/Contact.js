@@ -61,21 +61,6 @@ const Contact =() => {
         
       };
 
-      const variants = { 
-        hidden: { opacity: 1}, 
-        visible: { 
-          opacity: 0,
-          zIndex:-100,
-          transition:{
-            duration:1.2,
-            ease: [0.7, 0, 0.84, 0],
-          zIndex:{
-            delay:1.2
-          } 
-          }
-        } 
-      }
-
       const sendFeedback = (templateId, variables) => {
 
         emailjs

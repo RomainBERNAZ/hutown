@@ -13,17 +13,18 @@ const Product = (props) => {
   const { products, loading, error } = productDetails;
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-  const [imageIds, setImageIds] = useState([]);
+  const [ setImageIds] = useState([]);
   const [defaultPrice, setDefaultPrice] = useState("");
   const [defaultSize, setDefaultSize] = useState("");
-  const mql = window.matchMedia("(max-width: 600px)");
   const dispatch = useDispatch();
   const [qte, setQte] = useState("1");
   const history = useHistory();
   const productDelete = useSelector((state) => state.productDelete);
   const {
+    // eslint-disable-next-line no-unused-vars
     loading: loadingDelete,
     /* success: successDelete, */
+    // eslint-disable-next-line no-unused-vars
     error: errorDelete,
   } = productDelete;
 
@@ -78,6 +79,7 @@ const Product = (props) => {
       }
   };
 
+
   //Ajoute l'objet choisi au panier.
   const addItem = (id) => {
     if(defaultPrice === "")
@@ -102,6 +104,7 @@ const Product = (props) => {
   };
   useEffect(() => {
     dispatch(detailsProduct(props.match.params.id));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return loading ? (
@@ -133,7 +136,7 @@ const Product = (props) => {
                 />
                 {userInfo && (
                   <button className="button-delete-product" onClick={() => deleteHandler(products, products.image)}>
-                    SUPPRIMER PRODUIT
+                    Modifier / Supprimer
                   </button>
                 )}
         </div>
@@ -145,7 +148,7 @@ const Product = (props) => {
               {products.price ? 
               <>
               { products.price.Medium  ? (
-              <select name="taille" id="taille" onChange={handleChangeSize} required>
+              <select name="taille" id="taille" onChange={handleChangeSize} required defaultValue="Medium">
                 {products.price.Small !== null ? (
                   <option id="priceS" value="Small">
                     {products.size.Small}
@@ -154,7 +157,7 @@ const Product = (props) => {
                   ""
                 )}
                 {products.price.Medium !== null ? (
-                  <option id="priceM" value="Medium" selected>
+                  <option id="priceM" value="Medium">
                     {products.size.Medium}
                   </option>
                 ) : (

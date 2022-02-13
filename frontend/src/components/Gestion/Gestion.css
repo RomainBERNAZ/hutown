@@ -1,6 +1,6 @@
 .gestion {
   padding-top: 30vh;
-  height: 60vh;
+  min-height: 100vh;
   width: 100vw;
   background-color: white;
   display: inline-block;
@@ -16,7 +16,7 @@
 }
 
 .gestion .first-section .title-category h2 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   text-decoration: underline;
   margin-bottom: 3vh;
 }
@@ -53,6 +53,14 @@
 .gestion .first-section .title-category .category-photo button i {
   background-color: transparent;
   font-size: 1.2rem;
+}
+
+.gestion .first-section .title-category .iconAdd {
+  text-align: center;
+}
+
+.gestion .first-section .title-category .fa-plus-square {
+  font-size: 3rem;
 }
 
 .gestion .first-section .description-page-upload {

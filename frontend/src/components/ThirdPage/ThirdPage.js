@@ -17,8 +17,6 @@ const ThirdPage = () => {
     useEffect(() => {
         dispatch(listProducts());
         dispatch(listPages());
-  
-
     }, [dispatch]);
 
     return (
@@ -35,7 +33,7 @@ const ThirdPage = () => {
                 page="third"/> }   
                      </div>
             <div className="btn-to-top">
-                <a href="#"><i className="fas fa-arrow-up"></i></a>
+                <a href="/#"><i className="fas fa-arrow-up"></i></a>
             </div>
         </div>
     );

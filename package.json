@@ -38,7 +38,8 @@
     "react-https-redirect": "^1.1.0",
     "react-router-dom": "^5.2.0",
     "stripe": "^8.135.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
