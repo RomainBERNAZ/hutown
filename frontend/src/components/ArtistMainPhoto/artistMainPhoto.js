@@ -36,11 +36,11 @@ const ArtistMainPhotos = (props) =>  {
     <div className="artistMainPhoto">
       <div className="texte-photos-main">
       <h2 id={props.id}>{props.artist}</h2>
-              {props.test.map(page  => {
+{/*               {props.test.map(page  => {
                   return page.category === props.page ?
                       <div className="photos-description" key={page._id}>
                           <p className="descriptionPage">{page.description}</p>
-                      </div> : ''})}
+                      </div> : ''})} */}
 
       </div>
       <div className="product-grid-main" >

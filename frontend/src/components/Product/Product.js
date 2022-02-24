@@ -163,7 +163,7 @@ const closeModal = () => {
               {products.price ? 
               <>
               { products.price.Medium  ? (
-              <select name="taille" id="taille" onChange={handleChangeSize} required defaultValue="Medium">
+              <select name="taille" id="taille" onChange={handleChangeSize} required defaultValue="Small">
                 {products.price.Small !== null ? (
                   <option id="priceS" value="Small">
                     {products.size.Small}
