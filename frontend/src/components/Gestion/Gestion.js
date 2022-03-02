@@ -48,7 +48,7 @@ const Gestion = () => {
         let modal = document.getElementById("modal")
         document.body.style.position = "fixed";
         document.body.style.top = `-${window.scrollY}px`;
-        modal.style.display = "flex";
+        modal.style.display = "block";
       };
 
 

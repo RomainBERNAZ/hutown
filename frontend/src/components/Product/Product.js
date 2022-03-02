@@ -81,7 +81,7 @@ const Product = (props) => {
   };
 
   const fullScreen = (e) => {
-    let modal = document.getElementById('modal-image');
+    let modal = document.getElementById('modale-image');
     modal.style.display="block"; 
 
     console.log(e.target);
@@ -89,7 +89,7 @@ const Product = (props) => {
     //setSrcImage(imagesrc)
 }
 const closeModal = () => {
-  let modal = document.getElementById('modal-image');
+  let modal = document.getElementById('modale-image');
   modal.style.display="none"; 
 }
 
@@ -209,7 +209,7 @@ const closeModal = () => {
         </form>
       </div>
     </div>
-    <div className="modal-image" id='modal-image' onClick={closeModal}>
+    <div className="modale-image" id='modale-image' onClick={closeModal}>
               <Image
                   key={products._id}
                   className="product-img-full"

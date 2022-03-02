@@ -3,7 +3,7 @@ import './App.css';
 import React, { useEffect } from 'react'
 import HttpsRedirect from 'react-https-redirect';
 
-import { useRouteMatch, BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 
 import { loadStripe } from "@stripe/stripe-js";
@@ -48,16 +48,6 @@ function App() {
 
   useEffect(() => {
     dispatch(listPages());
-    import('react-facebook-pixel')
-      .then((x) => x.default)
-      .then((ReactPixel) => {
-        ReactPixel.init(process.env.FACEBOOK_PIXEL) 
-        ReactPixel.pageView()
-
-        Route.events.on('routeChangeComplete', () => {
-          ReactPixel.pageView()
-        })
-      })
 
   }, [dispatch])
 

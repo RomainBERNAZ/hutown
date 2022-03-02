@@ -190,7 +190,7 @@
   border: none;
 }
 
-.modal-image {
+.modale-image {
   display: none;
   width: 100vw;
   height: 100vh;
@@ -202,7 +202,7 @@
   left: calc(0);
 }
 
-.modal-image button {
+.modale-image button {
   position: absolute;
   top: 3vh;
   right: 3vw;
@@ -211,7 +211,7 @@
   border: none;
 }
 
-.modal-image img {
+.modale-image img {
   -webkit-transition: 1s;
   transition: 1s;
   top: 2.5vh;
