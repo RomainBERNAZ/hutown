@@ -173,7 +173,7 @@ const closeModal = () => {
                 )}
                 {products.price.Medium !== null ? (
                   <option id="priceM" value="Medium">
-                    {products.size.Medium}
+                    {products.size.Small}
                   </option>
                 ) : (
                   ""
