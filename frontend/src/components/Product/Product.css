@@ -147,7 +147,7 @@
 }
 
 .product-single .single-body .product-contenu .bloc-information .product-description p {
-  width: 12vw;
+  width: 30%;
   font-size: 2rem;
 }
 
@@ -217,6 +217,201 @@
   top: 2.5vh;
   position: relative;
   height: 95vh;
+}
+
+@media screen and (max-width: 1150px) {
+  .product-single {
+    padding-top: 20vh;
+    width: 100vw;
+    background-color: white;
+    padding-bottom: 5vh;
+  }
+  .product-single #validation-add-cart {
+    -webkit-transition: 0.5s linear;
+    transition: 0.5s linear;
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    top: 50%;
+    font-size: 1.5rem;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    padding: 2rem;
+  }
+  .product-single .single-path {
+    font-family: Halyard;
+    margin-left: 2vw;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+  .product-single .single-path i {
+    margin-right: 0.8vw;
+    margin-left: 0.5vw;
+  }
+  .product-single .single-path button {
+    margin-left: 3vw;
+    width: 4vw;
+    color: white;
+    background-color: black;
+    border: none;
+    -webkit-transition: 0.3s linear;
+    transition: 0.3s linear;
+  }
+  .product-single .single-path button:hover {
+    background-color: gray;
+  }
+  .product-single .single-body {
+    padding-top: 8vh;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-left: 2vw;
+    width: 100vw;
+  }
+  .product-single .single-body .image-container {
+    text-align: center;
+    width: 40vw;
+  }
+  .product-single .single-body .image-container .product-img {
+    max-width: 40vw;
+    max-height: 80vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .product-single .single-body .image-container .button-delete-product {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    font-size: 1.3rem;
+    padding: 1rem;
+    background: transparent;
+    border: 2px solid black;
+    -webkit-transition: 0.1s linear;
+    transition: 0.1s linear;
+  }
+  .product-single .single-body .image-container .button-delete-product:hover {
+    background: black;
+    color: white;
+  }
+  .product-single .single-body .product-contenu {
+    width: 60vw;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .product-single .single-body .product-contenu .product-name {
+    font-family: Halyard;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4vh;
+  }
+  .product-single .single-body .product-contenu .bloc-information {
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-size {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 5vh;
+    font-family: Halyard;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-size p {
+    width: 12vw;
+    font-size: 2rem;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-size select {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 10vw;
+    height: 3rem;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-size span {
+    margin-left: 13vw;
+    font-size: 3rem;
+    position: relative;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-size #simpleSize {
+    margin-left: 0vw;
+    font-size: 2rem;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-description {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 5vh;
+    font-family: Halyard;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-description p {
+    width: 40%;
+    font-size: 2rem;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-description span {
+    width: 60%;
+    text-align: justify;
+    font-weight: 100;
+    white-space: pre-wrap;
+    font-size: 1.3rem;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-quantite {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 5vh;
+    font-family: Halyard;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-quantite p {
+    width: 40%;
+    font-size: 2rem;
+  }
+  .product-single .single-body .product-contenu .bloc-information .product-quantite input {
+    text-align: center;
+    font-size: 1.3rem;
+    width: 10vw;
+  }
+  .product-single .single-body .product-contenu .product-cart {
+    margin-top: 10vh;
+    width: 50%;
+    height: 4rem;
+    font-size: 1.8rem;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+    background-color: black;
+    color: white;
+    border: none;
+  }
+  .modale-image {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    z-index: 999999999;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: calc(0%);
+    left: calc(0);
+  }
+  .modale-image button {
+    position: absolute;
+    top: 3vh;
+    right: 3vw;
+    font-size: 5vh;
+    background: none;
+    border: none;
+  }
+  .modale-image img {
+    -webkit-transition: 1s;
+    transition: 1s;
+    top: 2.5vh;
+    position: relative;
+    height: 95vh;
+  }
 }
 
 @media screen and (max-width: 890px) {
