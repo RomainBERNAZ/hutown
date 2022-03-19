@@ -56,17 +56,17 @@ const Main = () => {
 
     const loadImages = async () => {
         try {
-            const res = await axios.get('/api/images/');
+            const res = await axios.get('/api/products/');
             const data = await res.data;
-            console.log(data);
+
             setImageIds(data);
-            setFirst(data.filter((id) => id.startsWith("first")))
-            setSecond(data.filter((id) => id.startsWith("second")))
-            setThird(data.filter((id) => id.startsWith("third")))
-            setFour(data.filter((id) => id.startsWith("four")))
-            setFive(data.filter((id) => id.startsWith("five")))
-            setSix(data.filter((id) => id.startsWith("six")))
-            setSeven(data.filter((id) => id.startsWith("seven")))
+            setFirst(data.filter((product) => product.artiste.equals(pages[0]?.title)))
+            setSecond(data.filter((product) => product.artiste.equals(pages[1]?.title)))
+            setThird(data.filter((product) => product.artiste.equals(pages[2]?.title)))
+            setFour(data.filter((product) => product.artiste.equals(pages[3]?.title)))
+            setFive(data.filter((product) => product.artiste.equals(pages[4]?.title)))
+            setSix(data.filter((product) => product.artiste.equals(pages[5]?.title)))
+            setSeven(data.filter((product) => product.artiste.equals(pages[6]?.title)))
             setAll(data)
             setRandomImage(Math.floor(Math.random() * data.length - 1) + 1  )
         } catch (err) {

@@ -13,6 +13,9 @@ const GuestPage = () => {
     const pageList = useSelector(state => state.pageList);
     const { pages} = pageList;
 
+    const toTop = () => {
+        window.scrollTo(0,0);
+    }
     
     const dispatch = useDispatch();
 
@@ -34,7 +37,7 @@ const GuestPage = () => {
                 page="second"/> }    
                      </div>
             <div className="btn-to-top">
-                <a href="/#"><i className="fas fa-arrow-up"></i></a>
+            <a><i onClick={toTop} className="fas fa-arrow-up"></i></a>
             </div>
         </div>
     );

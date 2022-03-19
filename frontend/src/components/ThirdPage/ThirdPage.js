@@ -14,6 +14,10 @@ const ThirdPage = () => {
 
     const dispatch = useDispatch();
 
+    const toTop = () => {
+        window.scrollTo(0,0);
+    }
+
     useEffect(() => {
         dispatch(listProducts());
         dispatch(listPages());
@@ -24,16 +28,16 @@ const ThirdPage = () => {
             error? <div>{error}</div>:
             <div className="first-photo">
             <div className="picturesUpload">
-            { products && 
+            { products && pages &&
             <ArtistMainPhotos 
-                artist="JEANNE"
+                artist={pages[2]?.title}
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}
                 page="third"/> }   
                      </div>
             <div className="btn-to-top">
-                <a href="/#"><i className="fas fa-arrow-up"></i></a>
+                <a><i onClick={toTop} className="fas fa-arrow-up"></i></a>
             </div>
         </div>
     );

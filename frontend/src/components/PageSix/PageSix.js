@@ -11,6 +11,10 @@ const PageSix = () => {
     const { products, loading, error  } = productList;
     const pageList = useSelector(state => state.pageList);
     const { pages} = pageList;
+
+    const toTop = () => {
+        window.scrollTo(0,0);
+    }
     
     const dispatch = useDispatch();
 
@@ -24,16 +28,15 @@ const PageSix = () => {
             error? <div>{error}</div>:
             <div className="first-photo">
             <div className="picturesUpload">
-            { products && 
+            { products && pages &&
             <ArtistMainPhotos 
-                artist="ROMAIN"
+                artist={pages[5]?.title}
                 products={products}
                 id="deuxiemeArtiste"
-                test={pages}
                 page="six"/>  }  
                      </div>
             <div className="btn-to-top">
-                <a href="/#"><i className="fas fa-arrow-up"></i></a>
+                <a><i onClick={toTop} className="fas fa-arrow-up"></i></a>
             </div>
         </div>
     );

@@ -14,6 +14,10 @@ const FirstPhoto = (props) => {
 
     const dispatch = useDispatch();
 
+    const toTop = () => {
+        window.scrollTo(0,0);
+    }
+
     useEffect(() => {
         dispatch(listProducts());
         dispatch(listPages());
@@ -35,7 +39,7 @@ const FirstPhoto = (props) => {
                 page="first"/> }
                      </div>
             <div className="btn-to-top">
-                <a href="/#"><i className="fas fa-arrow-up"></i></a>
+                <a><i onClick={toTop} className="fas fa-arrow-up"></i></a>
             </div>
         </div>
     );
