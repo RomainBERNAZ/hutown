@@ -82,34 +82,41 @@ const Main = () => {
             const results = await axios.get('/api/pages/')
             const dataPages = await results.data
 
-            data.forEach( item => {
-                
-                if(item.artiste.includes(dataPages[0].title) ){
-                    setFirst(item.image)
-                } 
-                else if(item.artiste.includes(dataPages[1].title) ){
-                    setSecond(item.image)
-                } 
-                 else if(item.artiste.includes(dataPages[2].title) ){
-                    setThird(item.image)
-                } 
-                 else if(item.artiste.includes(dataPages[3].title) ){
-                    setFour(item.image)
-                } 
-                else if(item.artiste.includes(dataPages[4].title) ){
-                    setFive(item.image)
-                } 
-                else if(item.artiste.includes(dataPages[5].title) ){
-                    setSix(item.image)
-                } 
-                else if(item.artiste.includes(dataPages[6].title) ){
-                    setSeven(item.image)
-                } else {}
+            console.log(data);
+            console.log(dataPages);
+            
+            
+            data.forEach( (item) => {
+
+            if(item.artiste.includes(dataPages[0]?.title)){
+                first.push(item.image)
+            }
+            if(item.artiste.includes(dataPages[1]?.title)){
+                second.push(item.image)
+            }
+            if(item.artiste.includes(dataPages[2]?.title)){
+                third.push(item.image)
+            }
+            if(item.artiste.includes(dataPages[3]?.title)){
+                four.push(item.image)
+            }
+            if(item.artiste.includes(dataPages[4]?.title)){
+                five.push(item.image)
+            }
+            if(item.artiste.includes(dataPages[5]?.title)){
+                six.push(item.image)
+            }
+            if(item.artiste.includes(dataPages[6]?.title)){
+                seven.push(item.image)
+            }
+
             });
+
 
         } catch (err) {
             console.error(err);
         }
+        console.log(third);
     };
     useEffect(() => {
 
