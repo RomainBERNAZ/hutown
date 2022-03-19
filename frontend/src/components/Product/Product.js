@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+ import React, { useEffect, useState } from "react";
 import { Image } from "cloudinary-react";
 import { motion } from "framer-motion"
 import axios from 'axios'

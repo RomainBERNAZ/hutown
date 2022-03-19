@@ -43,6 +43,9 @@ function App() {
   const userLogin = useSelector(state => state.userLogin);
   const {userInfo} =userLogin;
 
+  const pageList = useSelector(state => state.pageList);
+  const { pages } = pageList;
+
 
   const dispatch = useDispatch();
 
@@ -69,7 +72,7 @@ function App() {
             <Route component={Gestion} path='/gestion' exact/>
             }
             <Route component={Panier} path='/panier/:id?' />
-            <Route component={FirstPhoto} path='/hustle' exact/>
+            <Route component={FirstPhoto} pages={pages} path='/hustle' exact/>
             <Route component={Mentions} path='/mentions-legales' exact />
             <Route component={Utilisation} path='/conditions-utilisation' exact />
             <Route component={Vente} path='/conditions-vente' exact />

@@ -26,12 +26,11 @@ const GuestPage = () => {
             error? <div>{error}</div>:
             <div className="first-photo">
             <div className="picturesUpload">
-            { products && 
+            { products && pages &&
             <ArtistMainPhotos 
-                artist="MAX"
+                artist={pages[1]?.title}
                 products={products}
                 id="deuxiemeArtiste"
-                test={pages}
                 page="second"/> }    
                      </div>
             <div className="btn-to-top">

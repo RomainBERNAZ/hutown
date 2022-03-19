@@ -5,7 +5,7 @@ import { listProducts } from "../../actions/productActions";
 import { listPages } from '../../actions/pageActions'
 import ArtistMainPhotos from '../ArtistMainPhoto/artistMainPhoto';
 
-const FirstPhoto = () => {
+const FirstPhoto = (props) => {
     
     const productList = useSelector((state) => state.productList);
     const { products, loading, error  } = productList;
@@ -17,16 +17,18 @@ const FirstPhoto = () => {
     useEffect(() => {
         dispatch(listProducts());
         dispatch(listPages());
+        console.log(pages)
     }, [dispatch]);
 
     return (
             loading? <div>Loading...</div>:
             error? <div>{error}</div>:
         <div className="first-photo">
+            <p></p>
             <div className="picturesUpload">
-            { products && 
+            { products && pages &&
             <ArtistMainPhotos 
-                artist="HUGO"
+                artist={pages[0]?.title}
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}
