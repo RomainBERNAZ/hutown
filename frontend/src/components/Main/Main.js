@@ -54,21 +54,59 @@ const Main = () => {
           return Math.floor(Math.random() * max);
       }
 
+/*     const loadImages = async () => {
+        try {
+            const res = await axios.get('/api/images/');
+            const data = await res.data;
+        
+            setImageIds(data);
+            setFirst(data.filter((id) => id.startsWith("first")))
+            setSecond(data.filter((id) => id.startsWith("second")))
+            setThird(data.filter((id) => id.startsWith("third")))
+            setFour(data.filter((id) => id.startsWith("four")))
+            setFive(data.filter((id) => id.startsWith("five")))
+            setSix(data.filter((id) => id.startsWith("six")))
+            setSeven(data.filter((id) => id.startsWith("seven")))
+            setAll(data)
+            setRandomImage(Math.floor(Math.random() * data.length - 1) + 1  )
+        } catch (err) {
+            console.error(err);
+        }
+    }; */
+
     const loadImages = async () => {
         try {
             const res = await axios.get('/api/products/');
             const data = await res.data;
 
-            setImageIds(data);
-            setFirst(data.filter((product) => product.artiste.equals(pages[0]?.title)))
-            setSecond(data.filter((product) => product.artiste.equals(pages[1]?.title)))
-            setThird(data.filter((product) => product.artiste.equals(pages[2]?.title)))
-            setFour(data.filter((product) => product.artiste.equals(pages[3]?.title)))
-            setFive(data.filter((product) => product.artiste.equals(pages[4]?.title)))
-            setSix(data.filter((product) => product.artiste.equals(pages[5]?.title)))
-            setSeven(data.filter((product) => product.artiste.equals(pages[6]?.title)))
-            setAll(data)
-            setRandomImage(Math.floor(Math.random() * data.length - 1) + 1  )
+            const results = await axios.get('/api/pages/')
+            const dataPages = await results.data
+
+            data.forEach( item => {
+                
+                if(item.artiste.includes(dataPages[0].title) ){
+                    setFirst(item.image)
+                } 
+                else if(item.artiste.includes(dataPages[1].title) ){
+                    setSecond(item.image)
+                } 
+                 else if(item.artiste.includes(dataPages[2].title) ){
+                    setThird(item.image)
+                } 
+                 else if(item.artiste.includes(dataPages[3].title) ){
+                    setFour(item.image)
+                } 
+                else if(item.artiste.includes(dataPages[4].title) ){
+                    setFive(item.image)
+                } 
+                else if(item.artiste.includes(dataPages[5].title) ){
+                    setSix(item.image)
+                } 
+                else if(item.artiste.includes(dataPages[6].title) ){
+                    setSeven(item.image)
+                } else {}
+            });
+
         } catch (err) {
             console.error(err);
         }
@@ -87,6 +125,7 @@ const Main = () => {
             let backgroundFive = document.getElementById('backgroundFive');
             let backgroundSix = document.getElementById('backgroundSix');
             let backgroundSeven = document.getElementById('backgroundSeven');
+
 
             let firstLink = document.getElementById('hustle');
             let guestLink = document.getElementById('guest');
@@ -193,69 +232,70 @@ const Main = () => {
                   Ce site web utilise des cookies pour une meilleure expérience utilisateur.{" "}
                 </CookieConsent>
 
-            { imageIds ?<Image
+
+            <Image
                 id="backgroundImage"
                 className="photoUpload"
                 cloudName='hippolythe'
                 publicId={first[randomNumber(3)]}
                 width="1600"
-                crop="scale"/>:''}
+                crop="scale"/>
 
-            { imageIds ?<Image
+            <Image
                 id="backgroundGuest"
                 className="photoUpload"
                 cloudName='hippolythe'
                 publicId={second[randomNumber(3)]}
                 width="1600"
-                crop="scale"/>:''}
+                crop="scale"/>
             
-            { imageIds ?<Image
+            <Image
                 id="backgroundThird"
                 className="photoUpload"
                 cloudName='hippolythe'
                 publicId={third[randomNumber(3)]}
                 width="1600"
-                crop="scale"/>:''}
+                crop="scale"/>
 
-            { imageIds ?<Image
+            <Image
                 id="backgroundFour"
                 className="photoUpload"
                 cloudName='hippolythe'
                 publicId={four[randomNumber(3)]}
                 width="1600"
-                crop="scale"/>:''}
+                crop="scale"/>
 
-            { imageIds ?<Image
+            <Image
                 id="backgroundFive"
                 className="photoUpload"
                 cloudName='hippolythe'
                 publicId={five[randomNumber(3)]}
                 width="1600"
-                crop="scale"/>:''}
+                crop="scale"/>
 
-            { imageIds ?<Image
+            <Image
                 id="backgroundSix"
                 className="photoUpload"
                 cloudName='hippolythe'
                 publicId={six[randomNumber(3)]}
                 width="1600"
-                crop="scale"/>:''}
+                crop="scale"/>
 
-            { imageIds ?<Image
+            <Image
                 id="backgroundSeven"
                 className="photoUpload"
                 cloudName='hippolythe'
                 publicId={seven[randomNumber(3)]}
                 width="1600"
-                crop="scale"/>:''}
+                crop="scale"/>
 
-            { imageIds ?<Image
+            <Image
                 id="backgroundMobile"
                 className="photoUpload"
                 cloudName='hippolythe'
                 publicId={all[randomImage]}
                 width="1600"
-                crop="scale"/>:''}
+                crop="scale"/>
                 
                     <ul >
                     {pages.map(page  => {
