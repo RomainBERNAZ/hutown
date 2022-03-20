@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Image } from 'cloudinary-react'
+import Img from 'react-cloudinary-lazy-image'
 import { useDispatch, useSelector } from 'react-redux';
 import { listPages } from '../../actions/pageActions'
 import { listProducts } from "../../actions/productActions";
@@ -62,39 +63,41 @@ const Main = () => {
             const results = await axios.get('/api/pages/')
             const dataPages = await results.data
 
+
             data.forEach( (item) => {
             if(item.artiste.includes(dataPages[0]?.title)){
-                first.push(item.image)
+                setFirst(item.image)
             }
             if(item.artiste.includes(dataPages[1]?.title)){
-                second.push(item.image)
+                setSecond(item.image)
             }
             if(item.artiste.includes(dataPages[2]?.title)){
-                third.push(item.image)
+                setThird(item.image)
             }
             if(item.artiste.includes(dataPages[3]?.title)){
-                four.push(item.image)
+                setFour(item.image)
             }
             if(item.artiste.includes(dataPages[4]?.title)){
-                five.push(item.image)
+                setFive(item.image)
             }
             if(item.artiste.includes(dataPages[5]?.title)){
-                six.push(item.image)
+                setSix(item.image)
             }
             if(item.artiste.includes(dataPages[6]?.title)){
-                seven.push(item.image)
+                setSeven(item.image)
             }
             });
-
-
         } catch (err) {
             console.error(err);
         }
     };
+
+    
     useEffect(() => {
 
         dispatch(listProducts());
         dispatch(listPages());
+
 
          async function imageLoading(){
             await loadImages(); 
@@ -106,7 +109,6 @@ const Main = () => {
             let backgroundSix = document.getElementById('backgroundSix');
             let backgroundSeven = document.getElementById('backgroundSeven');
 
-
             let firstLink = document.getElementById('hustle');
             let guestLink = document.getElementById('guest');
             let thirdLink = document.getElementById('out');
@@ -115,6 +117,7 @@ const Main = () => {
             let sixthLink = document.getElementById('six');
             let sevenLink = document.getElementById('seven');
            
+            
             firstLink.addEventListener('mouseover', () => {
                 background.style.transition = '0.6s linear';
                 background.style.opacity='1';
@@ -212,12 +215,11 @@ const Main = () => {
                   Ce site web utilise des cookies pour une meilleure expérience utilisateur.{" "}
                 </CookieConsent>
 
-
             <Image
                 id="backgroundImage"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={first[randomNumber(3)]}
+                publicId="hutownshop/uoafzw2erk3qxkyulpyu"
                 width="1600"
                 crop="scale"/>
 
@@ -225,7 +227,7 @@ const Main = () => {
                 id="backgroundGuest"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={second[randomNumber(3)]}
+                publicId="hutownshop/wucf3yolmdy9nxuiagh9"
                 width="1600"
                 crop="scale"/>
             
@@ -233,15 +235,15 @@ const Main = () => {
                 id="backgroundThird"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={third[randomNumber(3)]}
+                publicId="hutownshop/wucf3yolmdy9nxuiagh9"
                 width="1600"
-                crop="scale"/>
+                crop="scale"/> 
 
             <Image
                 id="backgroundFour"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={four[randomNumber(3)]}
+                publicId="hutownshop/ymw7arrxnwoakahl1lhx"
                 width="1600"
                 crop="scale"/>
 
@@ -249,7 +251,7 @@ const Main = () => {
                 id="backgroundFive"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={five[randomNumber(3)]}
+                publicId="hutownshop/qrzip2wanwxiodxbhyk4"
                 width="1600"
                 crop="scale"/>
 
@@ -257,7 +259,7 @@ const Main = () => {
                 id="backgroundSix"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={six[randomNumber(3)]}
+                publicId="hutownshop/uoafzw2erk3qxkyulpyu"
                 width="1600"
                 crop="scale"/>
 
@@ -265,7 +267,7 @@ const Main = () => {
                 id="backgroundSeven"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId={seven[randomNumber(3)]}
+                publicId="hutownshop/jyjjq7flvf38r9a3cwny"
                 width="1600"
                 crop="scale"/>
 
