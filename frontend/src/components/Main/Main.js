@@ -54,26 +54,6 @@ const Main = () => {
           return Math.floor(Math.random() * max);
       }
 
-/*     const loadImages = async () => {
-        try {
-            const res = await axios.get('/api/images/');
-            const data = await res.data;
-        
-            setImageIds(data);
-            setFirst(data.filter((id) => id.startsWith("first")))
-            setSecond(data.filter((id) => id.startsWith("second")))
-            setThird(data.filter((id) => id.startsWith("third")))
-            setFour(data.filter((id) => id.startsWith("four")))
-            setFive(data.filter((id) => id.startsWith("five")))
-            setSix(data.filter((id) => id.startsWith("six")))
-            setSeven(data.filter((id) => id.startsWith("seven")))
-            setAll(data)
-            setRandomImage(Math.floor(Math.random() * data.length - 1) + 1  )
-        } catch (err) {
-            console.error(err);
-        }
-    }; */
-
     const loadImages = async () => {
         try {
             const res = await axios.get('/api/products/');
@@ -82,12 +62,7 @@ const Main = () => {
             const results = await axios.get('/api/pages/')
             const dataPages = await results.data
 
-            console.log(data);
-            console.log(dataPages);
-            
-            
             data.forEach( (item) => {
-
             if(item.artiste.includes(dataPages[0]?.title)){
                 first.push(item.image)
             }
@@ -109,14 +84,12 @@ const Main = () => {
             if(item.artiste.includes(dataPages[6]?.title)){
                 seven.push(item.image)
             }
-
             });
 
 
         } catch (err) {
             console.error(err);
         }
-        console.log(third);
     };
     useEffect(() => {
 

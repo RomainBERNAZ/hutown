@@ -19,8 +19,8 @@ const Product = (props) => {
   const dispatch = useDispatch();
   const [qte, setQte] = useState("1");
   const history = useHistory();
-  const [srcImage, setSrcImage] = useState(null); 
   const productDelete = useSelector((state) => state.productDelete);
+  
   const {
     // eslint-disable-next-line no-unused-vars
     loading: loadingDelete,
@@ -63,6 +63,20 @@ const Product = (props) => {
     }
   };
 
+  const gererPrix = async () => {
+    try {
+        const res = await axios.get(`/api/products/${props.match.params.id}`);
+        const data = await res.data;
+
+        if(data.price.Small === null){
+          setDefaultPrice(data.price.Medium);
+        }
+
+    } catch (err) {
+        console.error(err);
+    }
+};
+
   //Permet de modifier le format choisi et donc le prix associé.
   const handleChangeSize = (e) => {
       let res = e.target.value 
@@ -83,15 +97,12 @@ const Product = (props) => {
   const fullScreen = (e) => {
     let modal = document.getElementById('modale-image');
     modal.style.display="block"; 
+  }
 
-    console.log(e.target);
-    //let imagesrc = image.src
-    //setSrcImage(imagesrc)
-}
-const closeModal = () => {
+  const closeModal = () => {
   let modal = document.getElementById('modale-image');
   modal.style.display="none"; 
-}
+  }
 
 
   //Ajoute l'objet choisi au panier.
@@ -118,6 +129,8 @@ const closeModal = () => {
   };
   useEffect(() => {
     dispatch(detailsProduct(props.match.params.id));
+    gererPrix();
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -160,10 +173,10 @@ const closeModal = () => {
           <div className="bloc-information">
             <div className="product-size">
               <p>Taille:</p>
-              {products.price ? 
+              {products.size ? 
               <>
-              { products.price.Medium  ? (
-              <select name="taille" id="taille" onChange={handleChangeSize} required defaultValue="Medium">
+              { products.size.Small  ? (
+              <select name="taille" id="taille" onChange={handleChangeSize} required defaultValue="Small">
                 {products.price.Small !== null ? (
                   <option id="priceS" value="Small">
                     {products.size.Small}
@@ -184,8 +197,8 @@ const closeModal = () => {
               {products.price ? 
               <div>
               {defaultPrice === "" ? 
-                <span>{products.price.Medium} €</span>
-            :<span>{defaultPrice} €</span>}
+                <span>{products.price.Small} €</span>
+              : <span>{defaultPrice} €</span>}
               </div>:""
             }
             </div>
