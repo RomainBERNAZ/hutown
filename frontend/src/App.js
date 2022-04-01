@@ -12,17 +12,21 @@ import { Elements } from "@stripe/react-stripe-js";
 import Header from '../src/components/Header/Header'
 import Main from '../src/components/Main/Main'
 import Cursor from '../src/components/Cursor/Cursor'
-import Shop from '../src/components/Shop/Shop'
 import Contact from '../src/components/Contact/Contact'
 import Product from './components/Product/Product';
 import login from './components/Login/login';
-import FirstPhoto from './components/FirstPhoto/FirstPhoto';
+
+import Page_1 from './components//Pages_Photo/Page_1';
+import Page_2 from './components//Pages_Photo/Page_2';
+import Page_3 from './components//Pages_Photo/Page_3';
+import Page_4 from './components//Pages_Photo/Page_4';
+import Page_5 from './components//Pages_Photo/Page_5';
+import Page_6 from './components//Pages_Photo/Page_6';
+import Page_7 from './components//Pages_Photo/Page_7';
+
+
 import Gestion from './components/Gestion/Gestion'
-import GuestPage from './components/GuestPage/GuestPage'
-import ThirdPage from './components/ThirdPage/ThirdPage'
-import PageFour from './components/PageFour/PageFour'
-import PageFive from './components/PageFive/PageFive'
-import PageSix from './components/PageSix/PageSix'
+
 import Panier from './components/Panier/Panier';
 import Mentions from './components/Footer/Mentions';
 import Utilisation from './components/Footer/Utilisation';
@@ -31,7 +35,6 @@ import Histoire from './components/Histoire/histoire';
 import { AnimatePresence } from "framer-motion"
 import Confirmation from './components/ConfirmationPage/Confirmation';
 import { listPages } from './actions/pageActions'
-import PageSeven from './components/Seven/PageSeven';
 import { Resources } from './components/Resources/Resources';
 
 const promise = loadStripe("pk_live_51IIXlWLt56Zxnj4xA4lrJXceCjhbBXrFGB0XzYzhuBEtOjhsebBqj1msbirp0N5WkTsQG7bR18LW5p5Pukl16XBm00Y8TcU9eh");
@@ -51,6 +54,7 @@ function App() {
 
   useEffect(() => {
     dispatch(listPages());
+    console.log(pages);
 
   }, [dispatch])
 
@@ -63,7 +67,6 @@ function App() {
             <Cursor />
             <Header/>
             <Route component={Main} path="/" exact/>
-            <Route component={Shop} path="/shop" exact/>
             <Route component={Histoire} path="/histoire" exact/>
             <Route component={Contact} path="/contact" exact/>
             <Route component={Product} path="/product/:id"/>
@@ -72,16 +75,16 @@ function App() {
             <Route component={Gestion} path='/gestion' exact/>
             }
             <Route component={Panier} path='/panier/:id?' />
-            <Route component={FirstPhoto} pages={pages} path='/hustle' exact/>
             <Route component={Mentions} path='/mentions-legales' exact />
             <Route component={Utilisation} path='/conditions-utilisation' exact />
             <Route component={Vente} path='/conditions-vente' exact />
-            <Route component={GuestPage} path='/guest' exact/>
-            <Route component={ThirdPage} path='/third' exact/>
-            <Route component={PageFour} path='/four' exact/>
-            <Route component={PageFive} path='/five' exact/>
-            <Route component={PageSix} path='/six' exact/>
-            <Route component={PageSeven} path='/seven' exact/>
+            <Route component={Page_1} path='/artiste_1' exact/>
+            <Route component={Page_2} path='/artiste_2' exact/>
+            <Route component={Page_3} path='/artiste_3' exact/>
+            <Route component={Page_4} path='/artiste_4' exact/>
+            <Route component={Page_5} path='/artiste_5' exact/>
+            <Route component={Page_6} path='/artiste_6' exact/>
+            <Route component={Page_7} path='/artiste_7' exact/>
             <Route component={Confirmation} path='/confirmation' exact/>
             <Route component={Resources} path='/resources' exact/>
           </Elements>

@@ -1,42 +1,39 @@
 import React, { useEffect } from 'react';
-import './FirstPhoto.css'
+import './PagePhoto.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { listProducts } from "../../actions/productActions";
 import { listPages } from '../../actions/pageActions'
+import { listProducts } from "../../actions/productActions";
 import ArtistMainPhotos from '../ArtistMainPhoto/artistMainPhoto';
 
-const FirstPhoto = () => {
+const PageSix = () => {
     
     const productList = useSelector((state) => state.productList);
     const { products, loading, error  } = productList;
     const pageList = useSelector(state => state.pageList);
     const { pages} = pageList;
 
-    const dispatch = useDispatch();
-
     const toTop = () => {
         window.scrollTo(0,0);
     }
+    
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(listProducts());
         dispatch(listPages());
-        console.log(pages)
     }, [dispatch]);
 
     return (
             loading? <div>Loading...</div>:
             error? <div>{error}</div>:
-        <div className="first-photo">
-            <p></p>
+            <div className="first-photo">
             <div className="picturesUpload">
             { products && pages &&
             <ArtistMainPhotos 
-                artist={pages[0]?.title}
+                artist={pages[5]?.title}
                 products={products}
                 id="deuxiemeArtiste"
-                test={pages}
-                page="first"/> }
+                page="six"/>  }  
                      </div>
             <div className="btn-to-top">
                 <a><i onClick={toTop} className="fas fa-arrow-up"></i></a>
@@ -45,4 +42,4 @@ const FirstPhoto = () => {
     );
 };
 
-export default FirstPhoto;
+export default PageSix;

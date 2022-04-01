@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import { Image } from 'cloudinary-react'
-import Img from 'react-cloudinary-lazy-image'
 import { useDispatch, useSelector } from 'react-redux';
 import { listPages } from '../../actions/pageActions'
 import { listProducts } from "../../actions/productActions";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion"
 import CookieConsent from "react-cookie-consent";
 import './main.css'
@@ -13,18 +10,7 @@ import './main.css'
 const Main = () => {
 
     
-    const [imageIds, setImageIds] = useState();
-
-    const [ first, setFirst ]= useState([]);
-    const [ second, setSecond ]= useState([]);
-    const [ third, setThird ]= useState([]);
-    const [ four, setFour ] = useState([]);
-    const [ five, setFive ] = useState([]);
-    const [ six, setSix ] = useState([]);
-    const [ seven, setSeven ] = useState([]);
-    const [ all, setAll ]= useState([]);
-    const [ randomImage, setRandomImage ]= useState([]);
-
+    const [ background, setBackground ]= useState('');
 
     const productList = useSelector((state) => state.productList);
     const { products } = productList;
@@ -36,159 +22,25 @@ const Main = () => {
 
     const dispatch = useDispatch();
 
-    const variants = { 
-        hidden: { opacity: 1}, 
-        visible: { 
-          opacity: 0,
-          zIndex:0,
-          transition:{
-            duration:1.2,
-            ease: [0.7, 0, 0.84, 0],
-          zIndex:{
-            delay:1.2
-          } 
-          }
-        } 
-      }
-
       function randomNumber(max) {
           return Math.floor(Math.random() * max);
       }
 
-    const loadImages = async () => {
-        try {
-            const res = await axios.get('/api/products/');
-            const data = await res.data;
+    function changeBackground(artiste)  {
+        const produitsTest = products.filter( item => item.artiste.includes(artiste));
+        setBackground(produitsTest[randomNumber(5)].image)
+        document.getElementById("backgroundImage").style.opacity = 1;
+        console.log(background);
+    }
 
-            const results = await axios.get('/api/pages/')
-            const dataPages = await results.data
-
-
-            data.forEach( (item) => {
-            if(item.artiste.includes(dataPages[0]?.title)){
-                setFirst(item.image)
-            }
-            if(item.artiste.includes(dataPages[1]?.title)){
-                setSecond(item.image)
-            }
-            if(item.artiste.includes(dataPages[2]?.title)){
-                setThird(item.image)
-            }
-            if(item.artiste.includes(dataPages[3]?.title)){
-                setFour(item.image)
-            }
-            if(item.artiste.includes(dataPages[4]?.title)){
-                setFive(item.image)
-            }
-            if(item.artiste.includes(dataPages[5]?.title)){
-                setSix(item.image)
-            }
-            if(item.artiste.includes(dataPages[6]?.title)){
-                setSeven(item.image)
-            }
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    };
-
+    function hideBackground() {
+        document.getElementById("backgroundImage").style.opacity = 0;
+    }
     
     useEffect(() => {
-
         dispatch(listProducts());
-        dispatch(listPages());
-
-
-         async function imageLoading(){
-            await loadImages(); 
-            let background = document.getElementById('backgroundImage');
-            let backgroundGuest = document.getElementById('backgroundGuest');
-            let backgroundThird = document.getElementById('backgroundThird');
-            let backgroundFour = document.getElementById('backgroundFour');
-            let backgroundFive = document.getElementById('backgroundFive');
-            let backgroundSix = document.getElementById('backgroundSix');
-            let backgroundSeven = document.getElementById('backgroundSeven');
-
-            let firstLink = document.getElementById('hustle');
-            let guestLink = document.getElementById('guest');
-            let thirdLink = document.getElementById('out');
-            let fourthLink = document.getElementById('four');
-            let fifthLink = document.getElementById('five');
-            let sixthLink = document.getElementById('six');
-            let sevenLink = document.getElementById('seven');
-           
-            
-            firstLink.addEventListener('mouseover', () => {
-                background.style.transition = '0.6s linear';
-                background.style.opacity='1';
-            })
-            firstLink.addEventListener('mouseleave', () => {
-                background.style.opacity='0';
-             })
-
-            guestLink.addEventListener('mouseover', () => {
-                backgroundGuest.style.transition = '0.6s linear';
-                backgroundGuest.style.opacity='1';
-            })
-            guestLink.addEventListener('mouseleave', () => {
-                backgroundGuest.style.opacity='0';
-             })
-
-            thirdLink.addEventListener('mouseover', () => {
-                backgroundThird.style.transition = '0.6s linear';
-                backgroundThird.style.opacity='1';
-            })
-            thirdLink.addEventListener('mouseleave', () => {
-                backgroundThird.style.opacity='0';
-             })
-
-            fourthLink.addEventListener('mouseover', () => {
-                backgroundFour.style.transition = '0.6s linear';
-                backgroundFour.style.opacity='1';
-            })
-            fourthLink.addEventListener('mouseleave', () => {
-                backgroundFour.style.opacity='0';
-             })
-
-             fifthLink.addEventListener('mouseover', () => {
-                backgroundFive.style.transition = '0.6s linear';
-                backgroundFive.style.opacity='1';
-            })
-            fifthLink.addEventListener('mouseleave', () => {
-                backgroundFive.style.opacity='0';
-             })
-             
-            sixthLink.addEventListener('mouseover', () => {
-                backgroundSix.style.transition = '0.6s linear';
-                backgroundSix.style.opacity='1';
-            })
-            sixthLink.addEventListener('mouseleave', () => {
-                backgroundSix.style.opacity='0';
-             })
-
-            sevenLink.addEventListener('mouseover', () => {
-                backgroundSeven.style.transition = '0.6s linear';
-                backgroundSeven.style.opacity='1';
-            })
-            sevenLink.addEventListener('mouseleave', () => {
-                backgroundSeven.style.opacity='0';
-             })
-        } 
-
-        async function mobileBackground(){
-            await loadImages(); 
-            let background = document.getElementById('backgroundMobile');
-            background.style.opacity = '1'
-            
-        }
-        if (mql.matches){
-            mobileBackground()
-        }else {
-            imageLoading();
-        }
-        
-       
-    },[ mql.matches])
+        dispatch(listPages());   
+    },[])
 
     return (
             loading? <div>Loading...</div>:
@@ -200,7 +52,6 @@ const Main = () => {
             <div className="main" id="main">
                 <motion.div  initial="hidden" 
                        animate="visible" 
-                       variants={variants} 
                        className="window">
                 </motion.div>
                 <div exit={{ opacity: 1 }} transition={transition} className="window"></div>
@@ -219,91 +70,87 @@ const Main = () => {
                 id="backgroundImage"
                 className="photoUpload"
                 cloudName='hippolythe'
-                publicId="hutownshop/uoafzw2erk3qxkyulpyu"
-                width="1600"
-                crop="scale"/>
-
-            <Image
-                id="backgroundGuest"
-                className="photoUpload"
-                cloudName='hippolythe'
-                publicId="hutownshop/wucf3yolmdy9nxuiagh9"
-                width="1600"
-                crop="scale"/>
-            
-            <Image
-                id="backgroundThird"
-                className="photoUpload"
-                cloudName='hippolythe'
-                publicId="hutownshop/wucf3yolmdy9nxuiagh9"
-                width="1600"
-                crop="scale"/> 
-
-            <Image
-                id="backgroundFour"
-                className="photoUpload"
-                cloudName='hippolythe'
-                publicId="hutownshop/ymw7arrxnwoakahl1lhx"
-                width="1600"
-                crop="scale"/>
-
-            <Image
-                id="backgroundFive"
-                className="photoUpload"
-                cloudName='hippolythe'
-                publicId="hutownshop/qrzip2wanwxiodxbhyk4"
-                width="1600"
-                crop="scale"/>
-
-            <Image
-                id="backgroundSix"
-                className="photoUpload"
-                cloudName='hippolythe'
-                publicId="hutownshop/uoafzw2erk3qxkyulpyu"
-                width="1600"
-                crop="scale"/>
-
-            <Image
-                id="backgroundSeven"
-                className="photoUpload"
-                cloudName='hippolythe'
-                publicId="hutownshop/jyjjq7flvf38r9a3cwny"
-                width="1600"
-                crop="scale"/>
-
-            <Image
-                id="backgroundMobile"
-                className="photoUpload"
-                cloudName='hippolythe'
-                publicId={all[randomImage]}
+                publicId={background}
                 width="1600"
                 crop="scale"/>
                 
                     <ul >
-                    {pages.map(page  => {
-                        return page.category ==='first' ?
-                        <li id="hustle" key={page._id}><Link to={{ pathname:'/hustle', testProps: products }}><button className="Hustle">{page.title}</button></Link></li>: ''})}
-                    {pages.map(page  => {
-                        return page.category ==='second' ?
-                        <li id="guest" key={page._id}><a href='/guest'><button id="Nick" className="Nick">{page.title}</button></a></li>: ''})}
-                    {pages.map(page  => {
-                        return page.category ==='third' ?
-                        <li id="out" key={page._id}><a href='/third'><button id="Outdoors" className="Outdoors">{page.title}</button></a></li>: ''})}
+                        {pages.map(page  => {
+                            return page.category ==='first' ?
+                            <li id="hustle" key={page._id} >
+                                    <a href='/artiste_1'>
+                                        <button onMouseEnter={() => changeBackground(page.title)}
+                                                onMouseLeave={() => hideBackground()}>
+                                                {page.title}
+                                        </button>
+                                    </a>
+                            </li>: ''})
+                        }
+                        {pages.map(page  => {
+                            return page.category ==='second' ?
+                            <li id="guest" key={page._id}>
+                                    <a href='/artiste_2'>
+                                        <button onMouseEnter={() => changeBackground(page.title)}
+                                                onMouseLeave={() => hideBackground()}>
+                                                {page.title}
+                                        </button>
+                                    </a>
+                            </li>: ''})}
+                        {pages.map(page  => {
+                            return page.category ==='third' ?
+                            <li id="out" key={page._id}>
+                                    <a href='/artiste_3'>
+                                        <button onMouseEnter={() => changeBackground(page.title)}
+                                                onMouseLeave={() => hideBackground()}>
+                                                {page.title}
+                                        </button>
+                                    </a>
+                            </li>: ''})}
                     </ul>
                 
                     <ul className="old-pictures">
-                    {pages.map(page  => {
-                        return page.category ==='four' ?
-                        <li id="four" key={page._id}><a href='/four'><button className="Hustle">{page.title}</button></a></li>: ''})}
-                    {pages.map(page  => {
-                        return page.category ==='five' ?
-                        <li id="five" key={page._id}><a href='/five'><button id="Nick" className="Nick">{page.title}</button></a></li>: ''})}
-                    {pages.map(page  => {
-                        return page.category ==='six' ?
-                        <li id="six" key={page._id}><a href='/six'><button id="Outdoors" className="Outdoors">{page.title}</button></a></li>: ''})}
-                    {pages.map(page  => {
-                        return page.category ==='seven' ?
-                        <li id="seven" key={page._id}><a href='/seven'><button id="Outdoors" className="Outdoors">{page.title}</button></a></li>: ''})}   
+                        {pages.map(page  => {
+                            return page.category ==='four' ?
+                            <li id="four" key={page._id}>
+                                <a href='/artiste_4'>
+                                    <button onMouseEnter={() => changeBackground(page.title)}
+                                            onMouseLeave={() => hideBackground()}>
+                                            {page.title}
+                                    </button>
+                                </a></li>: ''})}
+                        
+                        
+                        {pages.map(page  => {
+                            return page.category ==='five' ?
+                            <li id="five" key={page._id}>
+                                <a href='/artiste_5'>
+                                    <button onMouseEnter={() => changeBackground(page.title)}
+                                            onMouseLeave={() => hideBackground()}>
+                                            {page.title}
+                                    </button>
+                                </a></li>: ''})}
+                        
+                        
+                        {pages.map(page  => {
+                            return page.category ==='six' ?
+                            <li id="six" key={page._id}>
+                                <a href='/artiste_6'>
+                                    <button onMouseEnter={() => changeBackground(page.title)}
+                                            onMouseLeave={() => hideBackground()}>
+                                            {page.title}
+                                    </button>
+                                </a></li>: ''})}
+                        
+                        
+                        {pages.map(page  => {
+                            return page.category ==='seven' ?
+                            <li id="seven" key={page._id}>
+                                <a href='/artiste_7'>
+                                    <button onMouseEnter={() => changeBackground(page.title)}
+                                            onMouseLeave={() => hideBackground()}>
+                                            {page.title}
+                                    </button>
+                                </a></li>: ''})}   
                     </ul>
 
                     </div>

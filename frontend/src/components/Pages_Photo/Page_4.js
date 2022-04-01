@@ -1,23 +1,22 @@
 import React, { useEffect } from 'react';
-import '../FirstPhoto/FirstPhoto.css'
+import './PagePhoto.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { listPages } from '../../actions/pageActions'
+import { listProducts } from "../../actions/productActions";
 import ArtistMainPhotos from '../ArtistMainPhoto/artistMainPhoto';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { listProducts } from "../../actions/productActions";
-import { listPages } from '../../actions/pageActions'
 
-const GuestPage = () => {
+const PageFour = () => {
     
     const productList = useSelector((state) => state.productList);
     const { products, loading, error  } = productList;
     const pageList = useSelector(state => state.pageList);
     const { pages} = pageList;
+    const dispatch = useDispatch();
 
     const toTop = () => {
         window.scrollTo(0,0);
     }
-    
-    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(listProducts());
@@ -31,18 +30,17 @@ const GuestPage = () => {
             <div className="picturesUpload">
             { products && pages &&
             <ArtistMainPhotos 
-                artist={pages[1]?.title}
+                artist={pages[3]?.title}
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}
-                page="second"/> }    
+                page="four"/>  }  
                      </div>
             <div className="btn-to-top">
-            <a><i onClick={toTop} className="fas fa-arrow-up"></i></a>
+                <a><i onClick={toTop} className="fas fa-arrow-up"></i></a>
             </div>
         </div>
     );
 };
 
-
-export default GuestPage;
+export default PageFour;

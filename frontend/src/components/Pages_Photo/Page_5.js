@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
-import '../FirstPhoto/FirstPhoto.css'
+import React, { useEffect} from 'react';
+import './PagePhoto.css'
+
 import { useDispatch, useSelector } from 'react-redux';
 import { listPages } from '../../actions/pageActions'
 import { listProducts } from "../../actions/productActions";
 import ArtistMainPhotos from '../ArtistMainPhoto/artistMainPhoto';
 
-const ThirdPage = () => {
+
+const PageFive = () => {
     
     const productList = useSelector((state) => state.productList);
     const { products, loading, error  } = productList;
     const pageList = useSelector(state => state.pageList);
     const { pages} = pageList;
-
     const dispatch = useDispatch();
 
     const toTop = () => {
@@ -30,11 +31,11 @@ const ThirdPage = () => {
             <div className="picturesUpload">
             { products && pages &&
             <ArtistMainPhotos 
-                artist={pages[2]?.title}
+                artist={pages[4]?.title}
                 products={products}
                 id="deuxiemeArtiste"
                 test={pages}
-                page="third"/> }   
+                page="five"/>  }  
                      </div>
             <div className="btn-to-top">
                 <a><i onClick={toTop} className="fas fa-arrow-up"></i></a>
@@ -43,4 +44,4 @@ const ThirdPage = () => {
     );
 };
 
-export default ThirdPage;
+export default PageFive;
