@@ -30,10 +30,10 @@ const Main = () => {
         const produitsTest = products.filter( item => item.artiste.includes(artiste));
         setBackground(produitsTest[randomNumber(5)].image)
         document.getElementById("backgroundImage").style.opacity = 1;
-        console.log(background);
     }
 
     function hideBackground() {
+        setBackground('')
         document.getElementById("backgroundImage").style.opacity = 0;
     }
     
