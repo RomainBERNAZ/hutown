@@ -34,6 +34,7 @@ const GuestPage = () => {
                 artist={pages[1]?.title}
                 products={products}
                 id="deuxiemeArtiste"
+                test={pages}
                 page="second"/> }    
                      </div>
             <div className="btn-to-top">
