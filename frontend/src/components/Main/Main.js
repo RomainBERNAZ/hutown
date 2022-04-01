@@ -33,7 +33,6 @@ const Main = () => {
     }
 
     function hideBackground() {
-        setBackground('')
         document.getElementById("backgroundImage").style.opacity = 0;
     }
     
