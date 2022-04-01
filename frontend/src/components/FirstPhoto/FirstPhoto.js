@@ -5,7 +5,7 @@ import { listProducts } from "../../actions/productActions";
 import { listPages } from '../../actions/pageActions'
 import ArtistMainPhotos from '../ArtistMainPhoto/artistMainPhoto';
 
-const FirstPhoto = (props) => {
+const FirstPhoto = () => {
     
     const productList = useSelector((state) => state.productList);
     const { products, loading, error  } = productList;

@@ -79,8 +79,6 @@ const Header = () => {
                 
                 { userInfo && 
                    <Link className='gestionLink' to={'/gestion'}><li className="gestionLink">Gestion</li></Link> }
-                { userInfo &&     
-                    <li><a href="/shop">Shop</a></li> }
                 { userInfo &&
                     <li><a href="/" className="logout" onClick={handleLogout}>Logout</a></li>
                 }

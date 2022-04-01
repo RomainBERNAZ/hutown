@@ -89,7 +89,7 @@ const Gestion = () => {
                     {pages.map(page  => {
                 return page.category === category ?
                     <form className="description-page-upload" key={page._id} onSubmit={updateInfoPage}>
-                        <input required type="text" placeholder={page.title} onChange={(e) => setTitle(e.target.value)}/>
+                        <input required type="text" placeholder={page.title} onChange={(e) => setTitle(e.target.value.toUpperCase())}/>
                         <textarea required name="" id="" cols="50" rows="10" placeholder={page.description} onChange={(e) => setDescription(e.target.value)}></textarea>
                         <button onClick={() => setId(page._id)} type="submit">VALIDER</button>
                     </form>: ''
