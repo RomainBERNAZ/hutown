@@ -43,7 +43,6 @@ const ArtistMainPhotos = (props) =>  {
                       <div className="photos-description" key={page._id}>
                           <p className="descriptionPage">{page.description}</p>
                       </div> : ''}): ""}
-
       </div>
       <div className="product-grid-main" >
             {props.products.map(product => {
