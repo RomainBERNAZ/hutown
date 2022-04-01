@@ -35,6 +35,7 @@ const Panier = () => {
     }
     checkNewsletter();
 
+    console.log(merged);
 
     const arrayOfSize = []
     //Retourne les tailles dans un array.

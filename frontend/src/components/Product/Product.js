@@ -109,8 +109,8 @@ const Product = (props) => {
   const addItem = (id) => {
     if(defaultPrice === "")
     {
-      let soloPrice = products.price.Medium
-      let  soloSize = products.size.Medium
+      let soloPrice = products.price.Small
+      let  soloSize = products.size.Small
       let msgCart = document.getElementById("validation-add-cart");
       let product = {idObject: id, quantite: qte, taille: soloSize, prix: soloPrice }
       localStorage.getItem(product.idObject);
@@ -121,8 +121,8 @@ const Product = (props) => {
     {
       let msgCart = document.getElementById("validation-add-cart");
       let product = {idObject: id, quantite: qte, taille: defaultSize, prix: defaultPrice }
-      localStorage.getItem(id);
-      localStorage.setItem(id, JSON.stringify(product));
+      localStorage.getItem(product.idObject);
+      localStorage.setItem(product.idObject, JSON.stringify(product));
       msgCart.style.opacity = 1;
     }
 
