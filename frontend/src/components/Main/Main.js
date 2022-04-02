@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listPages } from '../../actions/pageActions'
 import { listProducts } from "../../actions/productActions";
 import { motion } from "framer-motion"
+import axios from 'axios'
 import CookieConsent from "react-cookie-consent";
 import './main.css'
 
@@ -35,10 +36,29 @@ const Main = () => {
     function hideBackground() {
         document.getElementById("backgroundImage").style.opacity = 0;
     }
+
+    async function loadImages () {
+        try {
+            const res = await axios.get('/api/images/');
+            const data = await res.data;
+            setBackground(data[randomNumber(50)])
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    async function changeMobileBackground(){
+        if(mql.matches){
+            await loadImages();
+
+            document.getElementById("backgroundImage").style.opacity = 1;
+        }
+    }
     
     useEffect(() => {
         dispatch(listProducts());
         dispatch(listPages());   
+        changeMobileBackground();
     },[])
 
     return (
