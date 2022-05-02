@@ -1,6 +1,5 @@
 import React, { useEffect} from 'react';
 import './PagePhoto.css'
-
 import { useDispatch, useSelector } from 'react-redux';
 import { listPages } from '../../actions/pageActions'
 import { listProducts } from "../../actions/productActions";

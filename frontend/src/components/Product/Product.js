@@ -33,7 +33,7 @@ const Product = (props) => {
    const deleteHandler = (products, id) => {
     dispatch(deleteProduct(products._id));
     deleteImage(id);
-    history.push("/shop");
+    history.goBack();
   };
 
   //Fonction qui supprime l'image de Cloudinary lorsque le produit à été supprimé.
@@ -164,7 +164,7 @@ const Product = (props) => {
                 />
                 {userInfo && (
                   <button className="button-delete-product" onClick={() => deleteHandler(products, products.image)}>
-                    Modifier / Supprimer
+                    Supprimer
                   </button>
                 )}
         </div>

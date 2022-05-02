@@ -151,8 +151,8 @@ const Panier = () => {
                             { values.length === 0 ?
                             <div className="empty-cart">
                                 <h2>Votre panier est vide</h2>
-                                <h2>Venez visiter notre shop !</h2>
-                                <h2>C'est par ici <a href="/shop"><i className="fas fa-store"></i></a></h2>
+                                <h2>Venez découvrir nos artistes !</h2>
+                                <h2>C'est par ici <a href="/"><i className="fas fa-store"></i></a></h2>
                             </div>
                             : products.map(item =>
                             
