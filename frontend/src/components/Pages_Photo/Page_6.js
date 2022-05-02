@@ -33,6 +33,7 @@ const PageSix = () => {
                 artist={pages[5]?.title}
                 products={products}
                 id="deuxiemeArtiste"
+                test={pages}
                 page="six"/>  }  
                      </div>
             <div className="btn-to-top">
